@@ -8085,29 +8085,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\wurud\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Users\\royhe\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\CostumeTest\\ReservationGuest.csproj",
+      "projectUniqueName": "C:\\Users\\royhe\\OneDrive\\Documenten\\GitHub\\ReservationSystem\\CostumeTest\\ReservationGuest.csproj",
       "projectName": "ReservationGuest",
-      "projectPath": "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\CostumeTest\\ReservationGuest.csproj",
-      "packagesPath": "C:\\Users\\wurud\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\CostumeTest\\obj\\",
+      "projectPath": "C:\\Users\\royhe\\OneDrive\\Documenten\\GitHub\\ReservationSystem\\CostumeTest\\ReservationGuest.csproj",
+      "packagesPath": "C:\\Users\\royhe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\royhe\\OneDrive\\Documenten\\GitHub\\ReservationSystem\\CostumeTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\wurud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\royhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8115,6 +8112,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\royhe\\source\\repos\\Code Roy": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
