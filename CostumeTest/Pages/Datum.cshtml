@@ -1,48 +1,20 @@
 ﻿@page
-@using CostumeTest.Components
+@using ReservationGuest.Components
 
 @model Datemodel
 @{
     ViewData["Title"] = "Datum";
 }
 
-
-
-<!--
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.nl.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet" />
--->
-<script src="_framework/blazor.server.js"></script>
-<!-- jquery JS -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-
-<!-- Bootstrap js -->
-<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-<!-- Propeller textfield js -->
-<script type="text/javascript" src="dist/js/propeller.min.js"></script>
-
-<!-- Datepicker moment with locales -->
-<script type="text/javascript" language="javascript" src="datetimepicker/js/moment-with-locales.js"></script>
-
-<!-- Propeller Bootstrap datetimepicker -->
-<script type="text/javascript" language="javascript" src="datetimepicker/js/bootstrap-datetimepicker.js"></script>
-
-<script type="text/javascript">
-    $(function () {
-        $("#datepicker").datepicker();
-        $('#datepicker-inline').datetimepicker({
+    <script type="text/javascript">
+        $(function () {
+            $('.month-picker').datetimepicker({
+                viewMode: 'months',
+                format: 'MM/YYYY',
+                useCurrent: false
+            });
         });
-    });
-</script>
-
+    </script>
+<script src="_framework/blazor.server.js"></script>
 
 @(await Html.RenderComponentAsync<Datum>(RenderMode.ServerPrerendered))
