@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-
+    
+    <!-- Bootstrap Date-Picker Plugin -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+    
 </head>
 <body style="background-color:#D5DAD7;">
     <header>
@@ -42,6 +47,32 @@
         </nav>
     </header>
     <div class="container">
+
+        <div class="stepwizard">
+            <div class="stepwizard-row">
+                <div class="stepwizard-step">
+                    <button type="button" class="  btn-circle">1</button>
+                    <p>Gegevens</p>
+                </div>
+                <div class="stepwizard-step">
+                    <button type="button" class="  btn-circle">2</button>
+                    <p>Datum</p>
+                </div>
+                <div class="stepwizard-step">
+                    <button type="button" class=" btn-circle">3</button>
+                    <p>Dagdeel</p>
+                </div>
+                <div class="stepwizard-step">
+                    <button type="button" class="btn-circle">4</button>
+                    <p>Tafel</p>
+                </div>
+                <div class="stepwizard-step">
+                    <button type="button" class=" btn-circle">5</button>
+                    <p>Overzicht</p>
+                </div>
+            </div>
+        </div>
+
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
