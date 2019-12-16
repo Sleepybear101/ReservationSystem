@@ -5,16 +5,31 @@
 @{
     ViewData["Title"] = "Datum";
 }
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
-    <script type="text/javascript">
-        $(function () {
-            $('.month-picker').datetimepicker({
-                viewMode: 'months',
-                format: 'MM/YYYY',
-                useCurrent: false
-            });
-        });
-    </script>
+<script type="text/javascript" src="js/script.js"></script>
+
+<div style="overflow:hidden;">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-8">
+                <div id="datetimepicker12"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
 <script src="_framework/blazor.server.js"></script>
-
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker12').datetimepicker({
+            inline: true,
+            sideBySide: true
+        });
+    });
+</script>
 @(await Html.RenderComponentAsync<Datum>(RenderMode.ServerPrerendered))
