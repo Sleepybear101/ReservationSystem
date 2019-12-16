@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using CostumeTest.Models
+@using CostumeTest.Services
+@inject JsonFileProductService ProductService
+
+
+    <div style="background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;">
+        <h1>Datum</h1>
+        <input name="DueDate" type="date" id="datepicker" />
+        <div class="datepick col-sm-6" style="position: absolute; left: 865.15px; display: block;">
+        </div>
+
+        <div id="datepicker-inline"></div>
+
+        <button type="submit" class="btn btn-primary" style="float:left">
+            <a href="/Index">Terug</a>
+        </button>
+
+        <button type="submit" class="btn btn-primary" style="float:right">
+            <a href="/Dagdeel">Volgende</a>
+        </button>
+    </div>
+@code
+{
+  
+
+
+}

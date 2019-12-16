@@ -1,0 +1,13 @@
+﻿@page
+@using CostumeTest.Components
+
+@model TablesModel
+@{
+    ViewData["Title"] = "Tafel";
+}
+
+
+
+@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
+
+<script src="_framework/blazor.server.js"></script>

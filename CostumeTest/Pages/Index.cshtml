@@ -1,0 +1,14 @@
+﻿@page
+@using CostumeTest.Components
+
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+@(await Html.RenderComponentAsync<FormInfo>(RenderMode.ServerPrerendered))
+
+
+
+<script src="_framework/blazor.server.js"></script>

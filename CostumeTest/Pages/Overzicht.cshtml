@@ -1,0 +1,13 @@
+﻿@page
+@using CostumeTest.Components
+
+@model Overrview
+@{
+    ViewData["Title"] = "Overzicht";
+}
+
+
+@(await Html.RenderComponentAsync<Overview>(RenderMode.ServerPrerendered))
+
+
+<script src="_framework/blazor.server.js"></script>
