@@ -6,8 +6,12 @@
     ViewData["Title"] = "Home page";
 }
 
+<!-- Nodig onderdelen in de index.cshtml file-->
+<!-- Haalt de form gegevens op en geneert het in een html omgeving-->
+
 @(await Html.RenderComponentAsync<FormInfo>(RenderMode.ServerPrerendered))
 
 
 
-<script src="_framework/blazor.server.js"></script>
+
+
