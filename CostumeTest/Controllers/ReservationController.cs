@@ -19,9 +19,12 @@ namespace ReservationGuest.Controllers
         }
 
         [HttpGet]
-        public IActionResult New(string controller) //Bound from Routing
+        public IActionResult New(string controller,string Name, string Email, int Amount) //Bound from Routing
         {
             Reservation user = new Reservation();
+            user.Name = Name;
+            user.Email = Email;
+            user.Amount = Amount;
             user.Controller = controller;
             return View(user);
         }
@@ -29,8 +32,8 @@ namespace ReservationGuest.Controllers
         [HttpPost]
         public IActionResult New([FromForm]Reservation user) //Bound from FORM
         {
-            var message = user.Name + " " + user.Email + ", Date of Birth: " + user.Amount.ToString() + ", Controller: " + user.Controller;
-            return RedirectToAction("index", new { message = message });
+            var message = user.Name + user.Email  + user.Amount.ToString() + user.Controller;
+            return RedirectToAction("index", new { message });
         }
     }
 }

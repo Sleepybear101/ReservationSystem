@@ -1,5 +1,6 @@
 ﻿@page
-@model IndexModel
+@using ReservationAdmin
+@model PoenkModel
 @{
     ViewData["Title"] = "Home page";
 }
@@ -12,13 +13,13 @@
     </button>
     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse ">
         <ul class="navbar-nav flex-grow-1">
-            <li class="nav-item active ">
+            <li class="nav-item ">
                 <a class="nav-link   " asp-area="" asp-page="/Index">
                     <i class="fa fa-bar-chart  IconItem"></i>
                     Dashboard
                 </a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item  active">
                 <a class="nav-link  " asp-area="" asp-page="/AanmakenReservering">
                     <i class="fa fa-user  IconItem"></i>
                     Aanmaken Reservering
@@ -39,10 +40,11 @@
         </ul>
     </div>
 </div>
-<div style="background-color:#D5DAD7;">
-    <p style="    margin-left: 22%; color: #9597A6; font-size: 24px;padding-top: 5px;    margin-bottom: 5px;">Dashboard - overzicht</p>
+<div style="background-color:#D5DAD7; float :left; width: 35%;     height: 100vh;
+">
+    <p style="     margin-left: 7%; color: #9597A6; font-size: 24px;padding-top: 5px;    margin-bottom: 5px;">Aanmaken reservering</p>
 
-    <div style="    border-top: 1px solid;padding-bottom: 7px;     margin-left: 25%;
- color: #ffff;">
+    <div style="  border-top: 1px solid;padding-bottom: 7px;   margin-left: 2%; width: 95%; color: #ffff;">
 
     </div>
+

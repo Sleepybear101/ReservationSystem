@@ -58,7 +58,6 @@ C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\net
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.RazorCoreGenerate.cache
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Pages\Error.cshtml.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Pages\Index.cshtml.g.cs
-C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Pages\Poenk.cshtml.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -70,3 +69,5 @@ C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\net
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.dll
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.pdb
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.csproj.CopyComplete
+C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Pages\AanmakenReservering.cshtml.g.cs
+C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Pages\Agenda.cshtml.g.cs
