@@ -10,9 +10,9 @@ namespace CostumeTest.Models
     public class Reservation
     {
         
-        public string Name { get; set; } = "wurud";
-        public string Email { get; set; } = "test@mail.com";
-        public int Amount { get; set; } = 2;
+        public string Name { get; set; } 
+        public string Email { get; set; }
+        public string Amount { get; set; }
         public string Controller { get; set; }
        }
 }

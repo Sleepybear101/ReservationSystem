@@ -19,20 +19,24 @@ namespace ReservationGuest.Controllers
         }
 
         [HttpGet]
-        public IActionResult New(string controller,string Name, string Email, int Amount) //Bound from Routing
+       /* public IActionResult New(string controller,string Name, string Email, int Amount) //Bound from Routing
         {
-            Reservation user = new Reservation();
-            user.Name = Name;
+            user.Name = Name  ;
             user.Email = Email;
             user.Amount = Amount;
             user.Controller = controller;
             return View(user);
-        }
+        }*/
 
         [HttpPost]
         public IActionResult FormsTestPost()
-        {
-            return Content("Hello, " + HttpContext.Request.Form["Name"] + ". You are " + HttpContext.Request.Form["Email"] + " years old!");
+        {       
+            Reservation user = new Reservation();
+            user.Name = HttpContext.Request.Form["Name"];
+            user.Email = HttpContext.Request.Form["Email"];
+            user.Amount = HttpContext.Request.Form["Amount"];
+            return Redirect("Datum");
+             
         }
     }
 }
