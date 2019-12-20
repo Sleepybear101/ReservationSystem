@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CostumeTest.Models;
-
+using CostumeTest.Pages;
 namespace ReservationGuest.Controllers
 {
     [Route("[controller]")]
@@ -30,10 +30,9 @@ namespace ReservationGuest.Controllers
         }
 
         [HttpPost]
-        public IActionResult New([FromForm]Reservation user) //Bound from FORM
+        public IActionResult FormsTestPost()
         {
-            var message = user.Name + user.Email  + user.Amount.ToString() + user.Controller;
-            return RedirectToAction("index", new { message });
+            return Content("Hello, " + HttpContext.Request.Form["Name"] + ". You are " + HttpContext.Request.Form["Email"] + " years old!");
         }
     }
 }
