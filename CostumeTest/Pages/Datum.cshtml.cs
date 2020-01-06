@@ -17,13 +17,28 @@ namespace CostumeTest.Pages
         public Datemodel(ILogger<Datemodel> logger)
         {
             _logger = logger;
-         
+            
         }
-
-        
+        [BindProperty(SupportsGet = true)]
+        public GuestInfo info { get; set; } 
         public void OnGet()
         {
-          
+      
+
+               
         }
+        public IActionResult OnPost()
+        {
+            if (ModelState.IsValid == false)
+            {
+                return Redirect("Overzicht");
+            }
+
+
+            return RedirectToPage("Dagdeel", new { info.Name, info.Email, info.Amount , info.date});
+
+        }
+
+
     }
 }

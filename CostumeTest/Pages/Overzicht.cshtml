@@ -5,9 +5,30 @@
 @{
     ViewData["Title"] = "Overzicht";
 }
+<div style="background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;">
+    <h1> Overzicht</h1>
+    <div =" ">
+        <label>Datum</label>
+         @Model.info.date
+        <label>Dagdeel</label>
+        <label>Volledig naam</label>
+        <label>@Model.info.Name</label>
+        <label>Email</label>
+        <label>@Model.info.Email</label>
+        <label>Aantal personen</label>
+        <label>@Model.info.Amount</label>
+        <form method="get">
+
+        </form>
+        <label>Tafel</label>
+    </div>
 
 
-@(await Html.RenderComponentAsync<Overview>(RenderMode.ServerPrerendered))
+    <button type="submit" class="btn btn-primary" style="float:left">
+        <a href="/Datum">terug</a>
+    </button>
 
-
-<script src="_framework/blazor.server.js"></script>
+    <button type="submit" class="btn btn-primary" style="float:right">
+        <a href="/">Reservering</a>
+    </button>
+</div>

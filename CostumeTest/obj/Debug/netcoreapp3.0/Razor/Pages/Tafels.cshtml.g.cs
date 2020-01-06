@@ -27,7 +27,7 @@ using ReservationGuest.Components;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d8aaeb75438a705d75e93079c50f61658ac8ed65", @"/Pages/Tafels.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b842db54ffd6973671365e54c4f05dba7d9d5c2b", @"/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"eb3cc114efff54a625cdd69d6003ee12578c96bd", @"/Pages/_ViewImports.cshtml")]
     public class Pages_Tafels : global::Microsoft.AspNetCore.Mvc.RazorPages.Page
     {
         #pragma warning disable 1998

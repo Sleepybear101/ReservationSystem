@@ -20,10 +20,11 @@ namespace CostumeTest.Pages
          
         }
 
-        
+        [BindProperty(SupportsGet = true)]
+        public GuestInfo info  { get; set; }
         public void OnGet()
         {
-          
+  
         }
     }
 }
