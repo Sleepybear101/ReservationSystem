@@ -6,6 +6,7 @@ using CostumeTest.Models;
 using CostumeTest.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Logging;
 
 namespace CostumeTest.Pages
@@ -19,6 +20,26 @@ namespace CostumeTest.Pages
             _logger = logger;
 
         }
+     [BindProperty(SupportsGet = true)]
+        public GuestInfo info { get; set; }
+        public GuestInfo Waarde = new GuestInfo();
 
+        public void OnGet()
+        {
+
+        }
+
+    public IActionResult OnPost()
+        {
+            if(ModelState.IsValid == false)
+            {
+                return Page();
+            }
+       
+         return  RedirectToPage("Datum", new { info.Name, info.Email, info.Amount });
+          //return RedirectToPage("Datum");
+
+        }
+       
     }
 }

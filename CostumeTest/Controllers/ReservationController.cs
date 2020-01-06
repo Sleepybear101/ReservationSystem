@@ -12,31 +12,21 @@ namespace ReservationGuest.Controllers
     public class ReservationController : Controller
     {
         [HttpGet]
-        public IActionResult Index(string message) //Bound from Query String
+        public IActionResult Index() //Bound from Query String
         {
-            ViewData["message"] = message;
-            return View();
+            
+            return Redirect("Datum");
         }
-
-        [HttpGet]
-       /* public IActionResult New(string controller,string Name, string Email, int Amount) //Bound from Routing
-        {
-            user.Name = Name  ;
-            user.Email = Email;
-            user.Amount = Amount;
-            user.Controller = controller;
-            return View(user);
-        }*/
+        [BindProperty(SupportsGet = true)]
+        public GuestInfo info { get; set; }
 
         [HttpPost]
-        public IActionResult FormsTestPost()
-        {       
-            Reservation user = new Reservation();
-            user.Name = HttpContext.Request.Form["Name"];
-            user.Email = HttpContext.Request.Form["Email"];
-            user.Amount = HttpContext.Request.Form["Amount"];
-            return Redirect("Datum");
-             
+        public IActionResult OnPost()
+        {
+
+            return RedirectToAction("index",info);
+
         }
+     
     }
 }

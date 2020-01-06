@@ -4,13 +4,9 @@
 @using CostumeTest.Controllers
 @inject JsonFileProductService ProductService
 
-
-
-
-
     <div style="background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;">
         <h1>Gegevens</h1>
-        <form method="POST" action="Reservation" style=" margin-left: 23px;">
+        <form method="POST" asp-controller="Reservation" asp-action="GetGuestinfo"  style=" margin-left: 23px;">
             <div class="form-inline  form-group">
                 <label for="Name">Volledig naam</label>
 
@@ -32,16 +28,3 @@
         </form>
 
     </div>
-
-    @code
-{
-[Parameter]
-    public string Name { get; set; }
-    public string Email { get; set; }
-    public string Amount { get; set; }
-
-    private void ChangeTheYear()
-    {
-        Name = "Volledig Naam";
-    }
-    }
