@@ -27,7 +27,7 @@ namespace CostumeTest.Pages
         }
 
        
-      public IActionResult OnPost()
+      public IActionResult OnFail()
         {
             if (ModelState.IsValid == false)
             {
@@ -35,7 +35,17 @@ namespace CostumeTest.Pages
             }
 
 
-            return RedirectToPage("Tafels", new { info.Name, info.Email, info.Amount, info.date , info.dagdeel});
+            return RedirectToPage("index", new { info.Name, info.Email, info.Amount, info.date , info.dagdeel});
+        }
+        public IActionResult OnChoose()
+        {
+            if (ModelState.IsValid == false)
+            {
+                return Redirect("Overzicht");
+            }
+
+
+            return RedirectToPage("Tafels", new { info.Name, info.Email, info.Amount, info.date, info.dagdeel });
         }
 
     }

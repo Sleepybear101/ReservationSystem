@@ -15,7 +15,7 @@ namespace ReservationGuest.Controllers
         public IActionResult Index() //Bound from Query String
         {
             
-            return Redirect("Datum");
+            return Redirect("overzicht");
         }
         [BindProperty(SupportsGet = true)]
         public GuestInfo info { get; set; }
