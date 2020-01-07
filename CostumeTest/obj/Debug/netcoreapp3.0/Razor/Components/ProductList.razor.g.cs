@@ -59,7 +59,7 @@ using CostumeTest.Services;
             __builder.AddAttribute(15, "data-target", "#productModal");
             __builder.AddAttribute(16, "class", "btn btn-primary");
             __builder.AddMarkupContent(17, "\r\n                        ");
-            __builder.AddContent(18, 
+            __builder.AddContent(18,
 #nullable restore
 #line 18 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\ProductList.razor"
                          TableNumber
@@ -132,12 +132,8 @@ using CostumeTest.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-<<<<<<< HEAD
 #line 72 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\ProductList.razor"
-=======
-#line 73 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\ProductList.razor"
->>>>>>> b574726aef566ebee855d162e97d1f9d3e7660fd
- 
+
 
         Product selectedProduct;
         string selectedProductId;
@@ -155,7 +151,7 @@ using CostumeTest.Services;
 
         }
 
-    
+
 
 #line default
 #line hidden

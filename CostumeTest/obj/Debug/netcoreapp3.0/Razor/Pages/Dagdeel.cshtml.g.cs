@@ -77,11 +77,7 @@ using ReservationGuest.Components;
 <link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"">
 <script src=""_framework/blazor.server.js""></script>
 ");
-<<<<<<< HEAD
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29a991efe9d12020097ba2b7c43804c551621a965621", async() => {
-=======
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eb42250eb298635c0294d94bd1718c7985185ea35698", async() => {
->>>>>>> b574726aef566ebee855d162e97d1f9d3e7660fd
                 WriteLiteral(@"
     <div style=""background-color: #ffffff;  width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;"">
         <h1> Kies dagdeel</h1>
@@ -105,7 +101,6 @@ using ReservationGuest.Components;
 <<<<<<< HEAD
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29a991efe9d12020097ba2b7c43804c551621a966627", async() => {
                     WriteLiteral("\r\n            <a style=\"color: #ffff;\" href=\"/Datum\">Terug</a>\r\n        ");
-=======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eb42250eb298635c0294d94bd1718c7985185ea36901", async() => {
                     WriteLiteral("\r\n            <a style=\" color: #ffff;\">Volgende</a>\r\n        ");
 >>>>>>> b574726aef566ebee855d162e97d1f9d3e7660fd
