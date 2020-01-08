@@ -21,21 +21,39 @@
 
 
     <script type="text/javascript">
+        var filled = true;
         $(document).ready(function () {
             $("div[class=divs]").hide();
             $("div[id=div1").show();
-            function checkifEmpty() { 
-                if ($("[class=form-controls1]").is(':empty')) {
-                    $filled = false;
-                    console.WriteLine("niet helemaal ingevuld");
-                } else {
-                    $filled = true;
-                    console.WriteLine("wel iets in");
-                }
-                }
+            var email = document.getElementById("mail");
+            var filled = false;
+
+            function checkifEmpty() {
+                $('#form1 input[id=control1]').each(function() {
+                    if ($(this).val() === '') {
+                        filled = false;
+                    } else {
+                        filled = true;
+                        alert("helemaal ingevuld");
+                    }
+                    if (email.validity.typeMismatch) {
+                        email.setCustomValidity("I am expecting an e-mail!");
+                        alert("fill in email");
+                        filled = false;
+                    } else {
+                        email.setCustomValidity("");
+                        filled = true;
+                    }
+                    if (!filled) {
+                        alert("niet helemaal ingevuld  "+ filled);
+                    }
+                });
+            }
             $("input[type=button][class=buttons]").click(function () {
                 checkifEmpty();
+                alert(filled);
                 if (filled) {
+                    alert(filled);
                     $("div[class=divs]").hide();
                     $("div[id=div" + $(this).attr("id") + "]").show();
                 }
@@ -46,28 +64,29 @@
 
 </head>
 <body>
+<div id="div1" class="divs" style="background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;">
     <form  id="form1" runat="server">
-        <div id="div1" class="divs" style="background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;">
             <h1>Gegevens</h1>
             <div style=" margin-left: 23px;">
                 <div class="form-inline  form-group">
                     <label for="Name">Volledig naam</label>
-                    <input  type="text" asp-for="info.Name" class="form-controls1" name="Name" aria-describedby="FullName" placeholder="Volledige naam" required />
+                    <input  type="text" asp-for="info.Name" value="" class="form-controls" id="control1" name="Name" aria-describedby="FullName" placeholder="Volledige naam" required />
 
                 </div>
                 <div class="form-inline form-group ">
                     <label for="Email" style="margin-right:10%;">Email      </label>
-                    <input type="email" asp-for="info.Email" class="form-controls1" name="Email" aria-describedby="emailHelp" placeholder="Email adres" required />
+                    <input type="email" asp-for="info.Email" value="" class="form-controls" id="mail" name="Email" aria-describedby="emailHelp" placeholder="Email adres" required />
 
                 </div>
                 <div class="form-inline  form-group">
                     <label for="InputAmount">Aantal personen</label>
-                    <input  type="number" asp-for="info.Amount" class="form-controls1" name="Amount" aria-describedby="Amount" placeholder="0" min="1" max="6" required />
+                    <input  type="number" asp-for="info.Amount" value="" class="form-controls" id="control1" name="Amount" aria-describedby="Amount" placeholder="0" min="1" max="6" required />
                 </div>
                 <input  id="2" type="button" value="volgende" class="buttons" style="float:right" />
             </div>
+            </form>
         </div>
-        </form>
+
         
         
         
