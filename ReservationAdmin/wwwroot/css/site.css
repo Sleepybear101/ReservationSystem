@@ -128,3 +128,11 @@ body {
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
+.Tafel {
+    border: none;
+    background-color: dimgray
+}
+
+.Tafel:focus{
+   background-color: #0366d6;
+}

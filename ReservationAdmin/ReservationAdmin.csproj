@@ -4,8 +4,23 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="wwwroot\images\Chair-downward-checked.png" />
+    <None Remove="wwwroot\images\Chair-downward.png" />
+    <None Remove="wwwroot\images\Chair-upward-checked.png" />
+    <None Remove="wwwroot\images\Chair-upward.png" />
+    <None Remove="wwwroot\images\Rounded-table.png" />
+    <None Remove="wwwroot\images\tafel-tekening.png" />
+    <None Remove="wwwroot\images\tafel-van-zes.png" />
+    <None Remove="wwwroot\images\Zondertafeldeling.png" />
+  </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="0.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CostumeTest\ReservationGuest.csproj" />
   </ItemGroup>
 
 </Project>

@@ -13,8 +13,7 @@
             <div style=" margin-left:21%; margin-top: 7%;">
                 @for (i = 1; i <= 3; i++)
                 {
-                    <button style=" border:none ;background-color:dimgray ;width: 47px;
-    height: 57px; margin-left: 10px;   margin-right: 33px; " data-toggle="modal" data-target="#productModal" class="btn btn-primary">
+                    <button @onclick="(e => SelectProduct(TableNumber))" style=" border:none ;background-color:dimgray ;width: 47px;height: 57px; margin-left: 10px;margin-right: 33px; " data-toggle="modal" data-target="#productModal" class="btn btn-primary">
                         @TableNumber
                     </button>
                     TableNumber++;
@@ -22,8 +21,7 @@
             </div>
 
             <div style="margin-top: 7%;">
-                <button style=" border:none ;background-color:dimgray ; width: 47px; height: 87px; margin-left: 27px;
-    margin-right: 40px; margin-top: 15px;" data-toggle="modal" data-target="#productModal" class="btn btn-primary">
+                <button style=" border:none ;background-color:dimgray ; width: 47px; height: 87px; margin-left: 27px; margin-right: 40px; margin-top: 15px;" data-toggle="modal" data-target="#productModal" class="btn btn-primary">
                     4
                 </button>
             </div>
@@ -60,13 +58,7 @@
             </div>
 
         </div>
-        <button type="submit" class="btn btn-primary" style="float:left">
-            <a href="/Daypart">Terug</a>
-        </button>
-
-        <button type="submit" class="btn btn-primary" style="float:right">
-            <a href="/Overzicht">Volgende</a>
-        </button>
+   
     </div>
     @code
 {
@@ -77,13 +69,12 @@
         public int TableNumber = 1;
         public int i;
 
-        void SubmitRating(int rating, string productId)
+        void SelectProduct(int rating)
         {
-            selectedProductId = productId;
-            selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
-            System.Console.WriteLine($"Rating received for{selectedProduct.Id}: {rating}");
 
-            ProductService.AddRating(selectedProductId, rating);
+
+               Console.WriteLine("Works");
+
 
         }
 

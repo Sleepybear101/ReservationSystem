@@ -8,11 +8,11 @@ using Microsoft.Extensions.Logging;
 
 namespace ReservationAdmin.Pages
 {
-    public class PoenkModel : PageModel
+    public class CreateRes : PageModel
     {
-        private readonly ILogger<PoenkModel> _logger;
+        private readonly ILogger<CreateRes> _logger;
 
-        public PoenkModel(ILogger<PoenkModel> logger)
+        public CreateRes(ILogger<CreateRes> logger)
         {
             _logger = logger;
         }

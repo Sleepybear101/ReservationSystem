@@ -13,15 +13,15 @@ namespace CostumeTest.Pages
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\_ViewImports.cshtml"
+#line 1 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\_ViewImports.cshtml"
 using CostumeTest;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
-using System.Diagnostics;
+#line 2 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
+using ReservationGuest.Components;
 
 #line default
 #line hidden
@@ -103,8 +103,8 @@ using ReservationGuest.Controllers;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
 #nullable restore
-#line 7 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
-  
+#line 5 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
+
     ViewData["Title"] = "Home page";
 
 #line default
@@ -123,6 +123,15 @@ using ReservationGuest.Controllers;
         $(document).ready(function () {
             $(""div[class=divs]"").hide();
             $(""div[id=div1"").show();
+            function checkifEmpty() {
+                if ($(""[class=form-controls1]"").is(':empty')) {
+                    $filled = false;
+                    console.WriteLine(""niet helemaal ingevuld"");
+                } else {
+                    $filled = true;
+                    console.WriteLine(""wel iets in"");
+                }
+                }
             $(""input[type=button][class=buttons]"").click(function () {
                 $(""div[class=divs]"").hide();
                     $(""div[id=div"" + $(this).attr(""id"") + ""]"").show();
@@ -163,41 +172,38 @@ using ReservationGuest.Controllers;
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.InputTypeName = (string)__tagHelperAttribute_1.Value;
                     __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_1);
 #nullable restore
-#line 38 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
+#line 16 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.info.Name);
 
 #line default
 #line hidden
 #nullable disable
-                    __tagHelperExecutionContext.AddTagHelperAttribute("asp-for", __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-                    __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.Value = (string)__tagHelperAttribute_2.Value;
-                    __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
-                    __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_3);
-                    __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_4);
-                    __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.Name = (string)__tagHelperAttribute_5.Value;
-                    __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_5);
-                    __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_6);
-                    __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_7);
-                    BeginWriteTagHelperAttribute();
-                    __tagHelperStringValueBuffer = EndWriteTagHelperAttribute();
-                    __tagHelperExecutionContext.AddHtmlAttribute("required", Html.Raw(__tagHelperStringValueBuffer), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.Minimized);
-                    await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-                    if (!__tagHelperExecutionContext.Output.IsContentModified)
-                    {
-                        await __tagHelperExecutionContext.SetOutputContentAsync();
-                    }
-                    Write(__tagHelperExecutionContext.Output);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                    WriteLiteral("\r\n\r\n            </div>\r\n            <div class=\"form-inline form-group \">\r\n                <label for=\"Email\" style=\"margin-right: 10%;\">Email </label>\r\n                ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "62f581afd198aef194d68173fdbd066d3584f43117673", async() => {
-                    }
-                    );
-                    __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
-                    __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper);
-                    __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.InputTypeName = (string)__tagHelperAttribute_8.Value;
-                    __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_8);
+                __tagHelperExecutionContext.AddTagHelperAttribute("asp-for", __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_1);
+                __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.Name = (string)__tagHelperAttribute_2.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_3);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_4);
+                BeginWriteTagHelperAttribute();
+                __tagHelperStringValueBuffer = EndWriteTagHelperAttribute();
+                __tagHelperExecutionContext.AddHtmlAttribute("required", Html.Raw(__tagHelperStringValueBuffer), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.Minimized);
+                await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+                if (!__tagHelperExecutionContext.Output.IsContentModified)
+                {
+                    await __tagHelperExecutionContext.SetOutputContentAsync();
+                }
+                Write(__tagHelperExecutionContext.Output);
+                __tagHelperExecutionContext = __tagHelperScopeManager.End();
+                WriteLiteral("\r\n        </div>\r\n        <div class=\"form-inline form-group \">\r\n            <label for=\"Email\" style=\"margin-right:10%;\">Email      </label>\r\n            ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "841c13f30ef330cd8a837f970c3de39ee666dddd13138", async() => {
+                }
+                );
+                __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper);
+                __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.InputTypeName = (string)__tagHelperAttribute_5.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_5);
 #nullable restore
-#line 43 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
+#line 20 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.info.Email);
 
 #line default
@@ -258,27 +264,33 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                     }
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                    WriteLiteral(@"
-            </div>
-            <input id=""2"" type=""button"" value=""Volgende"" class=""buttons"" style=""float: right""/>
-        </div>
-    </div>
-
-    <div id=""div2"" class=""divs"" style=""background-color: #ffffff; width: 65%; height: 37%; margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;"">
-        <h1>Datum</h1>
-        <div style=""margin-left: 23px;"">
-            <div>
-                ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "62f581afd198aef194d68173fdbd066d3584f43124274", async() => {
-                    }
-                    );
-                    __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
-                    __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper);
-                    __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.InputTypeName = (string)__tagHelperAttribute_19.Value;
-                    __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_19);
+                    WriteLiteral("\r\n                </div>\r\n                <input  id=\"2\" type=\"button\" value=\"volgende\" class=\"buttons\" style=\"float:right\" />\r\n            </div>\r\n        </div>\r\n        ");
+                }
+                );
+                __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper);
+                __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_16);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
+                await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+                if (!__tagHelperExecutionContext.Output.IsContentModified)
+                {
+                    await __tagHelperExecutionContext.SetOutputContentAsync();
+                }
+                Write(__tagHelperExecutionContext.Output);
+                __tagHelperExecutionContext = __tagHelperScopeManager.End();
+                WriteLiteral("\r\n\r\n        </div>\r\n        <div class=\"form-inline  form-group\">\r\n            <label for=\"InputAmount\">Aantal personen</label>\r\n            ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "841c13f30ef330cd8a837f970c3de39ee666dddd15787", async() => {
+                }
+                );
+                __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper);
+                __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.InputTypeName = (string)__tagHelperAttribute_9.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_9);
 #nullable restore
-#line 58 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
-__Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.info.date);
+#line 25 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
+__Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.info.Amount);
 
 #line default
 #line hidden
@@ -312,8 +324,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
         </div>
     </div>
 
-    
-    
+
+
 
     <script type=""text/javascript"">
         $(function() {
