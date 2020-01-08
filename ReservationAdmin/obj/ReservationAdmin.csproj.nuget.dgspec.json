@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\royhe\\OneDrive\\Documenten\\GitHub\\ReservationSystem\\ReservationAdmin\\ReservationAdmin.csproj": {}
+    "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\ReservationAdmin\\ReservationAdmin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\royhe\\OneDrive\\Documenten\\GitHub\\ReservationSystem\\ReservationAdmin\\ReservationAdmin.csproj": {
+    "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\CostumeTest\\ReservationGuest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\royhe\\OneDrive\\Documenten\\GitHub\\ReservationSystem\\ReservationAdmin\\ReservationAdmin.csproj",
-        "projectName": "ReservationAdmin",
-        "projectPath": "C:\\Users\\royhe\\OneDrive\\Documenten\\GitHub\\ReservationSystem\\ReservationAdmin\\ReservationAdmin.csproj",
-        "packagesPath": "C:\\Users\\royhe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\royhe\\OneDrive\\Documenten\\GitHub\\ReservationSystem\\ReservationAdmin\\obj\\",
+        "projectUniqueName": "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\CostumeTest\\ReservationGuest.csproj",
+        "projectName": "ReservationGuest",
+        "projectPath": "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\CostumeTest\\ReservationGuest.csproj",
+        "packagesPath": "C:\\Users\\wurud\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\CostumeTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\royhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\wurud\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,7 +29,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\royhe\\source\\repos\\Code Roy": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,6 +44,102 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Blazor": {
+              "target": "Package",
+              "version": "[0.7.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\ReservationAdmin\\ReservationAdmin.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\ReservationAdmin\\ReservationAdmin.csproj",
+        "projectName": "ReservationAdmin",
+        "projectPath": "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\ReservationAdmin\\ReservationAdmin.csproj",
+        "packagesPath": "C:\\Users\\wurud\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\ReservationAdmin\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\wurud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\CostumeTest\\ReservationGuest.csproj": {
+                "projectPath": "C:\\Users\\wurud\\Documents\\GitHub\\ReservationSystem\\CostumeTest\\ReservationGuest.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Blazor": {
+              "target": "Package",
+              "version": "[0.7.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

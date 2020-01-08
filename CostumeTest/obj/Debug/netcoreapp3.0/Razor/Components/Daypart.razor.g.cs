@@ -10,21 +10,21 @@ namespace ReservationGuest.Components
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Daypart.razor"
+#line 1 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Daypart.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Daypart.razor"
+#line 2 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Daypart.razor"
 using CostumeTest.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Daypart.razor"
+#line 3 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Daypart.razor"
 using CostumeTest.Services;
 
 #line default
@@ -37,7 +37,7 @@ using CostumeTest.Services;
         {
             __builder.AddMarkupContent(0, @"<div style=""background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;"">
     <h1> Kies dagdeel</h1>
-    <form method=""post"" action=""Reservation"">
+    <form method=""post"" action=""Reservation""> 
         <ul class=""nav nav-pills"" style=""border: 1px solid #E6DBDA; width: 239px; margin-left: 30%; border-radius: 5px;"">
             <li style=""border-right:1px solid #E6DBDA;"">
                 <a data-toggle=""pill"">
@@ -55,7 +55,7 @@ using CostumeTest.Services;
         </ul>
 
     </form>
-
+   
 
 
     <button type=""submit"" class=""btn btn-primary"" style=""background-color: #545871;

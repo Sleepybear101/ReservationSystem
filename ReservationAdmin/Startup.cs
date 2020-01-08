@@ -24,6 +24,9 @@ namespace ReservationAdmin
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddServerSideBlazor();
+            services.AddHttpClient();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +53,15 @@ namespace ReservationAdmin
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
+                endpoints.MapBlazorHub();
+
+                // endpoints.MapGet("/products", (context) => 
+                // {
+                //     var products = app.ApplicationServices.GetService<JsonFileProductService>().GetProducts();
+                //     var json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
+                //     return context.Response.WriteAsync(json);
+                // });
             });
         }
     }

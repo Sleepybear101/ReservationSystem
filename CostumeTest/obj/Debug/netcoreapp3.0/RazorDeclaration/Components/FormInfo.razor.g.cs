@@ -14,28 +14,28 @@ namespace ReservationGuest.Components
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\FormInfo.razor"
+#line 1 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\FormInfo.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\FormInfo.razor"
+#line 2 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\FormInfo.razor"
 using CostumeTest.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\FormInfo.razor"
+#line 3 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\FormInfo.razor"
 using CostumeTest.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\FormInfo.razor"
+#line 4 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\FormInfo.razor"
 using CostumeTest.Controllers;
 
 #line default
