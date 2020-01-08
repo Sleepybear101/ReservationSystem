@@ -56,7 +56,12 @@ using CostumeTest.Services;
 #nullable disable
             __builder.AddContent(11, "                    ");
             __builder.OpenElement(12, "button");
-            __builder.AddAttribute(13, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(13, "style", " border:none ;background-color:dimgray ;width: 47px;\r\n    height: 57px; margin-left: 10px;   margin-right: 33px; ");
+            __builder.AddAttribute(14, "data-toggle", "modal");
+            __builder.AddAttribute(15, "data-target", "#productModal");
+            __builder.AddAttribute(16, "class", "btn btn-primary");
+            __builder.AddMarkupContent(17, "\r\n                        ");
+            __builder.AddContent(18,
 #nullable restore
 #line 16 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\ProductList.razor"
                                       (e => SelectProduct(TableNumber))
@@ -70,7 +75,7 @@ using CostumeTest.Services;
             __builder.AddAttribute(16, "data-target", "#productModal");
             __builder.AddAttribute(17, "class", "btn btn-primary");
             __builder.AddMarkupContent(18, "\r\n                        ");
-            __builder.AddContent(19, 
+            __builder.AddContent(19,
 #nullable restore
 #line 17 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\ProductList.razor"
                          TableNumber
@@ -141,7 +146,7 @@ using CostumeTest.Services;
         #pragma warning restore 1998
 #nullable restore
 #line 64 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\ProductList.razor"
- 
+
 
         Product selectedProduct;
         string selectedProductId;
@@ -158,7 +163,7 @@ using CostumeTest.Services;
 
         }
 
-    
+
 
 #line default
 #line hidden

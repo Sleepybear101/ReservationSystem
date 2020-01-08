@@ -29,17 +29,18 @@ namespace CostumeTest.Pages
 
         }
 
-    public IActionResult OnPost()
+    /*public void CheckMail()
         {
             if(ModelState.IsValid == false)
             {
-                return Page();
+                return;
             }
-       
-         return  RedirectToPage("Datum", new { info.Name, info.Email, info.Amount });
-          //return RedirectToPage("Datum");
-
-        }
+            /* PUT BACK IF NOT WORKING
+              return  RedirectToPage("Datum", new { info.Name, info.Email, info.Amount });
+               //return RedirectToPage("Datum");
+               */
+        
+        //}
        
     }
 }

@@ -64,7 +64,7 @@ using ReservationGuest.Components;
             WriteLiteral("\r\n");
 #nullable restore
 #line 5 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Dagdeel.cshtml"
-  
+
     ViewData["Title"] = "Dagdeel";
 
 #line default
@@ -89,8 +89,33 @@ using ReservationGuest.Components;
                     <p>11:00 - 16:00</p>
                 </a>
             </li>
-    
-            ");
+            <li>
+                <a data-toggle=""pill"">
+                    <h4>Diner</h4>
+                    <p>17:00 - 20:00</p>
+                </a>
+            </li>
+
+        </ul>
+        ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29a991efe9d12020097ba2b7c43804c551621a966667", async() => {
+                    WriteLiteral("\r\n            <a style=\"color: #ffff;\" href=\"/Datum\">Terug</a>\r\n        ");
+                }
+                );
+                __Microsoft_AspNetCore_Mvc_TagHelpers_FormActionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormActionTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_FormActionTagHelper);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
+                __Microsoft_AspNetCore_Mvc_TagHelpers_FormActionTagHelper.PageHandler = (string)__tagHelperAttribute_1.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_1);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_2);
+                await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+                if (!__tagHelperExecutionContext.Output.IsContentModified)
+                {
+                    await __tagHelperExecutionContext.SetOutputContentAsync();
+                }
+                Write(__tagHelperExecutionContext.Output);
+                __tagHelperExecutionContext = __tagHelperScopeManager.End();
+                WriteLiteral("\r\n\r\n        <button type=\"submit\"  class=\"btn btn-primary\" style=\"background-color: #545871; border: none; float:right\">\r\n            <a style=\" color: #ffff;\">Volgende</a>\r\n        </button>\r\n    </div>\r\n\r\n");
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper>();
@@ -129,7 +154,7 @@ using ReservationGuest.Components;
             WriteLiteral("\r\n\r\n    <button type=\"submit\" class=\"btn btn-primary\" style=\"background-color: #545871; border: none; float:right\">\r\n        <a style=\" color: #ffff;\">Volgende</a>\r\n    </button>\r\n</div>\r\n\r\n    </div>\r\n\r\n");
 #nullable restore
 #line 47 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Dagdeel.cshtml"
-   
+
     void SelectProduct()
     {
         System.Console.WriteLine("hello");
