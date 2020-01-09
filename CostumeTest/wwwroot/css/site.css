@@ -237,6 +237,10 @@ ul {
 .Tafel:focus {
     background-color: #0366d6;
 }
+.Tafel {
+    background-color: dimgray;
+}
+
 
 .Daypart-div {
     background-color: #ffffff;
@@ -288,3 +292,10 @@ h4 {
 
 .CHidden {
     visibility: hidden;
+}
+.TableGroupDIV{
+background-color: #ffff;
+padding-bottom: 30px;
+width: 43%;
+margin-left: 26%;
+margin-top: 40px;
