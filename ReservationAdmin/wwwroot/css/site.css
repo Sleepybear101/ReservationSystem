@@ -130,7 +130,7 @@ body {
 }
 .Tafel {
     border: none;
-    background-color: dimgray
+    background-color: dimgray;
 }
 
 .Tafel:focus{

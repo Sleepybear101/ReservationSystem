@@ -7,13 +7,13 @@ namespace ReservationAdmin.Models
 {
     public class Reservation
     {
-        public string Name { get; set; }
+        public string FullName { get; set; }
 
         public string Email { get; set; }
         public string Amount { get; set; }
         public DateTime date { get; set; }
-        public string dagdeel { get; set; }
-        public int tafel { get; set; }
+        public string Daypart { get; set; }
+        public int Table { get; set; }
 
     }
 }

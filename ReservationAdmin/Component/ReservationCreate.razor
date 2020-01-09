@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
 @using System.Diagnostics
 @using System.Data;
-;
 @using ReservationAdmin.Models;
 
 <form>
@@ -10,22 +9,21 @@
 
         <div style="border-top: 1px solid;padding-bottom: 7px;   margin-left: 2%; width: 95%; ">
             <h4>Gegevens</h4>
-            <div style="padding: 30px;
- background-color: #ffffff;">
+            <div style="padding: 30px; background-color: #ffffff;">
                 <div class="form-inline  form-group">
                     <label for="Name">Volledig naam</label>
 
-                    <input type="text" class="form-controls" @bind="Name" aria-describedby="FullName" placeholder="Volledige naam" required />
+                    <input type="text" class="form-controls" @bind="CreateRes.FullName" aria-describedby="FullName" placeholder="Volledige naam" required />
 
                 </div>
                 <div class="form-inline form-group ">
                     <label for="Email" style="margin-right:10%;">Email      </label>
-                    <input type="email" class="form-controls" @bind="Email" aria-describedby="emailHelp" placeholder="Email adres" required />
+                    <input type="email" class="form-controls" @bind="CreateRes.Email" aria-describedby="emailHelp" placeholder="Email adres" required />
 
                 </div>
                 <div class="form-inline  form-group">
                     <label for="InputAmount">Aantal personen</label>
-                    <input type="number" class="form-control" @bind="Amount" aria-describedby="Amount" placeholder="6" min="1" max="6" required />
+                    <input type="number" class="form-control" @bind="CreateRes.Amount" aria-describedby="Amount" placeholder="6" min="1" max="6" required />
                 </div>
 
             </div>
@@ -118,11 +116,6 @@
 
 @code{
 
-    [Parameter]
-    public string Name { get; set; }
-    public string Email { get; set; }
-    public string Amount { get; set; }
-
 
     public int i;
     SqlConnection con = new SqlConnection();
@@ -130,8 +123,8 @@
     Reservation CreateRes = new Reservation();
     void SelectedTable(int SelectedTable)
     {
-        CreateRes.tafel = SelectedTable;
-        Message = "Tafel Nummer gekozen" + CreateRes.tafel.ToString();
+        CreateRes.Table = SelectedTable;
+        Message = "Tafel Nummer gekozen" + CreateRes.Table.ToString();
         Debug.WriteLine(Message);
 
 
@@ -140,13 +133,13 @@
     {
         if (SelectedDaypart == false)
         {
-            CreateRes.dagdeel = "lunch";
+            CreateRes.Daypart = "lunch";
         }
         else
         {
-            CreateRes.dagdeel = "diner";
+            CreateRes.Daypart = "diner";
         }
-        Message = "daypart  gekozen" + CreateRes.dagdeel.ToString();
+        Message = "daypart  gekozen" + CreateRes.Daypart.ToString();
         Debug.WriteLine(Message);
 
 
@@ -165,16 +158,14 @@
 
     void InsertUser()
     {
-        CreateRes.Name = Name;
-        CreateRes.Email = Email;
-        CreateRes.Amount = Amount;
+ 
         CreateRes.date = DateTime.Today;
 
         IsValidEmail(CreateRes.Email);
         if (IsValidEmail(CreateRes.Email) != false)
         {
             con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`) VALUES (@Fullname,@Email)");
-            con.Cmd.Parameters.AddWithValue("@Fullname", CreateRes.Name);
+            con.Cmd.Parameters.AddWithValue("@Fullname", CreateRes.FullName);
             con.Cmd.Parameters.AddWithValue("@Email", CreateRes.Email);
             con.NonQueryEx();
             InsertReservation();
@@ -184,7 +175,7 @@
     void InsertReservation()
     {
         con.SqlQuery("SELECT `id_Guest` FROM `guest` WHERE `FullName`=@Fullname AND `Email`=@Email");
-        con.Cmd.Parameters.AddWithValue("@Fullname", CreateRes.Name);
+        con.Cmd.Parameters.AddWithValue("@Fullname", CreateRes.FullName);
         con.Cmd.Parameters.AddWithValue("@Email", CreateRes.Email);
         con.QueryEx();
 
@@ -194,8 +185,8 @@
 
             con.SqlQuery("INSERT INTO `reservation`(`Date`, `DayPart`, `TableNumber`, `Guest`, `Amount`) VALUES (@Date,@Daypart,@TableNumber,@Guest,@Amount)");
             con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date);
-            con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.dagdeel);
-            con.Cmd.Parameters.AddWithValue("@TableNumber", CreateRes.tafel);
+            con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
+            con.Cmd.Parameters.AddWithValue("@TableNumber", CreateRes.Table);
             con.Cmd.Parameters.AddWithValue("@Guest", id);
             con.Cmd.Parameters.AddWithValue("@Amount", CreateRes.Amount);
             con.NonQueryEx();

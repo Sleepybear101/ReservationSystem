@@ -187,3 +187,4 @@ C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\net
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.csproj.CopyComplete
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.dll
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.pdb
+C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.MvcApplicationPartsAssemblyInfo.cs

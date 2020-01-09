@@ -14,44 +14,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Reservatie Form</title>
-
-
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.js" type="text/javascript"></script>
-
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("div[class=divs]").hide();
-            $("div[id=div1").show();
-            function checkifEmpty() {
-                if ($("[class=form-controls1]").is(':empty')) {
-                    $filled = false;
-                    console.WriteLine("niet helemaal ingevuld");
-                } else {
-                    $filled = true;
-                    console.WriteLine("wel iets in");
-                }
-            }
-            $("input[type=button][class=buttons]").click(function () {
-                checkifEmpty();
-                if (filled) {
-                    $("div[class=divs]").hide();
-                    $("div[id=div" + $(this).attr("id") + "]").show();
-                }
-            });
-        });
-    </script>
-
+   
 </head>
 <body>
-
-
-
 
     @(await Html.RenderComponentAsync<Component>(RenderMode.ServerPrerendered))
     <script src="_framework/blazor.server.js"></script>
     <script src="js/button.js"></script>
+    <script>
 
+    </script>
     <!--=        <br />
             <br />
             <input id="3" type="button" value="3" class="buttons" />
@@ -78,6 +50,7 @@
             </div>
             <br />
             <br />-->
+
 
 </body>
 </html>
