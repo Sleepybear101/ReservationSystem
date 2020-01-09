@@ -24,24 +24,5 @@ namespace CostumeTest.Pages
      [BindProperty(SupportsGet = true)]
         public GuestInfo info { get; set; }
         public GuestInfo Waarde = new GuestInfo();
-
-        public void OnGet()
-        {
-
-        }
-
-    /*public void CheckMail()
-        {
-            if(ModelState.IsValid == false)
-            {
-                return;
-            }
-            /* PUT BACK IF NOT WORKING
-              return  RedirectToPage("Datum", new { info.Name, info.Email, info.Amount });
-               //return RedirectToPage("Datum");
-               */
-        
-        //}
-       
     }
 }
