@@ -45,6 +45,10 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "AspNetCore.Client.JSInterop": {
+              "target": "Package",
+              "version": "[0.19.1, )"
+            },
             "Microsoft.AspNetCore.Blazor": {
               "target": "Package",
               "version": "[0.7.0, )"
@@ -63,9 +67,17 @@
               "target": "Package",
               "version": "[3.0.0, )"
             },
+            "Microsoft.JSInterop": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.0.0, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.18, )"
             }
           },
           "imports": [

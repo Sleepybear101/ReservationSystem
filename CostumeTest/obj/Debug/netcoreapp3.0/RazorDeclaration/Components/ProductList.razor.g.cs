@@ -43,7 +43,7 @@ using CostumeTest.Services;
         #pragma warning restore 1998
 #nullable restore
 #line 64 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\ProductList.razor"
-
+ 
 
         Product selectedProduct;
         string selectedProductId;
@@ -60,7 +60,7 @@ using CostumeTest.Services;
 
         }
 
-
+    
 
 #line default
 #line hidden

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Logging;
 
+
 namespace CostumeTest.Pages
 {
     public class IndexModel : PageModel
