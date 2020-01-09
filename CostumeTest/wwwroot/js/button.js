@@ -1,15 +1,18 @@
-﻿
+﻿var number = 2
+
 function CreateAlert() {
-    $("div[id=div2").removeClass('CHidden');
     $("div[id=div1").hide();
+    var n = number.toString();
+    $("div[id=div"+n).removeClass('CHidden');
 
 
 
 }
+
 function NextDiv(){
     $("div[class=divs]").hide();
-    var number = 2
-    number += 1;
+    number = 3;
     var n = number.toString();
+    $("div[id=div"+n).removeClass('CHidden');
     $("div[id=div"+n+"]").show();
 }

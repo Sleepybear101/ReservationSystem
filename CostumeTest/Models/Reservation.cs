@@ -1,22 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace CostumeTest.Models
+namespace ReservationAdmin.Models
 {
-    public class GuestInfo
+    public class Reservation
     {
         public string Name { get; set; }
-       
+
         public string Email { get; set; }
         public string Amount { get; set; }
-        public string date { get; set; }
+        public DateTime date { get; set; }
         public string dagdeel { get; set; }
+        public int tafel { get; set; }
 
     }
 }
- 

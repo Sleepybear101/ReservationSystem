@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
 @using System.Diagnostics
 @using System.Data;
-@using CostumeTest.Services;
+;
 @using ReservationAdmin.Models;
 
 <form>
@@ -43,25 +43,7 @@
                          <p>17:00 - 20:00</p>
                     </button>
                     </div>
-                    <!--
-
-    <ul class="nav nav-pills" style="border: 1px solid #E6DBDA; width: 239px; margin-left: 30%; border-radius: 5px;">
-        <li style="border-right:1px solid #E6DBDA;">
-            <a data-toggle="pill">
-                <h4>Lunch</h4>
-                <p>11:00 - 16:00</p>
-            </a>
-        </li>
-        <li>
-            <a data-toggle="pill">
-                <h4>Diner</h4>
-                <p>17:00 - 20:00</p>
-            </a>
-        </li>
-
-    </ul>
-    -->
-
+    
 
                 </div>
             </div>
@@ -143,9 +125,8 @@
 
 
     public int i;
-    public string Message;
     SqlConnection con = new SqlConnection();
-
+    public string Message;
     Reservation CreateRes = new Reservation();
     void SelectedTable(int SelectedTable)
     {

@@ -1,7 +1,11 @@
-﻿@using Microsoft.AspNetCore.Components.Web
+﻿@using Microsoft.AspNetCore.Components.Web;
+@using System.Diagnostics;
+@using ReservationAdmin.Models;
 @page "/button"
 @using Microsoft.JSInterop;
 @inject IJSRuntime JsRuntime;
+
+
 
 <form id="form1" runat="server">
     <div id="div1" class="divs" style="background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;">
@@ -29,11 +33,11 @@
 
 
 <form method="post">
-    <div  id="div2" class="divs CHidden" style="background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;">
+    <div id="div2" class="divs CHidden" style="background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;">
         <h1>Datum</h1>
         <div style=" margin-left: 23px;">
             <div>
-                <input type ="date" asp-for="info.date" class="form-controls2" name="date" aria-describedby="FullName" placeholder="Volledige naam" required />
+                <input type="date" asp-for="info.date" class="form-controls2" name="date" aria-describedby="FullName" placeholder="Volledige naam" required />
 
                 <div id="datepicker" data-date="today" style="margin-left: 31%; "></div>
                 <input name="date" type="hidden" id="my_hidden_input" />
@@ -42,19 +46,132 @@
 
             <input id="1" type="button" value="vorige" class="buttons" style="float:left" />
 
-            <input  @onclick="NextDiv" id="3" type="button" value="volgende" class="buttons" style="float:right" />
+            <input @onclick="NextDiv" id="3" type="button" value="volgende" class="buttons" style="float:right" />
         </div>
     </div>
 </form>
+
+<form method="post">
+    <div id="div3" class="divs CHidden" style="background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;">
+
+        <div  class="Daypart-div">
+            <h4>Dagdeel</h4>
+            <div>
+                <div class="Daypart">
+                    <button type="button" @onclick="(e => SelectedDaypart(false))" class="btn Daypart-btn Daypart-btn-lunch">
+                        <h5>Lunch</h5>
+                        <p>11:00 - 16:00</p>
+                    </button>
+                    <button type="button" @onclick="(e => SelectedDaypart(true))" class="btn Daypart-btn   Daypart-btn-diner">
+                        <h5>Diner</h5>
+                        <p>17:00 - 20:00</p>
+                    </button>
+                </div>
+
+                <input id="3" type="button" value="volgende" class="buttons" @onclick="ShowAlert" style="float:right" />
+
+            </div>
+        </div>
+     </div>
+</form>
+<form>
+
+    <div id="div4" class="divs Table-div">
+
+        <h1>Tafel kiezen</h1>
+        <div class="Tafel   card-group" style=" background-image: url('images/tafel-van-zes.png');  width:500px; height:450px; margin-left: 69px;
+        margin-bottom: 36px; ">
+
+            <div style=" margin-left:21%; margin-top: 7%;">
+
+                <button @onclick="(e => SelectedTable(1))" style="width: 47px;
+        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Tafel tafels btn btn-primary">
+                    1
+                </button>
+
+                <button @onclick="(e => SelectedTable(2))" style="width: 47px;
+        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Tafel btn btn-primary">
+                    2
+                </button>
+                <button @onclick="(e => SelectedTable(3))" style="width: 47px;
+        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Tafel btn btn-primary">
+                    3
+                </button>
+            </div>
+
+            <div style="margin-top: 7%;">
+                <button class="Tafel  btn btn-primary" @onclick="(e => SelectedTable(4))" style="width: 47px; height: 87px; margin-left: 27px; margin-right: 40px; margin-top: 15px;">
+                    4
+                </button>
+            </div>
+
+            <div style="padding-left: 50%;height: 7%; margin-top: -3%;">
+                <button @onclick="(e => SelectedTable(5))" style="width: 30px; height: 35px; margin-right:48px;" class=" Tafel btn btn-primary">6</button>
+                <button @onclick="(e => SelectedTable(6))" style="width: 30px; height: 35px; " class=" Tafel btn btn-primary">5</button>
+            </div>
+
+            <div style="width: 27%; margin-left: 1%;margin-bottom: 24%;  margin-top: 3%;">
+                <button @onclick="(e => SelectedTable(8))" style="width: 58px;  height: 48px; margin-left: 25px;  margin-right: 33px;  margin-top: 17%;" class=" Tafel btn btn-primary">
+                    8
+                </button>
+                <button @onclick="(e => SelectedTable(10))" style="width: 58px;  height: 48px;  margin-left: 25px;  margin-right: 33px;  margin-top: 31%;" class=" Tafel btn btn-primary">
+                    10
+                </button>
+                <button @onclick="(e => SelectedTable(11))" style=" width: 90px; height: 48px; margin-left: 25px; margin-right: 33px;   margin-top: 34%;" class="Tafel  btn btn-primary">
+                    11
+                </button>
+            </div>
+            <div style="  width: 19%; margin-left: 1%; ">
+                <button @onclick="(e => SelectedTable(7))" style="width: 58px;height: 46px; margin-left: 7px;margin-right: 6px; margin-top: 20%;" class="Tafel btn btn-primary">
+                    7
+                </button>
+                <button @onclick="(e => SelectedTable(9))" style=" width: 59px; height: 45px; margin-left: 7px; margin-right: 33px;  margin-top: 55%;" class="Tafel btn btn-primary">
+                    9
+                </button>
+            </div>
+            <input id="2" type="button" value="volgende" class="buttons" @onclick="NextDiv" style="float:right" />
+
+        </div>
+    </div>
+
+</form>
 @code{
 
+        async Task ShowAlert()
+        {
+            await JsRuntime.InvokeVoidAsync("CreateAlert");
+        }
+        async Task NextDiv()
+        {
+            await JsRuntime.InvokeVoidAsync("NextDiv");
+        }
 
-    async Task ShowAlert()
+
+
+public string Message;
+    Reservation CreateRes = new Reservation();
+    void SelectedTable(int SelectedTable)
     {
-        await JsRuntime.InvokeVoidAsync("CreateAlert");
+        CreateRes.tafel = SelectedTable;
+        Message = "Tafel Nummer gekozen" + CreateRes.tafel.ToString();
+        Debug.WriteLine(Message);
+
+
     }
-    async Task NextDiv()
+    void SelectedDaypart(bool SelectedDaypart)
     {
-       await JsRuntime.InvokeVoidAsync("NextDiv");
+        if (SelectedDaypart == false)
+        {
+            CreateRes.dagdeel = "lunch";
+        }
+        else
+        {
+            CreateRes.dagdeel = "diner";
+        }
+        Message = "daypart  gekozen" + CreateRes.dagdeel.ToString();
+        Debug.WriteLine(Message);
+
+
+
     }
 }
