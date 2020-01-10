@@ -31,13 +31,19 @@ using ReservationAdmin.Models;
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+#line 4 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+using ReservationGuest.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/button")]
     public class Component : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -54,418 +60,644 @@ using Microsoft.JSInterop;
             __builder.AddMarkupContent(8, "\r\n        ");
             __builder.AddMarkupContent(9, "<h1>Gegevens</h1>\r\n        ");
             __builder.OpenElement(10, "div");
-            __builder.AddAttribute(11, "style", " margin-left: 23px;");
+            __builder.AddAttribute(11, "style", "padding: 30px; background-color: #ffffff;");
             __builder.AddMarkupContent(12, "\r\n            ");
-            __builder.AddMarkupContent(13, @"<div class=""form-inline  form-group"">
-                <label for=""Name"">Volledig naam</label>
-                <input type=""text"" asp-for=""info.Name"" class=""form-controls1"" name=""Name"" aria-describedby=""FullName"" placeholder=""Volledige naam"" required>
-
-            </div>
-            ");
-            __builder.AddMarkupContent(14, @"<div class=""form-inline form-group "">
-                <label for=""Email"" style=""margin-right:10%;"">Email      </label>
-                <input type=""email"" asp-for=""info.Email"" class=""form-controls1"" name=""Email"" aria-describedby=""emailHelp"" placeholder=""Email adres"" required>
-
-            </div>
-            ");
-            __builder.AddMarkupContent(15, @"<div class=""form-inline  form-group"">
-                <label for=""InputAmount"">Aantal personen</label>
-                <input type=""number"" asp-for=""info.Amount"" class=""form-controls1"" name=""Amount"" aria-describedby=""Amount"" placeholder=""0"" min=""1"" max=""6"" required>
-            </div>
-            ");
-            __builder.OpenElement(16, "input");
-            __builder.AddAttribute(17, "id", "2");
-            __builder.AddAttribute(18, "type", "button");
-            __builder.AddAttribute(19, "value", "volgende");
-            __builder.AddAttribute(20, "class", "buttons");
-            __builder.AddAttribute(21, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.OpenElement(13, "div");
+            __builder.AddAttribute(14, "class", "form-inline  form-group");
+            __builder.AddMarkupContent(15, "\r\n                ");
+            __builder.AddMarkupContent(16, "<label for=\"Name\">Volledig naam</label>\r\n\r\n                ");
+            __builder.OpenElement(17, "input");
+            __builder.AddAttribute(18, "type", "text");
+            __builder.AddAttribute(19, "class", "form-controls");
+            __builder.AddAttribute(20, "aria-describedby", "FullName");
+            __builder.AddAttribute(21, "placeholder", "Volledige naam");
+            __builder.AddAttribute(22, "required", true);
+            __builder.AddAttribute(23, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #nullable restore
-#line 28 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                                                                   ShowAlert
+#line 18 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                                CreateRes.FullName
 
 #line default
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(22, "style", "float:right");
+            __builder.AddAttribute(24, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => CreateRes.FullName = __value, CreateRes.FullName));
+            __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
-            __builder.AddMarkupContent(23, "\r\n        ");
+            __builder.AddMarkupContent(25, "\r\n\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(24, "\r\n    ");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(25, "\r\n");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(26, "\r\n\r\n\r\n\r\n");
-            __builder.OpenElement(27, "form");
-            __builder.AddAttribute(28, "method", "post");
-            __builder.AddMarkupContent(29, "\r\n    ");
-            __builder.OpenElement(30, "div");
-            __builder.AddAttribute(31, "id", "div2");
-            __builder.AddAttribute(32, "class", "divs CHidden");
-            __builder.AddAttribute(33, "style", "background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;");
-            __builder.AddMarkupContent(34, "\r\n        ");
-            __builder.AddMarkupContent(35, "<h1>Datum</h1>\r\n        ");
-            __builder.OpenElement(36, "div");
-            __builder.AddAttribute(37, "style", " margin-left: 23px;");
-            __builder.AddMarkupContent(38, "\r\n            ");
-            __builder.AddMarkupContent(39, @"<div>
-                <input type=""date"" asp-for=""info.date"" class=""form-controls2"" name=""date"" aria-describedby=""FullName"" placeholder=""Volledige naam"" required>
-
-                <div id=""datepicker"" data-date=""today"" style=""margin-left: 31%; ""></div>
-                <input name=""date"" type=""hidden"" id=""my_hidden_input"">
-
-            </div>
-
-            <input id=""1"" type=""button"" value=""vorige"" class=""buttons"" style=""float:left"">
-
-            ");
-            __builder.OpenElement(40, "input");
-            __builder.AddAttribute(41, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(26, "\r\n            ");
+            __builder.OpenElement(27, "div");
+            __builder.AddAttribute(28, "class", "form-inline form-group ");
+            __builder.AddMarkupContent(29, "\r\n                ");
+            __builder.AddMarkupContent(30, "<label for=\"Email\" style=\"margin-right:10%;\">Email      </label>\r\n                ");
+            __builder.OpenElement(31, "input");
+            __builder.AddAttribute(32, "type", "email");
+            __builder.AddAttribute(33, "class", "form-controls");
+            __builder.AddAttribute(34, "aria-describedby", "emailHelp");
+            __builder.AddAttribute(35, "placeholder", "Email adres");
+            __builder.AddAttribute(36, "required", true);
+            __builder.AddAttribute(37, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #nullable restore
-#line 49 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                             NextDiv
+#line 23 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                                  CreateRes.Email
 
 #line default
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(42, "id", "3");
-            __builder.AddAttribute(43, "type", "button");
-            __builder.AddAttribute(44, "value", "volgende");
-            __builder.AddAttribute(45, "class", "buttons");
-            __builder.AddAttribute(46, "style", "float:right");
+            __builder.AddAttribute(38, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => CreateRes.Email = __value, CreateRes.Email));
+            __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
-            __builder.AddMarkupContent(47, "\r\n        ");
+            __builder.AddMarkupContent(39, "\r\n\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(48, "\r\n    ");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(49, "\r\n");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(50, "\r\n\r\n");
-            __builder.OpenElement(51, "form");
-            __builder.AddAttribute(52, "method", "post");
-            __builder.AddMarkupContent(53, "\r\n    ");
-            __builder.OpenElement(54, "div");
-            __builder.AddAttribute(55, "id", "div3");
-            __builder.AddAttribute(56, "class", "divs CHidden");
-            __builder.AddAttribute(57, "style", "background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;");
-            __builder.AddMarkupContent(58, "\r\n\r\n        ");
-            __builder.OpenElement(59, "div");
-            __builder.AddAttribute(60, "class", "Daypart-div");
-            __builder.AddMarkupContent(61, "\r\n            ");
-            __builder.AddMarkupContent(62, "<h4>Dagdeel</h4>\r\n            ");
-            __builder.OpenElement(63, "div");
-            __builder.AddMarkupContent(64, "\r\n                ");
-            __builder.OpenElement(65, "div");
-            __builder.AddAttribute(66, "class", "Daypart");
-            __builder.AddMarkupContent(67, "\r\n                    ");
-            __builder.OpenElement(68, "button");
-            __builder.AddAttribute(69, "type", "button");
-            __builder.AddAttribute(70, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(40, "\r\n            ");
+            __builder.OpenElement(41, "div");
+            __builder.AddAttribute(42, "class", "form-inline  form-group");
+            __builder.AddMarkupContent(43, "\r\n                ");
+            __builder.AddMarkupContent(44, "<label for=\"InputAmount\">Aantal personen</label>\r\n                ");
+            __builder.OpenElement(45, "input");
+            __builder.AddAttribute(46, "type", "number");
+            __builder.AddAttribute(47, "class", "form-control");
+            __builder.AddAttribute(48, "aria-describedby", "Amount");
+            __builder.AddAttribute(49, "placeholder", "0");
+            __builder.AddAttribute(50, "min", "1");
+            __builder.AddAttribute(51, "max", "6");
+            __builder.AddAttribute(52, "required", true);
+            __builder.AddAttribute(53, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #nullable restore
-#line 61 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+#line 28 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                                 CreateRes.Amount
+
+#line default
+#line hidden
+#nullable disable
+            , culture: global::System.Globalization.CultureInfo.InvariantCulture));
+            __builder.AddAttribute(54, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => CreateRes.Amount = __value, CreateRes.Amount, culture: global::System.Globalization.CultureInfo.InvariantCulture));
+            __builder.SetUpdatesAttributeName("value");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(55, "\r\n            ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(56, "\r\n\r\n        ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(57, "\r\n        ");
+            __builder.OpenElement(58, "input");
+            __builder.AddAttribute(59, "id", "2");
+            __builder.AddAttribute(60, "type", "button");
+            __builder.AddAttribute(61, "value", "volgende");
+            __builder.AddAttribute(62, "class", "buttons btn btn-primary");
+            __builder.AddAttribute(63, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
+#nullable restore
+#line 32 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                                                               NextDiv
+
+#line default
+#line hidden
+#nullable disable
+            ));
+            __builder.AddAttribute(64, "style", "float:right");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(65, "\r\n    ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(66, "\r\n");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(67, "\r\n\r\n\r\n\r\n");
+            __builder.OpenElement(68, "form");
+            __builder.AddAttribute(69, "method", "post");
+            __builder.AddMarkupContent(70, "\r\n    ");
+            __builder.OpenElement(71, "div");
+            __builder.AddAttribute(72, "id", "div2");
+            __builder.AddAttribute(73, "class", "divs CHidden");
+            __builder.AddAttribute(74, "style", "background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;");
+            __builder.AddMarkupContent(75, "\r\n        ");
+            __builder.AddMarkupContent(76, "<h1>Datum</h1>\r\n        ");
+            __builder.OpenElement(77, "div");
+            __builder.AddAttribute(78, "style", " margin-left: 23px;");
+            __builder.AddMarkupContent(79, "\r\n            ");
+            __builder.OpenElement(80, "div");
+            __builder.AddMarkupContent(81, "\r\n                ");
+            __builder.OpenElement(82, "div");
+            __builder.AddMarkupContent(83, "\r\n                    ");
+            __builder.OpenElement(84, "div");
+            __builder.AddAttribute(85, "id", "input-daterange");
+            __builder.AddAttribute(86, "class", "input-group input-daterange");
+            __builder.AddMarkupContent(87, "\r\n                        <div class=\"input-group-addon\"></div>\r\n                        ");
+            __builder.OpenElement(88, "input");
+            __builder.AddAttribute(89, "type", "date");
+            __builder.AddAttribute(90, "class", "input-group-addon form-control");
+            __builder.AddAttribute(91, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+#nullable restore
+#line 46 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                  CreateRes.date
+
+#line default
+#line hidden
+#nullable disable
+            , format: "yyyy-MM-dd", culture: global::System.Globalization.CultureInfo.InvariantCulture));
+            __builder.AddAttribute(92, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => CreateRes.date = __value, CreateRes.date, format: "yyyy-MM-dd", culture: global::System.Globalization.CultureInfo.InvariantCulture));
+            __builder.SetUpdatesAttributeName("value");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(93, "\r\n\r\n                    ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(94, "\r\n                ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(95, "\r\n            ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(96, "\r\n          ");
+            __builder.OpenElement(97, "input");
+            __builder.AddAttribute(98, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
+#nullable restore
+#line 51 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                           NextDiv
+
+#line default
+#line hidden
+#nullable disable
+            ));
+            __builder.AddAttribute(99, "id", "3");
+            __builder.AddAttribute(100, "type", "button");
+            __builder.AddAttribute(101, "value", "volgende");
+            __builder.AddAttribute(102, "class", "buttons btn btn-primary");
+            __builder.AddAttribute(103, "style", "float:right");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(104, "\r\n      ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(105, "\r\n    ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(106, "\r\n");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(107, "\r\n\r\n");
+            __builder.OpenElement(108, "form");
+            __builder.AddAttribute(109, "method", "post");
+            __builder.AddMarkupContent(110, "\r\n    ");
+            __builder.OpenElement(111, "div");
+            __builder.AddAttribute(112, "id", "div3");
+            __builder.AddAttribute(113, "class", "divs CHidden");
+            __builder.AddAttribute(114, "style", "background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;");
+            __builder.AddMarkupContent(115, "\r\n\r\n        ");
+            __builder.OpenElement(116, "div");
+            __builder.AddAttribute(117, "class", "Daypart-div");
+            __builder.AddMarkupContent(118, "\r\n            ");
+            __builder.AddMarkupContent(119, "<h4>Dagdeel</h4>\r\n            ");
+            __builder.OpenElement(120, "div");
+            __builder.AddMarkupContent(121, "\r\n                ");
+            __builder.OpenElement(122, "div");
+            __builder.AddAttribute(123, "class", "Daypart");
+            __builder.AddMarkupContent(124, "\r\n                    ");
+            __builder.OpenElement(125, "button");
+            __builder.AddAttribute(126, "type", "button");
+            __builder.AddAttribute(127, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
+#nullable restore
+#line 63 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
                                                     (e => SelectedDaypart(false))
 
 #line default
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(71, "class", "btn Daypart-btn Daypart-btn-lunch");
-            __builder.AddMarkupContent(72, "\r\n                        ");
-            __builder.AddMarkupContent(73, "<h5>Lunch</h5>\r\n                        ");
-            __builder.AddMarkupContent(74, "<p>11:00 - 16:00</p>\r\n                    ");
+            __builder.AddAttribute(128, "class", "btn Daypart-btn Daypart-btn-lunch");
+            __builder.AddMarkupContent(129, "\r\n                        ");
+            __builder.AddMarkupContent(130, "<h5>Lunch</h5>\r\n                        ");
+            __builder.AddMarkupContent(131, "<p>11:00 - 16:00</p>\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(75, "\r\n                    ");
-            __builder.OpenElement(76, "button");
-            __builder.AddAttribute(77, "type", "button");
-            __builder.AddAttribute(78, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(132, "\r\n                    ");
+            __builder.OpenElement(133, "button");
+            __builder.AddAttribute(134, "type", "button");
+            __builder.AddAttribute(135, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
-#line 65 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+#line 67 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
                                                     (e => SelectedDaypart(true))
 
 #line default
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(79, "class", "btn Daypart-btn   Daypart-btn-diner");
-            __builder.AddMarkupContent(80, "\r\n                        ");
-            __builder.AddMarkupContent(81, "<h5>Diner</h5>\r\n                        ");
-            __builder.AddMarkupContent(82, "<p>17:00 - 20:00</p>\r\n                    ");
+            __builder.AddAttribute(136, "class", "btn Daypart-btn   Daypart-btn-diner");
+            __builder.AddMarkupContent(137, "\r\n                        ");
+            __builder.AddMarkupContent(138, "<h5>Diner</h5>\r\n                        ");
+            __builder.AddMarkupContent(139, "<p>17:00 - 20:00</p>\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(83, "\r\n                ");
+            __builder.AddMarkupContent(140, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(84, "\r\n\r\n                ");
-            __builder.OpenElement(85, "input");
-            __builder.AddAttribute(86, "id", "3");
-            __builder.AddAttribute(87, "type", "button");
-            __builder.AddAttribute(88, "value", "volgende");
-            __builder.AddAttribute(89, "class", "buttons");
-            __builder.AddAttribute(90, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(141, "\r\n\r\n                ");
+            __builder.OpenElement(142, "input");
+            __builder.AddAttribute(143, "id", "3");
+            __builder.AddAttribute(144, "type", "button");
+            __builder.AddAttribute(145, "value", "volgende");
+            __builder.AddAttribute(146, "class", "buttons btn btn-primary");
+            __builder.AddAttribute(147, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
-#line 71 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                                                                       ShowAlert
+#line 73 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                                                                       NextDiv
 
 #line default
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(91, "style", "float:right");
+            __builder.AddAttribute(148, "style", "float:right");
             __builder.CloseElement();
-            __builder.AddMarkupContent(92, "\r\n\r\n            ");
+            __builder.AddMarkupContent(149, "\r\n\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(93, "\r\n        ");
+            __builder.AddMarkupContent(150, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(94, "\r\n     ");
+            __builder.AddMarkupContent(151, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(95, "\r\n");
+            __builder.AddMarkupContent(152, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(96, "\r\n");
-            __builder.OpenElement(97, "form");
-            __builder.AddMarkupContent(98, "\r\n\r\n    ");
-            __builder.OpenElement(99, "div");
-            __builder.AddAttribute(100, "id", "div4");
-            __builder.AddAttribute(101, "class", "divs Table-div");
-            __builder.AddMarkupContent(102, "\r\n\r\n        ");
-            __builder.AddMarkupContent(103, "<h1>Tafel kiezen</h1>\r\n        ");
-            __builder.OpenElement(104, "div");
-            __builder.AddAttribute(105, "class", "Tafel   card-group");
-            __builder.AddAttribute(106, "style", " background-image: url(\'images/tafel-van-zes.png\');  width:500px; height:450px; margin-left: 69px;\r\n        margin-bottom: 36px; ");
-            __builder.AddMarkupContent(107, "\r\n\r\n            ");
-            __builder.OpenElement(108, "div");
-            __builder.AddAttribute(109, "style", " margin-left:21%; margin-top: 7%;");
-            __builder.AddMarkupContent(110, "\r\n\r\n                ");
-            __builder.OpenElement(111, "button");
-            __builder.AddAttribute(112, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
-#nullable restore
-#line 87 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                  (e => SelectedTable(1))
-
-#line default
-#line hidden
-#nullable disable
-            ));
-            __builder.AddAttribute(113, "style", "width: 47px;\r\n        height: 57px; margin-left: 10px;   margin-right: 33px; ");
-            __builder.AddAttribute(114, "class", "Tafel tafels btn btn-primary");
-            __builder.AddMarkupContent(115, "\r\n                    1\r\n                ");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(116, "\r\n\r\n                ");
-            __builder.OpenElement(117, "button");
-            __builder.AddAttribute(118, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
-#nullable restore
-#line 92 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                  (e => SelectedTable(2))
-
-#line default
-#line hidden
-#nullable disable
-            ));
-            __builder.AddAttribute(119, "style", "width: 47px;\r\n        height: 57px; margin-left: 10px;   margin-right: 33px; ");
-            __builder.AddAttribute(120, "class", "Tafel btn btn-primary");
-            __builder.AddMarkupContent(121, "\r\n                    2\r\n                ");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(122, "\r\n                ");
-            __builder.OpenElement(123, "button");
-            __builder.AddAttribute(124, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
-#nullable restore
-#line 96 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                  (e => SelectedTable(3))
-
-#line default
-#line hidden
-#nullable disable
-            ));
-            __builder.AddAttribute(125, "style", "width: 47px;\r\n        height: 57px; margin-left: 10px;   margin-right: 33px; ");
-            __builder.AddAttribute(126, "class", "Tafel btn btn-primary");
-            __builder.AddMarkupContent(127, "\r\n                    3\r\n                ");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(128, "\r\n            ");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(129, "\r\n\r\n            ");
-            __builder.OpenElement(130, "div");
-            __builder.AddAttribute(131, "style", "margin-top: 7%;");
-            __builder.AddMarkupContent(132, "\r\n                ");
-            __builder.OpenElement(133, "button");
-            __builder.AddAttribute(134, "class", "Tafel  btn btn-primary");
-            __builder.AddAttribute(135, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
-#nullable restore
-#line 103 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                                                 (e => SelectedTable(4))
-
-#line default
-#line hidden
-#nullable disable
-            ));
-            __builder.AddAttribute(136, "style", "width: 47px; height: 87px; margin-left: 27px; margin-right: 40px; margin-top: 15px;");
-            __builder.AddMarkupContent(137, "\r\n                    4\r\n                ");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(138, "\r\n            ");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(139, "\r\n\r\n            ");
-            __builder.OpenElement(140, "div");
-            __builder.AddAttribute(141, "style", "padding-left: 50%;height: 7%; margin-top: -3%;");
-            __builder.AddMarkupContent(142, "\r\n                ");
-            __builder.OpenElement(143, "button");
-            __builder.AddAttribute(144, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
-#nullable restore
-#line 109 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                  (e => SelectedTable(5))
-
-#line default
-#line hidden
-#nullable disable
-            ));
-            __builder.AddAttribute(145, "style", "width: 30px; height: 35px; margin-right:48px;");
-            __builder.AddAttribute(146, "class", " Tafel btn btn-primary");
-            __builder.AddContent(147, "6");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(148, "\r\n                ");
-            __builder.OpenElement(149, "button");
-            __builder.AddAttribute(150, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
-#nullable restore
-#line 110 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                  (e => SelectedTable(6))
-
-#line default
-#line hidden
-#nullable disable
-            ));
-            __builder.AddAttribute(151, "style", "width: 30px; height: 35px; ");
-            __builder.AddAttribute(152, "class", " Tafel btn btn-primary");
-            __builder.AddContent(153, "5");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(154, "\r\n            ");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(155, "\r\n\r\n            ");
+            __builder.AddMarkupContent(153, "\r\n");
+            __builder.OpenElement(154, "form");
+            __builder.AddMarkupContent(155, "\r\n    ");
             __builder.OpenElement(156, "div");
-            __builder.AddAttribute(157, "style", "width: 27%; margin-left: 1%;margin-bottom: 24%;  margin-top: 3%;");
-            __builder.AddMarkupContent(158, "\r\n                ");
-            __builder.OpenElement(159, "button");
-            __builder.AddAttribute(160, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(157, "id", "div4");
+            __builder.AddAttribute(158, "class", "divs CHidden TableGroupDIV");
+            __builder.AddMarkupContent(159, "\r\n        ");
+            __builder.AddMarkupContent(160, "<h1>Tafel kiezen</h1>\r\n        ");
+            __builder.OpenElement(161, "div");
+            __builder.AddAttribute(162, "class", "Tafel   card-group");
+            __builder.AddAttribute(163, "style", " background-image: url(\'images/tafel-van-zes.png\');  width:500px; height:450px; margin-left: 69px;\r\n        margin-bottom: 36px; ");
+            __builder.AddMarkupContent(164, "\r\n\r\n            ");
+            __builder.OpenElement(165, "div");
+            __builder.AddAttribute(166, "style", " margin-left:21%; margin-top: 7%;");
+            __builder.AddMarkupContent(167, "\r\n\r\n                ");
+            __builder.OpenElement(168, "button");
+            __builder.AddAttribute(169, "type", "button");
+            __builder.AddAttribute(170, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
-#line 114 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                  (e => SelectedTable(8))
+#line 87 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                (e => SelectedTable(1))
 
 #line default
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(161, "style", "width: 58px;  height: 48px; margin-left: 25px;  margin-right: 33px;  margin-top: 17%;");
-            __builder.AddAttribute(162, "class", " Tafel btn btn-primary");
-            __builder.AddMarkupContent(163, "\r\n                    8\r\n                ");
+            __builder.AddAttribute(171, "style", "width: 47px;\r\n        height: 57px; margin-left: 10px;   margin-right: 33px; ");
+            __builder.AddAttribute(172, "class", "Tafel tafels btn btn-primary");
+            __builder.AddMarkupContent(173, "\r\n                    1\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(164, "\r\n                ");
-            __builder.OpenElement(165, "button");
-            __builder.AddAttribute(166, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(174, "\r\n\r\n                ");
+            __builder.OpenElement(175, "button");
+            __builder.AddAttribute(176, "type", "button");
+            __builder.AddAttribute(177, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
-#line 117 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                  (e => SelectedTable(10))
+#line 92 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                (e => SelectedTable(2))
 
 #line default
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(167, "style", "width: 58px;  height: 48px;  margin-left: 25px;  margin-right: 33px;  margin-top: 31%;");
-            __builder.AddAttribute(168, "class", " Tafel btn btn-primary");
-            __builder.AddMarkupContent(169, "\r\n                    10\r\n                ");
+            __builder.AddAttribute(178, "style", "width: 47px;\r\n        height: 57px; margin-left: 10px;   margin-right: 33px; ");
+            __builder.AddAttribute(179, "class", "Tafel btn btn-primary");
+            __builder.AddMarkupContent(180, "\r\n                    2\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(170, "\r\n                ");
-            __builder.OpenElement(171, "button");
-            __builder.AddAttribute(172, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(181, "\r\n                ");
+            __builder.OpenElement(182, "button");
+            __builder.AddAttribute(183, "type", "button");
+            __builder.AddAttribute(184, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
-#line 120 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                  (e => SelectedTable(11))
+#line 96 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                (e => SelectedTable(3))
 
 #line default
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(173, "style", " width: 90px; height: 48px; margin-left: 25px; margin-right: 33px;   margin-top: 34%;");
-            __builder.AddAttribute(174, "class", "Tafel  btn btn-primary");
-            __builder.AddMarkupContent(175, "\r\n                    11\r\n                ");
+            __builder.AddAttribute(185, "style", "width: 47px;\r\n        height: 57px; margin-left: 10px;   margin-right: 33px; ");
+            __builder.AddAttribute(186, "class", "Tafel btn btn-primary");
+            __builder.AddMarkupContent(187, "\r\n                    3\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(176, "\r\n            ");
+            __builder.AddMarkupContent(188, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(177, "\r\n            ");
-            __builder.OpenElement(178, "div");
-            __builder.AddAttribute(179, "style", "  width: 19%; margin-left: 1%; ");
-            __builder.AddMarkupContent(180, "\r\n                ");
-            __builder.OpenElement(181, "button");
-            __builder.AddAttribute(182, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(189, "\r\n\r\n            ");
+            __builder.OpenElement(190, "div");
+            __builder.AddAttribute(191, "style", "margin-top: 7%;");
+            __builder.AddMarkupContent(192, "\r\n                ");
+            __builder.OpenElement(193, "button");
+            __builder.AddAttribute(194, "type", "button");
+            __builder.AddAttribute(195, "class", "Tafel  btn btn-primary");
+            __builder.AddAttribute(196, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
-#line 125 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                  (e => SelectedTable(7))
+#line 103 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                                               (e => SelectedTable(4))
 
 #line default
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(183, "style", "width: 58px;height: 46px; margin-left: 7px;margin-right: 6px; margin-top: 20%;");
-            __builder.AddAttribute(184, "class", "Tafel btn btn-primary");
-            __builder.AddMarkupContent(185, "\r\n                    7\r\n                ");
+            __builder.AddAttribute(197, "style", "width: 47px; height: 87px; margin-left: 27px; margin-right: 40px; margin-top: 15px;");
+            __builder.AddMarkupContent(198, "\r\n                    4\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(186, "\r\n                ");
-            __builder.OpenElement(187, "button");
-            __builder.AddAttribute(188, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(199, "\r\n            ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(200, "\r\n\r\n            ");
+            __builder.OpenElement(201, "div");
+            __builder.AddAttribute(202, "style", "padding-left: 50%;height: 7%; margin-top: -3%;");
+            __builder.AddMarkupContent(203, "\r\n                ");
+            __builder.OpenElement(204, "button");
+            __builder.AddAttribute(205, "type", "button");
+            __builder.AddAttribute(206, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
-#line 128 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                  (e => SelectedTable(9))
+#line 109 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                (e => SelectedTable(5))
 
 #line default
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(189, "style", " width: 59px; height: 45px; margin-left: 7px; margin-right: 33px;  margin-top: 55%;");
-            __builder.AddAttribute(190, "class", "Tafel btn btn-primary");
-            __builder.AddMarkupContent(191, "\r\n                    9\r\n                ");
+            __builder.AddAttribute(207, "style", "width: 30px; height: 35px; margin-right:48px;");
+            __builder.AddAttribute(208, "class", " Tafel btn btn-primary");
+            __builder.AddContent(209, "6");
             __builder.CloseElement();
-            __builder.AddMarkupContent(192, "\r\n            ");
-            __builder.CloseElement();
-            __builder.AddMarkupContent(193, "\r\n            ");
-            __builder.OpenElement(194, "input");
-            __builder.AddAttribute(195, "id", "2");
-            __builder.AddAttribute(196, "type", "button");
-            __builder.AddAttribute(197, "value", "volgende");
-            __builder.AddAttribute(198, "class", "buttons");
-            __builder.AddAttribute(199, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(210, "\r\n                ");
+            __builder.OpenElement(211, "button");
+            __builder.AddAttribute(212, "type", "button");
+            __builder.AddAttribute(213, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
-#line 132 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-                                                                                   NextDiv
+#line 110 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                (e => SelectedTable(6))
 
 #line default
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(200, "style", "float:right");
+            __builder.AddAttribute(214, "style", "width: 30px; height: 35px; ");
+            __builder.AddAttribute(215, "class", " Tafel btn btn-primary");
+            __builder.AddContent(216, "5");
             __builder.CloseElement();
-            __builder.AddMarkupContent(201, "\r\n\r\n        ");
+            __builder.AddMarkupContent(217, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(202, "\r\n    ");
+            __builder.AddMarkupContent(218, "\r\n\r\n            ");
+            __builder.OpenElement(219, "div");
+            __builder.AddAttribute(220, "style", "width: 27%; margin-left: 1%;margin-bottom: 24%;  margin-top: 3%;");
+            __builder.AddMarkupContent(221, "\r\n                ");
+            __builder.OpenElement(222, "button");
+            __builder.AddAttribute(223, "type", "button");
+            __builder.AddAttribute(224, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
+#nullable restore
+#line 114 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                (e => SelectedTable(8))
+
+#line default
+#line hidden
+#nullable disable
+            ));
+            __builder.AddAttribute(225, "style", "width: 58px;  height: 48px; margin-left: 25px;  margin-right: 33px;  margin-top: 17%;");
+            __builder.AddAttribute(226, "class", " Tafel btn btn-primary");
+            __builder.AddMarkupContent(227, "\r\n                    8\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(203, "\r\n\r\n");
+            __builder.AddMarkupContent(228, "\r\n                ");
+            __builder.OpenElement(229, "button");
+            __builder.AddAttribute(230, "type", "button");
+            __builder.AddAttribute(231, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
+#nullable restore
+#line 117 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                (e => SelectedTable(10))
+
+#line default
+#line hidden
+#nullable disable
+            ));
+            __builder.AddAttribute(232, "style", "width: 58px;  height: 48px;  margin-left: 25px;  margin-right: 33px;  margin-top: 31%;");
+            __builder.AddAttribute(233, "class", " Tafel btn btn-primary");
+            __builder.AddMarkupContent(234, "\r\n                    10\r\n                ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(235, "\r\n                ");
+            __builder.OpenElement(236, "button");
+            __builder.AddAttribute(237, "type", "button");
+            __builder.AddAttribute(238, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
+#nullable restore
+#line 120 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                (e => SelectedTable(11))
+
+#line default
+#line hidden
+#nullable disable
+            ));
+            __builder.AddAttribute(239, "style", " width: 90px; height: 48px; margin-left: 25px; margin-right: 33px;   margin-top: 34%;");
+            __builder.AddAttribute(240, "class", "Tafel  btn btn-primary");
+            __builder.AddMarkupContent(241, "\r\n                    11\r\n                ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(242, "\r\n            ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(243, "\r\n            ");
+            __builder.OpenElement(244, "div");
+            __builder.AddAttribute(245, "style", "  width: 19%; margin-left: 1%; ");
+            __builder.AddMarkupContent(246, "\r\n                ");
+            __builder.OpenElement(247, "button");
+            __builder.AddAttribute(248, "type", "button");
+            __builder.AddAttribute(249, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
+#nullable restore
+#line 125 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                (e => SelectedTable(7))
+
+#line default
+#line hidden
+#nullable disable
+            ));
+            __builder.AddAttribute(250, "style", "width: 58px;height: 46px; margin-left: 7px;margin-right: 6px; margin-top: 20%;");
+            __builder.AddAttribute(251, "class", "Tafel btn btn-primary");
+            __builder.AddMarkupContent(252, "\r\n                    7\r\n                ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(253, "\r\n                ");
+            __builder.OpenElement(254, "button");
+            __builder.AddAttribute(255, "type", "button");
+            __builder.AddAttribute(256, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
+#nullable restore
+#line 128 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                (e => SelectedTable(9))
+
+#line default
+#line hidden
+#nullable disable
+            ));
+            __builder.AddAttribute(257, "style", " width: 59px; height: 45px; margin-left: 7px; margin-right: 33px;  margin-top: 55%;");
+            __builder.AddAttribute(258, "class", "Tafel btn btn-primary");
+            __builder.AddMarkupContent(259, "\r\n                    9\r\n                ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(260, "\r\n            ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(261, "\r\n\r\n        ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(262, "\r\n        ");
+            __builder.OpenElement(263, "input");
+            __builder.AddAttribute(264, "id", "3");
+            __builder.AddAttribute(265, "type", "button");
+            __builder.AddAttribute(266, "value", "volgende");
+            __builder.AddAttribute(267, "class", "buttons btn btn-primary");
+            __builder.AddAttribute(268, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
+#nullable restore
+#line 134 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                                                               NextDiv
+
+#line default
+#line hidden
+#nullable disable
+            ));
+            __builder.AddAttribute(269, "style", "float:right");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(270, "\r\n    ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(271, "\r\n");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(272, "\r\n");
+            __builder.OpenElement(273, "form");
+            __builder.AddMarkupContent(274, "\r\n    ");
+            __builder.OpenElement(275, "div");
+            __builder.AddAttribute(276, "id", "div5");
+            __builder.AddAttribute(277, "class", "divs CHidden");
+            __builder.AddMarkupContent(278, "\r\n\r\n        ");
+            __builder.OpenElement(279, "div");
+            __builder.AddAttribute(280, "style", "background-color: #ffffff;   width: 65%; height: 37%;  margin-left: 18%; margin-top: 62px; padding: 1% 4% 7% 1%;");
+            __builder.AddMarkupContent(281, "\r\n            ");
+            __builder.AddMarkupContent(282, "<h1> Overzicht</h1>\r\n            ");
+            __builder.OpenElement(283, "div");
+            __builder.AddAttribute(284, "class", "form-inline  form-group");
+            __builder.AddMarkupContent(285, "\r\n                ");
+            __builder.AddMarkupContent(286, "<label for=\"Datum\">Datum</label>\r\n\r\n                ");
+            __builder.OpenElement(287, "label");
+            __builder.AddAttribute(288, "class", "form-controls");
+            __builder.AddContent(289,
+#nullable restore
+#line 145 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                              CreateRes.date
+
+#line default
+#line hidden
+#nullable disable
+            );
+            __builder.CloseElement();
+            __builder.AddMarkupContent(290, "\r\n            ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(291, "\r\n            ");
+            __builder.OpenElement(292, "div");
+            __builder.AddAttribute(293, "class", "form-inline form-group ");
+            __builder.AddMarkupContent(294, "\r\n                ");
+            __builder.AddMarkupContent(295, "<label for=\"Dagdeel\">Dagdeel</label>\r\n\r\n                ");
+            __builder.OpenElement(296, "label");
+            __builder.AddAttribute(297, "class", "form-controls");
+            __builder.AddContent(298,
+#nullable restore
+#line 150 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                              CreateRes.Daypart
+
+#line default
+#line hidden
+#nullable disable
+            );
+            __builder.CloseElement();
+            __builder.AddMarkupContent(299, "\r\n            ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(300, "\r\n            ");
+            __builder.OpenElement(301, "div");
+            __builder.AddAttribute(302, "class", "form-inline form-group ");
+            __builder.AddMarkupContent(303, "\r\n                ");
+            __builder.AddMarkupContent(304, "<label for=\"Dagdeel\">Naam</label>\r\n\r\n                ");
+            __builder.OpenElement(305, "label");
+            __builder.AddAttribute(306, "class", "form-controls");
+            __builder.AddContent(307,
+#nullable restore
+#line 155 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                              CreateRes.FullName
+
+#line default
+#line hidden
+#nullable disable
+            );
+            __builder.CloseElement();
+            __builder.AddMarkupContent(308, "\r\n            ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(309, "\r\n            ");
+            __builder.OpenElement(310, "div");
+            __builder.AddAttribute(311, "class", "form-inline form-group ");
+            __builder.AddMarkupContent(312, "\r\n                ");
+            __builder.AddMarkupContent(313, "<label for=\"Dagdeel\">E-mail</label>\r\n\r\n                ");
+            __builder.OpenElement(314, "labels");
+            __builder.AddAttribute(315, "class", "form-controls");
+            __builder.AddContent(316,
+#nullable restore
+#line 160 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                                CreateRes.Email
+
+#line default
+#line hidden
+#nullable disable
+            );
+            __builder.CloseElement();
+            __builder.AddMarkupContent(317, "\r\n            ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(318, "\r\n            ");
+            __builder.OpenElement(319, "div");
+            __builder.AddAttribute(320, "class", "form-inline form-group ");
+            __builder.AddMarkupContent(321, "\r\n                ");
+            __builder.AddMarkupContent(322, "<label for=\"Dagdeel\">Aantal personen</label>\r\n\r\n                ");
+            __builder.OpenElement(323, "label");
+            __builder.AddAttribute(324, "class", "form-controls");
+            __builder.AddContent(325,
+#nullable restore
+#line 165 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                              CreateRes.Amount
+
+#line default
+#line hidden
+#nullable disable
+            );
+            __builder.CloseElement();
+            __builder.AddMarkupContent(326, "\r\n            ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(327, "\r\n            ");
+            __builder.OpenElement(328, "div");
+            __builder.AddAttribute(329, "class", "form-inline form-group ");
+            __builder.AddMarkupContent(330, "\r\n                ");
+            __builder.AddMarkupContent(331, "<label for=\"Dagdeel\">Tafel</label>\r\n\r\n                ");
+            __builder.OpenElement(332, "label");
+            __builder.AddAttribute(333, "class", "form-controls");
+            __builder.AddContent(334,
+#nullable restore
+#line 170 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+                                              CreateRes.Table
+
+#line default
+#line hidden
+#nullable disable
+            );
+            __builder.CloseElement();
+            __builder.AddMarkupContent(335, "\r\n            ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(336, "\r\n\r\n\r\n\r\n            ");
+            __builder.AddMarkupContent(337, "<button type=\"submit\" class=\"btn btn-primary\" style=\"float:left\">\r\n                <a href=\"/Datum\">terug</a>\r\n            </button>\r\n\r\n            ");
+            __builder.AddMarkupContent(338, "<button type=\"submit\" class=\"btn btn-primary\" style=\"float:right\">\r\n                Reservering\r\n            </button>\r\n        ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(339, "\r\n    ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(340, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998
 #nullable restore
-#line 138 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-      
+#line 188 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
 
-        async Task ShowAlert()
-        {
-            await JsRuntime.InvokeVoidAsync("CreateAlert");
+
+    async Task NextDiv()
+    {
+        if (IsValidEmail(CreateRes.Email) != false)
+        {          await JsRuntime.InvokeVoidAsync("datumprikker");
+
+
         }
-        async Task NextDiv()
-        {
-            await JsRuntime.InvokeVoidAsync("NextDiv");
-        }
 
 
 
-public string Message;
+    }
+
+
+    public int i;
+    SqlConnection con = new SqlConnection();
+    public string Message;
     Reservation CreateRes = new Reservation();
     void SelectedTable(int SelectedTable)
     {
-        CreateRes.tafel = SelectedTable;
-        Message = "Tafel Nummer gekozen" + CreateRes.tafel.ToString();
+        CreateRes.Table = SelectedTable;
+        Message = "Tafel Nummer gekozen" + CreateRes.Table.ToString();
         Debug.WriteLine(Message);
 
 
@@ -474,18 +706,67 @@ public string Message;
     {
         if (SelectedDaypart == false)
         {
-            CreateRes.dagdeel = "lunch";
+            CreateRes.Daypart = "lunch";
         }
         else
         {
-            CreateRes.dagdeel = "diner";
+            CreateRes.Daypart = "diner";
         }
-        Message = "daypart  gekozen" + CreateRes.dagdeel.ToString();
+        Message = "daypart  gekozen" + CreateRes.Daypart.ToString();
         Debug.WriteLine(Message);
+    }
 
 
+    bool IsValidEmail(string email)
+    {
+        try
+        {
+            var addr = new System.Net.Mail.MailAddress(email);
+            return addr.Address == email;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+    void InsertUser()
+    {
+
+
+
+        if (IsValidEmail(CreateRes.Email) != false)
+        {
+            con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`) VALUES (@Fullname,@Email)");
+            con.Cmd.Parameters.AddWithValue("@Fullname", CreateRes.FullName);
+            con.Cmd.Parameters.AddWithValue("@Email", CreateRes.Email);
+            con.NonQueryEx();
+            InsertReservation();
+        }
+    }
+
+    void InsertReservation()
+    {
+        con.SqlQuery("SELECT `id_Guest` FROM `guest` WHERE `FullName`=@Fullname AND `Email`=@Email");
+        con.Cmd.Parameters.AddWithValue("@Fullname", CreateRes.FullName);
+        con.Cmd.Parameters.AddWithValue("@Email", CreateRes.Email);
+        con.QueryEx();
+
+        foreach (DataRow dr in con.QueryEx().Rows)
+        {
+            string id = dr[0].ToString();
+
+            con.SqlQuery("INSERT INTO `reservation`(`Date`, `DayPart`, `TableNumber`, `Guest`, `Amount`) VALUES (@Date,@Daypart,@TableNumber,@Guest,@Amount)");
+            con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date);
+            con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
+            con.Cmd.Parameters.AddWithValue("@TableNumber", CreateRes.Table);
+            con.Cmd.Parameters.AddWithValue("@Guest", id);
+            con.Cmd.Parameters.AddWithValue("@Amount", CreateRes.Amount);
+            con.NonQueryEx();
+
+        }
 
     }
+
 
 #line default
 #line hidden
