@@ -1,4 +1,10 @@
 ﻿
+window.TestFunctions = {
+    InvokeAlert: function (AlertString) {
+        alert(AlertString);
+    }
+};
+
 function LastDiv() {
     $("div[class=divs]").hide();
     $("div[id=div4]").hide();
@@ -13,12 +19,27 @@ function NextDiv() {
     $("div[class=divs]").hide();
     $("div[id=div4]").hide();
     number += 1;
+
+    var n = number.toString();
     $("div[id=div"+n+"]").removeClass('CHidden');
     $("div[id=div" + n + "]").show();
-    var n = number.toString();
-    if (number == 2) {
-        datumprikker();
-    }
+
+}
+function datumprikker() {
+    var SelectedDates = {};
+    SelectedDates[new Date('04/05/2019')] = new Date('04/05/2016');
+    SelectedDates[new Date('05/04/2017')] = new Date('05/04/2017');
+    SelectedDates[new Date('06/06/2018')] = new Date('06/06/2018');
+    var nowDate = new Date();
+    var today = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), 0, 0, 0, 0);
+
+    $('.input-daterange').datepicker({
+        format: "mm/dd/yyyy",
+        startDate: new Date(),
+        numberOfMonths: 2,
+        language: 'nl'
+
+    });
 
 }
 /*
