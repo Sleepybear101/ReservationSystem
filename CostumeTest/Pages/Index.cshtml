@@ -10,40 +10,47 @@
   <div class="progress-bar" role="progressbar" style="width: 35%; padding-left: 50px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.nl.min.js"></script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Reservatie Form</title>
+
+</head>
+<body>
+
+    @(await Html.RenderComponentAsync<Component>(RenderMode.ServerPrerendered))
+    <script src="_framework/blazor.server.js"></script>
+    <script src="js/button.js"></script>
+    <script>
+
+    </script>
+    <!--=        <br />
+            <br />
+            <input id="3" type="button" value="3" class="buttons" />
+            <div id="div3" class="divs" style="width: 200px; height: 100px; background-color: pink">
+                Div 3
+            </div>
+            <br />
+            <br />
+            <input id="4" type="button" value="4" class="buttons" />
+            <div id="div4" class="divs" style="width: 200px; height: 100px; background-color: pink">
+                Div 4
+            </div>
+            <br />
+            <br />
+            <input id="5" type="button" value="5" class="buttons" />
+            <div id="div5" class="divs" style="width: 200px; height: 100px; background-color: pink">
+                Div 5
+            </div>
+            <br />
+            <br />
+            <input id="6" type="button" value="6" class="buttons" />
+            <div id="div6" class="divs" style="width: 200px; height: 100px; background-color: pink">
+                Div 6
+            </div>
+            <br />
+            <br />-->
 
 
-@(await Html.RenderComponentAsync<Component>(RenderMode.ServerPrerendered))
-<script src="_framework/blazor.server.js"></script>
-<script src="js/button.js"></script>
-
-
-<!--=        <br />
-        <br />
-        <input id="3" type="button" value="3" class="buttons" />
-        <div id="div3" class="divs" style="width: 200px; height: 100px; background-color: pink">
-            Div 3
-        </div>
-        <br />
-        <br />
-        <input id="4" type="button" value="4" class="buttons" />
-        <div id="div4" class="divs" style="width: 200px; height: 100px; background-color: pink">
-            Div 4
-        </div>
-        <br />
-        <br />
-        <input id="5" type="button" value="5" class="buttons" />
-        <div id="div5" class="divs" style="width: 200px; height: 100px; background-color: pink">
-            Div 5
-        </div>
-        <br />
-        <br />
-        <input id="6" type="button" value="6" class="buttons" />
-        <div id="div6" class="divs" style="width: 200px; height: 100px; background-color: pink">
-            Div 6
-        </div>
-        <br />
-        <br />-->
+</body>
+</html>

@@ -14,14 +14,14 @@ namespace ReservationGuest.Components
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+#line 1 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
+#line 2 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
 using System.Diagnostics;
 
 #line default
@@ -57,7 +57,7 @@ using Microsoft.JSInterop;
         #pragma warning restore 1998
 #nullable restore
 #line 188 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\Component.razor"
-      
+
 
     async Task NextDiv()
     {

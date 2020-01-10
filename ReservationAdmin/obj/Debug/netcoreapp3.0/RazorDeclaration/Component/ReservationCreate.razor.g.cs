@@ -14,21 +14,21 @@ namespace ReservationAdmin.Component
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Component\ReservationCreate.razor"
+#line 1 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\ReservationCreate.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Component\ReservationCreate.razor"
+#line 2 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\ReservationCreate.razor"
 using System.Diagnostics;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Component\ReservationCreate.razor"
+#line 3 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\ReservationCreate.razor"
 using System.Data;
 
 #line default
@@ -50,7 +50,7 @@ using ReservationAdmin.Models;
         #pragma warning restore 1998
 #nullable restore
 #line 117 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Component\ReservationCreate.razor"
-      
+
 
 
     public int i;
@@ -94,7 +94,7 @@ using ReservationAdmin.Models;
 
     void InsertUser()
     {
- 
+
         CreateRes.date = DateTime.Today;
 
         IsValidEmail(CreateRes.Email);
