@@ -305,3 +305,4 @@ C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Component\ReservationCreate.razor.g.cs
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Pages\AanmakenReservering.cshtml.g.cs
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Pages\Agenda.cshtml.g.cs
+C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.MvcApplicationPartsAssemblyInfo.cs

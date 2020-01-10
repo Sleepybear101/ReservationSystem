@@ -287,3 +287,5 @@ C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\bin\Debu
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\bin\Debug\netcoreapp3.0\System.Xml.XPath.XmlDocument.dll
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\RazorDeclaration\Components\Component.razor.g.cs
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\Razor\Components\Component.razor.g.cs
+C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\ReservationGuest.csprojAssemblyReference.cache
+C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\Razor\Pages\datum.cshtml.g.cs

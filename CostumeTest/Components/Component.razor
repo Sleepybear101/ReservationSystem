@@ -187,20 +187,14 @@
 
 @code{
 
-    async Task NextDiv()
-    {
-        if (IsValidEmail(CreateRes.Email) != false)
+        async Task NextDiv()
         {
-            await JsRuntime.InvokeVoidAsync("NextDiv");
+            if (IsValidEmail(CreateRes.Email) != false)
+            {
+                await JsRuntime.InvokeVoidAsync("NextDiv");
 
+            }
         }
-
-
-
-    }
-
-    }
-
     public int i;
     SqlConnection con = new SqlConnection();
     public string Message;
@@ -281,5 +275,4 @@
         }
 
     }
-
 }
