@@ -1,5 +1,7 @@
 ﻿@page
-@using ReservationAdmin
+@using System.Diagnostics
+@using Microsoft.AspNetCore.Mvc.ModelBinding
+@using ReservationAdmin.Component
 @model PoenkModel
 @{
     ViewData["Title"] = "Home page";
@@ -43,7 +45,7 @@
 <div style="background-color:#D5DAD7; float :left; width: 35%;  height: 100vh;">
     <p style="     margin-left: 7%; color: #9597A6; font-size: 24px;padding-top: 5px;    margin-bottom: 5px;">Agenda</p>
 
-    <div style="  border-top: 1px solid;padding-bottom: 7px;   margin-left: 2%; width: 95%; color: #ffff;">
-    
-    </div>
-</div>
+   </div> 
+                 @(await Html.RenderComponentAsync<Component>(RenderMode.ServerPrerendered))
+
+<script src="_framework/blazor.server.js"></script>

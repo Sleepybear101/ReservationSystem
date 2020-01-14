@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Components.Web;
+@using System.Diagnostics;
+@using System.Data;
+@using ReservationAdmin.Models;
+
+
+<button type="button" @onclick="getReservations" class="btn Daypart-btn Daypart-btn-lunch" />
+
+@code {
+
+    SqlConnection con = new SqlConnection();
+    Reservation CreateRes = new Reservation();
+
+    public void getReservations()
+    {
+        CreateRes.date = DateTime.Today;
+
+
+        con.SqlQuery("Select *  from reservation where 'date' = @mooienaamvooreendatum sort by tablenumber");
+        con.Cmd.Parameters.AddWithValue("@mooienaamvooreendatum", CreateRes.date);
+        con.QueryEx();
+    }
+}
