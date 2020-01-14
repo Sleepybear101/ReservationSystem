@@ -1,25 +1,41 @@
-﻿
-function LastDiv() {
-    $("div[class=divs]").hide();
-    $("div[id=div4]").hide();
-    number -= 1;
-    var n = number.toString();
-    $("div[id=div" + n + "]").removeClass('CHidden');
-    $("div[id=div" + n + "]").show();
+﻿var number = 1;
 
+//verstop de div's met class divs name en laat de eerste div zien
+function LastDiv() { 
+    $("div[class=divs]").hide();
+    $("div[id=div1]").show();
+    number = 1
 }
-var number = 1;
+//verstop de div's met class divs name en laat de volgende div zien
 function NextDiv() {
     $("div[class=divs]").hide();
     $("div[id=div4]").hide();
     number += 1;
-    $("div[id=div"+n+"]").removeClass('CHidden');
-    $("div[id=div" + n + "]").show();
     var n = number.toString();
-    if (number == 2) {
-        datumprikker();
-    }
+    $("div[id=div"+n+"]").removeClass('CHidden');
+    $("div[id=div"+n+"]").show();
 
+
+    var dtToday = new Date();
+
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if (month < 10)
+        month = '0' + month.toString();
+    if (day < 10)
+        day = '0' + day.toString();
+
+    var maxDate = year + '-' + month + '-' + day;
+    $('#txtDate').attr('min', maxDate);
+
+
+
+}
+
+
+function Message() {
+    alert("Reservering is aangemaakt");
 }
 /*
 function datumprikker() {
