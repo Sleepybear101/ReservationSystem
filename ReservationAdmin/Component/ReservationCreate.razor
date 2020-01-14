@@ -121,6 +121,23 @@
     SqlConnection con = new SqlConnection();
     public string Message;
     Reservation CreateRes = new Reservation();
+  
+//Check of mail correct is anders stuurt de 
+  bool IsValidEmail(string email)
+    {
+        try
+        {
+            var addr = new System.Net.Mail.MailAddress(email);
+            return addr.Address == email;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+   //Pak de waarde van geselecteerd tafel
+
     void SelectedTable(int SelectedTable)
     {
         CreateRes.Table = SelectedTable;
@@ -129,6 +146,7 @@
 
 
     }
+    //Pak de waarde van geselecteerd dagdeel
     void SelectedDaypart(bool SelectedDaypart)
     {
         if (SelectedDaypart == false)
@@ -141,28 +159,13 @@
         }
         Message = "daypart  gekozen" + CreateRes.Daypart.ToString();
         Debug.WriteLine(Message);
-
-
     }
 
-   bool IsValidEmail(string email)
-{
-    try {
-        var addr = new System.Net.Mail.MailAddress(email);
-        return addr.Address == email;
-    }
-    catch {
-        return false;
-    }
-}
-
+        //Zet Gast neer in database
     void InsertUser()
     {
- 
-        CreateRes.date = DateTime.Today;
 
-        IsValidEmail(CreateRes.Email);
-        if (IsValidEmail(CreateRes.Email) != false)
+        if (IsValidEmail(CreateRes.Email) != false )
         {
             con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`) VALUES (@Fullname,@Email)");
             con.Cmd.Parameters.AddWithValue("@Fullname", CreateRes.FullName);
@@ -170,8 +173,10 @@
             con.NonQueryEx();
             InsertReservation();
         }
-    }
 
+
+    }
+        //Zet Gast neer in database
     void InsertReservation()
     {
         con.SqlQuery("SELECT `id_Guest` FROM `guest` WHERE `FullName`=@Fullname AND `Email`=@Email");

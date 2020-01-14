@@ -18,12 +18,13 @@
 </head>
 <body>
 
-    @(await Html.RenderComponentAsync<Component>(RenderMode.ServerPrerendered))
+
+    <!--Haalt de forms en zet het neer als html -->
+    @(await Html.RenderComponentAsync<CreateReservation>(RenderMode.ServerPrerendered))
+
     <script src="_framework/blazor.server.js"></script>
     <script src="js/button.js"></script>
-    <script>
 
-    </script>
     <!--=        <br />
             <br />
             <input id="3" type="button" value="3" class="buttons" />
@@ -50,7 +51,7 @@
             </div>
             <br />
             <br />-->
+  
 
-
-</body>
-</html>
+</body >
+</html >

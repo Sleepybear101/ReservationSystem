@@ -7,8 +7,8 @@ namespace ReservationGuest.Models
 {
     public class Reservation
     {
+        public int id { get; set; }
         public string FullName { get; set; }
-
         public string Email { get; set; }
         public string Amount { get; set; }
         public DateTime date { get; set; }
