@@ -58,9 +58,11 @@ a.navbar-brand {
 a {
     color: #fff;
 }
-.form-control, .form-controls{
+
+.form-control, .form-controls {
     margin-left: 10%;
 }
+
 .form-controls {
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
@@ -75,10 +77,12 @@ a {
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
 #exampleInputEmail1 {
     margin-left: 101px;
     width: 54%;
 }
+
 .label {
     font-weight: 200;
 }
@@ -131,11 +135,12 @@ button.accept-policy {
 }
 
 input[type="hidden" i] {
-    display: block;!important
+    display: block;
+    !important
 }
-    /* Sticky footer styles
+/* Sticky footer styles
 -------------------------------------------------- */
-    html {
+html {
     position: relative;
     min-height: 100%;
 }
@@ -156,6 +161,7 @@ h1 {
 ul {
     font-family: 'Nunito', sans-serif;
 }
+
 h1 {
     color: #545871;
     font-weight: 600;
@@ -184,6 +190,7 @@ h1 {
     background: -moz-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
     background: linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
 }
+
 #div1 {
     background-color: #ffffff;
     width: 51%;
@@ -192,6 +199,7 @@ h1 {
     margin-top: 62px;
     padding: 1% 4% 7% 1%;
 }
+
 .Field-Email {
     margin-left: 20%;
 }
@@ -239,6 +247,16 @@ h1 {
     border-color: #3B86FF;
 }
 
+.unstyled {
+    -webkit-appearance: none;
+}
+
+    .unstyled::-webkit-inner-spin-button, .unstyled::-webkit-clear-button {
+        display: none;
+        -webkit-appearance: none;
+    }
+
+
 .btn-circle {
     width: 30px;
     height: 30px;
@@ -247,7 +265,7 @@ h1 {
     font-size: 12px;
     line-height: 1.428571429;
     border-radius: 15px;
-    color:#fbfafd;
+    color: #fbfafd;
     background-color: #3B86FF;
     border-color: #3B86FF
 }
@@ -255,10 +273,20 @@ h1 {
 .Tafel:focus {
     background-color: #0366d6;
 }
+
 .Tafel {
-    background-color: dimgray;
+    background-color: #29832a;
 }
 
+.ReservedT {
+    pointer-events: none;
+    background-color: #960f0f;
+}
+
+.Disabled {
+    pointer-events: none;
+    background-color: dimgray;
+}
 
 .Daypart-div {
     background-color: #ffffff;
@@ -310,7 +338,10 @@ h4 {
 
 .CHidden {
     visibility: hidden;
+    width: 30%;
+    height: 30%;
 }
+
 .TableGroupDIV {
     background-color: #ffff;
     width: 49%;
@@ -319,6 +350,7 @@ h4 {
     padding: 19px;
     padding-bottom: 50px;
 }
+
 .Form-date {
     background-color: #ffffff;
     width: 49%;
@@ -327,6 +359,7 @@ h4 {
     margin-top: 62px;
     padding: 1% 4% 7% 1%;
 }
+
 .date-div {
     margin-left: 16%;
     width: 40%;
@@ -341,6 +374,7 @@ h4 {
     margin-top: 61px;
     padding: 1% 4% 7% 1%;
 }
+
 .form-daypart {
     border: 1px solid #E6DBDA;
     border-radius: 4px;
@@ -348,36 +382,44 @@ h4 {
     width: 52%;
     margin-top: 30px;
 }
+
 .form-daypart-btn-lunch {
     border-right: 1px solid #E6DBDA;
     padding-right: 43px;
     padding-left: 41px;
 }
+
 .form-daypart-btn-diner {
     width: 46%;
     padding-left: 5%;
     padding-right: 7%;
 }
+
 .date-field {
     margin-left: 20%;
 }
-.Daypart-field{
-    margin-left:18%;
+
+.Daypart-field {
+    margin-left: 18%;
 }
+
 .Email-field {
     margin-left: 21%;
 }
+
 .table-field {
     margin-left: 23%;
 }
-.name-field{
-    margin-left:21%;
+
+.name-field {
+    margin-left: 21%;
 }
-.label{
-    font-weight:500;
+
+.label {
+    font-weight: 500;
 }
 
 .name-field, .Email-field, .amount-field, .table-field, .name-field, .Daypart-field, .date-field {
     border: none;
     color: #545871;
-} 
+}

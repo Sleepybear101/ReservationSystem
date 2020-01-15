@@ -13,7 +13,7 @@ namespace CostumeTest.Pages.Shared
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\_ViewImports.cshtml"
+#line 1 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\_ViewImports.cshtml"
 using CostumeTest;
 
 #line default
@@ -66,7 +66,7 @@ using CostumeTest;
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a26657d2a7678d8ed5916ea30a4729d7a9890417345", async() => {
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>");
 #nullable restore
-#line 6 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\Shared\_Layout.cshtml"
+#line 6 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Shared\_Layout.cshtml"
       Write(ViewData["Title"]);
 
 #line default

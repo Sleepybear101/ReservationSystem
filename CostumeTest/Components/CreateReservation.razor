@@ -2,6 +2,7 @@
 @using System.Diagnostics
 @using System.Data;
 @using ReservationGuest.Models;
+@using System.Globalization;
 
 @using Microsoft.JSInterop;
 @inject IJSRuntime JsRuntime;
@@ -30,32 +31,35 @@
             </div>
 
         </div>
-        <button type="button" @onclick="(e => NextOrLastDiv(true))" class="btn btn-primary" style="float:right">Volgende </button>
+        <button type="button" @onclick="CheckBlockedOrNotFilled" class="btn btn-primary" style="float:right">Volgende </button>
     </div>
 </form>
 
 
 
 <form method="post">
-    <div id="div2" class="divs CHidden  " >
+    <div id="div2" class="divs CHidden  ">
         <div class="Form-date">
             <h1>Datum</h1>
             <div style=" margin-left: 23px;">
                 <div>
                     <div>
-                        <input type="date" id="txtDate" @bind="date" class="input-group-addon date-div form-control" />
+                        <input type="date" id="txtDate" @bind="date" onkeydown="return false" class="input-group-addon date-div unstyled form-control" max=2025-01-1 />
                     </div>
                 </div>
-                <button type="button" @onclick="(e => NextOrLastDiv(true))" class="btn btn-primary" style="float:right">Volgende </button>
+                <button type="button" @onclick="(e => NextOrLastDiv(false, 2))" class="btn btn-primary" style="float:left">
+                    terug
+                </button>
+                <button type="button" @onclick="(e => NextOrLastDiv(true, 2))" class="btn btn-primary" style="float:right">Volgende </button>
             </div>
         </div>
     </div>
 </form>
 
 <form method="post">
-    <div id="div3" class="divs CHidden" >
+    <div id="div3" class="divs CHidden">
         <div class="div-daypart">
-           <h1>Dagdeel</h1>
+            <h1>Dagdeel</h1>
 
             <div class="form-daypart">
                 <button type="button" @onclick="(e => SelectedDaypart(false))" class="btn Daypart-btn form-daypart-btn-lunch">
@@ -63,14 +67,16 @@
                     <p>11:00 - 16:00</p>
                 </button>
                 <button type="button" @onclick="(e => SelectedDaypart(true))" class="btn Daypart-btn  form-daypart-btn-diner">
-                    <h5>Diner</h5>
+                    <h5>Dinner</h5>
                     <p>17:00 - 20:00</p>
                 </button>
             </div>
-
-            <button type="button" @onclick="(e => NextOrLastDiv(true))" class="btn btn-primary" style="float:right">Volgende </button>
+            <button type="button" @onclick="(e => NextOrLastDiv(false, 3))" class="btn btn-primary" style="float:left">
+                terug
+            </button>
+            <button type="button" @onclick="CheckNumberDaypart" class="btn btn-primary" style="float:right">Volgende </button>
         </div>
-       
+
     </div>
 </form>
 <form>
@@ -81,54 +87,57 @@
 
             <div style=" margin-left:21%; margin-top: 7%;">
 
-                <button type="button" @onclick="(e => SelectedTable(1))" style="width: 47px;
-        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Tafel tafels btn btn-primary">
+                <button id="Table1" type="button" @onclick="(e => SelectedTable(1))" style="width: 47px;
+        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Tafel TableWitFour btn btn-primary">
                     1
                 </button>
 
-                <button type="button" @onclick="(e => SelectedTable(2))" style="width: 47px;
-        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Tafel btn btn-primary">
+                <button id="Table2" type="button" @onclick="(e => SelectedTable(2))" style="width: 47px;
+        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Tafel  TableWitFour btn btn-primary">
                     2
                 </button>
-                <button type="button" @onclick="(e => SelectedTable(3))" style="width: 47px;
-        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Tafel btn btn-primary">
+                <button id="Table3" type="button" @onclick="(e => SelectedTable(3))" style="width: 47px;
+        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Tafel TableWitFour btn btn-primary">
                     3
                 </button>
             </div>
 
             <div style="margin-top: 7%;">
-                <button type="button" class="Tafel  btn btn-primary" @onclick="(e => SelectedTable(4))" style="width: 47px; height: 87px; margin-left: 27px; margin-right: 40px; margin-top: 15px;">
+                <button id="Table4" type="button" class="Tafel TableWitSix  btn btn-primary" @onclick="(e => SelectedTable(4))" style="width: 47px; height: 87px; margin-left: 27px; margin-right: 40px; margin-top: 15px;">
                     4
                 </button>
             </div>
 
             <div style="padding-left: 50%;height: 7%; margin-top: -3%;">
-                <button type="button" @onclick="(e => SelectedTable(6))" style="width: 30px; height: 35px; margin-right:48px;" class=" Tafel btn btn-primary">6</button>
-                <button type="button" @onclick="(e => SelectedTable(5))" style="width: 30px; height: 35px; " class=" Tafel btn btn-primary">5</button>
+                <button id="Table5" type="button" @onclick="(e => SelectedTable(5))" style="width: 30px; height: 35px; margin-right:48px;" class="Tafel TableWitTwo btn btn-primary">6</button>
+                <button id="Table6" type="button" @onclick="(e => SelectedTable(6))" style="width: 30px; height: 35px; " class="Tafel TableWitTwo  btn btn-primary">5</button>
             </div>
 
             <div style="width: 27%; margin-left: 1%;margin-bottom: 24%;  margin-top: 3%;">
-                <button type="button" @onclick="(e => SelectedTable(8))" style="width: 58px;  height: 48px; margin-left: 25px;  margin-right: 33px;  margin-top: 17%;" class=" Tafel btn btn-primary">
+                <button id="Table8" type="button" @onclick="(e => SelectedTable(8))" style="width: 58px;  height: 48px; margin-left: 25px;  margin-right: 33px;  margin-top: 17%;" class=" Tafel TableWitFour btn btn-primary">
                     8
                 </button>
-                <button type="button" @onclick="(e => SelectedTable(10))" style="width: 58px;  height: 48px;  margin-left: 25px;  margin-right: 33px;  margin-top: 31%;" class=" Tafel btn btn-primary">
+                <button id="Table10" type="button" @onclick="(e => SelectedTable(10))" style="width: 58px;  height: 48px;  margin-left: 25px;  margin-right: 33px;  margin-top: 31%;" class=" Tafel TableWitFour btn btn-primary">
                     10
                 </button>
-                <button type="button" @onclick="(e => SelectedTable(11))" style=" width: 90px; height: 48px; margin-left: 25px; margin-right: 33px;   margin-top: 34%;" class="Tafel  btn btn-primary">
+                <button id="Table11" type="button" @onclick="(e => SelectedTable(11))" style=" width: 90px; height: 48px; margin-left: 25px; margin-right: 33px;   margin-top: 34%;" class="Tafel TableWitSix  btn btn-primary">
                     11
                 </button>
             </div>
             <div style="  width: 19%; margin-left: 1%; ">
-                <button type="button" @onclick="(e => SelectedTable(7))" style="width: 58px;height: 46px; margin-left: 7px;margin-right: 6px; margin-top: 20%;" class="Tafel btn btn-primary">
+                <button id="Table7" type="button" @onclick="(e => SelectedTable(7))" style="width: 58px;height: 46px; margin-left: 7px;margin-right: 6px; margin-top: 20%;" class="Tafel TableWitFour btn btn-primary">
                     7
                 </button>
-                <button type="button" @onclick="(e => SelectedTable(9))" style=" width: 59px; height: 45px; margin-left: 7px; margin-right: 33px;  margin-top: 55%;" class="Tafel btn btn-primary">
+                <button id="Table9" type="button" @onclick="(e => SelectedTable(9))" style=" width: 59px; height: 45px; margin-left: 7px; margin-right: 33px;  margin-top: 55%;" class="Tafel TableWitFour  btn btn-primary">
                     9
                 </button>
             </div>
 
         </div>
-        <button type="button" @onclick="(e => NextOrLastDiv(true))" class="btn btn-primary" style="float:right">Volgende </button>
+        <button type="button" @onclick="(e => NextOrLastDiv(false, 4))" class="btn btn-primary" style="float:left">
+            terug
+        </button>
+        <button type="button" @onclick="CheckTable" class="btn btn-primary" style="float:right">Volgende </button>
     </div>
 </form>
 <form>
@@ -169,11 +178,11 @@
 
 
 
-            <button type="button" @onclick="(e => NextOrLastDiv(false))" class="btn btn-primary" style="float:left">
+            <button type="button" @onclick="(e => NextOrLastDiv(false, 5))" class="btn btn-primary" style="float:left">
                 terug
             </button>
 
-            <button @onclick="InsertUser" type="button" class="btn btn-primary" style="float:right">
+            <button @onclick="CheckDoubleUser" type="button" class="btn btn-primary" style="float:right">
                 Reservering
             </button>
         </div>
@@ -187,19 +196,20 @@
     SqlConnection con = new SqlConnection();
     public string Message;
     Reservation CreateRes = new Reservation();
+    public int Rese;
     [Parameter]
-    public DateTime date { get; set; } =  DateTime.Now;
+    public DateTime date { get; set; } = DateTime.Now;
     public string DateInText { get; set; }
     public string DayPart { get; set; }
 
     // Kijkt of de terug of volgende knop is gedrukt
-    async Task NextOrLastDiv(bool NextOrLastDiv)
+    async Task NextOrLastDiv(bool NextOrLastDiv, int FormqClicked)
     {
         CreateRes.date = date;
         // als de NextOrLastDiv false wordt de javascript function LastDiv gebruikt anders  function NextDiv gebruikt
         if (NextOrLastDiv == false)
         {
-            await JsRuntime.InvokeVoidAsync("LastDiv");
+            await JsRuntime.InvokeVoidAsync("LastDiv", FormqClicked);
 
 
         }
@@ -208,20 +218,87 @@
             // checkt of de email correct om de function NextDiv gebruiken
             if (IsValidEmail(CreateRes.Email) != false)
             {
-                await JsRuntime.InvokeVoidAsync("NextDiv");
+                await JsRuntime.InvokeVoidAsync("NextDiv", FormqClicked);
 
             }
         }
-
+        //Info legen terug
+        if (FormqClicked == 4 || FormqClicked == 2)
+        {
+            CreateRes.Daypart = "";
+        }
+        else if (FormqClicked == 3 || FormqClicked == 5)
+        {
+            CreateRes.Table = 0;
+        }
         DateInText = CreateRes.date.ToLongDateString();
+    }
+    //Gereserfveerd tafel
+    async Task DisabledReserved(int Tableres)
+    {
+        await JsRuntime.InvokeVoidAsync("DisabledReserved", Tableres);
+    }
+
+    //Wanneer aantal personen
+    async Task LessThenSixFourOrTwo()
+    {
+        await JsRuntime.InvokeVoidAsync("Disabled", CreateRes.Amount);
     }
 
     // Kijkt of de terug of volgende knop is gedrukt
     async Task GetSuccesfulMessage()
     {
+
         await JsRuntime.InvokeVoidAsync("Message");
 
     }
+
+    //Blocked email
+    async Task BLocked()
+    {
+        await JsRuntime.InvokeVoidAsync("Blocked");
+    }
+
+    //Niet gevuld
+    async Task NotFilledOrCorrect(bool Result)
+    {
+        if (Result == false)
+        {
+            await JsRuntime.InvokeVoidAsync("NotFilled");
+        }
+        else
+        {
+            await JsRuntime.InvokeVoidAsync("NotCorrect");
+        }
+    }
+
+    //Dagdeel gekozen
+    void CheckNumberDaypart()
+    {
+        if (CreateRes.Daypart == "" || CreateRes.Daypart == null)
+        {
+            NotFilledOrCorrect(false);
+
+        }
+        else
+        {
+            NextOrLastDiv(true, 3);
+        }
+    }
+
+    //Tafel gekozen
+    void CheckTable()
+    {
+        if (CreateRes.Table == 0 || CreateRes.Table == null)
+        {
+            NotFilledOrCorrect(false);
+        }
+        else
+        {
+            NextOrLastDiv(true, 4);
+        }
+    }
+
 
     //Check of mail correct is anders stuurt de
     bool IsValidEmail(string email)
@@ -235,8 +312,46 @@
         {
             return false;
         }
+
     }
 
+    void CheckBlockedOrNotFilled()
+    {
+        if (CreateRes.FullName == null || CreateRes.Amount == 0)
+        {
+            NotFilledOrCorrect(false);
+        }
+        else if (IsValidEmail(CreateRes.Email) == false)
+        {
+
+            NotFilledOrCorrect(true);
+
+        }
+        else
+        {
+            //SELECT `IsBlocked` FROM `guest` WHERE `Email`=@Email
+            con.SqlQuery("SELECT Count(`IsBlocked`) FROM `guest` WHERE `Email`=@Email AND `IsBlocked`=1");
+            con.Cmd.Parameters.AddWithValue("@Email", CreateRes.Email);
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
+
+                Debug.WriteLine("get");
+                CreateRes.IsBlocked = Convert.ToInt32(dr[0].ToString());
+
+            }
+
+            if (CreateRes.IsBlocked >= 1)
+            {
+                BLocked();
+            }
+            else
+            {
+                NextOrLastDiv(true, 1);
+            }
+
+        }
+
+    }
     //Pak de waarde van geselecteerd tafel
 
     void SelectedTable(int SelectedTable)
@@ -251,65 +366,90 @@
     {
         if (SelectedDaypart == false)
         {
-            CreateRes.Daypart = "lunch";
+            CreateRes.Daypart = "Lunch";
             DayPart = "Lunch 11:00 - 16:00";
         }
         else
         {
-            CreateRes.Daypart = "diner";
+            CreateRes.Daypart = "Dinner";
             DayPart = "Diner 17:00 - 20:00";
 
         }
         Message = "daypart  gekozen" + CreateRes.Daypart.ToString();
         Debug.WriteLine(Message);
+
+
+        LessThenSixFourOrTwo();
+        ReserveTable();
+
+
     }
 
+    void ReserveTable()
+    {
+
+        //  SELECT `TableNumber` FROM `reservation` WHERE `Date`=@Date  AND `DayPart`=@Daypart
+        con.SqlQuery("SELECT `TableNumber` FROM `reservation` WHERE `Date`=@Date  AND `DayPart`=@Daypart");
+        con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date.ToString("yyyy-MM-dd"));
+        con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
+        foreach (DataRow dr in con.QueryEx().Rows)
+        {
+            Rese = Convert.ToInt32(dr[0].ToString());
+            DisabledReserved(Rese);
+        }
+    }
+
+
+    void CheckDoubleUser()
+    {
+
+        con.SqlQuery("SELECT `id_Guest` FROM `guest` WHERE `FullName`=@Fullname AND `Email`=@Email");
+        con.Cmd.Parameters.AddWithValue("@Fullname", CreateRes.FullName);
+        con.Cmd.Parameters.AddWithValue("@Email", CreateRes.Email);
+        foreach (DataRow dr in con.QueryEx().Rows)
+        {
+
+            CreateRes.id = Convert.ToInt32(dr[0].ToString());
+        }
+
+        if (CreateRes.id == 0)
+        {
+            InsertUser();
+        }
+        else
+        {
+            InsertReservation();
+        }
+    }
     //Zet Gast neer in database
     void InsertUser()
     {
 
+        //SELECT `id_Guest` FROM `guest` WHERE `FullName`='Toos' AND `Email`='Wu.rud@hotmail.com'
 
-        if (IsValidEmail(CreateRes.Email) != false)
-        {
-    
-           con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`) VALUES (@Fullname,@Email)");
-             con.Cmd.Parameters.AddWithValue("@Fullname", CreateRes.FullName);
-              con.Cmd.Parameters.AddWithValue("@Email", CreateRes.Email);
-             con.NonQueryEx();
-            InsertReservation();
-        }
+        con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`) VALUES (@Fullname,@Email)");
+        con.Cmd.Parameters.AddWithValue("@Fullname", CreateRes.FullName);
+        con.Cmd.Parameters.AddWithValue("@Email", CreateRes.Email);
+        con.NonQueryEx();
+
+        CheckDoubleUser();
 
     }
-
-
-
-
 
     //Zet Gast neer in database
     void InsertReservation()
     {
-       
-            con.SqlQuery("SELECT `id_Guest` FROM `guest` WHERE `FullName`=@Fullname AND `Email`=@Email");
-            con.Cmd.Parameters.AddWithValue("@Fullname", CreateRes.FullName);
-            con.Cmd.Parameters.AddWithValue("@Email", CreateRes.Email);
-            con.QueryEx();
+        con.SqlQuery("INSERT INTO `reservation`(`Date`, `DayPart`, `TableNumber`, `Guest`, `Amount`) VALUES (@Date,@Daypart,@TableNumber,@Guest,@Amount)");
+        con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date);
+        con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
+        con.Cmd.Parameters.AddWithValue("@TableNumber", CreateRes.Table);
+        con.Cmd.Parameters.AddWithValue("@Guest", CreateRes.id);
+        con.Cmd.Parameters.AddWithValue("@Amount", CreateRes.Amount);
+        con.NonQueryEx();
 
-            foreach (DataRow dr in con.QueryEx().Rows)
-            {
-                CreateRes.id = Int32.Parse(dr[0].ToString());
 
-                con.SqlQuery("INSERT INTO `reservation`(`Date`, `DayPart`, `TableNumber`, `Guest`, `Amount`) VALUES (@Date,@Daypart,@TableNumber,@Guest,@Amount)");
-                con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date);
-                con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
-                con.Cmd.Parameters.AddWithValue("@TableNumber", CreateRes.Table);
-                con.Cmd.Parameters.AddWithValue("@Guest", CreateRes.id);
-                con.Cmd.Parameters.AddWithValue("@Amount", CreateRes.Amount);
-                con.NonQueryEx();
-
-            }
-            GetSuccesfulMessage();
-            NextOrLastDiv(false);
-
+        GetSuccesfulMessage();
+        NextOrLastDiv(false, 1);
 
 
     }

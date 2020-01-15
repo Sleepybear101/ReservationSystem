@@ -265,15 +265,12 @@ C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcorea
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\staticwebassets\ReservationGuest.StaticWebAssets.xml
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\ReservationGuest.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\ReservationGuest.RazorComponent.input.cache
-C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\RazorDeclaration\Components\Component.razor.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\RazorDeclaration\Components\CreateReservation.razor.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\RazorDeclaration\ReservationGuest.dll
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\ReservationGuest.TagHelpers.input.cache
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\ReservationGuest.TagHelpers.output.cache
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\ReservationGuest.RazorCoreGenerate.cache
-C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\Razor\Components\Component.razor.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\Razor\Components\CreateReservation.razor.g.cs
-C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\Razor\Pages\datum.cshtml.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\Razor\Pages\Error.cshtml.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\Razor\Pages\Index.cshtml.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
@@ -291,5 +288,4 @@ C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcorea
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\ReservationGuest.dll
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\ReservationGuest.pdb
 C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\ReservationGuest.csprojAssemblyReference.cache
-C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\Razor\Pages\datum.cshtml.g.cs
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\Razor\Pages\datum.cshtml.g.cs
