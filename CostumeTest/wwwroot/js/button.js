@@ -9,10 +9,21 @@ function LastDiv(ClickedForm) {
     $("#Step" + b + "").removeClass('btn-success');
     $("#Step" + b + "").addClass('btn-circle');
     ClickedForm--;
+    if (ClickedForm == 3) {
+    $(".TableWitFour").removeClass('Disabled');
+    $(".TableWitSix").removeClass('Disabled');
+    $(".TableWitTwo").removeClass('Disabled');
+    TableFiv = 0;
+    TableSix = 0;
+    $(".Tafel").removeClass('ReservedT');
+
+    }
     var n = ClickedForm.toString();
+
     $("div[id=div" + n + "]").show();
     $("#Step" + n + "").removeClass('btn-success');
     $("#Step" + n + "").addClass('btn-progges');
+
 
 
 }
@@ -29,7 +40,6 @@ function NextDiv(ClickedForm) {
     $("div[id=div" + n + "]").show();
     $("#Step" + n + "").removeClass('btn-circle');
     $("#Step"+n+"").addClass('btn-progges');
-
     setDate();
 
 
@@ -65,64 +75,71 @@ function setDate() {
 }
 
 function Disabled(Amount) {
+
     if (Amount == 6) {
         $(".TableWitTwo").addClass('Disabled');
         $(".TableWitFour").addClass('Disabled');
     } else if (Amount >= 4) {
         $(".TableWitTwo").addClass('Disabled');
-    } else if (Amount >= 2) {
+    } else if (Amount >= 2 && TableSix == 0) {
         $(".TableWitSix").addClass('Disabled');
+        $(".TableWitFour").addClass('Disabled');
     } else if (Amount == 1) {
         $(".TableWitFour").addClass('Disabled');
         $(".TableWitSix").addClass('Disabled');
+    } else if (Amount == 2 && TableSix  == 6 && TableFiv == 5) {
+        $(".TableWitFour").removeClass('Disabled');
+        $(".TableWitSix").addClass('Disabled');
+    } else if (Amount >= 2 && TableFiv == 0) {
+        $(".TableWitSix").addClass('Disabled');
+        $(".TableWitFour").addClass('Disabled');
+    } else if (Amount >= 2 && TableSix == 0 && TableFiv == 0) {
+        $(".TableWitSix").addClass('Disabled');
+        $(".TableWitFour").addClass('Disabled');
     }
 
-
+  
 }
 var Table = 0;
+var TableSix = 0;
+var TableFiv = 0;
+
 function DisabledReserved(Table) {
-    var Tan = Table.toString();
-    $("button[id=Table" + Tan + "]").addClass('ReservedT');
-}
-function Message() {
-    ReservationSucces
-    $("#ReservationSucces").modal();
-
-}
-function Blocked() {
-
-    $("#BlockedMessage").modal();
-
-}
-function NotFilled() {
-    $("#NotFilledOrChosenMessage").modal();
-
-}
-function NotCorrect() {
-    $("#EmailNotMessage").modal();
-
-
-}
-/*
-function datumprikker() {
-
-    function() {
-        $('#datetimepicker').datetimepicker({
-            inline: true,
-            sideBySide: true
-        });
+    if (Table == 6) {
+        TableSix = 6;
+        var Tan = Table.toString();
+        $("button[id=Table" + Tan + "]").addClass('ReservedT');
+      
+            Disabled();
+        
+    } else if (Table == 5) {
+        TableFiv = 5;
+        var Tan = Table.toString();
+        $("button[id=Table" + Tan + "]").addClass('ReservedT');
+            Disabled();
+        
+    } else {
+        var Tan = Table.toString();
+        $("button[id=Table" + Tan + "]").addClass('ReservedT');
     }
 
-        $('#datetimepicker').on('dp.change', function (event) {
-            //console.log(moment(event.date).format('MM/DD/YYYY h:mm a'));
-            //console.log(event.date.format('MM/DD/YYYY h:mm a'));
-            $('#selected-date').text(event.date);
-            var formatted_date = event.date.format('MM/DD/YYYY h:mm a');
-            $('#my_hidden_input').val(formatted_date);
-            $('#hidden-val').text($('#my_hidden_input').val());
-        });
+}
+var Onderwerp;
+function Message(Onderwerp) {
 
-    NextDiv();
+    if (Onderwerp == "Succes") {
+        $("#ReservationSucces").modal();
+
+    } else if (Onderwerp == "Blocked") {
+    $("#BlockedMessage").modal();
+
+    } else if (Onderwerp == "Chosen") {
+        $("#NotFilledOrChosenMessage").modal();
+        $(".Amount").addClass('NotCorrect');
+        
+    } else if (Onderwerp == "Email") {
+       $("#EmailNotMessage").modal();
+
+    }
 
 }
-*/
