@@ -121,7 +121,7 @@
     public string Message;
     Reservation CreateRes = new Reservation();
     Guest CreateGuest = new Guest();
-   
+    public int Rese; 
     //Check of mail correct is anders stuurt de
     bool IsValidEmail(string email)
     {
@@ -153,24 +153,45 @@
         if (SelectedDaypart == false)
         {
             CreateRes.Daypart = "Lunch";
+
         }
         else
         {
             CreateRes.Daypart = "Dinner";
-        }
-        Message = "daypart  gekozen" + CreateRes.Daypart.ToString();
-        Debug.WriteLine(Message);
-
-        if (CreateRes.Amount == 6)
-        {
-            LessThenSix();
 
         }
+        TablesReset();
+        ReserveTable();
+        LessThenSixFourOrTwo();
+
+
     }
-    async Task LessThenSix()
+     async Task TablesReset()
     {
-        await JsRuntime.InvokeVoidAsync("Disabled");
+        await JsRuntime.InvokeVoidAsync("ResetTables");
+    }
+    async Task LessThenSixFourOrTwo()
+    {
+        await JsRuntime.InvokeVoidAsync("Disabled", CreateRes.Amount);
+    }
+        //Gereserveerd Tafel
+    async Task DisabledReserved(int Tableres)
+    {
+        await JsRuntime.InvokeVoidAsync("ResetTables", Tableres);
+        await JsRuntime.InvokeVoidAsync("DisabledReserved", Tableres);
+    }
 
+    void ReserveTable()
+    {
+        //  SELECT `TableNumber` FROM `reservation` WHERE `Date`=@Date  AND `DayPart`=@Daypart
+        con.SqlQuery("SELECT `TableNumber` FROM `reservation` WHERE `Date`=@Date  AND `DayPart`=@Daypart");
+        con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date.ToString("yyyy-MM-dd"));
+        con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
+        foreach (DataRow dr in con.QueryEx().Rows)
+        {
+            Rese = Convert.ToInt32(dr[0].ToString());
+            DisabledReserved(Rese);
+        }
     }
 
     void CheckDoubleUser()
