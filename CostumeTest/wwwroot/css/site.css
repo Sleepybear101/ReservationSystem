@@ -148,13 +148,14 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    background-color: #D5DAD7;
 }
 
 p {
     font-family: 'Nunito', sans-serif;
 }
 
-h1 {
+h2 {
     font-family: 'Nunito', sans-serif;
 }
 
@@ -162,7 +163,7 @@ ul {
     font-family: 'Nunito', sans-serif;
 }
 
-h1 {
+h2 {
     color: #545871;
     font-weight: 600;
 }
@@ -170,6 +171,7 @@ h1 {
 .footer {
     position: absolute;
     bottom: 0;
+    height: 3%;
     width: 100%;
     background-color: #545871;
     white-space: nowrap;
@@ -196,7 +198,6 @@ h1 {
     width: 51%;
     height: 37%;
     margin-left: 24%;
-    margin-top: 62px;
     padding: 1% 4% 7% 1%;
 }
 
@@ -205,17 +206,20 @@ h1 {
 }
 
 /*Step line*/
-.stepwizard-step p {
-    margin-top: 10px;
+.btn-success p {
+    display: none;
 }
-
+.btn-success:after {
+    content: "✓";
+}
 .stepwizard-row {
     display: table-row;
 }
 
 .stepwizard {
     display: table;
-    width: 100%;
+    width: 60%;
+    margin-left: 20%;
     position: relative;
 }
 
@@ -247,6 +251,25 @@ h1 {
     border-color: #3B86FF;
 }
 
+.btn-progges {
+    color: #fff;
+    background-color: #3B86FF;
+}
+.btn-circle{
+    color: #3B86FF;
+    background-color: #D5DAD7;
+}
+.btn-circle, .btn-progges , .btn-success{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+    border-color: #3B86FF;
+    border-style: solid;
+}
 .unstyled {
     -webkit-appearance: none;
 }
@@ -255,20 +278,6 @@ h1 {
         display: none;
         -webkit-appearance: none;
     }
-
-
-.btn-circle {
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    padding: 6px 0;
-    font-size: 12px;
-    line-height: 1.428571429;
-    border-radius: 15px;
-    color: #fbfafd;
-    background-color: #3B86FF;
-    border-color: #3B86FF
-}
 
 .Tafel:focus {
     background-color: #0366d6;
@@ -346,17 +355,21 @@ h4 {
     background-color: #ffff;
     width: 49%;
     margin-left: 26%;
-    margin-top: 40px;
-    padding: 19px;
+    padding: 6px 19px 19px 19px;
     padding-bottom: 50px;
 }
-
+#divOverview {
+    background-color: #ffffff;
+    width: 50%;
+    height: 37%;
+    margin-left: 24%;
+    padding: 1% 4% 4% 4%;
+}
 .Form-date {
     background-color: #ffffff;
     width: 49%;
     height: 37%;
     margin-left: 24%;
-    margin-top: 62px;
     padding: 1% 4% 7% 1%;
 }
 
@@ -371,7 +384,6 @@ h4 {
     width: 53%;
     height: 37%;
     margin-left: 24%;
-    margin-top: 61px;
     padding: 1% 4% 7% 1%;
 }
 

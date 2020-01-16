@@ -1,24 +1,40 @@
 ﻿var number = 1;
+var Amount = 0;
 
 //verstop de div's met class divs name en laat de eerste div zien
 function LastDiv(ClickedForm) {
     $("div[class=divs]").hide();
     $("div[id=div4]").hide();
-
+    var b = ClickedForm.toString();
+    $("#Step" + b + "").removeClass('btn-success');
+    $("#Step" + b + "").addClass('btn-circle');
     ClickedForm--;
     var n = ClickedForm.toString();
     $("div[id=div" + n + "]").show();
+    $("#Step" + n + "").removeClass('btn-success');
+    $("#Step" + n + "").addClass('btn-progges');
 
 
 }
 //verstop de div's met class divs name en laat de volgende div zien
 function NextDiv(ClickedForm) {
-    $("div[class=divs]").hide();
+    $(".divs").hide();
     $("div[id=div4]").hide();
+    var b = ClickedForm.toString();
+    $("#Step" + b + "").removeClass('btn-progges');
+    $("#Step"+b+"").addClass('btn-success');
     ClickedForm++;
     var n = ClickedForm.toString();
     $("div[id=div" + n + "]").removeClass('CHidden');
     $("div[id=div" + n + "]").show();
+    $("#Step" + n + "").removeClass('btn-circle');
+    $("#Step"+n+"").addClass('btn-progges');
+
+    setDate();
+
+
+}
+function setDate() {
 
 
     var dtToday = new Date();
@@ -46,10 +62,8 @@ function NextDiv(ClickedForm) {
     $('#txtDate').attr('min', maxDate);
     $('#txtDate').attr('max', today);
 
-
-
 }
-var Amount = 0;
+
 function Disabled(Amount) {
     if (Amount == 6) {
         $(".TableWitTwo").addClass('Disabled');
@@ -71,17 +85,22 @@ function DisabledReserved(Table) {
     $("button[id=Table" + Tan + "]").addClass('ReservedT');
 }
 function Message() {
-    alert("Reservering is aangemaakt");
+    ReservationSucces
+    $("#ReservationSucces").modal();
+
 }
 function Blocked() {
-    alert("Het blijkt dat je email waarmee je wilt reserveren is geblokkeerd. Bel de restaurant om een reservering te maken.");
+
+    $("#BlockedMessage").modal();
+
 }
 function NotFilled() {
-    alert("Niet alle velden zijn ingevoerd/gekozen");
+    $("#NotFilledOrChosenMessage").modal();
 
 }
 function NotCorrect() {
-    alert("Email niet correct ingevoerd");
+    $("#EmailNotMessage").modal();
+
 
 }
 /*

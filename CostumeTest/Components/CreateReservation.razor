@@ -7,9 +7,39 @@
 @using Microsoft.JSInterop;
 @inject IJSRuntime JsRuntime;
 
+<div>
+
+    <div class="stepwizard">
+        <div class="stepwizard-row">
+            <div class="stepwizard-step">
+                <button id="Step1" type="button" class="  btn-progges"><p>1</p></button>
+                <p>Gegevens</p>
+            </div>
+            <div class="stepwizard-step">
+                <button id="Step2" type="button" class="  btn-circle"><p>2</p></button>
+                <p>Datum</p>
+            </div>
+            <div class="stepwizard-step">
+                <button id="Step3" type="button" class=" btn-circle"><p>3</p></button>
+                <p>Dagdeel</p>
+            </div>
+            <div class="stepwizard-step">
+                <button id="Step4" type="button" class="btn-circle"><p>4</p></button>
+                <p>Tafel</p>
+            </div>
+            <div class="stepwizard-step">
+                <button id="Step5" type="button" class=" btn-circle"><p>5</p></button>
+                <p>Overzicht</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <form id="form1">
     <div id="div1" class="divs">
-        <h1>Gegevens</h1>
+        <h2>Gegevens</h2>
 
 
 
@@ -40,7 +70,7 @@
 <form method="post">
     <div id="div2" class="divs CHidden  ">
         <div class="Form-date">
-            <h1>Datum</h1>
+            <h2>Datum</h2>
             <div style=" margin-left: 23px;">
                 <div>
                     <div>
@@ -59,7 +89,7 @@
 <form method="post">
     <div id="div3" class="divs CHidden">
         <div class="div-daypart">
-            <h1>Dagdeel</h1>
+            <h2>Dagdeel</h2>
 
             <div class="form-daypart">
                 <button type="button" @onclick="(e => SelectedDaypart(false))" class="btn Daypart-btn form-daypart-btn-lunch">
@@ -81,7 +111,7 @@
 </form>
 <form>
     <div id="div4" class="divs CHidden TableGroupDIV">
-        <h1>Tafel kiezen</h1>
+        <h2>Tafel kiezen</h2>
         <div class="Tafel   card-group" style=" background-image: url('images/tafel-van-zes.png');  width:500px; height:450px; margin-left: 103px;
         margin-bottom: 36px; ">
 
@@ -143,8 +173,8 @@
 <form>
     <div id="div5" class="divs CHidden">
 
-        <div style="background-color: #ffffff; width: 50%; height: 37%; margin-left: 24%; margin-top: 62px; padding: 1% 4% 4% 4%;">
-            <h1> Overzicht</h1>
+        <div id="divOverview">
+            <h2> Overzicht</h2>
             <div class="form-inline  form-group">
                 <label for="Datum" class="label">Datum: </label>
 
@@ -191,6 +221,7 @@
 
 
 
+
 @code{
     public int i;
     SqlConnection con = new SqlConnection();
@@ -223,8 +254,9 @@
 
             }
         }
+
         //Info legen terug
-        if (FormqClicked == 4 || FormqClicked == 2)
+        if (FormqClicked == 2)
         {
             CreateRes.Daypart = "";
         }
@@ -232,7 +264,9 @@
         {
             CreateRes.Table = 0;
         }
+
         DateInText = CreateRes.date.ToLongDateString();
+
     }
     //Gereserfveerd tafel
     async Task DisabledReserved(int Tableres)
@@ -373,7 +407,7 @@
         else
         {
             CreateRes.Daypart = "Dinner";
-            DayPart = "Diner 17:00 - 20:00";
+            DayPart = "Dinner 17:00 - 20:00";
 
         }
         Message = "daypart  gekozen" + CreateRes.Daypart.ToString();
@@ -428,7 +462,7 @@
 
         //SELECT `id_Guest` FROM `guest` WHERE `FullName`='Toos' AND `Email`='Wu.rud@hotmail.com'
 
-        con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`) VALUES (@Fullname,@Email)");
+        con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`,`NoShow`,`IsBlocked`) VALUES (@Fullname,@Email,0,0)");
         con.Cmd.Parameters.AddWithValue("@Fullname", CreateGuest.FullName);
         con.Cmd.Parameters.AddWithValue("@Email", CreateGuest.Email);
         con.NonQueryEx();
@@ -440,7 +474,7 @@
     //Zet Gast neer in database
     void InsertReservation()
     {
-        con.SqlQuery("INSERT INTO `reservation`(`Date`, `DayPart`, `TableNumber`, `Guest`, `Amount`) VALUES (@Date,@Daypart,@TableNumber,@Guest,@Amount)");
+        con.SqlQuery("INSERT INTO `reservation`(`Date`, `DayPart`, `TableNumber`, `Guest`, `Amount`,`IsConfirm`) VALUES (@Date,@Daypart,@TableNumber,@Guest,@Amount,'Nee')");
         con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date);
         con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
         con.Cmd.Parameters.AddWithValue("@TableNumber", CreateRes.Table);
@@ -451,6 +485,6 @@
 
         GetSuccesfulMessage();
         NextOrLastDiv(true, 0);
-    
+
     }
 }
