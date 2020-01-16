@@ -9,6 +9,16 @@ a.navbar-brand {
 }
 
 
+.ReservedT {
+    pointer-events: none;
+    background-color: #960f0f;
+}
+
+.Disabled {
+    pointer-events: none;
+    background-color: dimgray;
+}
+
 /* Provide sufficient contrast against white background */
 a {
     color: #0366d6;

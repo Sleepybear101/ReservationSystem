@@ -8,7 +8,6 @@
 @inject IJSRuntime JsRuntime;
 
 <div>
-
     <div class="stepwizard">
         <div class="stepwizard-row">
             <div class="stepwizard-step">
@@ -34,8 +33,6 @@
         </div>
     </div>
 </div>
-
-
 
 <form id="form1">
     <div id="div1" class="divs">
@@ -268,7 +265,7 @@
         DateInText = CreateRes.date.ToLongDateString();
 
     }
-    //Gereserfveerd Tafel
+    //Gereserveerd Tafel
     async Task DisabledReserved(int Tableres)
     {
         await JsRuntime.InvokeVoidAsync("DisabledReserved", Tableres);
@@ -301,6 +298,8 @@
 
         }
     }
+
+
 
     //Dagdeel gekozen
     void CheckDaypart()
@@ -360,7 +359,7 @@
         }
         else if (CreateRes.Amount > 6)
         {
-           GetMessage("Chosen");
+            GetMessage("Chosen");
 
         }else{
             //SELECT `IsBlocked` FROM `guest` WHERE `Email`=@Email
