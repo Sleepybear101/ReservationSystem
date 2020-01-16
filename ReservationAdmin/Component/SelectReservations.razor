@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using System.Diagnostics
+@using System.Data;
+@using ReservationGuest.Models;
+@using System.Globalization;
+
+@using Microsoft.JSInterop;
+@inject IJSRuntime JsRuntime;
+
+@code {
+
+}
+<form method="post">
+        <div class="Form-date">
+            <h2>Datum</h2>
+            <div style=" margin-left: 23px;">
+                <div>
+                    <div>
+                        <input type="date" id="txtDate" onkeydown="return false" class="input-group-addon date-div unstyled form-control" max=2025-01-1 />
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+
+@code
+{
+}
