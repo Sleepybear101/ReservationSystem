@@ -1,5 +1,5 @@
-﻿using System.Data;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ReservationAdmin
 {
@@ -30,7 +30,7 @@ namespace ReservationAdmin
         }
         //Query wordt uitgevoerd met geen resultaat
         public void NonQueryEx()
-        { 
+        {
             Cmd.ExecuteNonQuery();
         }
     }
