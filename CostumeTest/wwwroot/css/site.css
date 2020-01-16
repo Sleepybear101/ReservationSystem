@@ -195,10 +195,10 @@ h2 {
 
 #div1 {
     background-color: #ffffff;
-    width: 51%;
+    width: 48%;
     height: 37%;
     margin-left: 24%;
-    padding: 1% 4% 7% 1%;
+    padding: 1% 1% 4% 1%;
 }
 
 .Field-Email {
@@ -274,11 +274,18 @@ h2 {
     -webkit-appearance: none;
 }
 
-    .unstyled::-webkit-inner-spin-button, .unstyled::-webkit-clear-button {
+.unstyled::-webkit-inner-spin-button, .unstyled::-webkit-clear-button {
         display: none;
         -webkit-appearance: none;
-    }
 
+ }
+
+.amount-field{
+
+}
+.NotCorrect{
+  border-color:#9e1515
+}
 .Tafel:focus {
     background-color: #0366d6;
 }
@@ -363,48 +370,52 @@ h4 {
     width: 50%;
     height: 37%;
     margin-left: 24%;
-    padding: 1% 4% 4% 4%;
+    padding: 1% 1% 4% 1%;
+}
+#formOverview {
+    padding-left: 9%;
 }
 .Form-date {
     background-color: #ffffff;
     width: 49%;
     height: 37%;
     margin-left: 24%;
-    padding: 1% 4% 7% 1%;
+    padding: 1% 1% 4% 1%;
 }
 
 .date-div {
-    margin-left: 16%;
+    margin-left: 27%;
     width: 40%;
     margin-top: 3%;
+    margin-bottom: 8%;
 }
 
 .div-daypart {
     background-color: #ffffff;
-    width: 53%;
+    width: 50%;
     height: 37%;
     margin-left: 24%;
-    padding: 1% 4% 7% 1%;
+    padding: 1% 1% 4% 1%;
 }
 
 .form-daypart {
     border: 1px solid #E6DBDA;
     border-radius: 4px;
-    margin-left: 177px;
-    width: 52%;
+    margin-left: 174px;
+    width: 49%;
     margin-top: 30px;
 }
 
 .form-daypart-btn-lunch {
     border-right: 1px solid #E6DBDA;
-    padding-right: 43px;
+    padding-right: 36px;
     padding-left: 41px;
 }
 
 .form-daypart-btn-diner {
-    width: 46%;
-    padding-left: 5%;
-    padding-right: 7%;
+    width: 176px;
+    padding-left: 2%;
+    padding-right: 3%;
 }
 
 .date-field {
