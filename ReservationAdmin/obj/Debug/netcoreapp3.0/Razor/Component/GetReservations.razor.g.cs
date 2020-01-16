@@ -56,12 +56,12 @@ using ReservationAdmin.Models;
             __builder.AddMarkupContent(4, "\r\n");
 #nullable restore
 #line 17 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Component\GetReservations.razor"
-      
+
         con.SqlQuery("SELECT reservation.Date, reservation.DayPart, reservation.TableNumber, reservation.Amount, reservation.IsConfirm, guest.FullName FROM reservation INNER JOIN guest ON reservation.Guest = guest.id_Guest WHERE reservation.Date = @date AND reservation.DayPart = @Daypart");
         con.Cmd.Parameters.AddWithValue("@date", "2019-01-01");
         con.Cmd.Parameters.AddWithValue("@Daypart", "dinner");
         con.QueryEx();
-    
+
 
 #line default
 #line hidden
@@ -82,7 +82,7 @@ using ReservationAdmin.Models;
             __builder.OpenElement(10, "tr");
             __builder.AddMarkupContent(11, "\r\n            ");
             __builder.OpenElement(12, "td");
-            __builder.AddContent(13, 
+            __builder.AddContent(13,
 #nullable restore
 #line 35 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Component\GetReservations.razor"
                  dr[5].ToString()
@@ -94,7 +94,7 @@ using ReservationAdmin.Models;
             __builder.CloseElement();
             __builder.AddMarkupContent(14, "\r\n            ");
             __builder.OpenElement(15, "td");
-            __builder.AddContent(16, 
+            __builder.AddContent(16,
 #nullable restore
 #line 36 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Component\GetReservations.razor"
                  dr[2].ToString()
@@ -106,7 +106,7 @@ using ReservationAdmin.Models;
             __builder.CloseElement();
             __builder.AddMarkupContent(17, "\r\n            ");
             __builder.OpenElement(18, "td");
-            __builder.AddContent(19, 
+            __builder.AddContent(19,
 #nullable restore
 #line 37 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Component\GetReservations.razor"
                  dr[3].ToString()
@@ -134,7 +134,7 @@ using ReservationAdmin.Models;
         #pragma warning restore 1998
 #nullable restore
 #line 8 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Component\GetReservations.razor"
-       
+
 
     SqlConnection con = new SqlConnection();
     Reservation CreateRes = new Reservation();

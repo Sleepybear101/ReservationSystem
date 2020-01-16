@@ -57,7 +57,7 @@ using ReservationAdmin.Models;
         #pragma warning restore 1998
 #nullable restore
 #line 8 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Component\GetReservations.razor"
-       
+
 
     SqlConnection con = new SqlConnection();
     Reservation CreateRes = new Reservation();

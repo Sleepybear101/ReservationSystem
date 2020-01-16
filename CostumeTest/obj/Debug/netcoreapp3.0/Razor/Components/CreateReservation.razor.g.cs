@@ -176,7 +176,7 @@ using Microsoft.JSInterop;
             __builder.AddMarkupContent(56, "\r\n        ");
             __builder.OpenElement(57, "button");
             __builder.AddAttribute(58, "type", "button");
-            __builder.AddAttribute(59, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(59, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 61 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                         CheckBlockedOrNotFilled
@@ -237,7 +237,7 @@ using Microsoft.JSInterop;
             __builder.AddMarkupContent(94, "\r\n                ");
             __builder.OpenElement(95, "button");
             __builder.AddAttribute(96, "type", "button");
-            __builder.AddAttribute(97, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(97, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 77 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                 (e => NextOrLastDiv(false, 2))
@@ -253,7 +253,7 @@ using Microsoft.JSInterop;
             __builder.AddMarkupContent(101, "\r\n                ");
             __builder.OpenElement(102, "button");
             __builder.AddAttribute(103, "type", "button");
-            __builder.AddAttribute(104, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(104, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 80 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                 (e => NextOrLastDiv(true, 2))
@@ -291,7 +291,7 @@ using Microsoft.JSInterop;
             __builder.AddMarkupContent(126, "\r\n                ");
             __builder.OpenElement(127, "button");
             __builder.AddAttribute(128, "type", "button");
-            __builder.AddAttribute(129, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(129, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 92 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                 (e => SelectedDaypart(false))
@@ -308,7 +308,7 @@ using Microsoft.JSInterop;
             __builder.AddMarkupContent(134, "\r\n                ");
             __builder.OpenElement(135, "button");
             __builder.AddAttribute(136, "type", "button");
-            __builder.AddAttribute(137, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(137, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 96 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                 (e => SelectedDaypart(true))
@@ -327,7 +327,7 @@ using Microsoft.JSInterop;
             __builder.AddMarkupContent(143, "\r\n            ");
             __builder.OpenElement(144, "button");
             __builder.AddAttribute(145, "type", "button");
-            __builder.AddAttribute(146, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(146, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 101 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                             (e => NextOrLastDiv(false, 3))
@@ -343,7 +343,7 @@ using Microsoft.JSInterop;
             __builder.AddMarkupContent(150, "\r\n            ");
             __builder.OpenElement(151, "button");
             __builder.AddAttribute(152, "type", "button");
-            __builder.AddAttribute(153, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(153, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 104 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                             CheckDaypart
@@ -380,7 +380,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(175, "button");
             __builder.AddAttribute(176, "id", "Table1");
             __builder.AddAttribute(177, "type", "button");
-            __builder.AddAttribute(178, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(178, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 117 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                             (e => SelectedTable(1))
@@ -397,7 +397,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(183, "button");
             __builder.AddAttribute(184, "id", "Table2");
             __builder.AddAttribute(185, "type", "button");
-            __builder.AddAttribute(186, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(186, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 122 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                             (e => SelectedTable(2))
@@ -414,7 +414,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(191, "button");
             __builder.AddAttribute(192, "id", "Table3");
             __builder.AddAttribute(193, "type", "button");
-            __builder.AddAttribute(194, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(194, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 126 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                             (e => SelectedTable(3))
@@ -437,7 +437,7 @@ using Microsoft.JSInterop;
             __builder.AddAttribute(204, "id", "Table4");
             __builder.AddAttribute(205, "type", "button");
             __builder.AddAttribute(206, "class", "Tafel TableWitSix  btn btn-primary");
-            __builder.AddAttribute(207, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(207, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 133 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                                                                        (e => SelectedTable(4))
@@ -458,7 +458,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(215, "button");
             __builder.AddAttribute(216, "id", "Table6");
             __builder.AddAttribute(217, "type", "button");
-            __builder.AddAttribute(218, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(218, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 139 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                             (e => SelectedTable(6))
@@ -475,7 +475,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(223, "button");
             __builder.AddAttribute(224, "id", "Table5");
             __builder.AddAttribute(225, "type", "button");
-            __builder.AddAttribute(226, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(226, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 140 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                             (e => SelectedTable(5))
@@ -497,7 +497,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(235, "button");
             __builder.AddAttribute(236, "id", "Table8");
             __builder.AddAttribute(237, "type", "button");
-            __builder.AddAttribute(238, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(238, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 144 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                             (e => SelectedTable(8))
@@ -514,7 +514,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(243, "button");
             __builder.AddAttribute(244, "id", "Table10");
             __builder.AddAttribute(245, "type", "button");
-            __builder.AddAttribute(246, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(246, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 147 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                              (e => SelectedTable(10))
@@ -531,7 +531,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(251, "button");
             __builder.AddAttribute(252, "id", "Table11");
             __builder.AddAttribute(253, "type", "button");
-            __builder.AddAttribute(254, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(254, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 150 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                              (e => SelectedTable(11))
@@ -553,7 +553,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(263, "button");
             __builder.AddAttribute(264, "id", "Table7");
             __builder.AddAttribute(265, "type", "button");
-            __builder.AddAttribute(266, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(266, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 155 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                             (e => SelectedTable(7))
@@ -570,7 +570,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(271, "button");
             __builder.AddAttribute(272, "id", "Table9");
             __builder.AddAttribute(273, "type", "button");
-            __builder.AddAttribute(274, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(274, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 158 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                             (e => SelectedTable(9))
@@ -590,7 +590,7 @@ using Microsoft.JSInterop;
             __builder.AddMarkupContent(280, "\r\n        ");
             __builder.OpenElement(281, "button");
             __builder.AddAttribute(282, "type", "button");
-            __builder.AddAttribute(283, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(283, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 164 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                         (e => NextOrLastDiv(false, 4))
@@ -606,7 +606,7 @@ using Microsoft.JSInterop;
             __builder.AddMarkupContent(287, "\r\n        ");
             __builder.OpenElement(288, "button");
             __builder.AddAttribute(289, "type", "button");
-            __builder.AddAttribute(290, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(290, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 167 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                         CheckTable
@@ -667,7 +667,7 @@ using Microsoft.JSInterop;
             __builder.AddMarkupContent(326, "<label for=\"Dagdeel\" class=\"label\">Dagdeel:</label>\r\n\r\n                    ");
             __builder.OpenElement(327, "input");
             __builder.AddAttribute(328, "class", "form-controls Daypart-field");
-            __builder.AddAttribute(329, "value", 
+            __builder.AddAttribute(329, "value",
 #nullable restore
 #line 183 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                                        DayPart
@@ -689,7 +689,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(338, "input");
             __builder.AddAttribute(339, "type", "text");
             __builder.AddAttribute(340, "class", "form-controls name-field");
-            __builder.AddAttribute(341, "value", 
+            __builder.AddAttribute(341, "value",
 #nullable restore
 #line 188 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                                                 CreateGuest.FullName
@@ -711,7 +711,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(350, "input");
             __builder.AddAttribute(351, "type", "email");
             __builder.AddAttribute(352, "class", "form-controls Email-field");
-            __builder.AddAttribute(353, "value", 
+            __builder.AddAttribute(353, "value",
 #nullable restore
 #line 193 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                                                   CreateGuest.Email
@@ -733,7 +733,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(362, "input");
             __builder.AddAttribute(363, "type", "number");
             __builder.AddAttribute(364, "class", "form-controls amount-field");
-            __builder.AddAttribute(365, "value", 
+            __builder.AddAttribute(365, "value",
 #nullable restore
 #line 198 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                                                     CreateRes.Amount
@@ -755,7 +755,7 @@ using Microsoft.JSInterop;
             __builder.OpenElement(374, "input");
             __builder.AddAttribute(375, "type", "number");
             __builder.AddAttribute(376, "class", "form-controls table-field");
-            __builder.AddAttribute(377, "value", 
+            __builder.AddAttribute(377, "value",
 #nullable restore
 #line 203 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                                                                    CreateRes.Table
@@ -774,7 +774,7 @@ using Microsoft.JSInterop;
             __builder.AddMarkupContent(382, "\r\n            ");
             __builder.OpenElement(383, "button");
             __builder.AddAttribute(384, "type", "button");
-            __builder.AddAttribute(385, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(385, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 208 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                                             (e => NextOrLastDiv(false, 5))
@@ -789,7 +789,7 @@ using Microsoft.JSInterop;
             __builder.CloseElement();
             __builder.AddMarkupContent(389, "\r\n\r\n            ");
             __builder.OpenElement(390, "button");
-            __builder.AddAttribute(391, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(391, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
 #nullable restore
 #line 212 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
                               CheckDoubleUser
@@ -813,7 +813,7 @@ using Microsoft.JSInterop;
         #pragma warning restore 1998
 #nullable restore
 #line 222 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
-      
+
     public int i;
     SqlConnection con = new SqlConnection();
     public string Message;

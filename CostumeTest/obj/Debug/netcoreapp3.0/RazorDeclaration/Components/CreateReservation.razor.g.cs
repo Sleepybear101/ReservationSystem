@@ -64,7 +64,7 @@ using Microsoft.JSInterop;
         #pragma warning restore 1998
 #nullable restore
 #line 222 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
-      
+
     public int i;
     SqlConnection con = new SqlConnection();
     public string Message;

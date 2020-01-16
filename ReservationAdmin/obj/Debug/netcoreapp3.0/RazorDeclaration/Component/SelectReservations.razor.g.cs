@@ -62,6 +62,35 @@ using Microsoft.JSInterop;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 9 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\SelectReservations.razor"
+
+    Reservation CreateRes = new Reservation();
+    SqlConnection con = new SqlConnection();
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 159 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\SelectReservations.razor"
+
+
+    void SelectedDaypart(bool SelectedDaypart)
+    {
+        if (SelectedDaypart == false)
+        {
+            CreateRes.Daypart = "Lunch";
+        }
+        else
+        {
+            CreateRes.Daypart = "Dinner";
+        }
+    }
+
+
+#line default
+#line hidden
+#nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
     }
 }

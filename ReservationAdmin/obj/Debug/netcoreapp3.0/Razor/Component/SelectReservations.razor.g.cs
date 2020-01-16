@@ -56,20 +56,234 @@ using Microsoft.JSInterop;
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
-            __builder.AddMarkupContent(0, @"<form method=""post"">
-        <div class=""Form-date"">
-            <h2>Datum</h2>
-            <div style="" margin-left: 23px;"">
-                <div>
-                    <div>
-                        <input type=""date"" id=""txtDate"" onkeydown=""return false"" class=""input-group-addon date-div unstyled form-control"" max=""2025-01-1"">
-                    </div>
-                </div>
-            </div>
-        </div>
-</form>");
+            __builder.OpenElement(0, "form");
+            __builder.AddMarkupContent(1, "\r\n    ");
+            __builder.OpenElement(2, "div");
+            __builder.AddAttribute(3, "style", "background-color:#D5DAD7; float :left; width: 35%;  height: 100vh;");
+            __builder.AddMarkupContent(4, "\r\n        ");
+            __builder.AddMarkupContent(5, "<p style=\"margin-left: 7%; color: #9597A6; font-size: 24px;padding-top: 5px;    margin-bottom: 5px;\">Agenda</p>\r\n        ");
+            __builder.OpenElement(6, "div");
+            __builder.AddAttribute(7, "style", "border-top: 1px solid;padding-bottom: 7px;   margin-left: 2%; width: 95%; ");
+            __builder.AddMarkupContent(8, "\r\n            ");
+            __builder.AddMarkupContent(9, "<h4>Datum</h4>\r\n            ");
+            __builder.OpenElement(10, "div");
+            __builder.AddAttribute(11, "class", "Form-date");
+            __builder.AddMarkupContent(12, "\r\n                ");
+            __builder.OpenElement(13, "div");
+            __builder.AddAttribute(14, "style", " margin-left: 23px;");
+            __builder.AddMarkupContent(15, "\r\n                    ");
+            __builder.OpenElement(16, "div");
+            __builder.AddMarkupContent(17, "\r\n                        ");
+            __builder.OpenElement(18, "div");
+            __builder.AddMarkupContent(19, "\r\n                            ");
+            __builder.OpenElement(20, "input");
+            __builder.AddAttribute(21, "type", "date");
+            __builder.AddAttribute(22, "id", "txtDate");
+            __builder.AddAttribute(23, "onkeydown", "return false");
+            __builder.AddAttribute(24, "class", "input-group-addon date-div unstyled form-control");
+            __builder.AddAttribute(25, "max", "2025-01-1");
+            __builder.AddAttribute(26, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+#nullable restore
+#line 22 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\SelectReservations.razor"
+                                                                   CreateRes.date
+
+#line default
+#line hidden
+#nullable disable
+            , format: "yyyy-MM-dd", culture: global::System.Globalization.CultureInfo.InvariantCulture));
+            __builder.AddAttribute(27, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => CreateRes.date = __value, CreateRes.date, format: "yyyy-MM-dd", culture: global::System.Globalization.CultureInfo.InvariantCulture));
+            __builder.SetUpdatesAttributeName("value");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(28, "\r\n                        ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(29, "\r\n                    ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(30, "\r\n                ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(31, "\r\n            ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(32, "\r\n\r\n            ");
+            __builder.OpenElement(33, "div");
+            __builder.AddMarkupContent(34, "\r\n                ");
+            __builder.AddMarkupContent(35, "<h4>Dagdeel</h4>\r\n                ");
+            __builder.OpenElement(36, "div");
+            __builder.AddAttribute(37, "class", "Daypart-div");
+            __builder.AddMarkupContent(38, "\r\n                    ");
+            __builder.OpenElement(39, "div");
+            __builder.AddAttribute(40, "class", "Daypart");
+            __builder.AddMarkupContent(41, "\r\n                        ");
+            __builder.OpenElement(42, "button");
+            __builder.AddAttribute(43, "type", "button");
+            __builder.AddAttribute(44, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
+#nullable restore
+#line 32 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\SelectReservations.razor"
+                                                        (e => SelectedDaypart(false))
+
+#line default
+#line hidden
+#nullable disable
+            ));
+            __builder.AddAttribute(45, "class", "btn Daypart-btn Daypart-btn-lunch");
+            __builder.AddMarkupContent(46, "\r\n                            ");
+            __builder.AddMarkupContent(47, "<h5>Lunch</h5>\r\n                            ");
+            __builder.AddMarkupContent(48, "<p>11:00 - 16:00</p>\r\n                        ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(49, "\r\n                        ");
+            __builder.OpenElement(50, "button");
+            __builder.AddAttribute(51, "type", "button");
+            __builder.AddAttribute(52, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this,
+#nullable restore
+#line 36 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\SelectReservations.razor"
+                                                        (e=> SelectedDaypart(true))
+
+#line default
+#line hidden
+#nullable disable
+            ));
+            __builder.AddAttribute(53, "class", "btn Daypart-btn   Daypart-btn-diner");
+            __builder.AddMarkupContent(54, "\r\n                            ");
+            __builder.AddMarkupContent(55, "<h5>Dinner</h5>\r\n                            ");
+            __builder.AddMarkupContent(56, "<p>17:00 - 20:00</p>\r\n                        ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(57, "\r\n                    ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(58, "\r\n\r\n\r\n                ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(59, "\r\n            ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(60, "\r\n        ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(61, "\r\n        ");
+            __builder.AddMarkupContent(62, "<button type=\"submit\" class=\"btn-ResAdmin btn btn-primary\">\r\n            Zoek\r\n        </button>\r\n\r\n    ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(63, "\r\n\r\n\r\n");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(64, "\r\n");
+            __builder.OpenElement(65, "div");
+            __builder.AddAttribute(66, "class", "Table-div");
+            __builder.AddMarkupContent(67, "\r\n");
+            __builder.OpenElement(68, "div");
+            __builder.AddAttribute(69, "class", " card-group");
+            __builder.AddAttribute(70, "style", " width:500px; height:450px; margin-left: 69px; margin-bottom: 36px; ");
+            __builder.AddMarkupContent(71, "\r\n\r\n    ");
+            __builder.OpenElement(72, "table");
+            __builder.AddAttribute(73, "id", "myTable");
+            __builder.AddAttribute(74, "class", "table");
+            __builder.AddAttribute(75, "cellspacing", "0");
+            __builder.AddMarkupContent(76, "\r\n");
+#nullable restore
+#line 58 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\SelectReservations.razor"
+
+
+            con.SqlQuery("SELECT reservation.Date, reservation.DayPart, reservation.TableNumber, reservation.Amount, reservation.IsConfirm, guest.FullName FROM reservation INNER JOIN guest ON reservation.Guest = guest.id_Guest WHERE reservation.Date = @date AND reservation.DayPart = @Daypart");
+            con.Cmd.Parameters.AddWithValue("@date", CreateRes.date);
+            con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
+            con.QueryEx();
+
+
+
+#line default
+#line hidden
+#nullable disable
+            __builder.AddContent(77, "        ");
+            __builder.AddMarkupContent(78, "<thead>\r\n            <tr>\r\n                <td>full name</td>\r\n                <td>tablenumber</td>\r\n                <td>amount of people</td>\r\n\r\n            </tr>\r\n        </thead>\r\n        ");
+            __builder.OpenElement(79, "tbody");
+            __builder.AddMarkupContent(80, "\r\n        \r\n");
+#nullable restore
+#line 76 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\SelectReservations.razor"
+             foreach (DataRow dr in con.QueryEx().Rows)
+            {
+
+#line default
+#line hidden
+#nullable disable
+            __builder.AddContent(81, "                ");
+            __builder.OpenElement(82, "tr");
+            __builder.AddMarkupContent(83, "\r\n                    ");
+            __builder.OpenElement(84, "td");
+            __builder.AddContent(85,
+#nullable restore
+#line 79 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\SelectReservations.razor"
+                         dr[5].ToString()
+
+#line default
+#line hidden
+#nullable disable
+            );
+            __builder.CloseElement();
+            __builder.AddMarkupContent(86, "\r\n                    ");
+            __builder.OpenElement(87, "td");
+            __builder.AddContent(88,
+#nullable restore
+#line 80 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\SelectReservations.razor"
+                         dr[2].ToString()
+
+#line default
+#line hidden
+#nullable disable
+            );
+            __builder.CloseElement();
+            __builder.AddMarkupContent(89, "\r\n                    ");
+            __builder.OpenElement(90, "td");
+            __builder.AddContent(91,
+#nullable restore
+#line 81 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\SelectReservations.razor"
+                         dr[3].ToString()
+
+#line default
+#line hidden
+#nullable disable
+            );
+            __builder.CloseElement();
+            __builder.AddMarkupContent(92, "\r\n                ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(93, "\r\n");
+#nullable restore
+#line 83 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\SelectReservations.razor"
+            }
+
+#line default
+#line hidden
+#nullable disable
+            __builder.AddContent(94, "        ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(95, "\r\n\r\n    ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(96, "\r\n    ");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(97, "\r\n");
+            __builder.CloseElement();
         }
         #pragma warning restore 1998
+#nullable restore
+#line 9 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\SelectReservations.razor"
+
+    Reservation CreateRes = new Reservation();
+    SqlConnection con = new SqlConnection();
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 159 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Component\SelectReservations.razor"
+
+
+    void SelectedDaypart(bool SelectedDaypart)
+    {
+        if (SelectedDaypart == false)
+        {
+            CreateRes.Daypart = "Lunch";
+        }
+        else
+        {
+            CreateRes.Daypart = "Dinner";
+        }
+    }
+
+
+#line default
+#line hidden
+#nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
     }
 }

@@ -40,7 +40,7 @@ using ReservationAdmin.Component;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1c501a9708f924485cefef4661e2cb1c65a8ad6a", @"/Pages/Agenda.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b3ae63604224377584b190a2288d79a0626d2ea4", @"/Pages/Agenda.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"06aa6bed593933d5fcc3e699e38540c233366282", @"/Pages/_ViewImports.cshtml")]
     public class Pages_Agenda : global::Microsoft.AspNetCore.Mvc.RazorPages.Page
     {
@@ -80,7 +80,7 @@ using ReservationAdmin.Component;
         {
 #nullable restore
 #line 6 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\Agenda.cshtml"
-  
+
     ViewData["Title"] = "Home page";
 
 #line default
@@ -190,14 +190,7 @@ using ReservationAdmin.Component;
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral(@"
-            </li>
-        </ul>
-    </div>
-</div>
-<div style=""background-color:#D5DAD7; float :left; width: 35%;  height: 100vh;"">
-    <p style=""margin-left: 7%; color: #9597A6; font-size: 24px;padding-top: 5px;    margin-bottom: 5px;"">Agenda</p>
-    ");
+            WriteLiteral("\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>\r\n    ");
 #nullable restore
 #line 47 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\Agenda.cshtml"
 Write(await Html.RenderComponentAsync<SelectReservations>(RenderMode.ServerPrerendered));
