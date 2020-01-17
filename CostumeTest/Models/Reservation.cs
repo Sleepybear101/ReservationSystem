@@ -8,6 +8,7 @@ namespace ReservationGuest.Models
     public class Reservation
     {
      
+        public int id { get; set; }
         public int Amount { get; set; }
         public DateTime date { get; set; }
         public string Daypart { get; set; }

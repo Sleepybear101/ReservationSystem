@@ -291,3 +291,6 @@ C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\obj\Debu
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\ReservationGuest.csproj.CopyComplete
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\ReservationGuest.dll
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\ReservationGuest.pdb
+C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\Razor\Pages\Confirm.cshtml.g.cs
+C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\RazorDeclaration\Components\Component.razor.g.cs
+C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\obj\Debug\netcoreapp3.0\Razor\Components\Component.razor.g.cs

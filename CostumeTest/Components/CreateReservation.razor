@@ -3,6 +3,7 @@
 @using System.Data;
 @using ReservationGuest.Models;
 @using System.Globalization;
+@using System.Net.Mail;
 
 @using Microsoft.JSInterop;
 @inject IJSRuntime JsRuntime;
@@ -54,7 +55,7 @@
             </div>
             <div class="form-inline  form-group">
                 <label for="InputAmount">Aantal personen</label>
-                <input type="number" class="form-control "  @bind="CreateRes.Amount" aria-describedby="Amount" placeholder="0" min="1" max="6" required />
+                <input type="number" class="form-control " @bind="CreateRes.Amount" aria-describedby="Amount" placeholder="0" min="1" max="6" required />
             </div>
 
         </div>
@@ -218,8 +219,8 @@
 
 
 
-
 @code{
+
     public int i;
     SqlConnection con = new SqlConnection();
     public string Message;
@@ -230,6 +231,8 @@
     public DateTime date { get; set; } = DateTime.Now;
     public string DateInText { get; set; }
     public string DayPart { get; set; }
+   
+
 
     // Kijkt of de terug of volgende knop is gedrukt
     async Task NextOrLastDiv(bool NextOrLastDiv, int FormqClicked)
@@ -284,15 +287,18 @@
         {
             await JsRuntime.InvokeVoidAsync("Message", subject);
 
-        }else if (subject == "Blocked")
+        }
+        else if (subject == "Blocked")
         {
             await JsRuntime.InvokeVoidAsync("Message", subject);
 
-        }else if (subject == "Chosen")
+        }
+        else if (subject == "Chosen")
         {
             await JsRuntime.InvokeVoidAsync("Message", subject);
 
-        }else if (subject == "Email")
+        }
+        else if (subject == "Email")
         {
             await JsRuntime.InvokeVoidAsync("Message", subject);
 
@@ -361,7 +367,9 @@
         {
             GetMessage("Chosen");
 
-        }else{
+        }
+        else
+        {
             //SELECT `IsBlocked` FROM `guest` WHERE `Email`=@Email
             con.SqlQuery("SELECT Count(`IsBlocked`) FROM `guest` WHERE `Email`=@Email AND `IsBlocked`=1");
             con.Cmd.Parameters.AddWithValue("@Email", CreateGuest.Email);
@@ -476,10 +484,49 @@
         con.Cmd.Parameters.AddWithValue("@Guest", CreateGuest.id);
         con.Cmd.Parameters.AddWithValue("@Amount", CreateRes.Amount);
         con.NonQueryEx();
+           
+        
 
 
         GetMessage("Succes");
+        sendMail();
         NextOrLastDiv(true, 0);
 
+
     }
+
+    public void sendMail()
+    {      
+        con.SqlQuery("SELECT `id_Reservation` FROM `reservation` WHERE `Guest`=@Guest AND `Date`=@Date AND `DayPart`=@Daypart AND `TableNumber`=@TableNumber");
+                con.Cmd.Parameters.AddWithValue("@Guest", CreateGuest.id.ToString());
+        con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date.ToString("yyyy-MM-dd"));
+        con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
+        con.Cmd.Parameters.AddWithValue("@TableNumber", CreateRes.Table);
+        con.QueryEx();
+
+        foreach (DataRow dr in con.QueryEx().Rows)
+        {
+
+            CreateRes.id = Convert.ToInt32(dr[0].ToString());
+        }
+
+        MailMessage mailMessage = new MailMessage("testersmailbloem1@gmail.com", CreateGuest.Email);
+        mailMessage.Subject = "Bevestigen van reservering!";
+        mailMessage.Body = "Er is een reservering gemaakt. Klik op de link om de reservering te bevestigen. \n \n https://localhost:44390/Confirm?GetGuestid="+CreateGuest.id+"&GetRes="+CreateRes.id+" \n \nAls u niet wilt reserveren of dit niet het geval is negeer dan deze mail. \n \nAlvast bedankt voor uw reserveringen ";
+
+        SmtpClient smtpClient = new SmtpClient();
+        smtpClient.EnableSsl = true;
+        smtpClient.Host = "smtp.gmail.com";
+        smtpClient.Port = 587;
+
+        smtpClient.Credentials = new System.Net.NetworkCredential()
+        {
+            UserName = "wachtrijteam@gmail.com",
+            Password = "Wachtrij1!"
+        };
+        smtpClient.Send(mailMessage);
+    }
+
+
+
 }

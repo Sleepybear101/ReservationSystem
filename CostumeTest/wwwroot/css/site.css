@@ -359,7 +359,7 @@ h4 {
 }
 
 .TableGroupDIV {
-    background-color: #ffff;
+    background-color: #ffffff;
     width: 49%;
     margin-left: 26%;
     padding: 6px 19px 19px 19px;
@@ -445,4 +445,28 @@ h4 {
 .name-field, .Email-field, .amount-field, .table-field, .name-field, .Daypart-field, .date-field {
     border: none;
     color: #545871;
+}
+
+.modal-content {
+    background-color: #241332;
+}
+.modal-footer{
+    border-top: none;
+}
+.modal-header{
+    border-bottom:none;
+}
+.modal-title {
+    color: #ffff;
+}
+
+.modal-body {
+    color: #998FA2;
+}
+
+.modal-footer > button {
+    background-color: #372447;
+    width: 99%;
+    border: none;
+    height: 65px;
 }

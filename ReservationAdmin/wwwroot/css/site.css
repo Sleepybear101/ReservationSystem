@@ -9,15 +9,7 @@ a.navbar-brand {
 }
 
 
-.ReservedT {
-    pointer-events: none;
-    background-color: #960f0f;
-}
 
-.Disabled {
-    pointer-events: none;
-    background-color: dimgray;
-}
 
 /* Provide sufficient contrast against white background */
 a {
@@ -153,42 +145,44 @@ body {
     background-color: #29832a;
 }
 
+.ReservedT {
+    pointer-events: none;
+    background-color: #960f0f;
+}
+
 .Disabled {
     pointer-events: none;
     background-color: dimgray;
 }
-
 .Tafel:focus {
     background-color: #0366d6;
 }
 
 .Daypart-div {
     background-color: #ffffff;
-    width: 79%;
     height: 37%;
+    width: 76%;
     margin-left: 12%;
-    margin-top: 62px;
-    padding: 1% 4% 7% 1%;
+    padding: 1% 10% 7% 3%;
 }
 
 .Daypart {
     border: 1px solid #E6DBDA;
     border-radius: 4px;
-    margin-left: 46px;
-    width: 71%;
+    margin-left: 27px;
     margin-top: 30px;
 }
 
 .Daypart-btn-lunch {
     border-right: 1px solid #E6DBDA;
-    padding-right: 28px;
-    padding-left: 17px;
+    padding-right: 34px;
+    padding-left: 19px;
 }
 
 .Daypart-btn-diner {
-    width: 46%;
-    padding-left: 6%;
+    width: 48%;
 }
+
 
 .Daypart-btn:hover {
     background-color: #0366d6;
@@ -201,8 +195,14 @@ body {
 
 .btn-ResAdmin {
     float: right;
-    margin-top: 45%;
+    margin-top: 43%;
     margin-right: 5%;
+}
+.Table-div > h4 {
+    margin-left: 13%;
+    font-style: Italic;
+    font-family: Segoe UI;
+    padding-bottom: 8px;
 }
 
 h4 {
@@ -212,3 +212,19 @@ h4 {
 .CHidden {
     visibility: hidden;
 }
+
+#divDaypart {
+    margin-top: 45px;
+}
+#divInfo {
+    margin-top: 5%;
+}
+#divDaypart, #divInfo {
+    margin-left: 2%;
+    width: 95%;
+}
+.Email-field{
+margin-left: 61px;
+
+}
+
