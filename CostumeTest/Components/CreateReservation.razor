@@ -45,7 +45,7 @@
             <div class="form-inline  form-group">
                 <label for="Name">Volledig naam</label>
 
-                <input type="text" class="form-controls" @bind="CreateGuest.FullName" aria-describedby="FullName" placeholder="Volledige naam" required />
+                <input type="text" class="form-controls Field-Name" @bind="CreateGuest.FullName" aria-describedby="FullName" placeholder="Volledige naam" required />
 
             </div>
             <div class="form-inline form-group ">
@@ -55,7 +55,7 @@
             </div>
             <div class="form-inline  form-group">
                 <label for="InputAmount">Aantal personen</label>
-                <input type="number" class="form-control " @bind="CreateRes.Amount" aria-describedby="Amount" placeholder="0" min="1" max="6" required />
+                <input type="number" class="form-control Field-Amount" @bind="CreateRes.Amount" aria-describedby="Amount" placeholder="0" min="1" max="6" required />
             </div>
 
         </div>
@@ -231,7 +231,7 @@
     public DateTime date { get; set; } = DateTime.Now;
     public string DateInText { get; set; }
     public string DayPart { get; set; }
-   
+
 
 
     // Kijkt of de terug of volgende knop is gedrukt
@@ -484,10 +484,6 @@
         con.Cmd.Parameters.AddWithValue("@Guest", CreateGuest.id);
         con.Cmd.Parameters.AddWithValue("@Amount", CreateRes.Amount);
         con.NonQueryEx();
-           
-        
-
-
         GetMessage("Succes");
         sendMail();
         NextOrLastDiv(true, 0);
@@ -496,9 +492,9 @@
     }
 
     public void sendMail()
-    {      
+    {
         con.SqlQuery("SELECT `id_Reservation` FROM `reservation` WHERE `Guest`=@Guest AND `Date`=@Date AND `DayPart`=@Daypart AND `TableNumber`=@TableNumber");
-                con.Cmd.Parameters.AddWithValue("@Guest", CreateGuest.id.ToString());
+        con.Cmd.Parameters.AddWithValue("@Guest", CreateGuest.id.ToString());
         con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date.ToString("yyyy-MM-dd"));
         con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
         con.Cmd.Parameters.AddWithValue("@TableNumber", CreateRes.Table);
@@ -509,11 +505,44 @@
 
             CreateRes.id = Convert.ToInt32(dr[0].ToString());
         }
+        string messageone = "Er is een reservering gemaakt. Klik op de link om de reservering te bevestigen.";
+        string Link = "https://localhost:44390/Confirm?GetGuestid=" + CreateGuest.id + "&GetRes=" + CreateRes.id;
+        string messagetwo = " Als u niet wilt reserveren of dit niet het geval is negeer dan deze mail. \n \nAlvast bedankt voor uw reserveringen ";
+        string htmlBody = @"
+ <html lang=""en"">
+    <head>    
+        <meta content=""text/html; charset=utf-8"" http-equiv=""Content-Type"">
+        <title>
+            Upcoming topics
+        </title>
+        <style type=""text/css"">
+            HTML{background-color: #e8e8e8;}
+            .courses-table{font-size: 12px; padding: 3px;  border-spacing: 0;}
+            .courses-table .description{color: #505050;}  
+            .message{ background-color: #ffff;    padding-left: 24px; padding-right: 195px;}
+            .description{background-color: #F3F3F3; padding: 0 10px;}
+            .side-Right{background-color: #F3F3F3; padding: 0 10px;}
+            .courses-table th{color: #354052;text-align: left;padding: 0 10px;}    
+            .green{background-color: #F3F3F3;}
+        </style>
+    </head>
+    <body>
+        <table class=""courses-table"">
+            <thead>
+                <tr>
+                    <th class=""green""></th>
+                    <th class=""green"">Topic</th>
+                    <th class=""green""></th>
 
-        MailMessage mailMessage = new MailMessage("testersmailbloem1@gmail.com", CreateGuest.Email);
-        mailMessage.Subject = "Bevestigen van reservering!";
-        mailMessage.Body = "Er is een reservering gemaakt. Klik op de link om de reservering te bevestigen. \n \n https://localhost:44390/Confirm?GetGuestid="+CreateGuest.id+"&GetRes="+CreateRes.id+" \n \nAls u niet wilt reserveren of dit niet het geval is negeer dan deze mail. \n \nAlvast bedankt voor uw reserveringen ";
+                </tr>
+            </thead>           
+            <tbody>
+                <tr>
+                    <td class=""description""><td class=""message"">" +messageone+"<a href="+Link+">Bevestig</a>"+messagetwo+"</td><td class=side-Right> </td> </td> </body> </html>";
+        string subject = "Bevestigen van reservering!";
 
+        MailMessage mailMessage = new MailMessage("testersmailbloem1@gmail.com", CreateGuest.Email ,subject,htmlBody);
+        mailMessage.IsBodyHtml = true;
         SmtpClient smtpClient = new SmtpClient();
         smtpClient.EnableSsl = true;
         smtpClient.Host = "smtp.gmail.com";
