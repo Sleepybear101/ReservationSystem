@@ -24,7 +24,6 @@
                     </div>
                 </div>
             </div>
-
             <div>
                 <h4>Dagdeel</h4>
                 <div class="Daypart-div">
@@ -38,18 +37,10 @@
                             <p>17:00 - 20:00</p>
                         </button>
                     </div>
-
-
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn-ResAdmin btn btn-primary">
-            Zoek
-        </button>
-
     </div>
-
-
 </form>
 <div class="Table-div">
 <div class=" card-group" style=" width:500px; height:450px; margin-left: 69px; margin-bottom: 36px; ">
@@ -57,7 +48,7 @@
     <table id="myTable" class="table" cellspacing="0">
         @{
 
-            con.SqlQuery("SELECT reservation.Date, reservation.DayPart, reservation.TableNumber, reservation.Amount, reservation.IsConfirm, guest.FullName FROM reservation INNER JOIN guest ON reservation.Guest = guest.id_Guest WHERE reservation.Date = @date AND reservation.DayPart = @Daypart");
+            con.SqlQuery("SELECT reservation.Date, reservation.DayPart, reservation.TableNumber, reservation.Amount, reservation.IsConfirm, guest.FullName, guest.id_Guest, reservation.id_Reservation FROM reservation INNER JOIN guest ON reservation.Guest = guest.id_Guest WHERE reservation.Date = @date AND reservation.DayPart = @Daypart");
             con.Cmd.Parameters.AddWithValue("@date", CreateRes.date);
             con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
             con.QueryEx();
@@ -68,96 +59,29 @@
                 <td>full name</td>
                 <td>tablenumber</td>
                 <td>amount of people</td>
-
+                <td>actie</td>
             </tr>
         </thead>
         <tbody>
         
             @foreach (DataRow dr in con.QueryEx().Rows)
             {
-                <tr>
-                    <td>@dr[5].ToString()</td>
-                    <td>@dr[2].ToString()</td>
-                    <td>@dr[3].ToString()</td>
-                </tr>
-            }
-        </tbody>
-
-    </table>
-    </div>
-</div>
-
-
-
-
-<!--<div style="background-color:#D5DAD7; float:left; width: 35%;  height: 100vh;">
-    <p style="margin-left: 7%; color: #9597A6; font-size: 24px;padding-top: 5px;    margin-bottom: 5px;">Agenda</p>
-    <form method="post">
-        <div class="Form-date">
-            <h2>Datum</h2>
-            <div style=" margin-left: 23px;">
-                <div>
-                    <div>
-                        <input type="date" id="txtDate" @bind="CreateRes.date" onkeydown="return false" class="input-group-addon date-div unstyled form-control" max=2025-01-1 />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </form>
-     <div>
-                        <h4>Dagdeel</h4>
-                        <div class="Daypart-div">
-                            <div class="Daypart">
-                                <button type="button" @onclick="(e => SelectedDaypart(false))" class="btn Daypart-btn Daypart-btn-lunch">
-                                            <h5>Lunch</h5>
-                                            <p>11:00 - 16:00</p>
-                                        </button>
-                                        <button type="button" @onclick="(e=> SelectedDaypart(true))" class="btn Daypart-btn   Daypart-btn-diner">
-                                                    <h5>Dinner</h5>
-                                                    <p>17:00 - 20:00</p>
-                                                </button>
-                                                </div>
-
-
-                                                </div>
-    </div>
-</div>
-
-<div>
-    <table id="myTable" class="table" cellspacing="0">
-        @{
-            con.SqlQuery("SELECT reservation.Date, reservation.DayPart, reservation.TableNumber, reservation.Amount, reservation.IsConfirm, guest.FullName FROM reservation INNER JOIN guest ON reservation.Guest = guest.id_Guest WHERE reservation.Date = @date AND reservation.DayPart = @Daypart");
-            con.Cmd.Parameters.AddWithValue("@date", CreateRes.date);
-            con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
-            con.QueryEx();
-        }
-        <thead>
-        <tr>
-            <td>full name</td>
-            <td>tablenumber</td>
-            <td>amount of people</td>
-
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (DataRow dr in con.QueryEx().Rows)
-        {
             <tr>
                 <td>@dr[5].ToString()</td>
                 <td>@dr[2].ToString()</td>
                 <td>@dr[3].ToString()</td>
+                <td><button style="float: left"><h5>@dr[7].ToString()</h5></button>
+                    <button style="float: left"><h5>@dr[6].ToString()</h5></button></td>
             </tr>
-        }
+             }
         </tbody>
 
     </table>
-
     </div>
-                                                -->
+</div>
+
 @code
 {
-
     void SelectedDaypart(bool SelectedDaypart)
     {
         if (SelectedDaypart == false)

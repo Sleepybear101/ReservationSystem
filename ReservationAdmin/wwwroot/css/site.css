@@ -8,9 +8,6 @@ a.navbar-brand {
     word-break: break-all;
 }
 
-
-
-
 /* Provide sufficient contrast against white background */
 a {
     color: #0366d6;
@@ -227,4 +224,17 @@ h4 {
 margin-left: 61px;
 
 }
+.Form-date {
+    background-color: #ffffff;
+    width: 49%;
+    height: 37%;
+    margin-left: 24%;
+    padding: 1% 1% 4% 1%;
+}
 
+.date-div {
+    margin-left: 27%;
+    width: 40%;
+    margin-top: 3%;
+    margin-bottom: 8%;
+}
