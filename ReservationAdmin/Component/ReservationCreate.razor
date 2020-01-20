@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-inline  form-group">
                     <label for="InputAmount">Aantal personen</label>
-                    <input type="number" class="form-control" @bind="CreateRes.Amount" aria-describedby="Amount" placeholder="0" min="1" max="6" required />
+                    <input type="number" class="form-control"  @bind="CreateRes.Amount"aria-describedby="Amount" placeholder="0" min="1" max="6" required />
                 </div>
 
             </div>
@@ -231,7 +231,6 @@
 
     }
 
-
     //Pak de waarde van geselecteerd tafel
 
     void SelectedTable(int SelectedTable)
@@ -315,7 +314,7 @@
     //Kijkt of veld wel gevuld of gekozen zijn en verder kan naar volgende form
     void CheckBlockedOrNotFilled()
     {
-        if (CreateGuest.FullName == null || CreateRes.Amount == 0 || CreateGuest.FullName == "")
+        if (CreateGuest.FullName == null || CreateRes.Amount == 0 || CreateGuest.FullName == "" )
         {
             GetMessage("Chosen");
         }
@@ -358,14 +357,22 @@
     //Zet Gast neer in database
     void InsertReservation()
     {
+        if(CreateRes.Table == 0)
+        {
+            GetMessage("Chosen");
+        }
+        else
+        {
+            con.SqlQuery("INSERT INTO `reservation`(`Date`, `DayPart`, `TableNumber`, `Guest`, `Amount`, `IsConfirm`) VALUES (@Date,@Daypart,@TableNumber,@Guest,@Amount, 'Ja')");
+            con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date);
+            con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
+            con.Cmd.Parameters.AddWithValue("@TableNumber", CreateRes.Table);
+            con.Cmd.Parameters.AddWithValue("@Guest", CreateGuest.id);
+            con.Cmd.Parameters.AddWithValue("@Amount", CreateRes.Amount);
+            con.NonQueryEx();
+        }
 
-        con.SqlQuery("INSERT INTO `reservation`(`Date`, `DayPart`, `TableNumber`, `Guest`, `Amount`, `IsConfirm`) VALUES (@Date,@Daypart,@TableNumber,@Guest,@Amount, 'Ja')");
-        con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date);
-        con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
-        con.Cmd.Parameters.AddWithValue("@TableNumber", CreateRes.Table);
-        con.Cmd.Parameters.AddWithValue("@Guest", CreateGuest.id);
-        con.Cmd.Parameters.AddWithValue("@Amount", CreateRes.Amount);
-        con.NonQueryEx();
+
         GetMessage("Succes");
         sendMail();
     }
