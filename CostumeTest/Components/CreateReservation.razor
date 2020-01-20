@@ -16,19 +16,19 @@
                 <p>Gegevens</p>
             </div>
             <div class="stepwizard-step">
-                <button id="Step2" type="button" class="  btn-circle"><p>2</p></button>
+                <button id="Step2" type="button" class="steps-circle btn-circle"><p>2</p></button>
                 <p>Datum</p>
             </div>
             <div class="stepwizard-step">
-                <button id="Step3" type="button" class=" btn-circle"><p>3</p></button>
+                <button id="Step3" type="button" class="steps-circle btn-circle"><p>3</p></button>
                 <p>Dagdeel</p>
             </div>
             <div class="stepwizard-step">
-                <button id="Step4" type="button" class="btn-circle"><p>4</p></button>
+                <button id="Step4" type="button" class="steps-circle btn-circle"><p>4</p></button>
                 <p>Tafel</p>
             </div>
             <div class="stepwizard-step">
-                <button id="Step5" type="button" class=" btn-circle"><p>5</p></button>
+                <button id="Step5" type="button" class="steps-circle  btn-circle"><p>5</p></button>
                 <p>Overzicht</p>
             </div>
         </div>
@@ -72,7 +72,7 @@
             <div style=" margin-left: 23px;">
                 <div>
                     <div>
-                        <input type="date" id="txtDate"  @bind="date" onkeydown="return false" class="input-group-addon date-div unstyled form-control" max=2025-01-1 />
+                        <input type="date" id="txtDate"  @bind="CreateRes.date" onkeydown="return false" class="input-group-addon date-div unstyled form-control" max=2025-01-1 />
                     </div>
                 </div>
                 <button type="button" @onclick="(e => NextOrLastDiv(false, 2))" class="btn btn-primary" style="float:left">
@@ -293,17 +293,15 @@
 
 @code{
 
-    public int i;
-    SqlConnection con = new SqlConnection();
+        SqlConnection con = new SqlConnection();
     public string Message;
     Reservation CreateRes = new Reservation();
     Guest CreateGuest = new Guest();
-    public int Rese;
+    public int TableNummerReserved;
+
     [Parameter]
-    public DateTime date { get; set; } = DateTime.Now;
     public string DateInText { get; set; }
     public string DayPart { get; set; }
-
 
 
     // Kijkt of de terug of volgende knop is gedrukt
@@ -314,7 +312,15 @@
         {
             await JsRuntime.InvokeVoidAsync("LastDiv", FormqClicked);
 
-
+                //Info legen terug
+                if (FormqClicked == 2 || FormqClicked == 4)
+                {
+                    CreateRes.Daypart = "";
+                }
+                else if (FormqClicked == 3 || FormqClicked == 5)
+                {
+                    CreateRes.Table = 0;
+                }
         }
         else
         {
@@ -326,15 +332,7 @@
             }
         }
 
-        //Info legen terug
-        if (FormqClicked == 2)
-        {
-            CreateRes.Daypart = "";
-        }
-        else if (FormqClicked == 3 || FormqClicked == 5)
-        {
-            CreateRes.Table = 0;
-        }
+ 
 
         DateInText = CreateRes.date.ToLongDateString();
 
@@ -350,6 +348,20 @@
     {
         await JsRuntime.InvokeVoidAsync("Disabled", CreateRes.Amount);
     }
+
+    async Task ResetTableOrSteps(string subject)
+    {
+        if (subject == "ResetTables")
+        {
+            await JsRuntime.InvokeVoidAsync("ResetTables");
+        }
+        else
+        {
+            await JsRuntime.InvokeVoidAsync("ResetSteps");
+        }
+    }
+
+
 
     // Kijkt of de terug of volgende knop is gedrukt
     async Task GetMessage(string subject)
@@ -380,22 +392,22 @@
         }
     }
 
+    //Kijkt naar welke datum is gekozen
     async Task CheckWhichDate()
     {
-
         await JsRuntime.InvokeVoidAsync("WhichDate", CreateRes.date.ToString("yyyy-MM-dd"));
-
     }
 
+    //Pakt de dagdeel die voorbij is gegaan
     async Task CheckDateTime(string Daypart)
     {
         await JsRuntime.InvokeVoidAsync("WhichDaypart", Daypart);
-
     }
 
+    //Kijkt of de tijd van de datum al na een dagdeel is om een dagdeel te blokkeren 
     void  CheckDateTime()
     {
-        CreateRes.date = date;
+
         DateTime Choosingdate = CreateRes.date.Date;
         DateTime CurrentTime  = DateTime.Now;
         TimeSpan timeLunch = new TimeSpan(11, 0, 0);
@@ -417,7 +429,6 @@
         }
 
         NextOrLastDiv(true, 2);
-
     }
 
     //Dagdeel gekozen
@@ -430,6 +441,7 @@
         }
         else
         {
+            ResetTableOrSteps("ResetTables");
             CheckWhichDate();
             ReserveTable();
             LessThenSixFourOrTwo();
@@ -440,7 +452,7 @@
     //Tafel gekozen
     void CheckTable()
     {
-        if (CreateRes.Table == 0 || CreateRes.Table == null)
+        if (CreateRes.Table == 0 )
         {
             GetMessage("Chosen");
         }
@@ -463,9 +475,9 @@
         {
             return false;
         }
-
     }
 
+    //Kijkt of veld wel gevuld of gekozen zijn en verder kan naar volgende form
     void CheckBlockedOrNotFilled()
     {
         if (CreateGuest.FullName == null || CreateRes.Amount == 0  || CreateGuest.FullName == "")
@@ -485,7 +497,6 @@
         }
         else
         {
-            //SELECT `IsBlocked` FROM `guest` WHERE `Email`=@Email
             con.SqlQuery("SELECT Count(`IsBlocked`) FROM `guest` WHERE `Email`=@Email AND `IsBlocked`=1");
             con.Cmd.Parameters.AddWithValue("@Email", CreateGuest.Email);
             foreach (DataRow dr in con.QueryEx().Rows)
@@ -504,9 +515,7 @@
             {
                 NextOrLastDiv(true, 1);
             }
-
         }
-
     }
 
     //Pak de waarde van geselecteerd Tafel
@@ -531,14 +540,9 @@
             DayPart = "Dinner 17:00 - 20:00";
 
         }
-
-
-
-
-
     }
 
-
+    //Zet de tafels naar gereserveerd
     void ReserveTable()
     {
 
@@ -548,15 +552,14 @@
         con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
         foreach (DataRow dr in con.QueryEx().Rows)
         {
-            Rese = Convert.ToInt32(dr[0].ToString());
-            DisabledReserved(Rese);
+            TableNummerReserved = Convert.ToInt32(dr[0].ToString());
+            DisabledReserved(TableNummerReserved);
         }
     }
 
-
+    //Check naar dubble gast gegevens
     void CheckDoubleUser()
     {
-
         con.SqlQuery("SELECT `id_Guest` FROM `guest` WHERE `FullName`=@Fullname AND `Email`=@Email");
         con.Cmd.Parameters.AddWithValue("@Fullname", CreateGuest.FullName);
         con.Cmd.Parameters.AddWithValue("@Email", CreateGuest.Email);
@@ -575,17 +578,14 @@
             InsertReservation();
         }
     }
+
     //Zet Gast neer in database
     void InsertUser()
     {
-
-        //SELECT `id_Guest` FROM `guest` WHERE `FullName`='Toos' AND `Email`='Wu.rud@hotmail.com'
-
         con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`,`NoShow`,`IsBlocked`) VALUES (@Fullname,@Email,0,0)");
         con.Cmd.Parameters.AddWithValue("@Fullname", CreateGuest.FullName);
         con.Cmd.Parameters.AddWithValue("@Email", CreateGuest.Email);
         con.NonQueryEx();
-
         CheckDoubleUser();
 
     }
@@ -600,13 +600,15 @@
         con.Cmd.Parameters.AddWithValue("@Guest", CreateGuest.id);
         con.Cmd.Parameters.AddWithValue("@Amount", CreateRes.Amount);
         con.NonQueryEx();
+
         GetMessage("Succes");
         sendMail();
+        ResetTableOrSteps("Steps");
         NextOrLastDiv(true, 0);
-
 
     }
 
+    //Verstuurd mail naar gast met bevestiging link
     public void sendMail()
     {
         con.SqlQuery("SELECT `id_Reservation` FROM `reservation` WHERE `Guest`=@Guest AND `Date`=@Date AND `DayPart`=@Daypart AND `TableNumber`=@TableNumber");
@@ -618,60 +620,59 @@
 
         foreach (DataRow dr in con.QueryEx().Rows)
         {
-
             CreateRes.id = Convert.ToInt32(dr[0].ToString());
         }
+
         string messageone = "Er is een reservering gemaakt. Klik op de link om de reservering te bevestigen.";
         string Link = "https://localhost:44390/Confirm?GetGuestid=" + CreateGuest.id + "&GetRes=" + CreateRes.id;
         string messagetwo = " Als u niet wilt reserveren of dit niet het geval is negeer dan deze mail.";
         string EndMail = "Alvast bedankt voor uw reserveringen ";
-        string htmlBody = @"
- <html lang=""en"">
-    <head>    
-        <meta content=""text/html; charset=utf-8"" http-equiv=""Content-Type"">
-        <title>
-            Upcoming topics
-        </title>
-        <style type=""text/css"">
-            HTML{background-color: #e8e8e8;}   
-            .message{background-color: #ffff; font-weight: 400;  font-size: 16px; padding: 2% 18% 4% 18%;}
-            .courses-table{font-size: 12px; padding: 3px; border:0; cellspacing:0; cellpadding:0; border-spacing: 0;}
-            .TitleMessage{ padding-left: 29%; font-size: 33px; color: #354052;}
-            .courses-table th{color: #354052;text-align: left; padding: 1% 1%;}    
-            .side-Right-Left{background-color: #F3F3F3; padding: 0 1%;}
-            .BacKColor{background-color: #F3F3F3;}
-            .EndMessage{ background-color: #F3F3F3; color: #354052; font-size: 25px;   padding-left: 32%;  padding-right: 36%;  font-weight: 700;  text-align: center;}
-        </style>
-    </head>
-    <body>
-        <table class=""courses-table"">
-            <thead>
-                <tr>
-                    <th class=""BacKColor""></th>
-                    <th class=""BacKColor""></th>
-                    <th class=""BacKColor""></th>
+        string htmlBody = @"<html lang=""en"">
+                                <head>    
+                                    <meta content=""text/html; charset=utf-8"" http-equiv=""Content-Type"">
+                                    <title>
+                                        Upcoming topics
+                                    </title>
+                                    <style type=""text/css"">
+                                        HTML{background-color: #e8e8e8;}   
+                                        .message{background-color: #ffff; font-weight: 400;  font-size: 16px; padding: 2% 18% 4% 18%;}
+                                        .courses-table{font-size: 12px; padding: 3px; border:0; cellspacing:0; cellpadding:0; border-spacing: 0;}
+                                        .TitleMessage{ padding-left: 29%; font-size: 33px; color: #354052;}
+                                        .courses-table th{color: #354052;text-align: left; padding: 1% 1%;}    
+                                        .side-Right-Left{background-color: #F3F3F3; padding: 0 1%;}
+                                        .BacKColor{background-color: #F3F3F3;}
+                                        .EndMessage{ background-color: #F3F3F3; color: #354052; font-size: 25px;   padding-left: 32%;  padding-right: 36%;  font-weight: 700;  text-align: center;}
+                                    </style>
+                                </head>
+                                <body>
+                                    <table class=""courses-table"">
+                                        <thead>
+                                            <tr>
+                                                <th class=""BacKColor""></th>
+                                                <th class=""BacKColor""></th>
+                                                <th class=""BacKColor""></th>
 
-                </tr>
-            </thead>           
-            <tbody>
-            <tr>
-              <td class=BacKColor></td>
-              <td class=TitleMessage>Bevestigen van reservering</td>
-              <td class=BacKColor></td>
-          </tr>
-                <tr>
-                    <td class=""side-Right-Left""><td class=""message"">" + messageone + "<br><a href=" + Link + ">Bevestig</a><br>" + messagetwo + "</td><td class=side-Right-Left> </td> </td> " +
-              "</tr> " +
-           "</tbody> " +
-     " <tfoot> " +
-        "<tr>" +
-          " <td class=BacKColor></td>" +
-          " <td class=EndMessage>"+EndMail+"</td>" +
-          " <td class=BacKColor></td>" +
-       " </tr> " +
-     "</tfoot>" +
-    "</body> " +
-  "</html>";
+                                            </tr>
+                                        </thead>           
+                                        <tbody>
+                                        <tr>
+                                          <td class=BacKColor></td>
+                                          <td class=TitleMessage>Bevestigen van reservering</td>
+                                          <td class=BacKColor></td>
+                                      </tr>
+                                            <tr>
+                                                <td class=""side-Right-Left""><td class=""message"">" + messageone + "<br><a href=" + Link + ">Bevestig</a><br>" + messagetwo + "</td><td class=side-Right-Left> </td> </td> " +
+                                          "</tr> " +
+                                       "</tbody> " +
+                                 " <tfoot> " +
+                                    "<tr>" +
+                                      " <td class=BacKColor></td>" +
+                                      " <td class=EndMessage>"+EndMail+"</td>" +
+                                      " <td class=BacKColor></td>" +
+                                   " </tr> " +
+                                 "</tfoot>" +
+                                "</body> " +
+                              "</html>";
 
 
 
@@ -683,11 +684,6 @@
         smtpClient.Port = 587;
         smtpClient.Credentials = new System.Net.NetworkCredential("reserveringsysteem2@gmail.com", "TestRes1!@");
         smtpClient.EnableSsl = true;
-
-
         smtpClient.Send(mailMessage);
     }
-
-
-
 }

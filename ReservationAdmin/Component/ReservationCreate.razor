@@ -57,7 +57,6 @@
     </button>
 </form>
 <div class="Table-div CHidden">
-
     <h4>Tafel kiezen</h4>
     <div style="border-top: 1px solid; padding-bottom: 33px; margin-left: 8%; width: 76%; color: #E6DBDA;" />
     <div id="NormalDay" class=" table-setting card-group" style=" background-image: url('images/Tafel-van-zes.png');  width:500px; height:450px; margin-left: 103px;
@@ -113,7 +112,7 @@
 
     </div>
 
-    <div id="Valday" class="  table-setting TableGroupDIV  card-group" style=" background-image: url('images/indeling-tafel-valetijnzes.png');  width:498px; height:450px; margin-left: 103px;  margin-bottom: 36px; ">
+    <div id="Valday" class="table-setting TableGroupDIV  card-group" style=" background-image: url('images/indeling-tafel-valetijnzes.png');  width:498px; height:450px; margin-left: 103px;  margin-bottom: 36px; ">
 
         <div style="margin-left: 21%; margin-top: 4%;">
             <div style="width: 24%; height: 16px; ">
@@ -189,7 +188,7 @@
     public string Message;
     Reservation CreateRes = new Reservation();
     Guest CreateGuest = new Guest();
-    public int Rese;
+    public int TableNummerReserved;
 
     //Check of mail correct is anders stuurt de
     bool IsValidEmail(string email)
@@ -214,6 +213,7 @@
     {
         await JsRuntime.InvokeVoidAsync("Disabled", CreateRes.Amount);
     }
+
     //Gereserveerd Tafel
     async Task DisabledReserved(int Tableres)
     {
@@ -224,7 +224,7 @@
     async Task CheckWhichDate()
     {
 
-        await JsRuntime.InvokeVoidAsync("WhichDate", "2020-02-14");
+        await JsRuntime.InvokeVoidAsync("WhichDate", CreateRes.date.ToString("yyyy-MM-dd"));
 
     }
 
@@ -274,15 +274,13 @@
     //Checkt naar gereserveerde tafels
     void ReserveTable()
     {
-        CreateRes.date = DateTime.Now;
-        //  SELECT `TableNumber` FROM `reservation` WHERE `Date`=@Date  AND `DayPart`=@Daypart
         con.SqlQuery("SELECT `TableNumber` FROM `reservation` WHERE `Date`=@Date  AND `DayPart`=@Daypart");
         con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date.ToString("yyyy-MM-dd"));
         con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
         foreach (DataRow dr in con.QueryEx().Rows)
         {
-            Rese = Convert.ToInt32(dr[0].ToString());
-            DisabledReserved(Rese);
+            TableNummerReserved = Convert.ToInt32(dr[0].ToString());
+            DisabledReserved(TableNummerReserved);
         }
     }
 
@@ -330,22 +328,23 @@
         }
         else
         {
-        CheckDoubleUser();
+            CheckDoubleUser();
         }
 
 
     }
 
-    //Zet Gast neer in database
+    //Zet Nieuwe Gast neer in database
     void InsertUser()
     {
 
         if (IsValidEmail(CreateGuest.Email) != false)
         {
-            con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`) VALUES (@Fullname,@Email)");
-            con.Cmd.Parameters.AddWithValue("@Fullname", CreateGuest.FullName);
-            con.Cmd.Parameters.AddWithValue("@Email", CreateGuest.Email);
-            con.NonQueryEx();
+        con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`,`NoShow`,`IsBlocked`) VALUES (@Fullname,@Email,0,0)");
+        con.Cmd.Parameters.AddWithValue("@Fullname", CreateGuest.FullName);
+        con.Cmd.Parameters.AddWithValue("@Email", CreateGuest.Email);
+        con.NonQueryEx();
+
             CheckDoubleUser();
         }
 

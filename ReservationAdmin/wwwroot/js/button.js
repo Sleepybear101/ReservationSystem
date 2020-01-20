@@ -10,7 +10,8 @@ function ResetTables() {
         $(".TableWitTwo").removeClass('Disabled');
         TableFiv = 0;
         TableSix = 0;
-        $(".Tafel").removeClass('ReservedT');
+       $(".Table").removeClass('ReservedT');
+
 }
   
 function Message(Onderwerp) {

@@ -1,6 +1,29 @@
 ﻿var number = 1;
 var Amount = 0;
 
+var Daypart;
+
+var Table = 0;
+var TableSix = 0;
+var TableFiv = 0;
+
+var Subject;
+
+function ResetTables() {
+    $(".Table-div").removeClass('CHidden');
+    $(".TableWitFour").removeClass('Disabled');
+    $(".TableWitSix").removeClass('Disabled');
+    $(".TableWitTwo").removeClass('Disabled');
+    TableFiv = 0;
+    TableSix = 0;
+    $(".Table").removeClass('ReservedT');
+}
+
+function ResetSteps() {
+$(".steps-circle").removeClass('btn-success');
+$(".steps-circle").addClass('btn-circle');
+}
+
 //verstop de div's met class divs name en laat de eerste div zien
 function LastDiv(ClickedForm) {
     $("div[class=divs]").hide();
@@ -26,10 +49,8 @@ function LastDiv(ClickedForm) {
     $("div[id=div" + n + "]").show();
     $("#Step" + n + "").removeClass('btn-success');
     $("#Step" + n + "").addClass('btn-progges');
-
-
-
 }
+
 //verstop de div's met class divs name en laat de volgende div zien
 function NextDiv(ClickedForm) {
     $(".divs").hide();
@@ -53,9 +74,9 @@ function NextDiv(ClickedForm) {
 
 
 }
+
+//Zet de maximun en minum van de datum
 function setDate() {
-
-
     var dtToday = new Date();
 
     var month = dtToday.getMonth() + 1;
@@ -83,31 +104,27 @@ function setDate() {
     $('#txtDate').attr('max', today);
 
 }
-var Daypart;
 
+//Blokkeerd de dagdeel van voorbijgaande tijd
 function WhichDaypart(Daypart) {
-
-
     $(Daypart).addClass('Disabled');
-
 }
 
 
-
+//kijkt welke datum het is om de tafel indeling te veranderen
 function WhichDate(CheckDate) {
-
     $(".table-setting").hide();
     var ValDatethis = new Date();
-    var ValDateOne= new Date();
+    var ValDateOne = new Date();
     var ValDateTwo = new Date();
 
     var ValYearTwo = ValDateTwo.getFullYear() + 2;
     var ValYearOne = ValDateOne.getFullYear() + 1;
     var ValYearThis = ValDatethis.getFullYear();
 
-    ValDatethis = ValYearThis + '-' + 0+2 + '-' + 14;
-    ValDateOne = ValYearOne + '-' + 0+2 + '-' + 14;
-    ValDateTwo = ValYearTwo + '-' + 0+2 + '-' + 14;
+    ValDatethis = ValYearThis + '-' + 0 + 2 + '-' + 14;
+    ValDateOne = ValYearOne + '-' + 0 + 2 + '-' + 14;
+    ValDateTwo = ValYearTwo + '-' + 0 + 2 + '-' + 14;
 
     if (CheckDate == ValDatethis || CheckDate == ValDateOne || CheckDate == ValDateTwo) {
         $("div[id=Valday]").show();
@@ -115,12 +132,10 @@ function WhichDate(CheckDate) {
     } else {
         $("div[id=NormalDay]").show();
         $("div[id=Valday]").hide();
-
     }
-
 }
 
-
+//Blokkeert tafels met minder stoelen dan aantal personen
 function Disabled(Amount) {
 
     if (Amount == 6) {
@@ -143,49 +158,39 @@ function Disabled(Amount) {
     } else if (Amount >= 2 && TableSix == 0 && TableFiv == 0) {
         $(".TableWitSix").addClass('Disabled');
         $(".TableWitFour").addClass('Disabled');
-    }
-
-  
+    }  
 }
-var Table = 0;
-var TableSix = 0;
-var TableFiv = 0;
 
+//Blokkeert tafels die gereserveerd zijn
 function DisabledReserved(Table) {
     if (Table == 6) {
         TableSix = 6;
         var Tan = Table.toString();
         $("button[id=Table" + Tan + "]").addClass('ReservedT');
-      
-            Disabled();
-        
-    } else if (Table == 5) {
+         Disabled();
+    }else if (Table == 5) {
         TableFiv = 5;
         var Tan = Table.toString();
         $("button[id=Table" + Tan + "]").addClass('ReservedT');
-            Disabled();
-        
+         Disabled();
     } else {
         var Tan = Table.toString();
         $("button[id=Table" + Tan + "]").addClass('ReservedT');
     }
-
 }
-var Onderwerp;
 
-function Message(Onderwerp) {
-
-    if (Onderwerp == "Succes") {
+//Toon melding die bij de onderwerp hoorts
+function Message(Subject) {
+    if (Subject == "Succes") {
         $("#ReservationSucces").modal();
-
-    } else if (Onderwerp == "Blocked") {
+    } else if (Subject == "Blocked") {
     $("#BlockedMessage").modal();
 
-    } else if (Onderwerp == "Chosen") {
+    } else if (Subject == "Chosen") {
         $("#NotFilledOrChosenMessage").modal();
         $(".Amount").addClass('NotCorrect');
         
-    } else if (Onderwerp == "Email") {
+    } else if (Subject == "Email") {
        $("#EmailNotMessage").modal();
     } 
 }

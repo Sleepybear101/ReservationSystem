@@ -165,8 +165,8 @@ body {
 .Daypart-div {
     background-color: #ffffff;
     height: 37%;
-    width: 76%;
-    margin-left: 12%;
+    width: 77%;
+    margin-left: 8%;
     padding: 1% 10% 7% 3%;
 }
 
@@ -180,11 +180,11 @@ body {
 .Daypart-btn-lunch {
     border-right: 1px solid #E6DBDA;
     padding-right: 34px;
-    padding-left: 19px;
+    padding-left: 23px;
 }
 
 .Daypart-btn-diner {
-    width: 48%;
+    width: 47%;
 }
 
 

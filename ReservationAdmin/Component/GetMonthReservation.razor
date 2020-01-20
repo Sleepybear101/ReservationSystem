@@ -45,7 +45,14 @@
 
     protected override void OnInitialized()
     {
-         _barChartConfig = new BarConfig
+
+        SetBarChart();
+        GetFutureYear();
+    }
+
+    public void SetBarChart()
+    {
+        _barChartConfig = new BarConfig
         {
             Options = new BarOptions
             {
@@ -78,7 +85,7 @@
                 }
             }
         };
-             _barDataVoorspelling = new BarDataset<DoubleWrapper>
+        _barDataVoorspelling = new BarDataset<DoubleWrapper>
         {
             Label = "Voorspelling",
             BackgroundColor = "#A3A1FB",
@@ -89,7 +96,7 @@
             BorderColor = "#ffffff"
         };
 
-         _barDataSetWerkelijk = new BarDataset<DoubleWrapper>
+        _barDataSetWerkelijk = new BarDataset<DoubleWrapper>
         {
             Label = "Werkelijk",
             BackgroundColor = "#56D9FE",
@@ -99,9 +106,6 @@
             HoverBorderWidth = 1,
             BorderColor = "#ffffff"
         };
-
-
-        GetFutureYear();
     }
 
     public void GetChoose(ChangeEventArgs e)
@@ -126,7 +130,7 @@
         {
             if (_barChartConfig.Data.Labels.Count > 0)
             {
-                
+
                 _barChartConfig.Data.Labels.RemoveAt(_barChartConfig.Data.Labels.Count - 1);
             }
 
@@ -141,22 +145,20 @@
             }
         }
     }
+
+
     private async Task AddData()
     {
-
         await _barChart.Update();
     }
 
     public void SetLastMonth()
     {
-       
+
         _barChartConfig.Data.Labels.AddRange(new[] { "Jan"});
-
-       
-
         _barDataSetWerkelijk.AddRange(new double[] { 8, 5, 3, 7, 2, 5, 3, 7, 9, 10, 11, 12 }.Wrap());
         _barChartConfig.Data.Datasets.Add(_barDataSetWerkelijk);
-       
+
         AddData();
     }
 
@@ -187,9 +189,6 @@
         _barDataSetWerkelijk.AddRange(new double[] { 8, 5, 3, 7, 2, 5, 3, 7, 9, 10, 11, 12 }.Wrap());
         _barChartConfig.Data.Datasets.Add(_barDataVoorspelling);
         _barChartConfig.Data.Datasets.Add(_barDataSetWerkelijk);
-                AddData();
+        AddData();
     }
-
-
-
 }

@@ -334,6 +334,7 @@ h2 {
 }
 
 .Disabled {
+    color: #ffff;
     pointer-events: none;
     background-color: dimgray;
 }
