@@ -1,5 +1,8 @@
 ﻿@page
 @model IndexModel
+@using System.Diagnostics
+@using Microsoft.AspNetCore.Mvc.ModelBinding
+@using ReservationAdmin.Component;
 @{
     ViewData["Title"] = "Home page";
 }
@@ -42,8 +45,14 @@
 <div style="background-color:#D5DAD7;">
     <p style="    margin-left: 22%; color: #9597A6; font-size: 24px;padding-top: 5px;    margin-bottom: 5px;">Dashboard - overzicht</p>
 
-    <div style="    border-top: 1px solid;padding-bottom: 7px;     margin-left: 25%;
- color: #ffff;">
+    <div style="    border-top: 1px solid;padding-bottom: 7px;     margin-left: 25%; color: #ffff;">
+    </div>
 
+</div>
+<div class="Dashboard">
+    <div class="BarChart">
+        @(await Html.RenderComponentAsync<GetMonthReservation>(RenderMode.ServerPrerendered))
     </div>
 </div>
+
+<script src="_framework/blazor.server.js"></script>

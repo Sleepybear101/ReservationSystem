@@ -83,6 +83,9 @@ a {
     font-weight: 200;
 }
 
+
+
+
 .btn-primary {
     color: #fff;
     background-color: #545871;
@@ -94,6 +97,32 @@ a {
         background-color: #545871;
         border-color: #e9a8a6;
     }
+
+.WhichMeaning {
+    margin-left: 13%;
+    display: inline-flex;
+}
+
+.WhichMeaning > p {
+        line-height: 34px;
+        margin-left: 15px;
+}
+
+.GWhichMeaning, .RWhichMeaning {
+    margin-left: 47px;
+    width: 39px;
+    height: 35px;
+    pointer-events: none;
+    border: none;
+    border-radius: 76%;
+}
+.GWhichMeaning {
+    background-color: #29832a;
+}
+
+.RWhichMeaning {
+    background-color: #960f0f;
+}
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
@@ -263,7 +292,7 @@ h2 {
     color: #3B86FF;
     background-color: #D5DAD7;
 }
-.btn-circle, .btn-progges , .btn-success{
+.btn-circle, .btn-progges, .btn-success {
     width: 30px;
     height: 30px;
     text-align: center;
@@ -271,6 +300,7 @@ h2 {
     font-size: 12px;
     line-height: 1.428571429;
     border-radius: 15px;
+    border: 1px;
     border-color: #3B86FF;
     border-style: solid;
 }
@@ -290,11 +320,11 @@ h2 {
 .NotCorrect{
   border-color:#9e1515
 }
-.Tafel:focus {
+.Table:focus {
     background-color: #0366d6;
 }
 
-.Tafel {
+.Table {
     background-color: #29832a;
 }
 
@@ -361,13 +391,14 @@ h4 {
     width: 30%;
     height: 30%;
 }
-
+.CDHidden {
+    visibility: hidden;
+}
 .TableGroupDIV {
     background-color: #ffffff;
     width: 49%;
     margin-left: 26%;
-    padding: 6px 19px 19px 19px;
-    padding-bottom: 50px;
+    padding: 6px 19px 7px 19px;
 }
 #divOverview {
     background-color: #ffffff;

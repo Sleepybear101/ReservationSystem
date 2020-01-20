@@ -9,7 +9,7 @@ namespace ReservationAdmin.Models
     {
      
         public int Amount { get; set; }
-        public DateTime date { get; set; }
+        public DateTime date { get; set; } = DateTime.Now;
         public string Daypart { get; set; }
         public int Table { get; set; } 
     }

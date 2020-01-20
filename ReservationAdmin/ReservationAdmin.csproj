@@ -5,17 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="wwwroot\images\Chair-downward-checked.png" />
-    <None Remove="wwwroot\images\Chair-downward.png" />
-    <None Remove="wwwroot\images\Chair-upward-checked.png" />
-    <None Remove="wwwroot\images\Chair-upward.png" />
-    <None Remove="wwwroot\images\Rounded-table.png" />
-    <None Remove="wwwroot\images\tafel-tekening.png" />
-    <None Remove="wwwroot\images\tafel-van-zes.png" />
-    <None Remove="wwwroot\images\Zondertafeldeling.png" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="ChartJs.Blazor" Version="1.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="0.7.0" />
     <PackageReference Include="MySql.Data" Version="8.0.18" />
   </ItemGroup>

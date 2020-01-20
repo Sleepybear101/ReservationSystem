@@ -25,6 +25,13 @@ a {
     border-color: #1861ac;
 }
 
+.Dashboard{
+    margin-left:22%;
+}
+
+.BarChart {
+    width: 62%;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -137,7 +144,7 @@ body {
     border-color: #1861ac;
 }
 
-.Tafel {
+.Table {
     border: none;
     background-color: #29832a;
 }
@@ -151,7 +158,7 @@ body {
     pointer-events: none;
     background-color: dimgray;
 }
-.Tafel:focus {
+.Table:focus {
     background-color: #0366d6;
 }
 
@@ -233,8 +240,36 @@ margin-left: 61px;
 }
 
 .date-div {
-    margin-left: 27%;
-    width: 40%;
+    margin-left: 6%;
+    width: 82%;
     margin-top: 3%;
     margin-bottom: 8%;
+}
+.DatED {
+    float: left;
+    padding-right: 43%;
+    margin-left: 3%;
+    color: #545871;
+}
+.DayD {
+    color: #9597A6;
+}
+td.HeadDesign {
+    color: #707070;
+}
+td.nameTD {
+    color: #545871;
+    font-weight: bold;
+}
+td.actieTD {
+    padding-left: 6%;
+}
+td.AmountD {
+    padding-left: 11%;
+}
+td.TableD {
+    padding-left: 3%;
+}
+td.AmountD, td.TableD {
+    color: #9597A6;
 }

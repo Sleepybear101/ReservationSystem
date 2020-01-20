@@ -7,7 +7,8 @@ function LastDiv(ClickedForm) {
     $("div[id=div4]").hide();
     var b = ClickedForm.toString();
     $("#Step" + b + "").removeClass('btn-success');
-    $("#Step" + b + "").addClass('btn-circle');
+    $("#Step" + b + "").addClass('btn-circle'); 
+
     ClickedForm--;
     if (ClickedForm == 3) {
     $(".TableWitFour").removeClass('Disabled');
@@ -17,9 +18,11 @@ function LastDiv(ClickedForm) {
     TableSix = 0;
     $(".Tafel").removeClass('ReservedT');
 
+    }else if (ClickedForm == 2) {
+        $(".Daypart-btn").removeClass('Disabled');
     }
     var n = ClickedForm.toString();
-
+   
     $("div[id=div" + n + "]").show();
     $("#Step" + n + "").removeClass('btn-success');
     $("#Step" + n + "").addClass('btn-progges');
@@ -31,11 +34,17 @@ function LastDiv(ClickedForm) {
 function NextDiv(ClickedForm) {
     $(".divs").hide();
     $("div[id=div4]").hide();
+    $("div[id=ButtonsProccess]").hide();
     var b = ClickedForm.toString();
     $("#Step" + b + "").removeClass('btn-progges');
     $("#Step"+b+"").addClass('btn-success');
     ClickedForm++;
+    if (ClickedForm == 2) {
+        $("div[id=ButtonsProccess]").removeClass('CHidden');
+        $("div[id=ButtonsProccess]").show();
+    }
     var n = ClickedForm.toString();
+    
     $("div[id=div" + n + "]").removeClass('CHidden');
     $("div[id=div" + n + "]").show();
     $("#Step" + n + "").removeClass('btn-circle');
@@ -52,6 +61,7 @@ function setDate() {
     var month = dtToday.getMonth() + 1;
     var day = dtToday.getDate();
     var year = dtToday.getFullYear();
+
     if (month < 10)
         month = '0' + month.toString();
     if (day < 10)
@@ -73,6 +83,43 @@ function setDate() {
     $('#txtDate').attr('max', today);
 
 }
+var Daypart;
+
+function WhichDaypart(Daypart) {
+
+
+    $(Daypart).addClass('Disabled');
+
+}
+
+
+
+function WhichDate(CheckDate) {
+
+    $(".table-setting").hide();
+    var ValDatethis = new Date();
+    var ValDateOne= new Date();
+    var ValDateTwo = new Date();
+
+    var ValYearTwo = ValDateTwo.getFullYear() + 2;
+    var ValYearOne = ValDateOne.getFullYear() + 1;
+    var ValYearThis = ValDatethis.getFullYear();
+
+    ValDatethis = ValYearThis + '-' + 0+2 + '-' + 14;
+    ValDateOne = ValYearOne + '-' + 0+2 + '-' + 14;
+    ValDateTwo = ValYearTwo + '-' + 0+2 + '-' + 14;
+
+    if (CheckDate == ValDatethis || CheckDate == ValDateOne || CheckDate == ValDateTwo) {
+        $("div[id=Valday]").show();
+        $("div[id=NormalDay]").hide();
+    } else {
+        $("div[id=NormalDay]").show();
+        $("div[id=Valday]").hide();
+
+    }
+
+}
+
 
 function Disabled(Amount) {
 
@@ -125,6 +172,7 @@ function DisabledReserved(Table) {
 
 }
 var Onderwerp;
+
 function Message(Onderwerp) {
 
     if (Onderwerp == "Succes") {
@@ -139,7 +187,5 @@ function Message(Onderwerp) {
         
     } else if (Onderwerp == "Email") {
        $("#EmailNotMessage").modal();
-
-    }
-
+    } 
 }

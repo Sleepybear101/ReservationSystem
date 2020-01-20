@@ -72,13 +72,13 @@
             <div style=" margin-left: 23px;">
                 <div>
                     <div>
-                        <input type="date" id="txtDate" @bind="date" onkeydown="return false" class="input-group-addon date-div unstyled form-control" max=2025-01-1 />
+                        <input type="date" id="txtDate"  @bind="date" onkeydown="return false" class="input-group-addon date-div unstyled form-control" max=2025-01-1 />
                     </div>
                 </div>
                 <button type="button" @onclick="(e => NextOrLastDiv(false, 2))" class="btn btn-primary" style="float:left">
                     terug
                 </button>
-                <button type="button" @onclick="(e => NextOrLastDiv(true, 2))" class="btn btn-primary" style="float:right">Volgende </button>
+                <button type="button" @onclick="CheckDateTime" class="btn btn-primary" style="float:right">Volgende </button>
             </div>
         </div>
     </div>
@@ -110,64 +110,136 @@
 <form>
     <div id="div4" class="divs CHidden TableGroupDIV">
         <h2>Tafel kiezen</h2>
-        <div class="Tafel   card-group" style=" background-image: url('images/Tafel-van-zes.png');  width:500px; height:450px; margin-left: 103px;
+        <div id="NormalDay" class=" table-setting card-group" style=" background-image: url('images/Tafel-van-zes.png');  width:500px; height:450px; margin-left: 103px;
         margin-bottom: 36px; ">
 
             <div style=" margin-left:21%; margin-top: 7%;">
 
                 <button id="Table1" type="button" @onclick="(e => SelectedTable(1))" style="width: 47px;
-        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Tafel TableWitFour btn btn-primary">
+        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Table TableWitFour btn btn-primary">
                     1
                 </button>
 
                 <button id="Table2" type="button" @onclick="(e => SelectedTable(2))" style="width: 47px;
-        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Tafel  TableWitFour btn btn-primary">
+        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Table  TableWitFour btn btn-primary">
                     2
                 </button>
                 <button id="Table3" type="button" @onclick="(e => SelectedTable(3))" style="width: 47px;
-        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Tafel TableWitFour btn btn-primary">
+        height: 57px; margin-left: 10px;   margin-right: 33px; " class="Table TableWitFour btn btn-primary">
                     3
                 </button>
             </div>
 
             <div style="margin-top: 7%;">
-                <button id="Table4" type="button" class="Tafel TableWitSix  btn btn-primary" @onclick="(e => SelectedTable(4))" style="width: 47px; height: 87px; margin-left: 27px; margin-right: 40px; margin-top: 15px;">
+                <button id="Table4" type="button" class="Table TableWitSix  btn btn-primary" @onclick="(e => SelectedTable(4))" style="width: 47px; height: 87px; margin-left: 27px; margin-right: 40px; margin-top: 15px;">
                     4
                 </button>
             </div>
 
             <div style="padding-left: 50%;height: 7%; margin-top: -3%;">
-                <button id="Table6" type="button" @onclick="(e => SelectedTable(6))" style="width: 30px; height: 35px; margin-right:48px;" class="Tafel TableWitTwo btn btn-primary">6</button>
-                <button id="Table5" type="button" @onclick="(e => SelectedTable(5))" style="width: 30px; height: 35px; " class="Tafel TableWitTwo  btn btn-primary">5</button>
+                <button id="Table6" type="button" @onclick="(e => SelectedTable(6))" style="width: 30px; height: 35px; margin-right:48px;" class="Table TableWitTwo btn btn-primary">6</button>
+                <button id="Table5" type="button" @onclick="(e => SelectedTable(5))" style="width: 30px; height: 35px; " class="Table TableWitTwo  btn btn-primary">5</button>
             </div>
 
             <div style="width: 27%; margin-left: 1%;margin-bottom: 24%;  margin-top: 3%;">
-                <button id="Table8" type="button" @onclick="(e => SelectedTable(8))" style="width: 58px;  height: 48px; margin-left: 25px;  margin-right: 33px;  margin-top: 17%;" class=" Tafel TableWitFour btn btn-primary">
+                <button id="Table8" type="button" @onclick="(e => SelectedTable(8))" style="width: 58px;  height: 48px; margin-left: 25px;  margin-right: 33px;  margin-top: 17%;" class=" Table TableWitFour btn btn-primary">
                     8
                 </button>
-                <button id="Table10" type="button" @onclick="(e => SelectedTable(10))" style="width: 58px;  height: 48px;  margin-left: 25px;  margin-right: 33px;  margin-top: 31%;" class=" Tafel TableWitFour btn btn-primary">
+                <button id="Table10" type="button" @onclick="(e => SelectedTable(10))" style="width: 58px;  height: 48px;  margin-left: 25px;  margin-right: 33px;  margin-top: 31%;" class=" Table TableWitFour btn btn-primary">
                     10
                 </button>
-                <button id="Table11" type="button" @onclick="(e => SelectedTable(11))" style=" width: 90px; height: 48px; margin-left: 25px; margin-right: 33px;   margin-top: 34%;" class="Tafel TableWitSix  btn btn-primary">
+                <button id="Table11" type="button" @onclick="(e => SelectedTable(11))" style=" width: 90px; height: 48px; margin-left: 25px; margin-right: 33px;   margin-top: 34%;" class="Table TableWitSix  btn btn-primary">
                     11
                 </button>
             </div>
             <div style="  width: 19%; margin-left: 1%; ">
-                <button id="Table7" type="button" @onclick="(e => SelectedTable(7))" style="width: 58px;height: 46px; margin-left: 7px;margin-right: 6px; margin-top: 20%;" class="Tafel TableWitFour btn btn-primary">
+                <button id="Table7" type="button" @onclick="(e => SelectedTable(7))" style="width: 58px;height: 46px; margin-left: 7px;margin-right: 6px; margin-top: 20%;" class="Table TableWitFour btn btn-primary">
                     7
                 </button>
-                <button id="Table9" type="button" @onclick="(e => SelectedTable(9))" style=" width: 59px; height: 45px; margin-left: 7px; margin-right: 33px;  margin-top: 55%;" class="Tafel TableWitFour  btn btn-primary">
+                <button id="Table9" type="button" @onclick="(e => SelectedTable(9))" style=" width: 59px; height: 45px; margin-left: 7px; margin-right: 33px;  margin-top: 55%;" class="Table TableWitFour  btn btn-primary">
                     9
                 </button>
             </div>
 
         </div>
+
+        <div id="Valday" class="  table-setting TableGroupDIV  card-group" style=" background-image: url('images/indeling-tafel-valetijnzes.png');  width:500px; height:450px; margin-left: 103px;  margin-bottom: 36px; ">
+
+            <div style="margin-left: 19%; margin-top: 3%;">
+                <div style="width: 24%; height: 16px; ">
+                    <button id="Table1" type="button"  @onclick="(e => SelectedTable(1))" style="width: 34px;height: 36px;  margin-left: 19px;  margin-right: 33px;  margin-top: 17%;" class=" Table TableWitTwo btn btn-primary">
+                        1
+                    </button>
+                    <button id="Table2" type="button" @onclick="(e => SelectedTable(2))" style="width: 34px;height: 36px;margin-left: 19px;margin-right: 33px;margin-top: 8%;" class=" Table TableWitTwo btn btn-primary">
+                        2
+                    </button>
+
+                </div>
+                <div style=" margin-left: 91px;">
+                    <button id="Table3" type="button"  @onclick="(e => SelectedTable(3)) "style="width: 47px;  height: 57px; margin-left: 10px;   margin-right: 33px; " class="Table TableWitFour btn btn-primary">
+                        3
+                    </button>
+
+                    <button id="Table4" type="button" @onclick="(e => SelectedTable(4))" style="width: 47px;   height: 57px; margin-left: 14px;   margin-right: 33px; " class="Table TableWitFour btn btn-primary">
+                        4
+                    </button>
+                    <button id="Table5" type="button" @onclick="(e => SelectedTable(5))" style="width: 47px; height: 57px; margin-left: 9px;   margin-right: 33px; " class="Table TableWitFour btn btn-primary">
+                        5
+                    </button>
+                </div>
+            </div>
+
+            <div style="padding-left: 50%; height: 7%; margin-top: 6%;">
+                <button id="Table8" type="button"  @onclick="(e => SelectedTable(8))" style="width: 33px;height: 35px;margin-right: 44px;" class="Table TableWitTwo btn btn-primary">8</button>
+                <button id="Table7" type="button"  @onclick="(e => SelectedTable(7))" style="width: 32px;height: 35px;margin-right: 44px;" class="Table TableWitTwo  btn btn-primary">7</button>
+                <button id="Table6" type="button"  @onclick="(e => SelectedTable(6))" style="width: 33px;height: 35px;" class="Table TableWitTwo  btn btn-primary">6</button>
+            </div>
+
+            <div style="width: 11%; margin-bottom: 24%;  margin-top: 8%;">
+                <button id="Table11" type="button"  @onclick="(e => SelectedTable(11))" style="width: 36px;height: 35px;margin-left: 6px;margin-right: 33px;margin-top: 39%;padding-left: 7px;padding-top: 5px;" class=" Table TableWitTwo btn btn-primary">
+                    11
+                </button>
+                <button id="Table14" type="button" @onclick="(e => SelectedTable(14))" style="width: 36px;height: 35px;margin-left: 6px;margin-right: 33px;margin-top: 90%;padding-left: 7px;padding-top: 5px;" class=" Table TableWitTwo btn btn-primary">
+                    14
+                </button>
+                <button id="Table16" type="button" @onclick="(e => SelectedTable(16))" style=" width: 36px;height: 35px;margin-left: 6px;margin-right: 33px;margin-top: 100%;padding-left: 8px;padding-top: 5px;" class="Table TableWitTwo  btn btn-primary">
+                    16
+                </button>
+            </div>
+
+            <div style="width:16%; margin-bottom: 24%;  margin-top: 10%;">
+                <button id="Table10" type="button"  @onclick="(e => SelectedTable(10))" style="width: 34px;height: 36px;margin-left: 1px;margin-right: 33px;margin-top: 14%;padding-left: 7px;padding-top: 5px; " class=" Table TableWitTwo btn btn-primary">
+                    10
+                </button>
+                <button id="Table13" type="button"   @onclick="(e => SelectedTable(13))" style="width: 35px;height: 36px; margin-right: 33px;margin-top: 62%;padding-left: 7px;padding-top: 5px;" class=" Table TableWitTwo btn btn-primary">
+                    13
+                </button>
+                <button id="Table15" type="button"  @onclick="(e => SelectedTable(15))" style="width: 35px;height: 37px;margin-left: 1px;margin-right: 33px;margin-top: 67%;padding-left: 7px;padding-top: 5px;" class="Table TableWitTwo  btn btn-primary">
+                    15
+                </button>
+            </div>
+            <div style="  width: 19%; ">
+                <button id="Table9" type="button"  @onclick="(e => SelectedTable(9))" style="width: 58px;height: 46px;margin-left: 7px;margin-right: 6px;margin-top: 24%;" class="Table TableWitFour btn btn-primary">
+                    9
+                </button>
+                <button id="Table12" type="button"  @onclick="(e => SelectedTable(12))" style=" width: 59px;height: 45px;margin-left: 7px;margin-right: 33px;margin-top: 60%;" class="Table TableWitFour  btn btn-primary">
+                    12
+                </button>
+            </div>
+        </div>
         <button type="button" @onclick="(e => NextOrLastDiv(false, 4))" class="btn btn-primary" style="float:left">
             terug
         </button>
+        <div class="WhichMeaning">
+            <button class="GWhichMeaning" />
+            <p>Beschikbaar</p>
+            <button class="RWhichMeaning" />
+            <p> Bezet</p>
+        </div>
         <button type="button" @onclick="CheckTable" class="btn btn-primary" style="float:right">Volgende </button>
     </div>
 </form>
+
 <form>
     <div id="div5" class="divs CHidden">
         <div id="divOverview">
@@ -237,7 +309,6 @@
     // Kijkt of de terug of volgende knop is gedrukt
     async Task NextOrLastDiv(bool NextOrLastDiv, int FormqClicked)
     {
-        CreateRes.date = date;
         // als de NextOrLastDiv false wordt de javascript function LastDiv gebruikt anders  function NextDiv gebruikt
         if (NextOrLastDiv == false)
         {
@@ -303,9 +374,51 @@
             await JsRuntime.InvokeVoidAsync("Message", subject);
 
         }
+        else if(subject == "Time")
+        {
+            await JsRuntime.InvokeVoidAsync("Message", subject);
+        }
     }
 
+    async Task CheckWhichDate()
+    {
 
+        await JsRuntime.InvokeVoidAsync("WhichDate", CreateRes.date.ToString("yyyy-MM-dd"));
+
+    }
+
+    async Task CheckDateTime(string Daypart)
+    {
+        await JsRuntime.InvokeVoidAsync("WhichDaypart", Daypart);
+
+    }
+
+    void  CheckDateTime()
+    {
+        CreateRes.date = date;
+        DateTime Choosingdate = CreateRes.date.Date;
+        DateTime CurrentTime  = DateTime.Now;
+        TimeSpan timeLunch = new TimeSpan(11, 0, 0);
+        TimeSpan timeDinner = new TimeSpan(17, 0, 0);
+        DateTime DeadlineLunch = Choosingdate.Add(timeLunch);
+        DateTime DeadlineDinner = Choosingdate.Add(timeDinner);
+
+        double TotalBetweenLunch = (DeadlineLunch - CurrentTime).TotalHours;
+        double TotalBetweenDinner = (DeadlineDinner - CurrentTime).TotalHours;
+
+        if ( TotalBetweenLunch < 3 )
+        {
+            CheckDateTime(".form-daypart-btn-lunch");
+        }
+
+        if (TotalBetweenDinner < 3)
+        {
+            CheckDateTime(".form-daypart-btn-diner");
+        }
+
+        NextOrLastDiv(true, 2);
+
+    }
 
     //Dagdeel gekozen
     void CheckDaypart()
@@ -317,7 +430,9 @@
         }
         else
         {
-
+            CheckWhichDate();
+            ReserveTable();
+            LessThenSixFourOrTwo();
             NextOrLastDiv(true, 3);
         }
     }
@@ -353,7 +468,7 @@
 
     void CheckBlockedOrNotFilled()
     {
-        if (CreateGuest.FullName == null || CreateRes.Amount == 0)
+        if (CreateGuest.FullName == null || CreateRes.Amount == 0  || CreateGuest.FullName == "")
         {
             GetMessage("Chosen");
         }
@@ -393,8 +508,8 @@
         }
 
     }
-    //Pak de waarde van geselecteerd Tafel
 
+    //Pak de waarde van geselecteerd Tafel
     void SelectedTable(int SelectedTable)
     {
         CreateRes.Table = SelectedTable;
@@ -417,11 +532,12 @@
 
         }
 
-        ReserveTable();
-        LessThenSixFourOrTwo();
+
+
 
 
     }
+
 
     void ReserveTable()
     {
@@ -507,7 +623,8 @@
         }
         string messageone = "Er is een reservering gemaakt. Klik op de link om de reservering te bevestigen.";
         string Link = "https://localhost:44390/Confirm?GetGuestid=" + CreateGuest.id + "&GetRes=" + CreateRes.id;
-        string messagetwo = " Als u niet wilt reserveren of dit niet het geval is negeer dan deze mail. \n \nAlvast bedankt voor uw reserveringen ";
+        string messagetwo = " Als u niet wilt reserveren of dit niet het geval is negeer dan deze mail.";
+        string EndMail = "Alvast bedankt voor uw reserveringen ";
         string htmlBody = @"
  <html lang=""en"">
     <head>    
@@ -516,43 +633,58 @@
             Upcoming topics
         </title>
         <style type=""text/css"">
-            HTML{background-color: #e8e8e8;}
-            .courses-table{font-size: 12px; padding: 3px;  border-spacing: 0;}
-            .courses-table .description{color: #505050;}  
-            .message{ background-color: #ffff;    padding-left: 24px; padding-right: 195px;}
-            .description{background-color: #F3F3F3; padding: 0 10px;}
-            .side-Right{background-color: #F3F3F3; padding: 0 10px;}
-            .courses-table th{color: #354052;text-align: left;padding: 0 10px;}    
-            .green{background-color: #F3F3F3;}
+            HTML{background-color: #e8e8e8;}   
+            .message{background-color: #ffff; font-weight: 400;  font-size: 16px; padding: 2% 18% 4% 18%;}
+            .courses-table{font-size: 12px; padding: 3px; border:0; cellspacing:0; cellpadding:0; border-spacing: 0;}
+            .TitleMessage{ padding-left: 29%; font-size: 33px; color: #354052;}
+            .courses-table th{color: #354052;text-align: left; padding: 1% 1%;}    
+            .side-Right-Left{background-color: #F3F3F3; padding: 0 1%;}
+            .BacKColor{background-color: #F3F3F3;}
+            .EndMessage{ background-color: #F3F3F3; color: #354052; font-size: 25px;   padding-left: 32%;  padding-right: 36%;  font-weight: 700;  text-align: center;}
         </style>
     </head>
     <body>
         <table class=""courses-table"">
             <thead>
                 <tr>
-                    <th class=""green""></th>
-                    <th class=""green"">Topic</th>
-                    <th class=""green""></th>
+                    <th class=""BacKColor""></th>
+                    <th class=""BacKColor""></th>
+                    <th class=""BacKColor""></th>
 
                 </tr>
             </thead>           
             <tbody>
+            <tr>
+              <td class=BacKColor></td>
+              <td class=TitleMessage>Bevestigen van reservering</td>
+              <td class=BacKColor></td>
+          </tr>
                 <tr>
-                    <td class=""description""><td class=""message"">" +messageone+"<a href="+Link+">Bevestig</a>"+messagetwo+"</td><td class=side-Right> </td> </td> </body> </html>";
+                    <td class=""side-Right-Left""><td class=""message"">" + messageone + "<br><a href=" + Link + ">Bevestig</a><br>" + messagetwo + "</td><td class=side-Right-Left> </td> </td> " +
+              "</tr> " +
+           "</tbody> " +
+     " <tfoot> " +
+        "<tr>" +
+          " <td class=BacKColor></td>" +
+          " <td class=EndMessage>"+EndMail+"</td>" +
+          " <td class=BacKColor></td>" +
+       " </tr> " +
+     "</tfoot>" +
+    "</body> " +
+  "</html>";
+
+
+
         string subject = "Bevestigen van reservering!";
-
-        MailMessage mailMessage = new MailMessage("testersmailbloem1@gmail.com", CreateGuest.Email ,subject,htmlBody);
+        MailMessage mailMessage = new MailMessage("reserveringsysteem2@gmail.com", CreateGuest.Email ,subject,htmlBody);
         mailMessage.IsBodyHtml = true;
-        SmtpClient smtpClient = new SmtpClient();
-        smtpClient.EnableSsl = true;
-        smtpClient.Host = "smtp.gmail.com";
-        smtpClient.Port = 587;
 
-        smtpClient.Credentials = new System.Net.NetworkCredential()
-        {
-            UserName = "wachtrijteam@gmail.com",
-            Password = "Wachtrij1!"
-        };
+        SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+        smtpClient.Port = 587;
+        smtpClient.Credentials = new System.Net.NetworkCredential("reserveringsysteem2@gmail.com", "TestRes1!@");
+        smtpClient.EnableSsl = true;
+
+
         smtpClient.Send(mailMessage);
     }
 

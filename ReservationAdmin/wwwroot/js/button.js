@@ -13,9 +13,24 @@ function ResetTables() {
         $(".Tafel").removeClass('ReservedT');
 }
   
-function Message() {
-    alert("Reservering is aangemaakt");
+function Message(Onderwerp) {
+
+    if (Onderwerp == "Succes") {
+        $("#ReservationSucces").modal();
+
+    } else if (Onderwerp == "Blocked") {
+        $("#BlockedMessage").modal();
+
+    } else if (Onderwerp == "Chosen") {
+        $("#NotFilledOrChosenMessage").modal();
+        $(".Amount").addClass('NotCorrect');
+
+    } else if (Onderwerp == "Email") {
+        $("#EmailNotMessage").modal();
+    }
 }
+
+
 function Disabled(Amount) {
 
     if (Amount == 6) {
@@ -43,6 +58,33 @@ function Disabled(Amount) {
 
 
 }
+
+function WhichDate(CheckDate) {
+    $(".Table-div").removeClass('CHidden');
+    $(".table-setting").hide();
+    var ValDatethis = new Date();
+    var ValDateOne = new Date();
+    var ValDateTwo = new Date();
+
+    var ValYearTwo = ValDateTwo.getFullYear() + 2;
+    var ValYearOne = ValDateOne.getFullYear() + 1;
+    var ValYearThis = ValDatethis.getFullYear();
+
+    ValDatethis = ValYearThis + '-' + 0 + 2 + '-' + 14;
+    ValDateOne = ValYearOne + '-' + 0 + 2 + '-' + 14;
+    ValDateTwo = ValYearTwo + '-' + 0 + 2 + '-' + 14;
+
+    if (CheckDate == ValDatethis || CheckDate == ValDateOne || CheckDate == ValDateTwo) {
+        $("div[id=Valday]").show();
+        $("div[id=NormalDay]").hide();
+    } else {
+        $("div[id=NormalDay]").show();
+        $("div[id=Valday]").hide();
+
+    }
+
+}
+
 function DisabledReserved(Table) {
     if (Table == 6) {
         TableSix = 6;

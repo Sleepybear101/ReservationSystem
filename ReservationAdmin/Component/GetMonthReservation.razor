@@ -1,0 +1,195 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using System.Diagnostics
+@using System.Data;
+@using ReservationAdmin.Models;
+@using System.Globalization;
+@using ChartJs.Blazor.ChartJS.BarChart
+@using ChartJs.Blazor.ChartJS.BarChart.Axes
+@using ChartJs.Blazor.ChartJS.Common.Axes
+@using ChartJs.Blazor.ChartJS.Common.Axes.Ticks
+@using ChartJs.Blazor.ChartJS.Common.Properties
+@using ChartJs.Blazor.ChartJS.Common.Wrappers
+@using ChartJs.Blazor.Charts
+@using ChartJs.Blazor.Util
+@using System.Linq;
+
+
+<select @onchange="(e => GetChoose(e))">
+    <option value="Year">Jaar</option>
+    <option value="Month">Maand</option>
+</select>
+
+<select @onchange="(e => GetChoose(e))">
+    <option value="1">Jan</option>
+    <option value="2">Feb</option>
+    <option value="1">Jan</option>
+    <option value="2">Feb</option>
+</select>
+
+<ChartJsBarChart @ref="_barChart" Config="@_barChartConfig" Width="700" Height="300" />
+
+
+
+@code
+{
+
+    private BarConfig _barChartConfig;
+    private ChartJsBarChart _barChart;
+    private BarDataset<DoubleWrapper> _barDataVoorspelling;
+    private BarDataset<DoubleWrapper> _barDataSetWerkelijk;
+    SqlConnection con = new SqlConnection();
+    List<double> Result = new List<double>();
+    [Parameter]
+    public string Month { get; set; }
+    public string Chose { get; set; }
+
+    protected override void OnInitialized()
+    {
+         _barChartConfig = new BarConfig
+        {
+            Options = new BarOptions
+            {
+                Title = new OptionsTitle
+                {
+                    Display = true,
+                    Text = "Statiek - Aantal reserveringen"
+
+                },
+                Scales = new BarScales
+                {
+                    XAxes = new List<CartesianAxis>
+                    {
+                    new BarCategoryAxis
+                    {
+                    BarPercentage = 0.8,
+                    BarThickness = BarThickness.Flex
+                    }
+                    },
+                    YAxes = new List<CartesianAxis>
+                        {
+                        new BarLinearCartesianAxis
+                        {
+                        Ticks = new LinearCartesianTicks
+                        {
+                        BeginAtZero = true
+                        }
+                        }
+                        }
+                }
+            }
+        };
+             _barDataVoorspelling = new BarDataset<DoubleWrapper>
+        {
+            Label = "Voorspelling",
+            BackgroundColor = "#A3A1FB",
+            BorderWidth = 0,
+            HoverBackgroundColor = ColorUtil.RandomColorString(),
+            HoverBorderColor = ColorUtil.RandomColorString(),
+            HoverBorderWidth = 1,
+            BorderColor = "#ffffff"
+        };
+
+         _barDataSetWerkelijk = new BarDataset<DoubleWrapper>
+        {
+            Label = "Werkelijk",
+            BackgroundColor = "#56D9FE",
+            BorderWidth = 0,
+            HoverBackgroundColor = ColorUtil.RandomColorString(),
+            HoverBorderColor = ColorUtil.RandomColorString(),
+            HoverBorderWidth = 1,
+            BorderColor = "#ffffff"
+        };
+
+
+        GetFutureYear();
+    }
+
+    public void GetChoose(ChangeEventArgs e)
+    {
+        RemoveData();
+        Chose = e.Value.ToString();
+        if (Chose == "Year")
+        {
+            GetFutureYear();
+
+        }
+        else
+        {
+            SetLastMonth();
+        }
+
+    }
+
+    private async Task RemoveData()
+    {
+        for (int i = 1; i < 13; i++)
+        {
+            if (_barChartConfig.Data.Labels.Count > 0)
+            {
+                
+                _barChartConfig.Data.Labels.RemoveAt(_barChartConfig.Data.Labels.Count - 1);
+            }
+
+            if (_barDataVoorspelling.Data.Count > 0)
+            {
+                _barDataVoorspelling.RemoveAt(_barDataVoorspelling.Data.Count - 1);
+            }
+
+            if (_barDataSetWerkelijk.Data.Count > 0)
+            {
+                _barDataSetWerkelijk.RemoveAt(_barDataSetWerkelijk.Data.Count - 1);
+            }
+        }
+    }
+    private async Task AddData()
+    {
+
+        await _barChart.Update();
+    }
+
+    public void SetLastMonth()
+    {
+       
+        _barChartConfig.Data.Labels.AddRange(new[] { "Jan"});
+
+       
+
+        _barDataSetWerkelijk.AddRange(new double[] { 8, 5, 3, 7, 2, 5, 3, 7, 9, 10, 11, 12 }.Wrap());
+        _barChartConfig.Data.Datasets.Add(_barDataSetWerkelijk);
+       
+        AddData();
+    }
+
+
+
+    public void GetFutureYear()
+    {
+        _barChartConfig.Data.Labels.AddRange(new[] { "Jan", "Feb", "Maart", "April", "Mei", "Juni", "Juli", "August", "September", "Oktober", "November", "Decemeber" });
+
+
+        for (int i = 1; i < 13; i++)
+        {
+            con.SqlQuery("SELECT ROUND((year1.Total1+year2.Total2+year3.Total3+year4.Total4+year5.Total5)/5) FROM (" +
+            " (SELECT COUNT(*) as Total1 FROM `reservation` WHERE `Date` BETWEEN '2018-" + i + "-1' AND '2018-" + i + "-31') year1," +
+            " (SELECT COUNT(*) as Total2 FROM `reservation` WHERE `Date` BETWEEN '2019-" + i + "-1'AND '2019-" + i + "-31') year2," +
+            "(SELECT COUNT(*) as Total3 FROM `reservation` WHERE `Date` BETWEEN '2017-" + i + "-1'AND '2017-" + i + "-31') year3," +
+            "(SELECT COUNT(*) as Total4 FROM `reservation` WHERE `Date` BETWEEN '2016-" + i + "-1'AND '2016-" + i + "-31') year4," +
+            "(SELECT COUNT(*) as Total5 FROM `reservation` WHERE `Date` BETWEEN '2015-" + i + "-1'AND '2015-" + i + "-31') year5)");
+            con.QueryEx();
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
+
+                _barDataVoorspelling.AddRange(new double[] { Convert.ToDouble(dr[0]) }.Wrap());
+            }
+        }
+
+
+        _barDataSetWerkelijk.AddRange(new double[] { 8, 5, 3, 7, 2, 5, 3, 7, 9, 10, 11, 12 }.Wrap());
+        _barChartConfig.Data.Datasets.Add(_barDataVoorspelling);
+        _barChartConfig.Data.Datasets.Add(_barDataSetWerkelijk);
+                AddData();
+    }
+
+
+
+}
