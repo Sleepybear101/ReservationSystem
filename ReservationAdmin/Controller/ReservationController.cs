@@ -15,11 +15,7 @@ namespace ReservationGuest.Controllers
         [HttpGet]
         public IActionResult Index() //Bound from Query String
         {
-            
             return Redirect("overzicht");
         }
-    
-
-     
     }
 }

@@ -127,14 +127,12 @@ C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.RazorComponent.input.cache
-C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\RazorDeclaration\Component\GetReservations.razor.g.cs
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\RazorDeclaration\Component\ReservationCreate.razor.g.cs
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\RazorDeclaration\Component\SelectReservations.razor.g.cs
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\RazorDeclaration\ReservationAdmin.dll
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.TagHelpers.input.cache
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.TagHelpers.output.cache
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.RazorCoreGenerate.cache
-C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Component\GetReservations.razor.g.cs
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Component\ReservationCreate.razor.g.cs
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Component\SelectReservations.razor.g.cs
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Pages\AanmakenReservering.cshtml.g.cs
@@ -317,3 +315,8 @@ C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\net
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Component\SelectReservations.razor.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\RazorDeclaration\Component\Message.razor.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Component\Message.razor.g.cs
+C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\bin\Debug\netcoreapp3.0\ChartJs.Blazor.dll
+C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\RazorDeclaration\Component\GetMonthReservation.razor.g.cs
+C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\RazorDeclaration\Component\Message.razor.g.cs
+C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Component\GetMonthReservation.razor.g.cs
+C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Component\Message.razor.g.cs
