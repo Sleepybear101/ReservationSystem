@@ -293,7 +293,7 @@
 
 @code{
 
-        SqlConnection con = new SqlConnection();
+    SqlConnection con = new SqlConnection();
     public string Message;
     Reservation CreateRes = new Reservation();
     Guest CreateGuest = new Guest();
@@ -605,6 +605,9 @@
         sendMail();
         ResetTableOrSteps("Steps");
         NextOrLastDiv(true, 0);
+
+        CreateRes.Table = 0;
+        CreateRes.Daypart = "";
 
     }
 

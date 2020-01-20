@@ -334,7 +334,7 @@ h2 {
 }
 
 .Disabled {
-    color: #ffff;
+    color: #ffffff;
     pointer-events: none;
     background-color: dimgray;
 }
@@ -493,7 +493,7 @@ h4 {
     border-bottom:none;
 }
 .modal-title {
-    color: #ffff;
+    color: #ffffff;
 }
 
 .modal-body {
