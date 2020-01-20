@@ -2,6 +2,7 @@
 @using System.Diagnostics;
 @using System.Data;
 @using ReservationAdmin.Models;
+@using System.Net.Mail;
 
 @using Microsoft.JSInterop;
 @inject IJSRuntime JsRuntime;
@@ -204,11 +205,13 @@
         }
     }
 
+    //Tafels worden weer naar standaard gezet
     async Task TablesReset()
     {
         await JsRuntime.InvokeVoidAsync("ResetTables");
     }
 
+    //Kijkt naar welke tafel geblokkeerd moet worden voor het aantal personen
     async Task LessThenSixFourOrTwo()
     {
         await JsRuntime.InvokeVoidAsync("Disabled", CreateRes.Amount);
@@ -284,7 +287,7 @@
         }
     }
 
-
+    //Check naar dubble gast gegevens
     void CheckDoubleUser()
     {
         con.SqlQuery("SELECT `id_Guest` FROM `guest` WHERE `FullName`=@Fullname AND `Email`=@Email");
@@ -309,6 +312,7 @@
 
     }
 
+    //Kijkt of veld wel gevuld of gekozen zijn en verder kan naar volgende form
     void CheckBlockedOrNotFilled()
     {
         if (CreateGuest.FullName == null || CreateRes.Amount == 0 || CreateGuest.FullName == "")
@@ -340,16 +344,17 @@
 
         if (IsValidEmail(CreateGuest.Email) != false)
         {
-        con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`,`NoShow`,`IsBlocked`) VALUES (@Fullname,@Email,0,0)");
-        con.Cmd.Parameters.AddWithValue("@Fullname", CreateGuest.FullName);
-        con.Cmd.Parameters.AddWithValue("@Email", CreateGuest.Email);
-        con.NonQueryEx();
+            con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`,`NoShow`,`IsBlocked`) VALUES (@Fullname,@Email,0,0)");
+            con.Cmd.Parameters.AddWithValue("@Fullname", CreateGuest.FullName);
+            con.Cmd.Parameters.AddWithValue("@Email", CreateGuest.Email);
+            con.NonQueryEx();
 
             CheckDoubleUser();
         }
 
 
     }
+
     //Zet Gast neer in database
     void InsertReservation()
     {
@@ -362,7 +367,93 @@
         con.Cmd.Parameters.AddWithValue("@Amount", CreateRes.Amount);
         con.NonQueryEx();
         GetMessage("Succes");
+        sendMail();
     }
+
+    //Verstuurd mail naar gast met bevestiging link
+    public void sendMail()
+    {
+        con.SqlQuery("SELECT `id_Reservation` FROM `reservation` WHERE `Guest`=@Guest AND `Date`=@Date AND `DayPart`=@Daypart AND `TableNumber`=@TableNumber");
+        con.Cmd.Parameters.AddWithValue("@Guest", CreateGuest.id.ToString());
+        con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date.ToString("yyyy-MM-dd"));
+        con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
+        con.Cmd.Parameters.AddWithValue("@TableNumber", CreateRes.Table);
+        con.QueryEx();
+
+        foreach (DataRow dr in con.QueryEx().Rows)
+        {
+            CreateRes.id = Convert.ToInt32(dr[0].ToString());
+        }
+
+        string messageone = "Er is een reservering gemaakt. Klik op de link om de reservering te bevestigen.";
+        string Link = "https://localhost:44390/Confirm?GetGuestid=" + CreateGuest.id + "&GetRes=" + CreateRes.id;
+        string messagetwo = " Als u niet wilt reserveren of dit niet het geval is negeer dan deze mail.";
+        string EndMail = "Alvast bedankt voor uw reserveringen ";
+        string htmlBody = @"<html lang=""en"">
+                            <head>
+                                <meta content=""text/html; charset=utf-8"" http-equiv=""Content-Type"">
+                                <title>
+                                    Upcoming topics
+                                </title>
+                                <style type=""text/css"">
+                                    HTML{background-color: #e8e8e8;}
+                                    .message{background-color: #ffff; font-weight: 400;  font-size: 16px; padding: 2% 18% 4% 18%;}
+                                    .courses-table{font-size: 12px; padding: 3px; border:0; cellspacing:0; cellpadding:0; border-spacing: 0;}
+                                    .TitleMessage{ padding-left: 29%; font-size: 33px; color: #354052;}
+                                    .courses-table th{color: #354052;text-align: left; padding: 1% 1%;}
+                                    .side-Right-Left{background-color: #F3F3F3; padding: 0 1%;}
+                                    .BacKColor{background-color: #F3F3F3;}
+                                    .EndMessage{ background-color: #F3F3F3; color: #354052; font-size: 25px;   padding-left: 32%;  padding-right: 36%;  font-weight: 700;  text-align: center;}
+                                </style>
+                            </head>
+                            <body>
+                                <table class=""courses-table"">
+                                    <thead>
+                                        <tr>
+                                            <th class=""BacKColor""></th>
+                                            <th class=""BacKColor""></th>
+                                            <th class=""BacKColor""></th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                      <td class=BacKColor></td>
+                                      <td class=TitleMessage>Bevestigen van reservering</td>
+                                      <td class=BacKColor></td>
+                                  </tr>
+                                        <tr>
+                                            <td class=""side-Right-Left""><td class=""message"">" + messageone + "<br><a href=" + Link + ">Bevestig</a><br>" + messagetwo + "</td><td class=side-Right-Left> </td> </td> " +
+                                          "</tr> " +
+                                       "</tbody> " +
+                                 " <tfoot> " +
+                                    "<tr>" +
+                                      " <td class=BacKColor></td>" +
+                                      " <td class=EndMessage>" + EndMail + "</td>" +
+                                      " <td class=BacKColor></td>" +
+                                   " </tr> " +
+                                 "</tfoot>" +
+                                "</body> " +
+                              "</html>";
+
+
+
+        string subject = "Bevestigen van reservering!";
+        MailMessage mailMessage = new MailMessage("reserveringsysteem2@gmail.com", CreateGuest.Email, subject, htmlBody);
+        mailMessage.IsBodyHtml = true;
+
+        SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+        smtpClient.Port = 587;
+        smtpClient.Credentials = new System.Net.NetworkCredential("reserveringsysteem2@gmail.com", "TestRes1!@");
+        smtpClient.EnableSsl = true;
+        smtpClient.Send(mailMessage);
+    }
+
+
+
+
+
+
 }
 
 

@@ -90,6 +90,7 @@ a {
     color: #fff;
     background-color: #545871;
     border-color: #252152;
+    border:none;
 }
 
     .btn-primary:hover {
@@ -326,6 +327,7 @@ h2 {
 
 .Table {
     background-color: #29832a;
+    border: none;
 }
 
 .ReservedT {
