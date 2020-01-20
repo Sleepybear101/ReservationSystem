@@ -14,13 +14,13 @@ a {
 }
 
 .btn-primary {
-    color: #fff;
+    color: #ffffff;
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
+    color: #ffffff;
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
@@ -81,7 +81,7 @@ body {
 }
 
 .nav-link {
-    color: #fff;
+    color: #ffffff;
     font-weight: 400;
 }
 
@@ -119,7 +119,7 @@ body {
     width: 54%;
     line-height: 1.5;
     color: #495057;
-    background-color: #fff;
+    background-color: #ffffff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
@@ -127,19 +127,19 @@ body {
 }
 
 .btn-primary {
-    color: #fff;
+    color: #ffffff;
     background-color: #545871;
     border-color: #252152;
 }
 
     .btn-primary:hover {
-        color: #fff;
+        color: #ffffff;
         background-color: #545871;
         border-color: #e9a8a6;
     }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
+    color: #ffffff;
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
@@ -193,8 +193,9 @@ body {
 }
 
 .Table-div {
-    margin-left: 50%;
+    margin-left: 46%;
     padding-top: 2%;
+
 }
 
 .btn-ResAdmin {
