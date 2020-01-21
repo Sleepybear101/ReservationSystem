@@ -312,15 +312,15 @@
         {
             await JsRuntime.InvokeVoidAsync("LastDiv", FormqClicked);
 
-                //Info legen terug
-                if (FormqClicked == 2 || FormqClicked == 4)
-                {
-                    CreateRes.Daypart = "";
-                }
-                else if (FormqClicked == 3 || FormqClicked == 5)
-                {
-                    CreateRes.Table = 0;
-                }
+            //Info legen terug
+            if (FormqClicked == 2 || FormqClicked == 4)
+            {
+                CreateRes.Daypart = "";
+            }
+            else if (FormqClicked == 3 || FormqClicked == 5)
+            {
+                CreateRes.Table = 0;
+            }
         }
         else
         {
@@ -332,7 +332,7 @@
             }
         }
 
- 
+
 
         DateInText = CreateRes.date.ToLongDateString();
 
@@ -407,7 +407,6 @@
     //Kijkt of de tijd van de datum al na een dagdeel is om een dagdeel te blokkeren 
     void  CheckDateTime()
     {
-
         DateTime Choosingdate = CreateRes.date.Date;
         DateTime CurrentTime  = DateTime.Now;
         TimeSpan timeLunch = new TimeSpan(11, 0, 0);
@@ -420,16 +419,37 @@
 
         if ( TotalBetweenLunch < 3 )
         {
-            CheckDateTime(".form-daypart-btn-lunch");
+            CheckDateTime("Lunch");
         }
 
         if (TotalBetweenDinner < 3)
         {
-            CheckDateTime(".form-daypart-btn-diner");
+            CheckDateTime("Dinner");
         }
+
+
+
+        GuestLastday();
+
 
         NextOrLastDiv(true, 2);
     }
+
+    void GuestLastday()
+    {
+
+        con.SqlQuery("SELECT reservation.DayPart FROM reservation INNER JOIN guest ON reservation.Guest = guest.id_Guest WHERE reservation.Date =@Date AND guest.FullName =@Name AND guest.Email=@Mail ");
+        con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date.ToString("yyyy-MM-dd"));
+        con.Cmd.Parameters.AddWithValue("@Name", CreateGuest.FullName);
+        con.Cmd.Parameters.AddWithValue("@Mail", CreateGuest.Email);
+
+        foreach (DataRow dr in con.QueryEx().Rows)
+        {
+            CheckDateTime(dr[0].ToString());
+        }
+
+    }
+
 
     //Dagdeel gekozen
     void CheckDaypart()

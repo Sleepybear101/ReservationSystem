@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-inline  form-group">
                     <label for="InputAmount">Aantal personen</label>
-                    <input type="number" class="form-control"  @bind="CreateRes.Amount"aria-describedby="Amount" placeholder="0" min="1" max="6" required />
+                    <input type="number" class="form-control"  @onchange="(e => AmountChange(e))"aria-describedby="Amount" placeholder="0" min="1" max="6" required />
                 </div>
 
             </div>
@@ -185,8 +185,8 @@
 @code{
 
 
-    SqlConnection con = new SqlConnection();
-    public string Message;
+        SqlConnection con = new SqlConnection();
+            public string Message;
     Reservation CreateRes = new Reservation();
     Guest CreateGuest = new Guest();
     public int TableNummerReserved;
@@ -205,10 +205,32 @@
         }
     }
 
-    //Tafels worden weer naar standaard gezet
-    async Task TablesReset()
+    void AmountChange(ChangeEventArgs e )
     {
-        await JsRuntime.InvokeVoidAsync("ResetTables");
+
+        CreateRes.Amount = Convert.ToInt32(e.Value);
+        CreateRes.Table = 0;
+        CreateRes.Daypart = "";
+        TablesReset("HideTable");
+    }
+
+
+
+
+
+    //Tafels worden weer naar standaard gezet
+    async Task TablesReset(string subject)
+    {
+        if (subject == "HideTable")
+        {
+            await JsRuntime.InvokeVoidAsync("HideTables");
+        }
+        else
+        {
+            await JsRuntime.InvokeVoidAsync("ResetTables");
+
+        }
+
     }
 
     //Kijkt naar welke tafel geblokkeerd moet worden voor het aantal personen
@@ -230,6 +252,14 @@
         await JsRuntime.InvokeVoidAsync("WhichDate", CreateRes.date.ToString("yyyy-MM-dd"));
 
     }
+
+      async Task HolDayPart()
+    {
+
+        await JsRuntime.InvokeVoidAsync("HoldValue", CreateRes.Daypart);
+
+    }
+
 
     //Pak de waarde van geselecteerd tafel
 
@@ -256,11 +286,12 @@
 
         }
 
+        HolDayPart();
+        
         if (CreateRes.Amount != 0)
         {
-            CreateRes.Table = 0;
             CheckWhichDate();
-            TablesReset();
+            TablesReset("Everthing");
             ReserveTable();
             LessThenSixFourOrTwo();
         }
@@ -314,11 +345,11 @@
     //Kijkt of veld wel gevuld of gekozen zijn en verder kan naar volgende form
     void CheckBlockedOrNotFilled()
     {
-        if (CreateGuest.FullName == null || CreateRes.Amount == 0 || CreateGuest.FullName == "" )
+        if (CreateGuest.FullName == null || CreateRes.Amount == 0 || CreateGuest.FullName == "" || CreateRes.Table == 0)
         {
             GetMessage("Chosen");
         }
-        else if (CreateGuest.Email == "" || CreateGuest.Email == null)
+        else if (CreateGuest.Email == "" || CreateGuest.Email == null || IsValidEmail(CreateGuest.Email) == false)
         {
 
             GetMessage("Email");
@@ -334,23 +365,19 @@
             CheckDoubleUser();
         }
 
-
     }
 
     //Zet Nieuwe Gast neer in database
     void InsertUser()
     {
 
-        if (IsValidEmail(CreateGuest.Email) != false)
-        {
-            con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`,`NoShow`,`IsBlocked`) VALUES (@Fullname,@Email,0,0)");
-            con.Cmd.Parameters.AddWithValue("@Fullname", CreateGuest.FullName);
-            con.Cmd.Parameters.AddWithValue("@Email", CreateGuest.Email);
-            con.NonQueryEx();
 
-            CheckDoubleUser();
-        }
+        con.SqlQuery("INSERT INTO `guest`(`FullName`, `Email`,`NoShow`,`IsBlocked`) VALUES (@Fullname,@Email,0,0)");
+        con.Cmd.Parameters.AddWithValue("@Fullname", CreateGuest.FullName);
+        con.Cmd.Parameters.AddWithValue("@Email", CreateGuest.Email);
+        con.NonQueryEx();
 
+        CheckDoubleUser();
 
     }
 

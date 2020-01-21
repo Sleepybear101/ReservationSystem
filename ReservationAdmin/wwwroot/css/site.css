@@ -191,6 +191,9 @@ body {
 .Daypart-btn:hover {
     background-color: #0366d6;
 }
+.Daypart-btn-after {
+    background-color: #0366d6;
+}
 
 .Table-div {
     margin-left: 50%;

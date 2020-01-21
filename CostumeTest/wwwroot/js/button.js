@@ -107,7 +107,13 @@ function setDate() {
 
 //Blokkeerd de dagdeel van voorbijgaande tijd
 function WhichDaypart(Daypart) {
-    $(Daypart).addClass('Disabled');
+
+    if (Daypart == "Lunch") {
+        $(".form-daypart-btn-lunch").addClass('Disabled')
+    } else if (Daypart == "Dinner" ) {
+        $(".form-daypart-btn-diner").addClass('Disabled')
+    }
+
 }
 
 
