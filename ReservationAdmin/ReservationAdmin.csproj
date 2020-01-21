@@ -7,6 +7,10 @@
   <ItemGroup>
     <PackageReference Include="ChartJs.Blazor" Version="1.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="0.7.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="MySql.Data" Version="8.0.18" />
   </ItemGroup>
 
