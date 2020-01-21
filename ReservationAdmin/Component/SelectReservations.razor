@@ -11,9 +11,7 @@
     SqlConnection con = new SqlConnection();
 
 }
- 
     <form>
-
         <div style="background-color:#D5DAD7; float :left; width: 35%;  height: 100vh;">
             <p style="margin-left: 7%; color: #9597A6; font-size: 24px;padding-top: 5px;    margin-bottom: 5px;">Agenda</p>
             <div style="border-top: 1px solid;padding-bottom: 7px;   margin-left: 2%; width: 95%; ">
@@ -83,8 +81,11 @@
                         <td class="AmountD">@dr[3].ToString()</td>
                         <td class="TableD">@dr[2].ToString()</td>
                         <td>
-                            <button value="@dr[7].ToString()" class="BlockButton" style=" float: left;background-color: #F0F1F7;border: none;border-radius: 10%; width: 36px;height: 28px;margin-right: 13px;"><i class="fas fa-window-close"></i></button>
-                            <button value="@dr[6].ToString()" class="NoshowButton" style="float: left;background-color: #F0F1F7;border: none;border-radius: 10%; width: 36px;height: 28px;"><i class="fas fa-eye-slash"></i></button>
+                            <button @onclick="(e => DeleteReservation(dr[7].ToString(),dr[6].ToString()))" class="BlockButton" style=" float: left;background-color: #F0F1F7;border: none;border-radius: 10%; width: 36px;height: 28px;margin-right: 13px;"><i class="fas fa-window-"></i>&#10060;</button>
+                            @if (CreateRes.date == DateTime.Today)
+                            {
+                                <button @onclick="(e => UpdateNoShow(dr[6].ToString()))"   class="NoshowButton" style="float: left;background-color: #F0F1F7;border: none;border-radius: 10%; width: 36px;height: 28px;"><i class="fas fa-eye-slash"></i></button>
+                            }                     
                         </td>
                     </tr>
                 }
@@ -114,5 +115,19 @@
 
         DateInText = CreateRes.date.ToLongDateString();
     }
-
+    //Verwijder de geselecteerde reservering
+    void DeleteReservation(string ReservationID, string GuestID)
+    {
+        con.SqlQuery("DELETE FROM reservation WHERE reservation.id_Reservation = @ReservationID AND reservation.Guest = @GuestID ");
+        con.Cmd.Parameters.AddWithValue("@ReservationID", ReservationID);
+        con.Cmd.Parameters.AddWithValue("@GuestID", GuestID);
+        con.QueryEx();
+    }
+    //update de geselecteerde klant die niet is komen opdagen
+    void UpdateNoShow(string GuestID)
+    {
+        con.SqlQuery("UPDATE guest set NoShow = NoShow + 1 WHERE id_Guest = @GuestID ");
+        con.Cmd.Parameters.AddWithValue("@GuestID", GuestID);
+        con.QueryEx();
+    }
 }

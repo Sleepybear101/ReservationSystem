@@ -25,8 +25,8 @@ namespace ReservationAdmin
             _da = new MySqlDataAdapter(Cmd);
             _dt = new DataTable();
             _da.Fill(_dt);
-
             return _dt;
+
         }
         //Query wordt uitgevoerd met geen resultaat
         public void NonQueryEx()
