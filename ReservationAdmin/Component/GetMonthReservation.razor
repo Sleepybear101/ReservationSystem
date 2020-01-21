@@ -19,11 +19,29 @@
     <option value="Month">Maand</option>
 </select>
 
-<select @onchange="(e => GetChoose(e))">
-    <option value="1">Jan</option>
-    <option value="2">Feb</option>
-    <option value="1">Jan</option>
-    <option value="2">Feb</option>
+<select @onchange="(e => GetChooseWhichMonth(e))">
+    <option value="01">Jan</option>
+    <option value="02">Feb</option>
+    <option value="03">Maart</option>
+    <option value="04">April</option>
+    <option value="05">Mei</option>
+    <option value="06">Juni</option>
+    <option value="07">Juli</option>
+    <option value="08">August</option>
+    <option value="09">Sept</option>
+    <option value="10">Okt</option>
+    <option value="11">Nov</option>
+    <option value="12">Nov</option>
+
+</select>
+<select @onchange="(e => GetWhichYear(e))">
+    <option value="2020">2020</option>
+    <option value="2019">2019</option>
+    <option value="2018">2018</option>
+    <option value="2017">2017</option>
+    <option value="2016">2016</option>
+    <option value="2015">2015</option>
+
 </select>
 
 <ChartJsBarChart @ref="_barChart" Config="@_barChartConfig" Width="700" Height="300" />
@@ -40,12 +58,18 @@
     SqlConnection con = new SqlConnection();
     List<double> Result = new List<double>();
     [Parameter]
-    public string Month { get; set; }
+    public int Month { get; set; } = 1;
     public string Chose { get; set; }
+
+    public int LastYear = DateTime.Now.Year - 1;
+    public int SecondYear = DateTime.Now.Year - 2;
+    public int ThirdYear = DateTime.Now.Year - 3;
+    public int FourthYear = DateTime.Now.Year - 4;
+    public int FifthYear = DateTime.Now.Year - 5;
+    public int year = DateTime.Now.Year;
 
     protected override void OnInitialized()
     {
-
         SetBarChart();
         GetFutureYear();
     }
@@ -108,6 +132,20 @@
         };
     }
 
+    public void GetChooseWhichMonth(ChangeEventArgs e)
+    {
+        RemoveData();
+        Month = Convert.ToInt32(e.Value);
+        SetLastMonth();
+    }
+    public void GetWhichYear(ChangeEventArgs e)
+    {
+        RemoveData();
+        year = Convert.ToInt32(e.Value);
+        SetLastMonth();
+
+    }
+
     public void GetChoose(ChangeEventArgs e)
     {
         RemoveData();
@@ -126,7 +164,7 @@
 
     private async Task RemoveData()
     {
-        for (int i = 1; i < 13; i++)
+        for (int i = 1; i < 31; i++)
         {
             if (_barChartConfig.Data.Labels.Count > 0)
             {
@@ -155,28 +193,24 @@
     public void SetLastMonth()
     {
 
-        _barChartConfig.Data.Labels.AddRange(new[] { "Jan"});
-        _barDataSetWerkelijk.AddRange(new double[] { 8, 5, 3, 7, 2, 5, 3, 7, 9, 10, 11, 12 }.Wrap());
-        _barChartConfig.Data.Datasets.Add(_barDataSetWerkelijk);
-
-        AddData();
-    }
-
-
-
-    public void GetFutureYear()
-    {
-        _barChartConfig.Data.Labels.AddRange(new[] { "Jan", "Feb", "Maart", "April", "Mei", "Juni", "Juli", "August", "September", "Oktober", "November", "Decemeber" });
-
-
-        for (int i = 1; i < 13; i++)
+        for (int i = 1; i < 31; i++)
+        {
+            con.SqlQuery("SELECT COUNT(*)  FROM `reservation` WHERE `Date` = '" + year + "-" + Month + "-" + i + "'");
+            con.QueryEx();
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
+                string maand = i.ToString()+",";
+                _barDataSetWerkelijk.AddRange(new double[] { Convert.ToDouble(dr[0]) }.Wrap());
+            }
+        }
+        for (int i = 1; i < 31; i++)
         {
             con.SqlQuery("SELECT ROUND((year1.Total1+year2.Total2+year3.Total3+year4.Total4+year5.Total5)/5) FROM (" +
-            " (SELECT COUNT(*) as Total1 FROM `reservation` WHERE `Date` BETWEEN '2018-" + i + "-1' AND '2018-" + i + "-31') year1," +
-            " (SELECT COUNT(*) as Total2 FROM `reservation` WHERE `Date` BETWEEN '2019-" + i + "-1'AND '2019-" + i + "-31') year2," +
-            "(SELECT COUNT(*) as Total3 FROM `reservation` WHERE `Date` BETWEEN '2017-" + i + "-1'AND '2017-" + i + "-31') year3," +
-            "(SELECT COUNT(*) as Total4 FROM `reservation` WHERE `Date` BETWEEN '2016-" + i + "-1'AND '2016-" + i + "-31') year4," +
-            "(SELECT COUNT(*) as Total5 FROM `reservation` WHERE `Date` BETWEEN '2015-" + i + "-1'AND '2015-" + i + "-31') year5)");
+            " (SELECT COUNT(*) as Total1 FROM `reservation` WHERE `Date`='"+SecondYear+"-" + Month + "-"+i+"') year1," +
+            " (SELECT COUNT(*) as Total2 FROM `reservation` WHERE `Date`='"+LastYear+"-" + Month + "-"+i+"') year2," +
+            "(SELECT COUNT(*) as Total3 FROM `reservation` WHERE `Date` = '"+ThirdYear+"-" + Month + "-"+i+"') year3," +
+            "(SELECT COUNT(*) as Total4 FROM `reservation` WHERE `Date` ='"+FourthYear +"-" + Month + "-"+i+"') year4," +
+            "(SELECT COUNT(*) as Total5 FROM `reservation` WHERE `Date` = '"+FifthYear+"-" + Month+ "-"+i+"') year5)");
             con.QueryEx();
             foreach (DataRow dr in con.QueryEx().Rows)
             {
@@ -186,7 +220,47 @@
         }
 
 
-        _barDataSetWerkelijk.AddRange(new double[] { 8, 5, 3, 7, 2, 5, 3, 7, 9, 10, 11, 12 }.Wrap());
+
+
+
+        _barChartConfig.Data.Labels.AddRange(new[] {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","24","25","26","27","28","29","30","31"});
+        //   _barChartConfig.Data.Labels.AddRange(new [] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31});
+        _barChartConfig.Data.Datasets.Add(_barDataSetWerkelijk);
+
+        AddData();
+    }
+
+
+    public void GetFutureYear()
+    {
+        _barChartConfig.Data.Labels.AddRange(new[] { "Jan", "Feb", "Maart", "April", "Mei", "Juni", "Juli", "August", "September", "Oktober", "November", "Decemeber" });
+
+        for (int i = 1; i < 13; i++)
+        {
+            con.SqlQuery("SELECT ROUND((year1.Total1+year2.Total2+year3.Total3+year4.Total4+year5.Total5)/5) FROM (" +
+            " (SELECT COUNT(*) as Total1 FROM `reservation` WHERE `Date` BETWEEN '"+SecondYear+"-" + i + "-1' AND '2018-" + i + "-31') year1," +
+            " (SELECT COUNT(*) as Total2 FROM `reservation` WHERE `Date` BETWEEN '"+LastYear+"-" + i + "-1'AND '2019-" + i + "-31') year2," +
+            "(SELECT COUNT(*) as Total3 FROM `reservation` WHERE `Date` BETWEEN '"+ThirdYear+"-" + i + "-1'AND '2017-" + i + "-31') year3," +
+            "(SELECT COUNT(*) as Total4 FROM `reservation` WHERE `Date` BETWEEN '"+FourthYear +"-" + i + "-1'AND '2016-" + i + "-31') year4," +
+            "(SELECT COUNT(*) as Total5 FROM `reservation` WHERE `Date` BETWEEN '"+FifthYear+"-" + i + "-1'AND '2015-" + i + "-31') year5)");
+            con.QueryEx();
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
+
+                _barDataVoorspelling.AddRange(new double[] { Convert.ToDouble(dr[0]) }.Wrap());
+            }
+        }
+
+        for (int i = 1; i < 13; i++)
+        {
+            con.SqlQuery("SELECT COUNT(*) FROM `reservation` WHERE  `Date` BETWEEN '"+ year +"-" + i + "-1' AND '2020-" + i + "-31'");
+            con.QueryEx();
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
+                _barDataSetWerkelijk.AddRange(new double[] { Convert.ToDouble(dr[0])}.Wrap());
+            }
+        }
+
         _barChartConfig.Data.Datasets.Add(_barDataVoorspelling);
         _barChartConfig.Data.Datasets.Add(_barDataSetWerkelijk);
         AddData();

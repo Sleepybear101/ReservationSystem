@@ -2,6 +2,24 @@
 var Table = 0;
 var TableSix = 0;
 var TableFiv = 0;
+var Daypart;
+function HideTables() {
+    $(".Table-div").addClass('CHidden');
+    $(".Daypart-btn").removeClass("Daypart-btn-after");
+}
+
+function HoldValue(Daypart) {
+
+    $(".Daypart-btn").removeClass("Daypart-btn-after");
+
+    if (Daypart == "Lunch") {
+        $(".Daypart-btn-lunch").addClass("Daypart-btn-after");
+
+    } else {
+        $(".Daypart-btn-diner").addClass("Daypart-btn-after");
+
+    }
+}
 
 function ResetTables() {
         $(".Table-div").removeClass('CHidden');
@@ -11,7 +29,6 @@ function ResetTables() {
         TableFiv = 0;
         TableSix = 0;
        $(".Table").removeClass('ReservedT');
-
 }
   
 function Message(Onderwerp) {
