@@ -34,7 +34,7 @@ function Message(Onderwerp) {
 
 function Disabled(Amount) {
 
-    if (Amount == 6) {
+    if (Amount == 6 || Amount == 5) {
         $(".TableWitTwo").addClass('Disabled');
         $(".TableWitFour").addClass('Disabled');
     } else if (Amount >= 3  ) {
