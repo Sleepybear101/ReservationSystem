@@ -34,6 +34,15 @@
     <option value="12">Nov</option>
 
 </select>
+<select @onchange="(e => GetWhichYear(e))">
+    <option value="2020">2020</option>
+    <option value="2019">2019</option>
+    <option value="2018">2018</option>
+    <option value="2017">2017</option>
+    <option value="2016">2016</option>
+    <option value="2015">2015</option>
+
+</select>
 
 <ChartJsBarChart @ref="_barChart" Config="@_barChartConfig" Width="700" Height="300" />
 
@@ -61,7 +70,6 @@
 
     protected override void OnInitialized()
     {
-
         SetBarChart();
         GetFutureYear();
     }
@@ -128,6 +136,12 @@
     {
         RemoveData();
         Month = Convert.ToInt32(e.Value);
+        SetLastMonth();
+    }
+    public void GetWhichYear(ChangeEventArgs e)
+    {
+        RemoveData();
+        year = Convert.ToInt32(e.Value);
         SetLastMonth();
 
     }
