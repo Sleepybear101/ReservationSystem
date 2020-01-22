@@ -14,49 +14,49 @@ namespace ReservationGuest.Components
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
+#line 1 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
+#line 2 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
 using System.Diagnostics;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
+#line 3 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
 using System.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
+#line 4 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
 using ReservationGuest.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
+#line 5 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
 using System.Globalization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
+#line 6 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
 using System.Net.Mail;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
+#line 8 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
 using Microsoft.JSInterop;
 
 #line default
@@ -70,8 +70,8 @@ using Microsoft.JSInterop;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 293 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
-      
+#line 293 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Components\CreateReservation.razor"
+
 
     SqlConnection con = new SqlConnection();
     public string Message;
@@ -182,7 +182,7 @@ using Microsoft.JSInterop;
         await JsRuntime.InvokeVoidAsync("WhichDaypart", Daypart);
     }
 
-    //Kijkt of de tijd van de datum al na een dagdeel is om een dagdeel te blokkeren 
+    //Kijkt of de tijd van de datum al na een dagdeel is om een dagdeel te blokkeren
     void  CheckDateTime()
     {
         DateTime Choosingdate = CreateRes.date.Date;
@@ -429,17 +429,17 @@ using Microsoft.JSInterop;
         string messagetwo = " Als u niet wilt reserveren of dit niet het geval is negeer dan deze mail.";
         string EndMail = "Alvast bedankt voor uw reserveringen ";
         string htmlBody = @"<html lang=""en"">
-                                <head>    
+                                <head>
                                     <meta content=""text/html; charset=utf-8"" http-equiv=""Content-Type"">
                                     <title>
                                         Upcoming topics
                                     </title>
                                     <style type=""text/css"">
-                                        HTML{background-color: #e8e8e8;}   
+                                        HTML{background-color: #e8e8e8;}
                                         .message{background-color: #ffff; font-weight: 400;  font-size: 16px; padding: 2% 18% 4% 18%;}
                                         .courses-table{font-size: 12px; padding: 3px; border:0; cellspacing:0; cellpadding:0; border-spacing: 0;}
                                         .TitleMessage{ padding-left: 29%; font-size: 33px; color: #354052;}
-                                        .courses-table th{color: #354052;text-align: left; padding: 1% 1%;}    
+                                        .courses-table th{color: #354052;text-align: left; padding: 1% 1%;}
                                         .side-Right-Left{background-color: #F3F3F3; padding: 0 1%;}
                                         .BacKColor{background-color: #F3F3F3;}
                                         .EndMessage{ background-color: #F3F3F3; color: #354052; font-size: 25px;   padding-left: 32%;  padding-right: 36%;  font-weight: 700;  text-align: center;}
@@ -454,7 +454,7 @@ using Microsoft.JSInterop;
                                                 <th class=""BacKColor""></th>
 
                                             </tr>
-                                        </thead>           
+                                        </thead>
                                         <tbody>
                                         <tr>
                                           <td class=BacKColor></td>

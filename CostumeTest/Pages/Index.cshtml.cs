@@ -7,13 +7,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Logging;
 
-
 namespace CostumeTest.Pages
 {
     public class IndexModel : PageModel
     {
+        
         private readonly ILogger<IndexModel> _logger;
-
+        [BindProperty(SupportsGet = true)]
+         private string password { get; set; }
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
@@ -23,7 +24,11 @@ namespace CostumeTest.Pages
         public void OnGet()
         {
 
+
+
+
         }
+
 
     /*public void CheckMail()
         {

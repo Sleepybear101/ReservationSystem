@@ -22,6 +22,7 @@ namespace ReservationAdmin
                 IsConnectionopen = true;
             }
             Cmd = new MySqlCommand(queryText, _con);
+            _con.Close();
         }
         //Query wordt uitgevoerd en krijgt informatie terug
         public DataTable QueryEx()
