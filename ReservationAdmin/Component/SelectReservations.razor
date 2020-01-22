@@ -4,6 +4,7 @@
 @using ReservationAdmin.Models;
 @using System.Globalization;
 @using Microsoft.JSInterop;
+@using Microsoft
 @inject IJSRuntime JsRuntime;
 
 @code {
@@ -53,7 +54,7 @@
         <h6 class="DatED">@DateInText</h6>
         <h6 class="DayD">@DaypartText</h6>
     </div>
-    <div class=" card-group" style=" width: 555px;height:450px;margin-left: 100px;margin-bottom: 36px; ">
+    <div class=" card-group" style=" width: 600px;height:450px;margin-left: 100px;margin-bottom: 36px; ">
 
 
         <table id="myTable" class="table" cellspacing="0">
@@ -63,57 +64,89 @@
                 con.Cmd.Parameters.AddWithValue("@date", CreateRes.date);
                 con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
                 con.QueryEx();
-
+                bool TableHeader = true;
+                string IsConfirmed = "Nee";
+                bool ActionVisible = false;
             }
-            <thead>
-                <tr>
-                    <td class="HeadDesign">Naam</td>
-                    <td class="HeadDesign">Aantal personen </td>
-                    <td class="HeadDesign">Tafel</td>
-                @if (CreateRes.date == DateTime.Today)
-                {
-                    <td class="HeadDesign actieTD">Actie</td>
-                }
-                <td class="HeadDesign">Is bevestigt?</td>
-                </tr>
-            </thead>
+        @foreach (DataRow dr in con.QueryEx().Rows)
+        {
+            @if (TableHeader)
+            {
+                <thead>
+                    <tr>
+                        <td class="HeadDesign">Naam</td>
+                        <td class="HeadDesign">Aantal personen </td>
+                        <td class="HeadDesign">Tafel</td>
+                        @{
+                            bool isFound = false;
+                        }
+                        @foreach (DataRow dr1 in con.QueryEx().Rows)
+                        {
+                            IsConfirmed = dr1[4].ToString();
+                            @if (isFound == false)
+                            {
+                                @if (CreateRes.date >= DateTime.Today)
+                                {
+                                    <td class="HeadDesign actieTD">Actie</td>
+                                    isFound = true;
+                                    ActionVisible = true;
+                                }
+                                else if (IsConfirmed == "Nee")
+                                {
+                                    <td class="HeadDesign actieTD">Actie</td>
+                                    isFound = true;
+                                    ActionVisible = true;
+                                }
+                            }
+                        }
+                        <td class="HeadDesign">Is bevestigt?</td>
+                    </tr>
+                </thead>
+                TableHeader = false;
+            }
             <tbody>
 
-                @foreach (DataRow dr in con.QueryEx().Rows)
-                {
-                    <tr>
-                        <td class="nameTD">@dr[5].ToString()</td>
-                        <td class="AmountD">@dr[3].ToString()</td>
-                        <td class="TableD">@dr[2].ToString()</td>
-                            @{
 
-                                string IsConfirmed = dr[4].ToString();
-                            }
-                            @if (CreateRes.date == DateTime.Today && IsConfirmed == "Ja")
-                            {
-                                <td>
-                                    <button @onclick="(e => DeleteReservation(dr[7].ToString()))" class="BlockButton" style=" float: left;background-color: #F0F1F7;border: none;border-radius: 10%; width: 36px;height: 28px;margin-right: 13px;"><i class="fas fa-window-"></i>&#10060;</button>
-                                    <button @onclick="(e => UpdateNoShow(dr[6].ToString(),dr[7].ToString()))" class="NoshowButton" style="float: left;background-color: #F0F1F7;border: none;border-radius: 10%; width: 36px;height: 28px;"><i class="fa">&#xf070;</i></button>
-                                </td>
-                                    }
-                            else if (IsConfirmed == "Nee")
-                            {
-                                <td>
-                                    <button @onclick="(e => DeleteReservation(dr[7].ToString()))" class="BlockButton" style=" float: left;background-color: #F0F1F7;border: none;border-radius: 10%; width: 36px;height: 28px;"><i class="fas fa-window-"></i>&#10060;</button>
-                                </td>
-                            }
+                <tr>
+                    <td class="nameTD">@dr[5].ToString()</td>
+                    <td class="AmountD">@dr[3].ToString()</td>
+                    <td class="TableD">@dr[2].ToString()</td>
+                    @{ IsConfirmed = dr[4].ToString(); }
+                    @if (CreateRes.date == DateTime.Today && IsConfirmed == "Ja")
+                    {
+                        <td>
+                            <div style="float: left;">
+                                <button @onclick="(e => DeleteReservation(dr[7].ToString()))" class="BlockButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fas fa-window-"></i>&#10060;</button>
+                            </div>
+                            <div style="float: left">
+                                <button @onclick="(e => UpdateNoShow(dr[6].ToString(), dr[7].ToString()))" class="NoshowButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fa">&#xf070;</i></button>
+                            </div>
+                        </td>
+                    }
+                    else if (CreateRes.date >= DateTime.Today || IsConfirmed == "Nee")
+                    {
+                        <td>
+                            <div style="float: left;">
+                                <button @onclick="(e => DeleteReservation(dr[7].ToString()))" class="BlockButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fas fa-window-"></i>&#10060;</button>
+                            </div>
+                        </td>
+                    }
+                    else if (ActionVisible)
+                    {
+                        <td></td>
+                    }
 
-                        <td class="TableD">@dr[4].ToString()</td>
-                    </tr>
-                }
+                    <td class="TableD">@dr[4].ToString()</td>
+                </tr>
+
             </tbody>
-        </table>
+        }
+            </table>
     </div>
 </div>
 
 @code
 {
-
     public string DateInText;
     public string DaypartText;
     void SelectedDaypart(bool SelectedDaypart)

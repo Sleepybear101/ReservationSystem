@@ -10,13 +10,17 @@ namespace ReservationAdmin
         public MySqlCommand Cmd;
         private MySqlDataAdapter _da;
         private DataTable _dt;
-
+        private bool IsConnectionopen = false;
 
         //Query wordt gemaakt naar command
         public void SqlQuery(string queryText)
         {
             _con = new MySqlConnection("Server=localhost;  Database=reservationsystem; username=root; password=");
-            _con.Open();
+            if (!IsConnectionopen)
+            {
+                _con.Open();
+                IsConnectionopen = true;
+            }
             Cmd = new MySqlCommand(queryText, _con);
         }
         //Query wordt uitgevoerd en krijgt informatie terug
@@ -25,6 +29,7 @@ namespace ReservationAdmin
             _da = new MySqlDataAdapter(Cmd);
             _dt = new DataTable();
             _da.Fill(_dt);
+            _con.Close();
             return _dt;
           
         }
