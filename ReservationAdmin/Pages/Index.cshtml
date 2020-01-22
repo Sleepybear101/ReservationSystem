@@ -6,53 +6,17 @@
 @{
     ViewData["Title"] = "Home page";
 }
-<div style=" float:left; height:100vh;  width: 17%; padding-left: 2%; background-color:#43425D;">
-    <a class="navbar-brand" asp-area="" asp-page="/Index" style="    color: #ffffff;
-    font-weight: bold;">Overzicht</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse ">
-        <ul class="navbar-nav flex-grow-1">
-            <li class="nav-item active ">
-                <a class="nav-link   " asp-area="" asp-page="/Index">
-                    <i class="fa fa-bar-chart  IconItem"></i>
-                    Dashboard
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link  " asp-area="" asp-page="/AanmakenReservering">
-                    <i class="fa fa-user  IconItem"></i>
-                    Aanmaken Reservering
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link navItem" asp-area="" asp-page="/Agenda">
-                    <i class="fa fa-calendar IconItem"></i>
-                    Agenda
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link " asp-area="" asp-page="/Poenk">
-                    <i class="fa fa-cog  IconItem"></i>
-                    Uitloggen
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-<div style="background-color:#D5DAD7;">
-    <p style="    margin-left: 22%; color: #9597A6; font-size: 24px;padding-top: 5px;    margin-bottom: 5px;">Dashboard - overzicht</p>
+    <div style=" float:left; height:100vh;  width: 100%; background-color:#43425D;">
 
-    <div style="    border-top: 1px solid;padding-bottom: 7px;     margin-left: 25%; color: #ffff;">
-    </div>
+        <h2>Login - Reserver</h2>
+        <div class="form-inline  form-group" style="margin-top: 25%;  margin-left: 32%;">
+            <label for="InputAmount"> Wachtwoord</label>
+            <input type="text" class="form-control" required />   
+            <button type="button" class=" btn-ResAdmin btn btn-primary">
+                <a class="navbar-brand" asp-area="" asp-page="/Dashboard">inloggen</a>
+            </button>
+        </div>
 
-</div>
-<div class="Dashboard">
-    <div class="BarChart">
-        @(await Html.RenderComponentAsync<GetMonthReservation>(RenderMode.ServerPrerendered))
-    </div>
-</div>
-
-<script src="_framework/blazor.server.js"></script>
+    
+        </div>
+        <script src="_framework/blazor.server.js"></script>

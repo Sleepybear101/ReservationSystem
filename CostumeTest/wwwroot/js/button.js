@@ -77,6 +77,7 @@ function NextDiv(ClickedForm) {
 
 //Zet de maximun en minum van de datum
 function setDate() {
+
     var dtToday = new Date();
 
     var month = dtToday.getMonth() + 1;
