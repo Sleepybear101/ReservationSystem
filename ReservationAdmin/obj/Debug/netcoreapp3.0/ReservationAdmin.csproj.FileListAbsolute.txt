@@ -314,11 +314,4 @@ C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj
 C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Component\Message.razor.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\bin\Debug\netcoreapp3.0\ChartJs.Blazor.dll
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\ReservationAdmin.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\RazorDeclaration\ReservationAdmin.dll
-C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Component\GetMonthReservation.razor.g.cs
-C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Component\Message.razor.g.cs
-C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Component\ReservationCreate.razor.g.cs
-C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Component\SelectReservations.razor.g.cs
 C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\obj\Debug\netcoreapp3.0\Razor\Pages\Dashboard.cshtml.g.cs

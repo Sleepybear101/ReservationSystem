@@ -18,15 +18,13 @@
 </head>
 <body>
 
-
     <!--Haalt de forms en zet het neer als html -->
     @(await Html.RenderComponentAsync<CreateReservation>(RenderMode.ServerPrerendered))
     @(await Html.RenderComponentAsync<Message>(RenderMode.ServerPrerendered))
 
     <script src="_framework/blazor.server.js"></script>
     <script src="js/button.js"></script>
-
-
+  
 
 </body>
 </html >

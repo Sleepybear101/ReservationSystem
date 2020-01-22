@@ -66,22 +66,23 @@
 
 
 <form method="post">
-    <div id="div2" class="divs CHidden  ">
-        <div class="Form-date">
-            <h2>Datum</h2>
-            <div style=" margin-left: 23px;">
-                <div>
+    <div id="div2" class="divs CHidden">
+            <div class="Form-date">
+                <h2>Datum</h2>
+                <div style=" margin-left: 23px;">
+                    <div>
                     <div>
                         <input type="date" id="txtDate"  @bind="CreateRes.date" onkeydown="return false" class="input-group-addon date-div unstyled form-control" max=2025-01-1 />
                     </div>
+               
+                    <button type="button" @onclick="(e => NextOrLastDiv(false, 2))" class="btn btn-primary" style="float:left">
+                        terug
+                    </button>
+                    <button type="button" @onclick="CheckDateTime" class="btn btn-primary" style="float:right">Volgende </button>
                 </div>
-                <button type="button" @onclick="(e => NextOrLastDiv(false, 2))" class="btn btn-primary" style="float:left">
-                    terug
-                </button>
-                <button type="button" @onclick="CheckDateTime" class="btn btn-primary" style="float:right">Volgende </button>
             </div>
         </div>
-    </div>
+     </div>
 </form>
 
 <form method="post">
