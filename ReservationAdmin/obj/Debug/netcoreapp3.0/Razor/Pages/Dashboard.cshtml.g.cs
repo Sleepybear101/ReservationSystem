@@ -13,35 +13,35 @@ namespace ReservationAdmin.Pages
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Pages\_ViewImports.cshtml"
+#line 1 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\_ViewImports.cshtml"
 using ReservationAdmin;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Pages\_ViewImports.cshtml"
+#line 4 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\_ViewImports.cshtml"
 using ChartJs.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Pages\Dashboard.cshtml"
+#line 3 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\Dashboard.cshtml"
 using System.Diagnostics;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Pages\Dashboard.cshtml"
+#line 4 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\Dashboard.cshtml"
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Pages\Dashboard.cshtml"
+#line 5 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\Dashboard.cshtml"
 using ReservationAdmin.Component;
 
 #line default
@@ -87,8 +87,8 @@ using ReservationAdmin.Component;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
 #nullable restore
-#line 6 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Pages\Dashboard.cshtml"
-
+#line 6 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\Dashboard.cshtml"
+  
     ViewData["Title"] = "Home page";
 
 #line default
@@ -214,7 +214,7 @@ using ReservationAdmin.Component;
     <div class=""BarChart"">
         ");
 #nullable restore
-#line 54 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Pages\Dashboard.cshtml"
+#line 54 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\Dashboard.cshtml"
     Write(await Html.RenderComponentAsync<GetMonthReservation>(RenderMode.ServerPrerendered));
 
 #line default

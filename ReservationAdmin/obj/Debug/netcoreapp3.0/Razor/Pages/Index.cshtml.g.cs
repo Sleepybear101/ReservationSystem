@@ -80,7 +80,7 @@ using ReservationGuest.Components;
             WriteLiteral("\r\n");
 #nullable restore
 #line 7 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\Index.cshtml"
-
+  
     ViewData["Title"] = "Home page";
 
 #line default
@@ -96,7 +96,7 @@ using ReservationGuest.Components;
                     inloggen
                 </button>
             </div>
-
+          
         ");
             }
             );
