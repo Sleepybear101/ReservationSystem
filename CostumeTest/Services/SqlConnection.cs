@@ -18,6 +18,7 @@ namespace ReservationAdmin
             _con = new MySqlConnection("Server=localhost;  Database=reservationsystem; username=root; password=");
             _con.Open();
             Cmd = new MySqlCommand(queryText, _con);
+            _con.Close();
         }
         //Query wordt uitgevoerd en krijgt informatie terug
         public DataTable QueryEx()
