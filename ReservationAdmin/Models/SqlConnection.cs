@@ -1,7 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data;
 
-namespace ReservationAdmin
+namespace ReservationAdmin.Models
 {
     public class SqlConnection
     {
@@ -25,7 +25,6 @@ namespace ReservationAdmin
                 IsConnectionopen = true;
             }
             Cmd = new MySqlCommand(queryText, _con);
-            _con.Close();
         }
         //Query wordt uitgevoerd en krijgt informatie terug
         public DataTable QueryEx()
@@ -34,14 +33,16 @@ namespace ReservationAdmin
             _dt = new DataTable();
             _da.Fill(_dt);
             _con.Close();
+            IsConnectionopen = false;
             return _dt;
-          
+         
         }
         //Query wordt uitgevoerd met geen resultaat
         public void NonQueryEx()
         {
             Cmd.ExecuteNonQuery();
-          
+            _con.Close();
+            IsConnectionopen = false;
         }
     }
 }

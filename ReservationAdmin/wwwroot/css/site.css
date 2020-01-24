@@ -24,6 +24,9 @@ a {
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
+.logout{
+    margin-top:500px;
+}
 
 .Dashboard{
     margin-left:22%;
@@ -83,29 +86,36 @@ body {
 .nav-link {
     color: #ffffff;
     font-weight: 400;
+    border-style: none;
+    background-color: #43425D;
+}
+.active > .NavAgenda {
+    padding-right: 72px;
 }
 
-.navItem {
-    margin-bottom: 500px;
-}
 
 .IconItem {
     color: #A5A4BF;
 }
 
 .active {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.1);
     border-left: 2px solid #A3A0FB;
 }
 
     .active > .nav-link {
-        padding-left: 8px;
+        padding-right: 48px;
+        width: 100%;
     }
 
-        .active > .nav-link > .IconItem {
+    .active > .nav-link > .IconItem {
             color: #A3A0FB;
-        }
+    }
 
+        .active > .createres {
+            padding-left: 8px;
+            padding-right: 12px;
+        }
 
 .form-control, .form-controls {
     margin-left: 10%;
@@ -199,6 +209,18 @@ body {
     margin-left: 46%;
     padding-top: 2%;
 
+}
+.NormalTable {
+    background-image: url('../images/Tafel-van-zes.png');
+    width: 500px;
+    height: 450px;
+    margin-left: 103px;
+    margin-bottom: 36px;
+}
+
+.Table-place {
+    height: 0px;
+    width: 0px;
 }
 
 .btn-ResAdmin {

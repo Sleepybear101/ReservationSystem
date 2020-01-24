@@ -8,19 +8,42 @@ using Microsoft.Extensions.Logging;
 
 namespace ReservationAdmin.Pages
 {
-    public class PoenkModel : PageModel
+    public class AgendaModel : PageModel
     {
-        private readonly ILogger<PoenkModel> _logger;
+        private readonly ILogger<AgendaModel> _logger;
 
-        public PoenkModel(ILogger<PoenkModel> logger)
+        public AgendaModel(ILogger<AgendaModel> logger)
         {
             _logger = logger;
         }
 
-        public void OnGet()
+        [BindProperty(SupportsGet = true)]
+        public string Admin { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string subject { get; set; }
+        public IActionResult OnGet()
         {
-
+            if (Admin == "" || Admin == null)
+            {
+                return Redirect("Index");
+            }
+            else
+            {
+                return Page();
+            }
         }
-        
+
+        public IActionResult OnPost()
+        {
+            if (subject != "Index")
+            {
+                return RedirectToPage("/" + subject + "", new { Admin });
+            }
+            else
+            {
+                return RedirectToPage("/" + subject + "");
+
+            }
+        }
     }
 }

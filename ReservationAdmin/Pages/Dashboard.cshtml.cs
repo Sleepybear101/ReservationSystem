@@ -12,7 +12,8 @@ namespace ReservationAdmin.Pages
     {
         [BindProperty(SupportsGet = true)]
         public string Admin { get; set; }
-
+        [BindProperty(SupportsGet = true)]
+        public string subject { get; set; }
         public IActionResult OnGet()
         {
             if(Admin == "" || Admin == null)
@@ -24,6 +25,24 @@ namespace ReservationAdmin.Pages
                 return Page();
             }
         }
+
+        public IActionResult OnPost()
+        {
+
+            if (subject != "Index")
+            {
+            return RedirectToPage("/"+subject+"", new {Admin} );
+            }
+            else
+            {
+                return RedirectToPage("/" + subject + "");
+
+            }
+
+        }
+
+
+
 
     }
 }

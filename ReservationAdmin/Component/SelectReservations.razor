@@ -4,6 +4,7 @@
 @using ReservationAdmin.Models;
 @using System.Globalization;
 @using Microsoft.JSInterop;
+@using System.Net.Mail;
 @using Microsoft
 @inject IJSRuntime JsRuntime;
 
@@ -12,41 +13,41 @@
     SqlConnection con = new SqlConnection();
 
 }
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <form>
-        <div style="background-color:#D5DAD7; float :left; width: 35%;  height: 100vh;">
-            <p style="margin-left: 7%; color: #9597A6; font-size: 24px;padding-top: 5px;    margin-bottom: 5px;">Agenda</p>
-            <div style="border-top: 1px solid;padding-bottom: 7px;   margin-left: 2%; width: 95%; ">
-                <div style="margin-top:30px;">
-                    <h4>Datum</h4>
-                    <div class="Form-date">
-                        <div style=" margin-left: 23px;">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<form>
+    <div style="background-color:#D5DAD7; float :left; width: 35%;  height: 100vh;">
+        <p style="margin-left: 7%; color: #9597A6; font-size: 24px;padding-top: 5px;    margin-bottom: 5px;">Agenda</p>
+        <div style="border-top: 1px solid;padding-bottom: 7px;   margin-left: 2%; width: 95%; ">
+            <div style="margin-top:30px;">
+                <h4>Datum</h4>
+                <div class="Form-date">
+                    <div style=" margin-left: 23px;">
+                        <div>
                             <div>
-                                <div>
-                                    <input type="date" id="txtDate" @bind="CreateRes.date" onkeydown="return false" class="input-group-addon date-div unstyled form-control" max=2025-01-1 />
-                                </div>
+                                <input type="date" id="txtDate" @bind="CreateRes.date" onkeydown="return false" class="input-group-addon date-div unstyled form-control" max=2025-01-1 />
                             </div>
                         </div>
                     </div>
-                    <div style="margin-top: 18%;">
-                        <h4>Dagdeel</h4>
-                        <div class="Daypart-div">
-                            <div class="Daypart">
-                                <button type="button" @onclick="(e => SelectedDaypart(false))" class="btn Daypart-btn Daypart-btn-lunch">
-                                    <h5>Lunch</h5>
-                                    <p>11:00 - 16:00</p>
-                                </button>
-                                <button type="button" @onclick="(e=> SelectedDaypart(true))" class="btn Daypart-btn   Daypart-btn-diner">
-                                    <h5>Dinner</h5>
-                                    <p>17:00 - 20:00</p>
-                                </button>
-                            </div>
+                </div>
+                <div style="margin-top: 18%;">
+                    <h4>Dagdeel</h4>
+                    <div class="Daypart-div">
+                        <div class="Daypart">
+                            <button type="button" @onclick="(e => SelectedDaypart(false))" class="btn Daypart-btn Daypart-btn-lunch">
+                                <h5>Lunch</h5>
+                                <p>11:00 - 16:00</p>
+                            </button>
+                            <button type="button" @onclick="(e=> SelectedDaypart(true))" class="btn Daypart-btn   Daypart-btn-diner">
+                                <h5>Dinner</h5>
+                                <p>17:00 - 20:00</p>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
+</form>
 <div class="Table-div">
     <h4 class="">Reservering overzicht</h4>
     <div style="border-top: 1px solid; padding-bottom: 33px; margin-left: 11%; width: 76%; color: #E6DBDA;" />
@@ -68,85 +69,86 @@
                 string IsConfirmed = "Nee";
                 bool ActionVisible = false;
             }
-        @foreach (DataRow dr in con.QueryEx().Rows)
-        {
-            @if (TableHeader)
+            @foreach (DataRow dr in con.QueryEx().Rows)
             {
-                <thead>
-                    <tr>
-                        <td class="HeadDesign">Naam</td>
-                        <td class="HeadDesign">Aantal personen </td>
-                        <td class="HeadDesign">Tafel</td>
-                        @{
-                            bool isFound = false;
-                        }
-                        @foreach (DataRow dr1 in con.QueryEx().Rows)
-                        {
-                            IsConfirmed = dr1[4].ToString();
-                            @if (isFound == false)
+                @if (TableHeader)
+                {
+                    <thead>
+                        <tr>
+                            <td class="HeadDesign">Naam</td>
+                            <td class="HeadDesign">Aantal personen </td>
+                            <td class="HeadDesign">Tafel</td>
+                            @{
+                                bool isFound = false;
+                            }
+                            @foreach (DataRow dr1 in con.QueryEx().Rows)
                             {
-                                @if (CreateRes.date >= DateTime.Today)
+                                IsConfirmed = dr1[4].ToString();
+                                @if (isFound == false)
                                 {
-                                    <td class="HeadDesign actieTD">Actie</td>
-                                    isFound = true;
-                                    ActionVisible = true;
-                                }
-                                else if (IsConfirmed == "Nee")
-                                {
-                                    <td class="HeadDesign actieTD">Actie</td>
-                                    isFound = true;
-                                    ActionVisible = true;
+                                    @if (CreateRes.date >= DateTime.Today)
+                                    {
+                                        <td class="HeadDesign actieTD">Actie</td>
+                                        isFound = true;
+                                        ActionVisible = true;
+                                    }
+                                    else if (IsConfirmed == "Nee")
+                                    {
+                                        <td class="HeadDesign actieTD">Actie</td>
+                                        isFound = true;
+                                        ActionVisible = true;
+                                    }
                                 }
                             }
+                            <td class="HeadDesign">Is bevestigt?</td>
+                        </tr>
+                    </thead>
+                    TableHeader = false;
+                }
+                <tbody>
+
+
+                    <tr>
+                        <td class="nameTD">@dr[5].ToString()</td>
+                        <td class="AmountD">@dr[3].ToString()</td>
+                        <td class="TableD">@dr[2].ToString()</td>
+                        @{ IsConfirmed = dr[4].ToString(); }
+                        @if (CreateRes.date == DateTime.Today && IsConfirmed == "Ja")
+                        {
+                            <td>
+                                <div style="float: left;">
+                                    <button @onclick="(e => DeleteReservation(dr[7].ToString()))" class="BlockButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fas fa-window-"></i>&#10060;</button>
+                                </div>
+                                <div style="float: left">
+                                    <button @onclick="(e => UpdateNoShow(dr[6].ToString(), dr[7].ToString()))" class="NoshowButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fa">&#xf070;</i></button>
+                                </div>
+                            </td>
                         }
-                        <td class="HeadDesign">Is bevestigt?</td>
+                        else if (CreateRes.date >= DateTime.Today || IsConfirmed == "Nee")
+                        {
+                            <td>
+                                <div style="float: left;">
+                                    <button @onclick="(e => DeleteReservation(dr[7].ToString()))" class="BlockButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fas fa-window-"></i>&#10060;</button>
+                                </div>
+                            </td>
+                        }
+                        else if (ActionVisible)
+                        {
+                            <td></td>
+                        }
+
+                        <td class="TableD">@dr[4].ToString()</td>
                     </tr>
-                </thead>
-                TableHeader = false;
+
+                </tbody>
             }
-            <tbody>
-
-
-                <tr>
-                    <td class="nameTD">@dr[5].ToString()</td>
-                    <td class="AmountD">@dr[3].ToString()</td>
-                    <td class="TableD">@dr[2].ToString()</td>
-                    @{ IsConfirmed = dr[4].ToString(); }
-                    @if (CreateRes.date == DateTime.Today && IsConfirmed == "Ja")
-                    {
-                        <td>
-                            <div style="float: left;">
-                                <button @onclick="(e => DeleteReservation(dr[7].ToString()))" class="BlockButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fas fa-window-"></i>&#10060;</button>
-                            </div>
-                            <div style="float: left">
-                                <button @onclick="(e => UpdateNoShow(dr[6].ToString(), dr[7].ToString()))" class="NoshowButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fa">&#xf070;</i></button>
-                            </div>
-                        </td>
-                    }
-                    else if (CreateRes.date >= DateTime.Today || IsConfirmed == "Nee")
-                    {
-                        <td>
-                            <div style="float: left;">
-                                <button @onclick="(e => DeleteReservation(dr[7].ToString()))" class="BlockButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fas fa-window-"></i>&#10060;</button>
-                            </div>
-                        </td>
-                    }
-                    else if (ActionVisible)
-                    {
-                        <td></td>
-                    }
-
-                    <td class="TableD">@dr[4].ToString()</td>
-                </tr>
-
-            </tbody>
-        }
-            </table>
+        </table>
     </div>
 </div>
 
 @code
 {
+    Guest InfoGuest = new Guest();
     public string DateInText;
     public string DaypartText;
     void SelectedDaypart(bool SelectedDaypart)
@@ -165,19 +167,23 @@
 
         DateInText = CreateRes.date.ToLongDateString();
     }
+
     //Verwijder de geselecteerde reservering
     void DeleteReservation(string ReservationID)
     {
+        sendMail(ReservationID);
         con.SqlQuery("DELETE FROM reservation WHERE reservation.id_Reservation = @ReservationID");
         con.Cmd.Parameters.AddWithValue("@ReservationID", ReservationID);
         con.QueryEx();
     }
+
     //update de geselecteerde klant die niet is komen opdagen en verwijder de reservering
     void UpdateNoShow(string GuestID, string ReservationID)
     {
         con.SqlQuery("UPDATE guest set NoShow = NoShow + 1 WHERE id_Guest = @GuestID ");
         con.Cmd.Parameters.AddWithValue("@GuestID", GuestID);
         con.QueryEx();
+
         //Verwijderd de reservering van de klant die niet is komen opdagen
         DeleteReservation(ReservationID);
         UpdatedIsBlocked();
@@ -188,4 +194,79 @@
         con.SqlQuery("UPDATE guest SET IsBlocked = 1 where NoShow = 3");
         con.QueryEx();
     }
+
+    void sendMail(string ReservationID)
+    {
+        con.SqlQuery("SELECT  guest.`Email` FROM `reservation` INNER JOIN guest ON reservation.Guest = guest.id_Guest  WHERE `id_Reservation`=@ReservationID");
+        con.Cmd.Parameters.AddWithValue("@ReservationID",ReservationID);
+        con.QueryEx();
+
+        foreach (DataRow dr in con.QueryEx().Rows)
+        {
+            InfoGuest.Email = dr[0].ToString();
+        }
+
+        string messageone = "Dit is een bevestig dat je de reservering hebt geannuleerd. \n\nAls dit niet het geval is bel opnieuw en alvast sorry voor het ongeval.";
+        string EndMail = "Hopelijk komt u weer bij ons reserveren";
+        string htmlBody = @"<html lang=""en"">
+                        <head>
+                            <meta content=""text/html; charset=utf-8"" http-equiv=""Content-Type"">
+                            <title>
+                                Upcoming topics
+                            </title>
+                            <style type=""text/css"">
+                                HTML{background-color: #e8e8e8;}
+                                .message{background-color: #ffff; font-weight: 400;  font-size: 16px; padding: 2% 18% 4% 18%;}
+                                .courses-table{font-size: 12px; padding: 3px; border:0; cellspacing:0; cellpadding:0; border-spacing: 0;}
+                                .TitleMessage{ padding-left: 29%; font-size: 33px; color: #354052;}
+                                .courses-table th{color: #354052;text-align: left; padding: 1% 1%;}
+                                .side-Right-Left{background-color: #F3F3F3; padding: 0 1%;}
+                                .BacKColor{background-color: #F3F3F3;}
+                                .EndMessage{ background-color: #F3F3F3; color: #354052; font-size: 25px;   padding-left: 32%;  padding-right: 36%;  font-weight: 700;  text-align: center;}
+                            </style>
+                        </head>
+                        <body>
+                            <table class=""courses-table"">
+                                <thead>
+                                    <tr>
+                                        <th class=""BacKColor""></th>
+                                        <th class=""BacKColor""></th>
+                                        <th class=""BacKColor""></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td class=BacKColor></td>
+                                  <td class=TitleMessage>Jouw reservering is geannuleerd</td>
+                                  <td class=BacKColor></td>
+                              </tr>
+                                    <tr>
+                                        <td class=""side-Right-Left""><td class=""message"">" + messageone + "</td><td class=side-Right-Left> </td> </td> " +
+                                          "</tr> " +
+                                       "</tbody> " +
+                                 " <tfoot> " +
+                                    "<tr>" +
+                                      " <td class=BacKColor></td>" +
+                                      " <td class=EndMessage>" + EndMail + "</td>" +
+                                      " <td class=BacKColor></td>" +
+                                   " </tr> " +
+                                 "</tfoot>" +
+                                "</body> " +
+                              "</html>";
+
+
+
+        string subject = "Reservering geannuleerd";
+        MailMessage mailMessage = new MailMessage("reserveringsysteem2@gmail.com", InfoGuest.Email, subject, htmlBody);
+        mailMessage.IsBodyHtml = true;
+
+        SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+        smtpClient.Port = 587;
+        smtpClient.Credentials = new System.Net.NetworkCredential("reserveringsysteem2@gmail.com", "TestRes1!@");
+        smtpClient.EnableSsl = true;
+        smtpClient.Send(mailMessage);
+    }
+
+
 }

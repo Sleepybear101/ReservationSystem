@@ -234,6 +234,8 @@
         <div class="WhichMeaning">
             <button class="GWhichMeaning" />
             <p>Beschikbaar</p>
+            <button class="DWhichMeaning" />
+            <p> Niet beschikbaar</p>
             <button class="RWhichMeaning" />
             <p> Bezet</p>
         </div>
@@ -327,13 +329,12 @@
             if (IsValidEmail(CreateGuest.Email) != false)
             {
                 await JsRuntime.InvokeVoidAsync("NextDiv", FormqClicked);
-
             }
         }
 
         DateInText = CreateRes.date.ToLongDateString();
-
     }
+
     //Gereserveerd Tafel
     async Task DisabledReserved(int Tableres)
     {
@@ -346,6 +347,7 @@
         await JsRuntime.InvokeVoidAsync("Disabled", CreateRes.Amount);
     }
 
+    //alles van de tafels of stappen worden teruggezet
     async Task ResetTableOrSteps(string subject)
     {
         if (subject == "ResetTables")
@@ -424,17 +426,13 @@
             CheckDateTime("Dinner");
         }
 
-
-
         GuestLastday();
-
-
         NextOrLastDiv(true, 2);
     }
 
+    //Pakt de dagdeel van zelfde dag 
     void GuestLastday()
     {
-
         con.SqlQuery("SELECT reservation.DayPart FROM reservation INNER JOIN guest ON reservation.Guest = guest.id_Guest WHERE reservation.Date =@Date AND guest.FullName =@Name AND guest.Email=@Mail ");
         con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date.ToString("yyyy-MM-dd"));
         con.Cmd.Parameters.AddWithValue("@Name", CreateGuest.FullName);
@@ -444,9 +442,7 @@
         {
             CheckDateTime(dr[0].ToString());
         }
-
     }
-
 
     //Dagdeel gekozen
     void CheckDaypart()
@@ -454,7 +450,6 @@
         if (CreateRes.Daypart == "" || CreateRes.Daypart == null)
         {
             GetMessage("Chosen");
-
         }
         else
         {
@@ -503,14 +498,11 @@
         }
         else if (IsValidEmail(CreateGuest.Email) == false)
         {
-
             GetMessage("Email");
-
         }
         else if (CreateRes.Amount > 6)
         {
             GetMessage("Chosen");
-
         }
         else
         {
@@ -518,20 +510,17 @@
             con.Cmd.Parameters.AddWithValue("@Email", CreateGuest.Email);
             foreach (DataRow dr in con.QueryEx().Rows)
             {
-
-                Debug.WriteLine("get");
-                CreateGuest.IsBlocked = Convert.ToInt32(dr[0].ToString());
-
+                CreateGuest.IsBlocked = Convert.ToInt32(dr[0].ToString());     
             }
-
-            if (CreateGuest.IsBlocked >= 1)
-            {
-                GetMessage("Blocked");
-            }
-            else
-            {
-                NextOrLastDiv(true, 1);
-            }
+                  if (CreateGuest.IsBlocked >= 1)
+                    {
+                        GetMessage("Blocked");
+                    }
+                    else
+                    {
+                        NextOrLastDiv(true, 1);
+                    }
+           
         }
     }
 
@@ -562,8 +551,6 @@
     //Zet de tafels naar gereserveerd
     void ReserveTable()
     {
-
-        //  SELECT `TableNumber` FROM `reservation` WHERE `Date`=@Date  AND `DayPart`=@Daypart
         con.SqlQuery("SELECT `TableNumber` FROM `reservation` WHERE `Date`=@Date  AND `DayPart`=@Daypart");
         con.Cmd.Parameters.AddWithValue("@Date", CreateRes.date.ToString("yyyy-MM-dd"));
         con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);

@@ -100,16 +100,16 @@ a {
     }
 
 .WhichMeaning {
-    margin-left: 13%;
     display: inline-flex;
 }
 
 .WhichMeaning > p {
         line-height: 34px;
-        margin-left: 15px;
+        margin-left: 6px;
+
 }
 
-.GWhichMeaning, .RWhichMeaning {
+.GWhichMeaning, .RWhichMeaning, .DWhichMeaning {
     margin-left: 47px;
     width: 39px;
     height: 35px;
@@ -117,8 +117,13 @@ a {
     border: none;
     border-radius: 76%;
 }
+
 .GWhichMeaning {
     background-color: #29832a;
+}
+
+.DWhichMeaning {
+    background-color: dimgray;
 }
 
 .RWhichMeaning {
@@ -304,6 +309,7 @@ h2 {
     border: 1px;
     border-color: #3B86FF;
     border-style: solid;
+    pointer-events:none ;
 }
 .unstyled {
     -webkit-appearance: none;
@@ -391,8 +397,8 @@ h4 {
 
 .CHidden {
     visibility: hidden;
-    width: 30%;
-    height: 30%;
+   
+    display:none;
 }
 .CDHidden {
     visibility: hidden;

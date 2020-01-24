@@ -13,34 +13,37 @@
             aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse ">
-        <ul class="navbar-nav flex-grow-1">
-            <li class="nav-item active ">
-                <a class="nav-link   " asp-area="" asp-page="/Index">
-                    <i class="fa fa-bar-chart  IconItem"></i>
-                    Dashboard
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link  " asp-area="" asp-page="/AanmakenReservering">
-                    <i class="fa fa-user  IconItem"></i>
-                    Aanmaken Reservering
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link navItem" asp-area="" asp-page="/Agenda">
-                    <i class="fa fa-calendar IconItem"></i>
-                    Agenda
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link " asp-area="" asp-page="/Poenk">
-                    <i class="fa fa-cog  IconItem"></i>
-                    Uitloggen
-                </a>
-            </li>
-        </ul>
-    </div>
+    <form method="post">
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse ">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item active ">
+                    <button class="nav-link active " type="submit" name="subject" value="Dashboard">
+                        <i class="fa fa-bar-chart  IconItem"></i>
+                        Dashboard
+                    </button>
+                </li>
+                <li class="nav-item ">
+                    <button class="nav-link" type="submit" name="subject" value="AanmakenReservering">
+                        <i class="fa fa-user  IconItem"></i>
+                        Aanmaken Reservering
+                    </button>
+                </li>
+                <li class="nav-item  ">
+                    <button class="nav-link " type="submit" name="subject" value="Agenda">
+                        <i class="fa fa-calendar IconItem"></i>
+                        Agenda
+                    </button>
+                </li>
+                <li class="nav-item logout">
+                    <button class="nav-link " type="submit" name="subject" value="Index">
+                        <i class="fa fa-cog  IconItem"></i>
+                        Uitloggen
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </form>
+  
 </div>
 <div style="background-color:#D5DAD7;">
     <p style="    margin-left: 22%; color: #9597A6; font-size: 24px;padding-top: 5px;    margin-bottom: 5px;">Dashboard - overzicht</p>
@@ -56,3 +59,4 @@
 </div>
 
 <script src="_framework/blazor.server.js"></script>
+<script src="~/js/site.js"></script>

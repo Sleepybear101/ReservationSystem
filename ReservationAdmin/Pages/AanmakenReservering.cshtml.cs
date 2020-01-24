@@ -16,10 +16,39 @@ namespace ReservationAdmin.Pages
         {
             _logger = logger;
         }
+        [BindProperty(SupportsGet = true)]
+        public string Admin { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string subject { get; set; }
+        public IActionResult OnGet()
+        {
+            if (Admin == "" || Admin == null)
+            {
+                return Redirect("Index");
+            }
+            else
+            {
+                return Page();
+            }
+        }
 
-        public void OnGet()
+
+        public IActionResult OnPost()
         {
 
+            if (subject != "Index")
+            {
+                return RedirectToPage("/" + subject + "", new { Admin });
+            }
+            else
+            {
+                return RedirectToPage("/" + subject + "");
+
+            }
+
         }
+
+
+
     }
 }
