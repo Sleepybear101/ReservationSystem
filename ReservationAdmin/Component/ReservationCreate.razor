@@ -342,7 +342,7 @@
             GetMessage("Email");
 
         }
-        else if (CreateRes.Amount > 6)
+        else if (CreateRes.Amount > 6 || CreateRes.Amount < 1)
         {
             GetMessage("Chosen");
 
@@ -403,7 +403,7 @@
         }
 
         string messageone = "Er is een reservering gemaakt. Klik op de link om de reservering te bevestigen.";
-        string Link = "https://reservationsysteem.azurewebsites.net/Confirm?GetGuestid=" + CreateGuest.id + "&GetRes=" + CreateRes.id;
+        string Link = "https://reserveringsysteem.azurewebsites.net/Confirm?GetGuestid=" + CreateGuest.id + "&GetRes=" + CreateRes.id;
         string messagetwo = " Als u niet wilt reserveren of dit niet het geval is negeer dan deze mail.";
         string EndMail = "Alvast bedankt voor uw reserveringen ";
         string htmlBody = @"<html lang=""en"">
@@ -456,7 +456,7 @@
 
 
         string subject = "Bevestigen van reservering!";
-        MailMessage mailMessage = new MailMessage("Reserveringsysteem", CreateGuest.Email, subject, htmlBody);
+        MailMessage mailMessage = new MailMessage("reserveringsysteem2@gmail.com", CreateGuest.Email, subject, htmlBody);
         mailMessage.IsBodyHtml = true;
 
         SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");

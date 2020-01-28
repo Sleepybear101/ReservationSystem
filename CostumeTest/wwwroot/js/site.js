@@ -19,6 +19,7 @@ function ResetTables() {
     $(".Table").removeClass('ReservedT');
 }
 
+
 function ResetSteps() {
     $(".steps-circle").removeClass('btn-success');
     $(".steps-circle").addClass('btn-circle');
@@ -47,6 +48,7 @@ function LastDiv(ClickedForm) {
 
     ClickedForm--;
     if (ClickedForm == 3) {
+        $(".Daypart-btn").removeClass("Daypart-btn-after");
         $(".TableWitFour").removeClass('Disabled');
         $(".TableWitSix").removeClass('Disabled');
         $(".TableWitTwo").removeClass('Disabled');
@@ -55,6 +57,7 @@ function LastDiv(ClickedForm) {
         $(".Tafel").removeClass('ReservedT');
 
     } else if (ClickedForm == 2) {
+        $(".Daypart-btn").removeClass("Daypart-btn-after");
         $(".Daypart-btn").removeClass('Disabled');
     }
     var n = ClickedForm.toString();
