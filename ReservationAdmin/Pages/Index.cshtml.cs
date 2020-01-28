@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using ReservationGuest.Models;
+using ReservationAdmin.Models;
 using System.Security.Cryptography;
 using System.Text;
 using System.Data;

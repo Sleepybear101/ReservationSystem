@@ -19,22 +19,18 @@ function ResetTables() {
     $(".Table").removeClass('ReservedT');
 }
 
-
 function ResetSteps() {
+    $(".Daypart-btn").removeClass("Daypart-btn-after");
     $(".steps-circle").removeClass('btn-success');
     $(".steps-circle").addClass('btn-circle');
 }
 
 function HoldValue(Daypart) {
-
     $(".Daypart-btn").removeClass("Daypart-btn-after");
-
     if (Daypart == "Lunch") {
         $(".form-daypart-btn-lunch").addClass("Daypart-btn-after");
-
     } else {
         $(".form-daypart-btn-diner").addClass("Daypart-btn-after");
-
     }
 }
 
@@ -48,6 +44,7 @@ function LastDiv(ClickedForm) {
 
     ClickedForm--;
     if (ClickedForm == 3) {
+        $(".Daypart-btn").removeClass("Daypart-btn-after");
         $(".TableWitFour").removeClass('Disabled');
         $(".TableWitSix").removeClass('Disabled');
         $(".TableWitTwo").removeClass('Disabled');
@@ -56,8 +53,9 @@ function LastDiv(ClickedForm) {
         $(".Tafel").removeClass('ReservedT');
 
     } else if (ClickedForm == 2) {
+        $(".Daypart-btn").removeClass("Daypart-btn-after");
         $(".Daypart-btn").removeClass('Disabled');
-    }
+    } 
     var n = ClickedForm.toString();
 
     $("div[id=div" + n + "]").show();
@@ -79,7 +77,6 @@ function NextDiv(ClickedForm) {
         $("div[id=ButtonsProccess]").show();
     }
     var n = ClickedForm.toString();
-
     $("div[id=div" + n + "]").removeClass('CHidden');
     $("div[id=div" + n + "]").show();
     $("#Step" + n + "").removeClass('btn-circle');

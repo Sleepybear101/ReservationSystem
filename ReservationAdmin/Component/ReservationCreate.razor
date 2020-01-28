@@ -385,6 +385,11 @@
 
         GetMessage("Succes");
         sendMail();
+        CreateGuest.Email = null;
+        CreateGuest.FullName = null;
+        CreateRes.Amount = 0;
+        CreateRes.Daypart = "";
+        TablesReset("HideTable");
     }
 
     //Verstuurd mail naar gast met bevestiging link

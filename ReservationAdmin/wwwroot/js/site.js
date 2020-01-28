@@ -6,6 +6,7 @@ var Daypart;
 var Subject;
 
 function HideTables() {
+
     $(".Table-div").addClass('CHidden');
     $(".Daypart-btn").removeClass("Daypart-btn-after");
 }
@@ -49,9 +50,6 @@ function Message(Subject) {
         $("#EmailNotMessage").modal();
     }
 }
-
-
-
 
 function WhichDate(CheckDate) {
     $(".Table-div").removeClass('CHidden');

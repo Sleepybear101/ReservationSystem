@@ -623,6 +623,8 @@
         CreateGuest.Email = null;
         CreateGuest.FullName = null;
         CreateRes.Amount = 0;
+        CreateRes.Daypart = "";
+        CreateRes.date = DateTime.Today;
     }
 
     //Verstuurd mail naar gast met bevestiging link
@@ -702,5 +704,6 @@
         smtpClient.Credentials = new System.Net.NetworkCredential("reserveringsysteem2@gmail.com", "TestRes1!@");
         smtpClient.EnableSsl = true;
         smtpClient.Send(mailMessage);
+  
     }
 }
