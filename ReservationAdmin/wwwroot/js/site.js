@@ -6,6 +6,7 @@ var Daypart;
 var Subject;
 
 function HideTables() {
+
     $(".Table-div").addClass('CHidden');
     $(".Daypart-btn").removeClass("Daypart-btn-after");
 }
@@ -48,35 +49,6 @@ function Message(Subject) {
     } else if (Subject == "Email") {
         $("#EmailNotMessage").modal();
     }
-}
-
-
-function Disabled(Amount) {
-
-    if (Amount == 6 || Amount == 5) {
-        $(".TableWitTwo").addClass('Disabled');
-        $(".TableWitFour").addClass('Disabled');
-    } else if (Amount >= 3) {
-        $(".TableWitTwo").addClass('Disabled');
-        $(".TableWitSix").addClass('Disabled');
-    } else if (Amount >= 2 && TableSix == 0) {
-        $(".TableWitSix").addClass('Disabled');
-        $(".TableWitFour").addClass('Disabled');
-    } else if (Amount == 1) {
-        $(".TableWitFour").addClass('Disabled');
-        $(".TableWitSix").addClass('Disabled');
-    } else if (Amount == 2 && TableSix == 6 && TableFiv == 5) {
-        $(".TableWitFour").removeClass('Disabled');
-        $(".TableWitSix").addClass('Disabled');
-    } else if (Amount >= 2 && TableFiv == 0) {
-        $(".TableWitSix").addClass('Disabled');
-        $(".TableWitFour").addClass('Disabled');
-    } else if (Amount >= 2 && TableSix == 0 && TableFiv == 0) {
-        $(".TableWitSix").addClass('Disabled');
-        $(".TableWitFour").addClass('Disabled');
-    }
-
-
 }
 
 function WhichDate(CheckDate) {
