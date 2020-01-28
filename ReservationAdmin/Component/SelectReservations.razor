@@ -60,7 +60,6 @@
 
         <table id="myTable" class="table" cellspacing="0">
             @{
-
                 con.SqlQuery("SELECT reservation.Date, reservation.DayPart, reservation.TableNumber, reservation.Amount, reservation.IsConfirm, guest.FullName, guest.id_Guest, reservation.id_Reservation FROM reservation INNER JOIN guest ON reservation.Guest = guest.id_Guest WHERE reservation.Date = @date AND reservation.DayPart = @Daypart");
                 con.Cmd.Parameters.AddWithValue("@date", CreateRes.date);
                 con.Cmd.Parameters.AddWithValue("@Daypart", CreateRes.Daypart);
