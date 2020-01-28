@@ -7,12 +7,12 @@
 @using Microsoft.JSInterop;
 @inject IJSRuntime JsRuntime;
 <form>
-    <div style="background-color:#D5DAD7; float :left; width: 35%;  height: 100vh;">
-        <p style="margin-left: 7%; color: #9597A6; font-size: 24px;padding-top: 5px;    margin-bottom: 5px;">Aanmaken reservering</p>
-        <div style="border-top: 1px solid;padding-bottom: 7px;   margin-left: 2%; width: 95%; color:#ffffff; " />
+    <div class="PartOne">
+        <p  class="TitleSubject">Aanmaken reservering</p>
+        <div class="Underline"/>
         <div id="divInfo">
             <h4>Gegevens</h4>
-            <div style="padding: 30px; background-color: #ffffff;">
+            <div class="FormOne">
                 <div class="form-inline  form-group">
                     <label for="Name">Volledig naam</label>
 
@@ -112,7 +112,7 @@
 
     </div>
 
-    <div id="Valday" class="table-setting TableGroupDIV  card-group" style=" background-image: url('images/indeling-tafel-valetijnzes.png');  width:498px; height:450px; margin-left: 103px;  margin-bottom: 36px; ">
+    <div id="Valday" class="table-setting TableGroupDIV  card-group">
 
         <div style="margin-left: 21%; margin-top: 4%;">
             <div style="width: 24%; height: 16px; ">
@@ -403,7 +403,7 @@
         }
 
         string messageone = "Er is een reservering gemaakt. Klik op de link om de reservering te bevestigen.";
-        string Link = "https://localhost:44390/Confirm?GetGuestid=" + CreateGuest.id + "&GetRes=" + CreateRes.id;
+        string Link = "https://reservationsysteem.azurewebsites.net/Confirm?GetGuestid=" + CreateGuest.id + "&GetRes=" + CreateRes.id;
         string messagetwo = " Als u niet wilt reserveren of dit niet het geval is negeer dan deze mail.";
         string EndMail = "Alvast bedankt voor uw reserveringen ";
         string htmlBody = @"<html lang=""en"">
@@ -456,7 +456,7 @@
 
 
         string subject = "Bevestigen van reservering!";
-        MailMessage mailMessage = new MailMessage("reserveringsysteem2@gmail.com", CreateGuest.Email, subject, htmlBody);
+        MailMessage mailMessage = new MailMessage("Reserveringsysteem", CreateGuest.Email, subject, htmlBody);
         mailMessage.IsBodyHtml = true;
 
         SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");

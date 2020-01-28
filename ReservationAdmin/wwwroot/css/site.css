@@ -93,7 +93,12 @@ body {
     padding-right: 72px;
 }
 
-
+.PartOne {
+    background-color: #D5DAD7;
+    float: left;
+    width: 35%;
+    height: 100vh;
+}
 .IconItem {
     color: #A5A4BF;
 }
@@ -216,6 +221,34 @@ body {
     height: 450px;
     margin-left: 103px;
     margin-bottom: 36px;
+}
+
+#Valday {
+    background-image: url('../images/indeling-tafel-valetijnzes.png');
+    width: 498px;
+    height: 450px;
+    margin-left: 103px;
+    margin-bottom: 36px;
+}
+
+.FormOne {
+    padding: 30px;
+    background-color: #ffffff;
+}
+
+.TitleSubject {
+    margin-left: 7%;
+    color: #9597A6;
+    font-size: 24px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+.Underline {
+    border-top: 1px solid;
+    padding-bottom: 7px;
+    margin-left: 2%;
+    width: 95%;
+    color: #ffffff;
 }
 
 .Table-place {

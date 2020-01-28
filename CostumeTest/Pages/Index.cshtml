@@ -6,17 +6,6 @@
 @{
     ViewData["Title"] = "Home page";
 }
-<!--<div class="progress" style="width: 65%; margin-left: 18%;">
-  <div class="progress-bar" role="progressbar" style="width: 35%; padding-left: 50px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
--->
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Reservatie Form</title>
-
-</head>
-<body>
 
     <!--Haalt de forms en zet het neer als html -->
     @(await Html.RenderComponentAsync<CreateReservation>(RenderMode.ServerPrerendered))
@@ -26,5 +15,3 @@
     <script src="~/js/site.js"></script>
   
 
-</body>
-</html >
