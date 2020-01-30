@@ -1,0 +1,857 @@
+﻿.checked {
+    color: orange;
+}
+
+.fa-star {
+    cursor: pointer;
+}
+
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+.card-columns .card:hover .card-img {
+    opacity: 1;
+    -webkit-transform-style: preserve-3d;
+}
+
+.card-columns .card-body {
+    height: 100px;
+    font-family: 'Nunito', sans-serif;
+    background: #fbfafd;
+}
+
+.card-columns .card-img {
+    height: 330px;
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    opacity: .8;
+}
+
+.modal .card-img {
+    height: 500px;
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.card-columns .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
+}
+
+.card-footer {
+    background: #fbfafd;
+}
+
+
+a.navbar-brand {
+    white-space: normal;
+    font-size: xx-large;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #fff;
+}
+
+.form-controls {
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    width: 54%;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+#exampleInputEmail1 {
+    margin-left: 101px;
+    width: 54%;
+}
+
+.label {
+    font-weight: 200;
+}
+
+
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #545871;
+    border-color: #252152;
+    border:none;
+}
+
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #545871;
+        border-color: #e9a8a6;
+    }
+
+.WhichMeaning {
+    display: inline-flex;
+}
+
+.WhichMeaning > p {
+        line-height: 34px;
+        margin-left: 6px;
+
+}
+
+.GWhichMeaning, .RWhichMeaning, .DWhichMeaning {
+    margin-left: 47px;
+    width: 39px;
+    height: 35px;
+    pointer-events: none;
+    border: none;
+    border-radius: 76%;
+}
+
+.GWhichMeaning {
+    background-color: #29832a;
+}
+
+.DWhichMeaning {
+    background-color: dimgray;
+}
+
+.RWhichMeaning {
+    background-color: #960f0f;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+input[type="hidden" i] {
+    display: block;
+
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #D5DAD7;
+}
+
+p {
+    font-family: 'Nunito', sans-serif;
+}
+
+h2 {
+    font-family: 'Nunito', sans-serif;
+}
+
+ul {
+    font-family: 'Nunito', sans-serif;
+}
+
+h2 {
+    color: #545871;
+    font-weight: 600;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    height: 3%;
+    width: 100%;
+    background-color: #545871;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    font-family: 'Nunito', sans-serif;
+}
+/*Backgrounds*/
+.bg-navbar {
+    background: -webkit-linear-gradient(110deg, #e9a8a6 60%, #252152 60%);
+    background: -o-linear-gradient(110deg, #e9a8a6 60%, #252152 60%);
+    background: -moz-linear-gradient(110deg, #e9a8a6 60%, #252152 60%);
+    background: linear-gradient(110deg, #e9a8a6 60%, #252152 60%);
+}
+
+.bg-footer {
+    background: -webkit-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
+    background: -o-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
+    background: -moz-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
+    background: linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
+}
+
+#div1 {
+    background-color: #ffffff;
+    width: 48%;
+    height: 37%;
+    margin-left: 24%;
+    padding: 1% 1% 4% 1%;
+}
+
+.Field-Name {
+    margin-left: 64px;
+}
+.Field-Email {
+    margin-left: 20%;
+}
+.Field-Amount {
+    margin-left: 52px;
+}
+.amount-field {
+    margin-left: 69px;
+}
+/*Step line*/
+.btn-success p {
+    display: none;
+}
+.btn-success:after {
+    content: "✓";
+}
+.stepwizard-row {
+    display: table-row;
+}
+
+.stepwizard {
+    display: table;
+    width: 60%;
+    margin-left: 20%;
+    position: relative;
+}
+
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+   /*
+    z-order: 0;
+   */ 
+}
+
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #3B86FF;
+    border-color: #3B86FF;
+}
+
+.btn-progges {
+    color: #fff;
+    background-color: #3B86FF;
+}
+
+.btn-circle{
+    color: #3B86FF;
+    background-color: #D5DAD7;
+}
+
+.btn-circle, .btn-progges, .btn-success {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+    border: 1px;
+    border-color: #3B86FF;
+    border-style: solid;
+    pointer-events:none ;
+}
+
+.unstyled {
+    -webkit-appearance: none;
+}
+
+.unstyled::-webkit-inner-spin-button, .unstyled::-webkit-clear-button {
+        display: none;
+        -webkit-appearance: none;
+ }
+
+.amount-field{
+
+}
+.NotCorrect{
+  border-color:#9e1515
+}
+.Table:focus {
+    background-color: #0366d6;
+}
+
+.Table {
+    background-color: #29832a;
+    border: none;
+}
+
+.ReservedT {
+    pointer-events: none;
+    background-color: #960f0f;
+}
+
+.Disabled {
+    color: #ffffff;
+    pointer-events: none;
+    background-color: dimgray;
+}
+
+.Daypart-div {
+    background-color: #ffffff;
+    width: 79%;
+    height: 37%;
+    margin-left: 12%;
+    margin-top: 62px;
+    padding: 1% 4% 7% 1%;
+}
+
+.Daypart {
+    border: 1px solid #E6DBDA;
+    border-radius: 4px;
+    margin-left: 46px;
+    width: 71%;
+    margin-top: 30px;
+}
+
+.Daypart-btn-lunch {
+    border-right: 1px solid #E6DBDA;
+    padding-right: 28px;
+    padding-left: 17px;
+}
+
+.Daypart-btn-diner {
+    width: 46%;
+    padding-left: 6%;
+}
+
+.Daypart-btn:focus {
+    background-color: #0366d6;
+}
+
+.Table-div {
+    margin-left: 55%;
+    padding-top: 2%;
+    margin-left: 55%;
+}
+
+.btn-ResAdmin {
+    float: right;
+    margin-top: 45%;
+    margin-right: 5%;
+}
+
+h4 {
+    color: #707070;
+}
+
+.CHidden {
+    visibility: hidden;
+   
+    display:none;
+}
+.CDHidden {
+    visibility: hidden;
+}
+.TableGroupDIV {
+    background-color: #ffffff;
+    width: 49%;
+    margin-left: 26%;
+    padding: 6px 19px 7px 19px;
+}
+#divOverview {
+    background-color: #ffffff;
+    width: 50%;
+    height: 37%;
+    margin-left: 24%;
+    padding: 1% 1% 4% 1%;
+}
+#formOverview {
+    padding-left: 9%;
+}
+.Form-date {
+    background-color: #ffffff;
+    width: 49%;
+    height: 37%;
+    margin-left: 24%;
+    padding: 1% 1% 4% 1%;
+}
+
+.date-div {
+    margin-left: 27%;
+    width: 40%;
+    margin-top: 3%;
+    margin-bottom: 8%;
+}
+
+.div-daypart {
+    background-color: #ffffff;
+    width: 50%;
+    height: 37%;
+    margin-left: 24%;
+    padding: 1% 1% 4% 1%;
+}
+
+.form-daypart {
+    border: 1px solid #E6DBDA;
+    border-radius: 4px;
+    margin-left: 174px;
+    width: 49%;
+    margin-top: 30px;
+}
+
+.form-daypart-btn-lunch {
+    border-right: 1px solid #E6DBDA;
+    padding-right: 36px;
+    padding-left: 41px;
+}
+
+.form-daypart-btn-diner {
+    width: 176px;
+    padding-left: 2%;
+    padding-right: 3%;
+}
+
+.date-field {
+    margin-left: 20%;
+}
+
+.Daypart-field {
+    margin-left: 18%;
+}
+
+.Email-field {
+    margin-left: 21%;
+}
+
+.table-field {
+    margin-left: 23%;
+}
+
+.name-field {
+    margin-left: 21%;
+}
+
+.label {
+    font-weight: 500;
+}
+
+.name-field, .Email-field, .amount-field, .table-field, .name-field, .Daypart-field, .date-field {
+    border: none;
+    color: #545871;
+}
+
+.modal-content {
+    background-color: #241332;
+}
+.modal-footer{
+    border-top: none;
+}
+.modal-header{
+    border-bottom:none;
+}
+.modal-title {
+    color: #ffffff;
+}
+
+.modal-body {
+    color: #998FA2;
+}
+
+.modal-footer > button {
+    background-color: #372447;
+    width: 99%;
+    border: none;
+    height: 65px;
+}
+#NormalDay {
+    background-image: url('../images/Tafel-van-zes.png');
+    width: 500px;
+    height: 450px;
+    margin-left: 103px;
+    margin-bottom: 36px;
+}
+#Valday {
+    background-image: url('../images/indeling-tafel-valetijnzes.png');
+    width: 500px;
+    height: 450px;
+    margin-left: 103px;
+    margin-bottom: 36px;
+}
+.Daypart-btn-after {
+    background-color: #0366d6;
+}
+.formInfo {
+    padding: 30px;
+    background-color: #ffffff;
+}
+
+#NormalDay >  .TableGroupOne {
+    margin-left: 21%;
+    margin-top: 7%;
+}
+#NormalDay > .TableGroupOne > #Table1 {
+        width: 47px;
+        height: 57px;
+        margin-left: 10px;
+        margin-right: 33px;
+    }
+#NormalDay > .TableGroupOne >#Table2 {
+    width: 47px;
+    height: 57px;
+    margin-left: 10px;
+    margin-right: 33px;
+}
+#NormalDay > .TableGroupOne > #Table3 {
+        width: 47px;
+        height: 57px;
+        margin-left: 10px;
+        margin-right: 33px;
+    }
+#NormalDay > .TableGroupTwo {
+    margin-top: 7%;
+}
+#NormalDay > .TableGroupTwo > #Table4 {
+        width: 47px;
+        height: 87px;
+        margin-left: 27px;
+        margin-right: 40px;
+        margin-top: 15px;
+    }
+    #NormalDay > .TableGroupThree {
+        padding-left: 50%;
+        height: 7%;
+        margin-top: -3%;
+    }
+        #NormalDay > .TableGroupThree > #Table6 {
+            width: 30px;
+            height: 35px;
+            margin-right: 48px;
+        }
+        #NormalDay > .TableGroupThree > #Table5 {
+            width: 30px;
+            height: 35px;
+        }
+#NormalDay > .TableGroupFourth {
+    width: 27%;
+    margin-left: 1%;
+    margin-bottom: 24%;
+    margin-top: 3%;
+}
+    #NormalDay > .TableGroupFourth > #Table8 {
+        width: 58px;
+        height: 48px;
+        margin-left: 25px;
+        margin-right: 33px;
+        margin-top: 17%;
+    }
+    #NormalDay > .TableGroupFourth > #Table10 {
+        width: 58px;
+        height: 48px;
+        margin-left: 25px;
+        margin-right: 33px;
+        margin-top: 32%;
+    }
+    #NormalDay > .TableGroupFourth > #Table11 {
+        width: 90px;
+        height: 48px;
+        margin-left: 25px;
+        margin-right: 33px;
+        margin-top: 33%;
+    }
+#NormalDay > .TableGroupFifth {
+    width: 19%;
+    margin-left: 1%;
+}
+    #NormalDay > .TableGroupFifth > #Table7 {
+        width: 58px;
+        height: 46px;
+        margin-left: 7px;
+        margin-right: 6px;
+        margin-top: 20%;
+    }
+    #NormalDay > .TableGroupFifth > #Table9 {
+        width: 59px;
+        height: 45px;
+        margin-left: 7px;
+        margin-right: 33px;
+        margin-top: 55%;
+    }
+
+.button-back {
+    float: left
+}
+@media only screen and (max-width: 480px) {
+    .stepwizard {
+        margin-left: 0%;
+        width: 100%;
+    }
+
+    #div1 {
+        width: 98%;
+        padding: 1% 1% 10% 1%;
+        margin-left: 1%;
+        margin-top: 8%;
+    }
+
+    .formInfo {
+        padding: 7px;
+    }
+
+    .Field-Amount {
+        margin-left: 1%;
+        width: 32%;
+    }
+
+    .Field-Name {
+        margin-left: 4%;
+        width: 64%;
+    }
+
+    .Field-Email {
+        margin-left: 20%;
+        width: 64%;
+    }
+
+    .Form-date {
+        width: 96%;
+        margin-left: 2%;
+        padding: 1% 1% 10% 1%;
+    }
+
+    .div-daypart {
+        width: 97%;
+        height: 37%;
+        margin-left: 1%;
+        padding: 1% 1% 11% 1%;
+    }
+
+    .form-daypart-btn-lunch {
+        padding-right: 11%;
+        padding-left: 11%;
+    }
+
+    .form-daypart-btn-diner {
+        width: 50%;
+        padding-left: 4%;
+        padding-right: 5%;
+    }
+
+    .form-daypart {
+        margin-left: 2%;
+        width: 94%;
+        margin-top: 30px;
+        margin-bottom: 32px;
+    }
+
+    .TableGroupDIV {
+        width: 100%;
+        margin-left: 0;
+        padding: 6px 19px 35px 0;
+    }
+
+    #NormalDay {
+        background-image: url('../images/tafel-van-zes -Mobile.png');
+        width: 351px;
+        height: 311px;
+        margin-left:11px;
+        margin-bottom: 36px;
+    }
+
+        #NormalDay > .TableGroupOne {
+            margin-left: 17%;
+            margin-top: 6%;
+        }
+
+            #NormalDay > .TableGroupOne > #Table1 {
+                width: 33px;
+                height: 40px;
+                margin-left: 12px;
+                margin-right: 30px;
+            }
+
+            #NormalDay > .TableGroupOne > #Table2 {
+                width: 33px;
+                height: 40px;
+                margin-left: 0;
+                margin-right: 33px;
+            }
+
+            #NormalDay > .TableGroupOne > #Table3 {
+                width: 33px;
+                height: 40px;
+                margin-left: 0px;
+                margin-right: 33px;
+            }
+
+    #NormalDay > .TableGroupTwo {
+        margin-top: 0;
+    }
+
+        #NormalDay > .TableGroupTwo > #Table4 {
+            width: 33px;
+            height: 63px;
+            margin-left: 80%;
+            margin-right: 40px;
+            margin-top: -9%;
+        }
+
+    #NormalDay > .TableGroupThree {
+        padding-left: 47%;
+        height: 7%;
+        margin-top: -3%;
+    }
+
+        #NormalDay > .TableGroupThree > #Table6 {
+            width: 22px;
+            height: 26px;
+            padding-right: 9%;
+            margin-right: 29px;
+        }
+
+       #NormalDay > .TableGroupThree > #Table5 {
+        width: 26px;
+        height: 26px;
+    }
+
+    #NormalDay > .TableGroupFourth {
+        width: 21%;
+        margin-left: 1%;
+        margin-bottom: 24%;
+        margin-top: 4%;
+    }
+
+        #NormalDay > .TableGroupFourth > #Table8 {
+            width: 41px;
+            height: 33px;
+            margin-left: 8px;
+            margin-right: 33px;
+            margin-top: 17%;
+        }
+
+        #NormalDay > .TableGroupFourth > #Table10 {
+            width: 41px;
+            height: 33px;
+            margin-left: 8px;
+            margin-right: 33px;
+            margin-top: 42%;
+        }
+
+        #NormalDay > .TableGroupFourth > #Table11 {
+            width: 64px;
+            height: 34px;
+            margin-left: 9px;
+            margin-right: 33px;
+            margin-top: 41%;
+        }
+
+    #NormalDay > .TableGroupFifth {
+        width: 19%;
+        margin-left: 26%;
+        margin-top: -77%;
+    }
+
+        #NormalDay > .TableGroupFifth > #Table7 {
+            width: 43px;
+            height: 33px;
+            margin-left: 7px;
+            margin-right: 6px;
+        }
+
+        #NormalDay > .TableGroupFifth > #Table9 {
+            width: 43px;
+            height: 31px;
+            margin-left: 7px;
+            margin-right: 33px;
+            margin-top: 55%;
+        }
+
+    .button-back {
+        margin-top: 34px;
+       float:left;
+
+    }
+
+    .GWhichMeaning, .RWhichMeaning, .DWhichMeaning {
+        margin-left: 4px;
+        width: 22px;
+        height: 19px;
+        pointer-events: none;
+        border: none;
+        border-radius: 76%;
+    }
+    .WhichMeaning {
+        margin-left: -27px;
+    }
+    .WhichMeaning > p {
+        line-height: 23px;
+        margin-left: 0px;
+    }
+    #divOverview {
+        background-color: #ffffff;
+        width: 96%;
+        height: 37%;
+        margin-left: 1%;
+        padding: 1% 1% 10% 1%;
+    }
+    #formOverview {
+        padding-left: 4%;
+    }
+    .amount-field {
+        margin-left: 8px;
+    }
+
+}

@@ -159,9 +159,10 @@ function Disabled(Amount) {
     if (Amount == 6) {
         $(".TableWitTwo").addClass('Disabled');
         $(".TableWitFour").addClass('Disabled');
-    } else if (Amount >= 4) {
+    } else if (Amount >= 3) {
         $(".TableWitTwo").addClass('Disabled');
-    } else if (Amount >= 2 && TableSix == 0) {
+        $(".TableWitSix").addClass('Disabled');
+    } else if (Amount == 2 && TableSix == 0) {
         $(".TableWitSix").addClass('Disabled');
         $(".TableWitFour").addClass('Disabled');
     } else if (Amount == 1) {
@@ -170,10 +171,10 @@ function Disabled(Amount) {
     } else if (Amount == 2 && TableSix == 6 && TableFiv == 5) {
         $(".TableWitFour").removeClass('Disabled');
         $(".TableWitSix").addClass('Disabled');
-    } else if (Amount >= 2 && TableFiv == 0) {
+    } else if (Amount == 2 && TableFiv == 0) {
         $(".TableWitSix").addClass('Disabled');
         $(".TableWitFour").addClass('Disabled');
-    } else if (Amount >= 2 && TableSix == 0 && TableFiv == 0) {
+    } else if (Amount == 2 && TableSix == 0 && TableFiv == 0) {
         $(".TableWitSix").addClass('Disabled');
         $(".TableWitFour").addClass('Disabled');
     }
@@ -181,6 +182,7 @@ function Disabled(Amount) {
 
 //Blokkeert tafels die gereserveerd zijn
 function DisabledReserved(Table) {
+
     if (Table == 6) {
         TableSix = 6;
         var Tan = Table.toString();

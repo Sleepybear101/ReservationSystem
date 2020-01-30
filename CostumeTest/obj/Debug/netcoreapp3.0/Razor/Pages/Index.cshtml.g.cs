@@ -13,28 +13,28 @@ namespace CostumeTest.Pages
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\_ViewImports.cshtml"
+#line 1 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\_ViewImports.cshtml"
 using CostumeTest;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
+#line 2 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
 using System.Diagnostics;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
+#line 3 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
+#line 4 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
 using ReservationGuest.Components;
 
 #line default
@@ -70,8 +70,8 @@ using ReservationGuest.Components;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
 #nullable restore
-#line 6 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
-
+#line 6 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
+  
     ViewData["Title"] = "Home page";
 
 #line default
@@ -79,7 +79,7 @@ using ReservationGuest.Components;
 #nullable disable
             WriteLiteral("\r\n<!--Haalt de forms en zet het neer als html -->\r\n");
 #nullable restore
-#line 11 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
+#line 11 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
 Write(await Html.RenderComponentAsync<CreateReservation>(RenderMode.ServerPrerendered));
 
 #line default
@@ -87,7 +87,7 @@ Write(await Html.RenderComponentAsync<CreateReservation>(RenderMode.ServerPreren
 #nullable disable
             WriteLiteral("\r\n");
 #nullable restore
-#line 12 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
+#line 12 "C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\Pages\Index.cshtml"
 Write(await Html.RenderComponentAsync<Message>(RenderMode.ServerPrerendered));
 
 #line default

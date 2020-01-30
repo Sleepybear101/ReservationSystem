@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -9,6 +7,7 @@ using ReservationAdmin.Models;
 using System.Security.Cryptography;
 using System.Text;
 using System.Data;
+using Microsoft.AspNetCore.Http;
 
 namespace ReservationAdmin.Pages
 {
@@ -17,7 +16,10 @@ namespace ReservationAdmin.Pages
         SqlConnection _con = new SqlConnection();
         [BindProperty(SupportsGet = true)]
         public string password { get; set; }
-       public string Admin { get; set;  }
+        public string Admin;
+       public string token;
+   
+
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)
@@ -28,7 +30,7 @@ namespace ReservationAdmin.Pages
 
         public void OnGet()
         {
-
+          token = HttpContext.Session.GetString("token");
 
         }
 
@@ -51,7 +53,7 @@ namespace ReservationAdmin.Pages
 
         public IActionResult OnPost()
         {
-            var hPassword = ComputeSha256Hash(password);
+            var hPassword = ComputeSha256Hash(password); 
 
             _con.SqlQuery("SELECT `id_Admin` FROM `admin` WHERE `Password`= @Hpassword");
             _con.Cmd.Parameters.AddWithValue("@Hpassword", hPassword);
@@ -59,10 +61,16 @@ namespace ReservationAdmin.Pages
             foreach (DataRow dr in _con.QueryEx().Rows)
             {
                 Admin = dr[0].ToString();
+                if (Admin == "1")
+                {
+                        token = "true";
+                        HttpContext.Session.SetString("token", token );
+
+                    return RedirectToPage("Dashboard");
+
+                }
             }
-
-            return RedirectToPage("Dashboard", new { Admin = Admin });
+                    return Page();
         }
-
     }
 }

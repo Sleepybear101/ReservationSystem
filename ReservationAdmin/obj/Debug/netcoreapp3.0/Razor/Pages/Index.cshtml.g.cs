@@ -13,35 +13,35 @@ namespace ReservationAdmin.Pages
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Pages\_ViewImports.cshtml"
+#line 1 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\_ViewImports.cshtml"
 using ReservationAdmin;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Pages\_ViewImports.cshtml"
+#line 4 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\_ViewImports.cshtml"
 using ChartJs.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Pages\Index.cshtml"
+#line 3 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\Index.cshtml"
 using System.Diagnostics;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Pages\Index.cshtml"
+#line 4 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\Index.cshtml"
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Pages\Index.cshtml"
+#line 5 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\Index.cshtml"
 using ReservationGuest.Components;
 
 #line default
@@ -79,8 +79,8 @@ using ReservationGuest.Components;
         {
             WriteLiteral("\r\n");
 #nullable restore
-#line 7 "C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\ReservationAdmin\Pages\Index.cshtml"
-
+#line 7 "C:\Users\wurud\Documents\GitHub\ReservationSystem\ReservationAdmin\Pages\Index.cshtml"
+  
     ViewData["Title"] = "Home page";
 
 #line default
@@ -96,7 +96,7 @@ using ReservationGuest.Components;
                     inloggen
                 </button>
             </div>
-
+          
         ");
             }
             );

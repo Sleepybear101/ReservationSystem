@@ -1,4 +1,4 @@
 ﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="_content/ChartJs.Blazor" Path="C:\Users\royhe\.nuget\packages\chartjs.blazor\1.0.3\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/ReservationGuest" Path="C:\Users\royhe\OneDrive\Documenten\GitHub\ReservationSystem\CostumeTest\wwwroot\" />
+  <ContentRoot BasePath="_content/ChartJs.Blazor" Path="C:\Users\wurud\.nuget\packages\chartjs.blazor\1.0.3\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/ReservationGuest" Path="C:\Users\wurud\Documents\GitHub\ReservationSystem\CostumeTest\wwwroot\" />
 </StaticWebAssets>

@@ -5,18 +5,24 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ReservationAdmin.Models;
+using System.Timers;
+using Microsoft.AspNetCore.Http;
+
+
+
 
 namespace ReservationAdmin.Pages
 {
     public class DashboardModel : PageModel
     {
-        [BindProperty(SupportsGet = true)]
-        public string Admin { get; set; }
+
+        public string Admin;
         [BindProperty(SupportsGet = true)]
         public string subject { get; set; }
         public IActionResult OnGet()
         {
-            if(Admin == "" || Admin == null)
+               Admin = HttpContext.Session.GetString("token");
+            if (Admin != "true")
             {
                 return Redirect("Index");
             }
@@ -24,14 +30,18 @@ namespace ReservationAdmin.Pages
             {
                 return Page();
             }
+
         }
 
         public IActionResult OnPost()
         {
-
-            if (subject != "Index")
+            if (subject == "Index")
             {
-            return RedirectToPage("/"+subject+"", new {Admin} );
+                Admin = "False";
+                HttpContext.Session.SetString("token", Admin);        
+                return RedirectToPage("/" + subject + "");
+
+
             }
             else
             {
@@ -39,10 +49,8 @@ namespace ReservationAdmin.Pages
 
             }
 
+
         }
-
-
-
 
     }
 }
