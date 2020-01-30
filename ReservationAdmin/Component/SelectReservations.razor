@@ -57,7 +57,7 @@
     </div>
     <div class=" card-group" style=" width: 600px;height:450px;margin-left: 100px;margin-bottom: 36px; ">
 
-
+        <!--haal de gegevens van de reservering op uit d database en zet het in een tabel-->
         <table id="myTable" class="table" cellspacing="0">
             @{
                 con.SqlQuery("SELECT reservation.Date, reservation.DayPart, reservation.TableNumber, reservation.Amount, reservation.IsConfirm, guest.FullName, guest.id_Guest, reservation.id_Reservation FROM reservation INNER JOIN guest ON reservation.Guest = guest.id_Guest WHERE reservation.Date = @date AND reservation.DayPart = @Daypart");
@@ -79,6 +79,7 @@
                             <td class="HeadDesign">Tafel</td>
                             @{
                                 bool isFound = false;
+                                //kijk of er een knop in de rijen eronder aanwezig is om "Actie" aan de kolomnamen toe te voegen
                             }
                             @foreach (DataRow dr1 in con.QueryEx().Rows)
                             {
@@ -99,35 +100,38 @@
                                     }
                                 }
                             }
-                            <td class="HeadDesign">Is bevestigt?</td>
+                            <td class="HeadDesign">Is bevestigd?</td>
                         </tr>
                     </thead>
                     TableHeader = false;
                 }
                 <tbody>
-
-
                     <tr>
+                        <!--Voeg de waardens toe aan de tabel-->
                         <td class="nameTD">@dr[5].ToString()</td>
                         <td class="AmountD">@dr[3].ToString()</td>
                         <td class="TableD">@dr[2].ToString()</td>
-                        @{ IsConfirmed = dr[4].ToString(); }
+                        @{
+                            IsConfirmed = dr[4].ToString();
+                            //kijk of er de reservering vandaag is om de "noshow" knop aan te zetten 
+                            //kijk of de reservering bevestigd is om de verwijder knop
+                        }
                         @if (CreateRes.date == DateTime.Today && IsConfirmed == "Ja")
                         {
                             <td>
                                 <div style="float: left;">
-                                    <button @onclick="(e => DeleteReservation(dr[7].ToString()))" class="BlockButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fas fa-window-"></i>&#10060;</button>
+                                    <button title="Verwijder reservering" @onclick="(e => DeleteReservation(dr[7].ToString()))"  class="BlockButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fas fa-window-"></i>&#10060;</button>
                                 </div>
                                 <div style="float: left">
-                                    <button @onclick="(e => UpdateNoShow(dr[6].ToString(), dr[7].ToString()))" class="NoshowButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fa">&#xf070;</i></button>
+                                    <button title="No-show" @onclick="(e => UpdateNoShow(dr[6].ToString(), dr[7].ToString()))"  class="NoshowButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fa">&#xf070;</i></button>
                                 </div>
                             </td>
                         }
                         else if (CreateRes.date >= DateTime.Today || IsConfirmed == "Nee")
                         {
                             <td>
-                                <div style="float: left;">
-                                    <button @onclick="(e => DeleteReservation(dr[7].ToString()))" class="BlockButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fas fa-window-"></i>&#10060;</button>
+                                <div styl`we5e="float: left;">
+                                    <button title="Verwijder reservering" @onclick="(e => DeleteReservation(dr[7].ToString()))"  class="BlockButton" style="float: left; background-color: #F0F1F7; border: none; border-radius: 10%; width: 36px; height: 28px;"><i class="fas fa-window-"></i>&#10060;</button>
                                 </div>
                             </td>
                         }
@@ -140,6 +144,7 @@
                     </tr>
 
                 </tbody>
+                
             }
         </table>
     </div>
@@ -187,13 +192,13 @@
         DeleteReservation(ReservationID);
         UpdatedIsBlocked();
     }
-
+    //blokkeer iedereen die 3 keer niet is geweest
     void UpdatedIsBlocked()
     {
         con.SqlQuery("UPDATE guest SET IsBlocked = 1 where NoShow = 3");
         con.QueryEx();
     }
-
+    //stuur een mail naar de klant om te laten weten dat hun reservering geannuleerd is
     void sendMail(string ReservationID)
     {
         con.SqlQuery("SELECT  guest.`Email` FROM `reservation` INNER JOIN guest ON reservation.Guest = guest.id_Guest  WHERE `id_Reservation`=@ReservationID");
@@ -205,7 +210,7 @@
             InfoGuest.Email = dr[0].ToString();
         }
 
-        string messageone = "Dit is een bevestig dat je de reservering hebt geannuleerd. \n\nAls dit niet het geval is bel opnieuw en alvast sorry voor het ongeval.";
+        string messageone = "Dit is een bevestiging dat u de reservering heeft geannuleerd.";
         string EndMail = "Hopelijk komt u weer bij ons reserveren";
         string htmlBody = @"<html lang=""en"">
                         <head>
@@ -237,7 +242,7 @@
                                 <tbody>
                                 <tr>
                                   <td class=BacKColor></td>
-                                  <td class=TitleMessage>Jouw reservering is geannuleerd</td>
+                                  <td class=TitleMessage>Uw reservering is geannuleerd</td>
                                   <td class=BacKColor></td>
                               </tr>
                                     <tr>
@@ -256,7 +261,7 @@
 
 
 
-        string subject = "Reservering geannuleerd";
+        string subject = "Annulering resevering";
         MailMessage mailMessage = new MailMessage("reserveringsysteem2@gmail.com", InfoGuest.Email, subject, htmlBody);
         mailMessage.IsBodyHtml = true;
 
@@ -266,6 +271,5 @@
         smtpClient.EnableSsl = true;
         smtpClient.Send(mailMessage);
     }
-
 
 }
