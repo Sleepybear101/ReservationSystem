@@ -11,13 +11,7 @@ namespace ReservationAdmin.Pages
 {
     public class AgendaModel : PageModel
     {
-        private readonly ILogger<AgendaModel> _logger;
-
-        public AgendaModel(ILogger<AgendaModel> logger)
-        {
-            _logger = logger;
-        }
-
+       
         public string Admin;
         [BindProperty(SupportsGet = true)]
         public string subject { get; set; }
