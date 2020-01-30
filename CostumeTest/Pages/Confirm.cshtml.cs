@@ -26,6 +26,7 @@ namespace ReservationGuest.Pages
             con.Cmd.Parameters.AddWithValue("@Guest", GetGuestid);
             con.Cmd.Parameters.AddWithValue("@idRes", GetRes);
             con.NonQueryEx();
+                
 
         }
 

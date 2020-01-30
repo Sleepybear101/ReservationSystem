@@ -10,7 +10,7 @@ namespace ReservationGuest.Models
      
         public int id { get; set; }
         public int Amount { get; set; }
-        public DateTime date { get; set; } = DateTime.Now;
+        public DateTime date { get; set; } = DateTime.Today;
         public string Daypart { get; set; }
         public int Table { get; set; } 
     }

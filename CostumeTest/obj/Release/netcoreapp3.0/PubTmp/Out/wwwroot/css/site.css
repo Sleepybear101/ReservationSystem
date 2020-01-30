@@ -631,9 +631,154 @@ h4 {
         margin-top: 55%;
     }
 
-.button-back {
-    float: left
+.VTableGroupOne {
+    margin-left: 19%;
+    margin-top: 3%;
 }
+.SectionTableGroupOne {
+    width: 24%;
+    height: 16px;
+}
+
+.SectionTableGroupOne > #Table1 {
+    width: 34px;
+    height: 36px;
+    margin-left: 19px;
+    margin-right: 33px;
+    margin-top: 17%;
+}
+.SectionTableGroupOne > #Table2 {
+    width: 34px;
+    height: 36px;
+    margin-left: 19px;
+    margin-right: 33px;
+    margin-top: 8%;
+}
+.SectionTableGroupTwo {
+    margin-left: 91px;
+}
+    .SectionTableGroupTwo > #Table3 {
+        width: 47px;
+        height: 57px;
+        margin-left: 10px;
+        margin-right: 33px;
+    }
+    .SectionTableGroupTwo > #Table4 {
+        width: 47px;
+        height: 57px;
+        margin-left: 14px;
+        margin-right: 33px;
+    }
+    .SectionTableGroupTwo > #Table5 {
+        width: 47px;
+        height: 57px;
+        margin-left: 9px;
+        margin-right: 33px;
+    }
+    .VTableGroupTwo {
+        padding-left: 50%;
+        height: 7%;
+        margin-top: 6%;
+    }
+        .VTableGroupTwo > #Table8 {
+            width: 33px;
+            height: 35px;
+            margin-right: 44px;
+        }
+        .VTableGroupTwo > #Table7 {
+            width: 32px;
+            height: 35px;
+            margin-right: 44px;
+        }
+        .VTableGroupTwo > #Table6 {
+            width: 33px;
+            height: 35px;
+        }
+    .VTableGroupThree {
+        width: 11%;
+        margin-bottom: 24%;
+        margin-top: 8%;
+    }
+        .VTableGroupThree > #Table11 {
+            width: 36px;
+            height: 35px;
+            margin-left: 6px;
+            margin-right: 33px;
+            margin-top: 39%;
+            padding-left: 7px;
+            padding-top: 5px;
+        }
+        .VTableGroupThree > #Table14 {
+            width: 36px;
+            height: 35px;
+            margin-left: 6px;
+            margin-right: 33px;
+            margin-top: 90%;
+            padding-left: 7px;
+            padding-top: 5px;
+        }
+        .VTableGroupThree > #Table16 {
+            width: 36px;
+            height: 35px;
+            margin-left: 6px;
+            margin-right: 33px;
+            margin-top: 100%;
+            padding-left: 8px;
+            padding-top: 5px;
+        }
+.VTableGroupFourth {
+    width: 16%;
+    margin-bottom: 24%;
+    margin-top: 10%;
+}
+    .VTableGroupFourth > #Table10 {
+        width: 34px;
+        height: 36px;
+        margin-left: 1px;
+        margin-right: 33px;
+        margin-top: 14%;
+        padding-left: 7px;
+        padding-top: 5px;
+    }
+    .VTableGroupFourth > #Table13 {
+        width: 35px;
+        height: 36px;
+        margin-right: 33px;
+        margin-top: 62%;
+        padding-left: 7px;
+        padding-top: 5px;
+        
+    }
+    .VTableGroupFourth > #Table15 {
+        width: 35px;
+        height: 37px;
+        margin-left: 1px;
+        margin-right: 33px;
+        margin-top: 67%;
+        padding-left: 7px;
+        padding-top: 5px;
+    }
+    .VTableGroupFifth {
+        width: 19%;
+    }
+
+    .VTableGroupFifth > #Table9 {
+        width: 58px;
+        height: 46px;
+        margin-left: 7px;
+        margin-right: 6px;
+        margin-top: 24%;
+    }
+        .VTableGroupFifth > #Table12 {
+            width: 59px;
+            height: 45px;
+            margin-left: 7px;
+            margin-right: 33px;
+            margin-top: 60%
+        }
+        .button-back {
+        float: left
+    }
 @media only screen and (max-width: 480px) {
     .stepwizard {
         margin-left: 0%;
@@ -707,7 +852,7 @@ h4 {
         background-image: url('../images/tafel-van-zes -Mobile.png');
         width: 351px;
         height: 311px;
-        margin-left:11px;
+        margin-left: 11px;
         margin-bottom: 36px;
     }
 
@@ -737,92 +882,91 @@ h4 {
                 margin-right: 33px;
             }
 
-    #NormalDay > .TableGroupTwo {
-        margin-top: 0;
-    }
-
-        #NormalDay > .TableGroupTwo > #Table4 {
-            width: 33px;
-            height: 63px;
-            margin-left: 80%;
-            margin-right: 40px;
-            margin-top: -9%;
+        #NormalDay > .TableGroupTwo {
+            margin-top: 0;
         }
 
-    #NormalDay > .TableGroupThree {
-        padding-left: 47%;
-        height: 7%;
-        margin-top: -3%;
-    }
+            #NormalDay > .TableGroupTwo > #Table4 {
+                width: 33px;
+                height: 63px;
+                margin-left: 80%;
+                margin-right: 40px;
+                margin-top: -9%;
+            }
 
-        #NormalDay > .TableGroupThree > #Table6 {
-            width: 22px;
-            height: 26px;
-            padding-right: 9%;
-            margin-right: 29px;
+        #NormalDay > .TableGroupThree {
+            padding-left: 47%;
+            height: 7%;
+            margin-top: -3%;
         }
 
-       #NormalDay > .TableGroupThree > #Table5 {
-        width: 26px;
-        height: 26px;
-    }
+            #NormalDay > .TableGroupThree > #Table6 {
+                width: 22px;
+                height: 26px;
+                padding-right: 9%;
+                margin-right: 29px;
+            }
 
-    #NormalDay > .TableGroupFourth {
-        width: 21%;
-        margin-left: 1%;
-        margin-bottom: 24%;
-        margin-top: 4%;
-    }
+            #NormalDay > .TableGroupThree > #Table5 {
+                width: 26px;
+                height: 26px;
+            }
 
-        #NormalDay > .TableGroupFourth > #Table8 {
-            width: 41px;
-            height: 33px;
-            margin-left: 8px;
-            margin-right: 33px;
-            margin-top: 17%;
+        #NormalDay > .TableGroupFourth {
+            width: 21%;
+            margin-left: 1%;
+            margin-bottom: 24%;
+            margin-top: 4%;
         }
 
-        #NormalDay > .TableGroupFourth > #Table10 {
-            width: 41px;
-            height: 33px;
-            margin-left: 8px;
-            margin-right: 33px;
-            margin-top: 42%;
+            #NormalDay > .TableGroupFourth > #Table8 {
+                width: 41px;
+                height: 33px;
+                margin-left: 8px;
+                margin-right: 33px;
+                margin-top: 17%;
+            }
+
+            #NormalDay > .TableGroupFourth > #Table10 {
+                width: 41px;
+                height: 33px;
+                margin-left: 8px;
+                margin-right: 33px;
+                margin-top: 42%;
+            }
+
+            #NormalDay > .TableGroupFourth > #Table11 {
+                width: 64px;
+                height: 34px;
+                margin-left: 9px;
+                margin-right: 33px;
+                margin-top: 41%;
+            }
+
+        #NormalDay > .TableGroupFifth {
+            width: 19%;
+            margin-left: 26%;
+            margin-top: -77%;
         }
 
-        #NormalDay > .TableGroupFourth > #Table11 {
-            width: 64px;
-            height: 34px;
-            margin-left: 9px;
-            margin-right: 33px;
-            margin-top: 41%;
-        }
+            #NormalDay > .TableGroupFifth > #Table7 {
+                width: 43px;
+                height: 33px;
+                margin-left: 7px;
+                margin-right: 6px;
+            }
 
-    #NormalDay > .TableGroupFifth {
-        width: 19%;
-        margin-left: 26%;
-        margin-top: -77%;
-    }
-
-        #NormalDay > .TableGroupFifth > #Table7 {
-            width: 43px;
-            height: 33px;
-            margin-left: 7px;
-            margin-right: 6px;
-        }
-
-        #NormalDay > .TableGroupFifth > #Table9 {
-            width: 43px;
-            height: 31px;
-            margin-left: 7px;
-            margin-right: 33px;
-            margin-top: 55%;
-        }
+            #NormalDay > .TableGroupFifth > #Table9 {
+                width: 43px;
+                height: 31px;
+                margin-left: 7px;
+                margin-right: 33px;
+                margin-top: 55%;
+            }
 
     .button-back {
         margin-top: 34px;
-       float:left;
-
+        float: left;
     }
 
     .GWhichMeaning, .RWhichMeaning, .DWhichMeaning {
@@ -833,13 +977,16 @@ h4 {
         border: none;
         border-radius: 76%;
     }
+
     .WhichMeaning {
         margin-left: -27px;
     }
-    .WhichMeaning > p {
-        line-height: 23px;
-        margin-left: 0px;
-    }
+
+        .WhichMeaning > p {
+            line-height: 23px;
+            margin-left: 0px;
+        }
+
     #divOverview {
         background-color: #ffffff;
         width: 96%;
@@ -847,11 +994,166 @@ h4 {
         margin-left: 1%;
         padding: 1% 1% 10% 1%;
     }
+
     #formOverview {
         padding-left: 4%;
     }
+
     .amount-field {
         margin-left: 8px;
     }
 
+    #Valday {
+        background-image: url('../images/indeling-tafel-valetijnzes -Mobile.png');
+        width: 350px;
+        height: 340px;
+        margin-left: 22px;
+        margin-bottom: 9px;
+    }
+    .VTableGroupOne {
+        margin-left: 18%;
+        margin-top: 3%;
+    }
+    .SectionTableGroupOne > #Table1 {
+        width: 24px;
+        height: 26px;
+        margin-left: 19px;
+        padding-bottom: 4px;
+        margin-right: 33px;
+        margin-top: 17%;
+    }
+
+    .SectionTableGroupOne > #Table2 {
+        width: 22px;
+        height: 26px;
+        margin-left: 19px;
+        margin-right: 33px;
+        margin-top: 8%;
+    }
+
+    .SectionTableGroupTwo {
+        margin-left: 67px;
+        margin-top: -4px;
+        width: 86%;
+    }
+   
+
+        .SectionTableGroupTwo > #Table3 {
+            width: 34px;
+            height: 45px;
+            margin-left: 9px;
+            margin-right: 33px;
+        }
+
+
+        .SectionTableGroupTwo > #Table4 {
+            width: 32px;
+            height: 44px;
+            margin-left: 0px;
+            margin-right: 19px;
+        }
+        .SectionTableGroupTwo > #Table5 {
+            width: 33px;
+            height: 45px;
+            margin-left: 10px;
+            margin-right: 33px;
+        }
+        .VTableGroupTwo {
+   
+            margin-top: 4%;
+        }
+            .VTableGroupTwo > #Table8 {
+                width: 25px;
+                height: 30px;
+                margin-right: 29px;
+            }
+            .VTableGroupTwo > #Table7 {
+                width: 26px;
+                height: 30px;
+                margin-right: 30px;
+            }
+            .VTableGroupTwo > #Table6 {
+                width: 23px;
+                height: 29px;
+            }
+    .VTableGroupThree > #Table11 {
+        width: 22px;
+        height: 26px;
+        margin-left: 9px;
+        margin-right: 33px;
+        margin-top: 45%;
+        padding-left: 4px;
+        padding-top: 3px;
+    }
+    .VTableGroupThree > #Table14 {
+        width: 22px;
+        height: 25px;
+        margin-left: 9px;
+        margin-right: 33px;
+        margin-top: 90%;
+        padding-left: 2px;
+        padding-top: 3px;
+    }
+    .VTableGroupThree > #Table16 {
+        width: 22px;
+        height: 25px;
+        margin-left: 9px;
+        margin-right: 33px;
+        margin-top: 100%;
+        padding-left: 2px;
+        padding-top: 2px;
+    }
+    .VTableGroupFourth {
+        width: 9%;
+        margin-top: -69%;
+        margin-left: 11%;
+    }
+    .VTableGroupFourth > #Table10 {
+        width: 22px;
+        height: 25px;
+        margin-left: 5px;
+        margin-right: 40px;
+        margin-top: 14%;
+        margin-bottom: 15%;
+        padding-left: 4px;
+        padding-top: 2px;
+    }
+    .VTableGroupFourth > #Table13 {
+        width: 22px;
+        height: 25px;
+        margin-right: 33px;
+        margin-top: 100%;
+        margin-left: 16%;
+        padding-left: 3px;
+        margin-bottom: 54%;
+        padding-top: 2px;
+    }
+    .VTableGroupFourth > #Table15 {
+        width: 22px;
+        height: 24px;
+        margin-left: 5px;
+        margin-right: 33px;
+        margin-top: 67%;
+        padding-left: 3px;
+        padding-top: 2px;
+    }
+    .VTableGroupFifth {
+    width: 19%;
+    margin-left: 22%;
+    margin-top: -79%;
+    }
+    .VTableGroupFifth > #Table9 {
+    width: 42px;
+    height: 31px;
+    margin-left: 25px;
+    margin-right: 6px;
+    margin-top: 22%;
+    }
+    .VTableGroupFifth > #Table12 {
+        width: 42px;
+        height: 31px;
+        margin-left: 25px;
+        margin-right: 33px;
+        margin-top: 61%;
+    }
 }

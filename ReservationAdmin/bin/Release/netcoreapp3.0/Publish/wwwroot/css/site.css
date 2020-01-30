@@ -1,0 +1,334 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #ffffff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+.logout{
+    margin-top:500px;
+}
+
+.Dashboard{
+    margin-left:22%;
+}
+
+.BarChart {
+    width: 62%;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+.nav-link {
+    color: #ffffff;
+    font-weight: 400;
+    border-style: none;
+    background-color: #43425D;
+}
+.active > .NavAgenda {
+    padding-right: 72px;
+}
+
+.PartOne {
+    background-color: #D5DAD7;
+    float: left;
+    width: 35%;
+    height: 100vh;
+}
+.IconItem {
+    color: #A5A4BF;
+}
+
+.active {
+    background-color: rgba(0,0,0,0.1);
+    border-left: 2px solid #A3A0FB;
+}
+
+    .active > .nav-link {
+        padding-right: 48px;
+        width: 100%;
+    }
+
+    .active > .nav-link > .IconItem {
+            color: #A3A0FB;
+    }
+
+        .active > .createres {
+            padding-left: 8px;
+            padding-right: 12px;
+        }
+
+.form-control, .form-controls {
+    margin-left: 10%;
+}
+
+.form-controls {
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    width: 54%;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #545871;
+    border-color: #252152;
+}
+
+    .btn-primary:hover {
+        color: #ffffff;
+        background-color: #545871;
+        border-color: #e9a8a6;
+    }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #ffffff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.Table {
+    border: none;
+    background-color: #29832a;
+}
+
+.ReservedT {
+    pointer-events: none;
+    background-color: #960f0f;
+}
+
+.Disabled {
+    pointer-events: none;
+    background-color: dimgray;
+}
+.Table:focus {
+    background-color: #0366d6;
+}
+
+.Daypart-div {
+    background-color: #ffffff;
+    height: 37%;
+    width: 77%;
+    margin-left: 8%;
+    padding: 1% 10% 7% 3%;
+}
+
+.Daypart {
+    border: 1px solid #E6DBDA;
+    border-radius: 4px;
+    margin-left: 27px;
+    margin-top: 30px;
+}
+
+.Daypart-btn-lunch {
+    border-right: 1px solid #E6DBDA;
+    padding-right: 34px;
+    padding-left: 23px;
+}
+
+.Daypart-btn-diner {
+    width: 47%;
+}
+
+
+.Daypart-btn:hover {
+    background-color: #0366d6;
+}
+.Daypart-btn-after {
+    background-color: #0366d6;
+}
+
+.Table-div {
+    margin-left: 46%;
+    padding-top: 2%;
+
+}
+.NormalTable {
+    background-image: url('../images/Tafel-van-zes.png');
+    width: 500px;
+    height: 450px;
+    margin-left: 103px;
+    margin-bottom: 36px;
+}
+
+#Valday {
+    background-image: url('../images/indeling-tafel-valetijnzes.png');
+    width: 498px;
+    height: 450px;
+    margin-left: 103px;
+    margin-bottom: 36px;
+}
+
+.FormOne {
+    padding: 30px;
+    background-color: #ffffff;
+}
+
+.TitleSubject {
+    margin-left: 7%;
+    color: #9597A6;
+    font-size: 24px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+.Underline {
+    border-top: 1px solid;
+    padding-bottom: 7px;
+    margin-left: 2%;
+    width: 95%;
+    color: #ffffff;
+}
+
+.Table-place {
+    height: 0px;
+    width: 0px;
+}
+
+.btn-ResAdmin {
+    float: right;
+    margin-top: 43%;
+    margin-right: 5%;
+}
+.Table-div > h4 {
+    margin-left: 13%;
+    font-style: Italic;
+    font-family: Segoe UI;
+    padding-bottom: 8px;
+}
+
+h4 {
+    color: #707070;
+}
+
+.CHidden {
+    visibility: hidden;
+}
+
+#divDaypart {
+    margin-top: 45px;
+}
+#divInfo {
+    margin-top: 5%;
+}
+#divDaypart, #divInfo {
+    margin-left: 2%;
+    width: 95%;
+}
+.Email-field{
+margin-left: 61px;
+
+}
+.Form-date {
+    background-color: #ffffff;
+    width: 49%;
+    height: 37%;
+    margin-left: 24%;
+    padding: 1% 1% 4% 1%;
+}
+
+.date-div {
+    margin-left: 6%;
+    width: 82%;
+    margin-top: 3%;
+    margin-bottom: 8%;
+}
+.DatED {
+    float: left;
+    padding-right: 43%;
+    margin-left: 3%;
+    color: #545871;
+}
+.DayD {
+    color: #9597A6;
+}
+td.HeadDesign {
+    color: #707070;
+}
+td.nameTD {
+    color: #545871;
+    font-weight: bold;
+}
+td.actieTD {
+    padding-left: 2%;
+}
+td.AmountD {
+    padding-left: 11%;
+}
+td.TableD {
+    padding-left: 3%;
+}
+td.AmountD, td.TableD {
+    color: #9597A6;
+}
