@@ -16,8 +16,10 @@ namespace ReservationAdmin.Pages
         SqlConnection _con = new SqlConnection();
         [BindProperty(SupportsGet = true)]
         public string password { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string message { get; set; }
         public string Admin;
-       public string token;
+         public string token;
    
 
         private readonly ILogger<IndexModel> _logger;
@@ -65,12 +67,14 @@ namespace ReservationAdmin.Pages
                 {
                         token = "true";
                         HttpContext.Session.SetString("token", token );
-
+                     message = "";
                     return RedirectToPage("Dashboard");
 
                 }
             }
-                    return Page();
+            message = "Wachtwoord fout";
+            return Page();
+     
         }
     }
 }

@@ -9,9 +9,11 @@
 }
 <div style=" float:left; height:100vh;  width: 100%; background-color:#43425D;">
     <div style=" width: 31%; margin-left: 35%; margin-top: 15%;">
-        <h2 style="    color: #fff;
-    font-weight: 100;">Login - Reserveringsystem</h2>
-        <form  method="post">
+        <p style="color: #f00"> @Model.message</p>
+        <h2 style=" color: #fff; font-weight: 100;">
+            Login - Reserveringsystem
+        </h2>
+        <form method="post">
             <div class="form-inline  form-group">
                 <label for="InputAmount" style=" color: #fff;"> Wachtwoord</label>
                 <input type="password" name="password" class=" form-control" required />
@@ -19,7 +21,7 @@
                     inloggen
                 </button>
             </div>
-          
+
         </form>
     </div>
 </div>

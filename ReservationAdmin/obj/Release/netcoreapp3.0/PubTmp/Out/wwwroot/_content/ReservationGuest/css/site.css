@@ -235,7 +235,7 @@ h2 {
     margin-left: 64px;
 }
 .Field-Email {
-    margin-left: 20%;
+    margin-left: 128px;
 }
 .Field-Amount {
     margin-left: 52px;
@@ -408,7 +408,7 @@ h4 {
 }
 .TableGroupDIV {
     background-color: #ffffff;
-    width: 49%;
+    width: 732px;
     margin-left: 26%;
     padding: 6px 19px 7px 19px;
 }
@@ -439,7 +439,7 @@ h4 {
 
 .div-daypart {
     background-color: #ffffff;
-    width: 50%;
+    width: 732px;
     height: 37%;
     margin-left: 24%;
     padding: 1% 1% 4% 1%;
@@ -449,7 +449,7 @@ h4 {
     border: 1px solid #E6DBDA;
     border-radius: 4px;
     margin-left: 174px;
-    width: 49%;
+    width: 361px;
     margin-top: 30px;
 }
 
@@ -836,8 +836,8 @@ h4 {
     }
 
     .form-daypart {
-        margin-left: 2%;
-        width: 94%;
+        margin-left: 5%;
+        width: 86%;
         margin-top: 30px;
         margin-bottom: 32px;
     }

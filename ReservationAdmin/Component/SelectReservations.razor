@@ -13,7 +13,6 @@
     SqlConnection con = new SqlConnection();
 
 }
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <form>
     <div class="PartOne">
         <p class="TitleSubject">Agenda</p>
@@ -24,7 +23,7 @@
                     <div style=" margin-left: 23px;">
                         <div>
                             <div>
-                                <input type="date" id="txtDate" @bind="CreateRes.date" onkeydown="return false" class="input-group-addon date-div unstyled form-control" max=2025-01-1 />
+                                <input type="date"  id="txtDate" @onchange="(e=>ChangceOnText(e))"  onkeydown="return false" class="input-group-addon date-div unstyled form-control" />
                             </div>
                         </div>
                     </div>
@@ -37,7 +36,7 @@
                                 <h5>Lunch</h5>
                                 <p>11:00 - 16:00</p>
                             </button>
-                            <button type="button" @onclick="(e=> SelectedDaypart(true))" class="btn Daypart-btn   Daypart-btn-diner">
+                            <button type="button" @onclick="(e=> SelectedDaypart(true))" class="btn Daypart-btn  Daypart-btn-diner">
                                 <h5>Dinner</h5>
                                 <p>17:00 - 20:00</p>
                             </button>
@@ -155,6 +154,8 @@
     Guest InfoGuest = new Guest();
     public string DateInText;
     public string DaypartText;
+   
+
     void SelectedDaypart(bool SelectedDaypart)
     {
         if (SelectedDaypart == false)
@@ -168,8 +169,17 @@
             CreateRes.Daypart = "Dinner";
             DaypartText = "Dinner 17:00 - 20:00";
         }
+        CultureInfo ci = new CultureInfo("nl-NL");
+        var month = CreateRes.date.ToString("dddd, dd MMMM yyyy", ci);
+        DateInText = month;
+    }
 
-        DateInText = CreateRes.date.ToLongDateString();
+    void ChangceOnText(ChangeEventArgs e)
+    {
+        CreateRes.date = Convert.ToDateTime(e.Value.ToString());
+        CultureInfo ci = new CultureInfo("nl-NL");
+        var month = CreateRes.date.ToString("dddd, dd MMMM yyyy", ci);
+        DateInText = month;
     }
 
     //Verwijder de geselecteerde reservering

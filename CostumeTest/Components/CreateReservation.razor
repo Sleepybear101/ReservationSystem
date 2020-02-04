@@ -540,7 +540,7 @@
         }
 
         CultureInfo ci = new CultureInfo("nl-NL");
-        var month = DateTime.Now.ToString("dddd, dd MMMM yyyy", ci);
+        var month = CreateRes.date.ToString("dddd, dd MMMM yyyy", ci);
         DateInText = month;
 
         WholDayPart();
@@ -618,6 +618,7 @@
         CreateRes.Amount = 0;
         CreateRes.Daypart = "";
         CreateRes.date = DateTime.Today;
+        CreateRes.Table = 0; 
     }
 
     //Verstuurd mail naar gast met bevestiging link
@@ -672,7 +673,7 @@
                                           <td class=BacKColor></td>
                                       </tr>
                                             <tr>
-                                                <td class=""side-Right-Left""><td class=""message"">" + messageone + "<br><a href=" + Link + ">Bevestig</a><br>" + messagetwo + "</td><td class=side-Right-Left> </td> </td> " +
+                                                <td class=""side-Right-Left""><td class=""message"">" + messageone + "<br>"+DateInText+"<br><a href=" + Link + ">Bevestig</a><br>" + messagetwo + "</td><td class=side-Right-Left> </td> </td> " +
                                           "</tr> " +
                                        "</tbody> " +
                                  " <tfoot> " +

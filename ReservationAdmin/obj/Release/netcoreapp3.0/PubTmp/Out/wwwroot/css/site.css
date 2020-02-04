@@ -34,6 +34,7 @@ a {
 
 .BarChart {
     width: 62%;
+    margin-top: 1%;
 }
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -180,8 +181,8 @@ body {
 .Daypart-div {
     background-color: #ffffff;
     height: 37%;
-    width: 77%;
-    margin-left: 8%;
+    width: 454px;
+    margin-left: 24px;
     padding: 1% 10% 7% 3%;
 }
 
@@ -194,8 +195,8 @@ body {
 
 .Daypart-btn-lunch {
     border-right: 1px solid #E6DBDA;
-    padding-right: 34px;
-    padding-left: 23px;
+    padding-right: 13%;
+    padding-left: 11%;
 }
 
 .Daypart-btn-diner {
@@ -306,7 +307,7 @@ margin-left: 61px;
 }
 .DatED {
     float: left;
-    padding-right: 43%;
+    padding-right: 33%;
     margin-left: 3%;
     color: #545871;
 }
