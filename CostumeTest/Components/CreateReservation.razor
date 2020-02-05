@@ -635,10 +635,9 @@
         {
             CreateRes.id = Convert.ToInt32(dr[0].ToString());
         }
-
-        string messageone = "Er is een reservering gemaakt. Klik op de link om de reservering te bevestigen.";
-        string Link = "https://reserveringsysteem.azurewebsites.net/Confirm?GetGuestid=" + CreateGuest.id + "&GetRes=" + CreateRes.id;
-        string messagetwo = " Als u niet wilt reserveren of dit niet het geval is negeer dan deze mail.";
+     
+        string messageone = "Er is een reservering gemaakt.";
+        string messagetwo = "Dit niet het geval is negeer dan deze mail.";
         string EndMail = "Alvast bedankt voor uw reserveringen ";
         string htmlBody = @"<html lang=""en"">
                                 <head>    
@@ -673,7 +672,7 @@
                                           <td class=BacKColor></td>
                                       </tr>
                                             <tr>
-                                                <td class=""side-Right-Left""><td class=""message"">" + messageone + "<br>"+DateInText+"<br><a href=" + Link + ">Bevestig</a><br>" + messagetwo + "</td><td class=side-Right-Left> </td> </td> " +
+                                                <td class=""side-Right-Left""><td class=""message"">" + messageone + "<br>"+DateInText+"<br>" + messagetwo + "</td><td class=side-Right-Left> </td> </td> " +
                                           "</tr> " +
                                        "</tbody> " +
                                  " <tfoot> " +
